@@ -3,12 +3,11 @@ import { Meta, StoryFn } from "@storybook/react";
 import { FlexBox } from "src/layout";
 
 export default {
-  title: "Components/Elevation",
+  title: "Foundation/Elevation",
   parameters: {
     layout: "centered",
     backgrounds: { default: "light" },
   },
-  tags: ["autodocs"],
 } as Meta;
 
 const ElevationBox: React.FC<{ className: string; label: string }> = ({
