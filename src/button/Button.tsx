@@ -89,6 +89,7 @@ export default function TestButton({
     : isClicked
     ? buttonStyle[type]["focus"]
     : buttonStyle[type][variant] || buttonStyle[type]["default"];
+
   return (
     <button
       type="button"
