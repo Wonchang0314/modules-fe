@@ -4,6 +4,7 @@ import tailwindColorsConfig from "./themeGround/foundation/tailwind_colors.confi
 import tailwindElevationConfig from "./themeGround/foundation/tailwind_elevation.config";
 import tailwindSpacingConfig from "./themeGround/foundation/tailwind_spacing.config";
 import tailwindRadiusConfig from "./themeGround/foundation/tailwind_radius.config";
+import tailwindMotionsConfig from "./themeGround/foundation/tailwind_motions.config";
 
 const baseConfig: Config = {
   content: [
@@ -26,7 +27,8 @@ const config: Config = merge(
   tailwindColorsConfig,
   tailwindElevationConfig,
   tailwindSpacingConfig,
-  tailwindRadiusConfig
+  tailwindRadiusConfig,
+  tailwindMotionsConfig
 );
 
 export default config;
