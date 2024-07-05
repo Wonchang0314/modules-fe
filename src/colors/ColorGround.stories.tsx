@@ -2,7 +2,7 @@ import { ColorItem, ColorPalette, Meta } from "@storybook/blocks";
 import ColorItemList from "./ColorItems";
 
 export default {
-  title: "Components/Color Ground",
+  title: "Foundation/Color Ground",
   component: ColorItemList,
   tags: ["autodocs"],
 };
