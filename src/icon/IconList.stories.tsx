@@ -16,7 +16,7 @@ Docs.parameters = {
                 <Meta title="Components/Icon/Icon List" />
                 {Object.entries(IconCategory).map(([category, icon]) => (
                     <div key={category}>
-                        <div className="pb-7 font-bold">{category}</div>
+                        <div className="pb-7 text-black font-bold">{category}</div>
                         <IconGallery>
                             {Object.keys(icon).map((icon) => (
                                 <IconItem key={icon} name={icon as iconKey}>

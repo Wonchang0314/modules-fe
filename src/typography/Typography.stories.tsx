@@ -64,15 +64,15 @@ Docs.parameters = {
                 <Meta title="Components/Typography" />
                 {Object.entries(Typo).map(([styles, typo]) => (
                     <div key={styles}>
-                        <div className="py-5 font-bold">{styles}</div>
-                        <GridBox className="font-bold py-4" col={2}>
+                        <div className="py-5 text-black font-bold">{styles}</div>
+                        <GridBox className="text-black font-bold py-4" col={2}>
                             <div>classname</div>
                             <div>example</div>
                         </GridBox>
                         {Object.keys(typo).map((typo) => (
                             <GridBox col={2}>
                                 <div className="text-slate-500">{typo}</div>
-                                <div className={`py-2.5 ${typo}`} key={typo}>
+                                <div className={`py-2.5 text-black ${typo}`} key={typo}>
                                     안녕하세요. 팀 얼루가입니다.
                                 </div>
                             </GridBox>
