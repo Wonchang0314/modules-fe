@@ -15,6 +15,6 @@ const Template: StoryFn<typeof Icon> = (args) => <Icon {...args} />;
 
 export const CustomIcon = Template.bind({});
 CustomIcon.args = {
-    icon: 'Account',
+    icon: 'account',
     size: 24,
 };
