@@ -1,7 +1,7 @@
 import type { Config } from 'tailwindcss';
 import { merge } from 'lodash';
 import ColorGroundConfig from './colorGround/ColorGround.config';
-import tailwindColorConfig from './themeGround/foundation/color/tailwind_color.config';
+import tailwindColorConfig from './themeGround/foundation/tailwind_color.config';
 import tailwindElevationConfig from './themeGround/foundation/tailwind_elevation.config';
 import tailwindSpacingConfig from './themeGround/foundation/tailwind_spacing.config';
 import tailwindRadiusConfig from './themeGround/foundation/tailwind_radius.config';

@@ -1,5 +1,7 @@
+@tailwind base;
+
 @layer base {
-    html[theme='White'] {
+    :root {
         --background: var(--white);
         --background-hover: rgba(var(--gray-50), 0.14);
         --background-active: rgba(var(--gray-50), 0.52);
