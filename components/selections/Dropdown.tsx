@@ -43,27 +43,31 @@ export default function Dropdown({
           <Icon
             src="/icon/direction/down.svg"
             sz={24}
-            className={`transform transition-transform ${isOpen ? "rotate-180" : ""}`}
+            className={`transform transition-transform ${
+              isOpen ? "rotate-180" : ""
+            }`}
           />
         </FlexBox>
       </button>
-      <div
-        ref={ref}
-        className="w-full transition-all bg-Gray5 rounded max-h-0 overflow-hidden"
-      >
-        <FlexBox direction="col" className="w-full p-1">
-          {options.map((option, index) => (
-            <button
-              type="button"
-              key={index}
-              className="p-3 w-full text-left"
-              onClick={onClickOption(option)}
-            >
-              <span className="B4-regular text-Gray2">{option}</span>
-            </button>
-          ))}
-        </FlexBox>
-      </div>
+      {options.length !== 0 && (
+        <div
+          ref={ref}
+          className="w-full transition-all bg-Gray5 rounded max-h-0 overflow-hidden"
+        >
+          <FlexBox direction="col" className="w-full p-1">
+            {options.map((option, index) => (
+              <button
+                type="button"
+                key={index}
+                className="p-3 w-full text-left"
+                onClick={onClickOption(option)}
+              >
+                <span className="B4-regular text-Gray2">{option}</span>
+              </button>
+            ))}
+          </FlexBox>
+        </div>
+      )}
     </FlexBox>
   );
 }
