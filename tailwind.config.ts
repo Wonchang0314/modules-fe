@@ -1,6 +1,7 @@
 import type { Config } from 'tailwindcss';
 import { merge } from 'lodash';
-import tailwindColorsConfig from './themeGround/foundation/tailwind_colors.config';
+import ColorGroundConfig from './colorGround/ColorGround.config';
+import tailwindColorConfig from './themeGround/foundation/tailwind_color.config';
 import tailwindElevationConfig from './themeGround/foundation/tailwind_elevation.config';
 import tailwindSpacingConfig from './themeGround/foundation/tailwind_spacing.config';
 import tailwindRadiusConfig from './themeGround/foundation/tailwind_radius.config';
@@ -22,12 +23,13 @@ const baseConfig: Config = {
 
 const config: Config = merge(
     baseConfig,
-    tailwindColorsConfig,
+    ColorGroundConfig,
     tailwindElevationConfig,
     tailwindSpacingConfig,
     tailwindRadiusConfig,
     tailwindMotionsConfig,
-    tailwindTypographyConfig
+    tailwindTypographyConfig,
+    tailwindColorConfig
 );
 
 export default config;

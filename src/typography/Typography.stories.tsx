@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/blocks';
-import { GridBox } from 'src/layout';
+import GridBox from 'layout/GridBox';
 
 export default {
     title: 'Components/Typography',
