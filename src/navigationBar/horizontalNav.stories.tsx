@@ -1,20 +1,18 @@
 import { Meta, StoryFn } from "@storybook/react/*";
-import Navigation from "./horizontalNav";
+import HorizontalNav from "./horizontalNav";
 import HorizontalNavItem from "./horizontalNavItem";
-import FolderIcon from "../icon/svg/file/folder.svg";
 
 export default {
   title: "Navigation/Navigation Bar/Horizontal/Nav Bar",
-  component: Navigation,
+  component: HorizontalNav,
   parameters: {
-    layout: "centered",
     backgrounds: { default: "light" },
   },
   tags: ["autodocs"],
-} as Meta<typeof Navigation>;
+} as Meta<typeof HorizontalNav>;
 
-const Template: StoryFn<typeof Navigation> = args => {
-  return <Navigation {...args} />;
+const Template: StoryFn<typeof HorizontalNav> = args => {
+  return <HorizontalNav {...args} />;
 };
 
 export const Example = Template.bind({});

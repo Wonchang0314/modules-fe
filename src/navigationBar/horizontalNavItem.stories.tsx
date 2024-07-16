@@ -1,7 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react/*";
 import HorizontalNavItem from "./horizontalNavItem";
-import FolderIcon from "../icon/svg/file/folder.svg";
-import { folder } from "src/icon/svg/file";
 
 export default {
   title: "Navigation/Navigation Bar/Horizontal/Nav Bar Item",

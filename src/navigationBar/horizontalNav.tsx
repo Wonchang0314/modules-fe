@@ -1,19 +1,16 @@
-import Image from "next/image";
 import HorizontalNavItem from "./horizontalNavItem";
 import { useState } from "react";
 import { iconKey } from "src/icon/Icon";
 
-type itemProps = {
-  name?: string;
-  icon: iconKey;
-  onClick: () => void;
-};
-
 type NavigationType = {
   /**
-   * itemProps = icon, onClick, name(Optional)
+   * *iconKey는 Icon List 참고
    */
-  items: itemProps[];
+  items: {
+    name?: string;
+    icon: iconKey;
+    onClick: () => void;
+  }[];
 };
 
 export default function HorizontalNav({ items }: NavigationType) {
