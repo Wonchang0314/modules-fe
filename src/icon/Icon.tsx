@@ -30,7 +30,6 @@ export const IconCategory = {
     User: { ...User },
 };
 
-const icons = {
     ...Commerce,
     ...Control,
     ...Data,
@@ -45,6 +44,7 @@ const icons = {
     ...Time,
     ...Toggle,
     ...User,
+export const icons = {
 };
 
 export type iconKey = keyof typeof icons;
