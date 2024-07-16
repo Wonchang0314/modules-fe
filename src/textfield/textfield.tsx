@@ -118,8 +118,8 @@ export default function TextField({
           break;
         default:
           if (isFocused) setInputBorder("border-2 border-[#C6C6C6] rounded-lg");
-          else setInputBorder("border border-[#C6C6C6] rounded-lg");
           //   outlined: "border border-subtle-01 rounded-lg",
+          else setInputBorder("border border-[#C6C6C6] rounded-lg m-[1px]");
           break;
       }
     } else {
@@ -141,10 +141,9 @@ export default function TextField({
           //   underlined: "border-b-2 border-b-strong-01",
           break;
         default:
-          if (isFocused)
-            setInputBorder("border-b-2 border-b-[#C6C6C6] rounded-lg");
-          else setInputBorder("border-b border-b-[#C6C6C6]");
           //   underlined: "border-b border-b-subtle-01",
+          if (isFocused) setInputBorder("border-b-2 border-b-[#C6C6C6]");
+          else setInputBorder("border-b border-b-[#C6C6C6] mb-[1px]");
           break;
       }
     }
