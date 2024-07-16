@@ -102,48 +102,48 @@ export default function TextField({
       switch (state) {
         case "disabled":
           setInputBorder("border border-[#8D8D8D] rounded-lg");
-          //   outlined: "border border-strong-01 rounded-lg",
+          // border border-strong-01 rounded-lg,
           break;
         case "readOnly":
           setInputBorder("border border-[#E0E0E0] rounded-lg");
-          //   outlined: "border border-tile-01 rounded-lg",
+          // border border-tile-01 rounded-lg,
           break;
         case "error":
           setInputBorder("border-2 border-[#DA1E28] rounded-lg");
-          //   outlined: "border-2 border-error rounded-lg",
+          // border-2 border-error rounded-lg,
           break;
         case "warning":
           setInputBorder("border-2 border-[#8D8D8D] rounded-lg");
-          //   outlined: "border-2 border-strong-01 rounded-lg",
+          // border-2 border-strong-01 rounded-lg,
           break;
         default:
           if (isFocused) setInputBorder("border-2 border-[#C6C6C6] rounded-lg");
-          //   outlined: "border border-subtle-01 rounded-lg",
           else setInputBorder("border border-[#C6C6C6] rounded-lg m-[1px]");
+          // border border-subtle-01 rounded-lg,
           break;
       }
     } else {
       switch (state) {
         case "disabled":
           setInputBorder("border-b border-b-[#8D8D8D]");
-          //   underlined: "border-b border-b-strong-01",
+          // border-b border-b-strong-01,
           break;
         case "readOnly":
           setInputBorder("border-b border-b-[#E0E0E0]");
-          //   underlined: "border-b border-b-tile-01",
+          // border-b border-b-tile-01,
           break;
         case "error":
           setInputBorder("border-b-2 border-b-[#DA1E28]");
-          //   underlined: "border-b-2 border-b-error",
+          // border-b-2 border-b-error,
           break;
         case "warning":
           setInputBorder("border-b-2 border-b-[#8D8D8D]");
-          //   underlined: "border-b-2 border-b-strong-01",
+          // border-b-2 border-b-strong-01,
           break;
         default:
-          //   underlined: "border-b border-b-subtle-01",
           if (isFocused) setInputBorder("border-b-2 border-b-[#C6C6C6]");
           else setInputBorder("border-b border-b-[#C6C6C6] mb-[1px]");
+          // border-b border-b-subtle-01,
           break;
       }
     }
