@@ -8,7 +8,7 @@ export default {
   component: TextField,
   parameters: {
     layout: "centered",
-    componentSubtitle: "얼루가의 텍스트 필드를 구현한 컴포넌트입니다.",
+    componentSubtitle: "얼루가의 Text Field를 구현한 컴포넌트입니다.",
     backgrounds: { default: "light" },
   },
   tags: ["autodocs"],
