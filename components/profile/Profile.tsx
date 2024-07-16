@@ -1,7 +1,7 @@
 import FlexBox from "../../layout/FlexBox";
 
 interface ProfileProps {
-  name: string;
+  name: string | null;
   size: "S" | "M1" | "M2" | "L";
   focus?: boolean;
 }
@@ -27,7 +27,9 @@ export default function Profile({ name, size, focus = true }: ProfileProps) {
     <FlexBox
       className={`bg-gradient-to-b rounded-full ${focus ? colorStyle.focus : colorStyle.blur} ${style[size]} justify-center`}
     >
-      <span className={`text-white ${textStyle[size]}`}>{name[0]}</span>
+      <span className={`text-white ${textStyle[size]}`}>
+        {name && name.length > 0 && name[0]}
+      </span>
     </FlexBox>
   );
 }
