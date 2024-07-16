@@ -1,6 +1,7 @@
 type SkeletonType = {
   size: "S" | "M" | "L";
   style: "outlined" | "underlined";
+  label: boolean;
 };
 
 const boxStyle = {
@@ -21,16 +22,22 @@ const boxStyle = {
   },
 };
 
-export default function TextFieldSkeleton({ size, style }: SkeletonType) {
+export default function TextFieldSkeleton({
+  size,
+  style,
+  label,
+}: SkeletonType) {
   return (
     <div className="w-full flex flex-col gap-1">
-      <div
-        className={`
-          bg-[#d9d9d9] 
-          ${style === "outlined" && "pl-4"} 
-          ${boxStyle[size]["label"]}
-        `}
-      />
+      {label && (
+        <div
+          className={`
+            bg-[#d9d9d9] 
+            ${style === "outlined" && "pl-4"} 
+            ${boxStyle[size]["label"]}
+          `}
+        />
+      )}
       <div
         className={`bg-[#d9d9d9] rounded-lg w-full ${boxStyle[size]["input"]}`}
       />
