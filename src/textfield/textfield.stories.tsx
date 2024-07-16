@@ -4,7 +4,7 @@ import TextField from "./textfield";
 import { ChangeEvent, useEffect, useState } from "react";
 
 export default {
-  title: "Input/TextField",
+  title: "Input/Text Field",
   component: TextField,
   parameters: {
     layout: "centered",
