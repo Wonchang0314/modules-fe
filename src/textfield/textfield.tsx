@@ -44,7 +44,7 @@ const sizeStyle = {
     description: "text-helpertext-01-regular",
   },
   M: {
-    label: "text-helpertext-01-regular",
+    label: "text-helpertext-02-regular",
     inputPY: "py-[13px]",
     inputFont: "text-label-03-medium",
     iconSize: 16,
@@ -90,7 +90,7 @@ const stateStyle = {
     labelColor: "text-[#6F6F6F]",
     descriptionColor: "text-[#6F6F6F]",
     // labelColor: "text-secondary",
-    // descriptionColor: "text-disabled",
+    // descriptionColor: "text-helper",
   },
 };
 
@@ -171,7 +171,7 @@ export default function TextField({
 
   return (
     <Suspense fallback={<TextFieldSkeleton size={size} style={style} />}>
-      <div className="flex flex-col gap-2 w-full">
+      <div className="flex flex-col gap-1 w-full">
         <div
           className={`
             ${style === "outlined" && "pl-4"}
