@@ -3,16 +3,24 @@ import ErrorIcon from "../icon/svg/status/warning-circle-filled.svg";
 import WarnIcon from "../icon/svg/status/warning-triangle-filled.svg";
 import TextFieldSkeleton from "./textfieldSkeleton";
 
-type StateType = "active" | "warning" | "error" | "disabled" | "readOnly";
+export type InputStateType =
+  | "active"
+  | "warning"
+  | "error"
+  | "disabled"
+  | "readOnly";
 
 type TextFieldProps = {
   value: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   size: "S" | "M" | "L";
   style: "outlined" | "underlined";
-  state?: StateType;
+  state?: InputStateType;
   label: boolean;
   labelText?: string;
+  /**
+   * false일 때도 항상 글씨 크기만큼 공간 차지
+   */
   description: boolean;
   descriptionText?: string;
   placeholder?: string;
@@ -36,7 +44,7 @@ const sizeStyle = {
     description: "text-helpertext-01-regular",
   },
   M: {
-    label: "text-helpertext-01-regular",
+    label: "text-helpertext-02-regular",
     inputPY: "py-[13px]",
     inputFont: "text-label-03-medium",
     iconSize: 16,
@@ -82,7 +90,7 @@ const stateStyle = {
     labelColor: "text-[#6F6F6F]",
     descriptionColor: "text-[#6F6F6F]",
     // labelColor: "text-secondary",
-    // descriptionColor: "text-disabled",
+    // descriptionColor: "text-helper",
   },
 };
 
@@ -101,7 +109,7 @@ export default function TextField({
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const [inputBorder, setInputBorder] = useState<string>("");
 
-  const borderStyle = () => {
+  const handleBorderStyle = () => {
     if (style === "outlined") {
       switch (state) {
         case "disabled":
@@ -154,7 +162,7 @@ export default function TextField({
   };
 
   useEffect(() => {
-    borderStyle();
+    handleBorderStyle();
   }, [isFocused, style]);
 
   const onChangeText = (e: ChangeEvent<HTMLInputElement>) => {
@@ -163,7 +171,7 @@ export default function TextField({
 
   return (
     <Suspense fallback={<TextFieldSkeleton size={size} style={style} />}>
-      <div className="flex flex-col gap-2 w-full">
+      <div className="flex flex-col gap-1 w-full">
         <div
           className={`
             ${style === "outlined" && "pl-4"}
@@ -193,7 +201,7 @@ export default function TextField({
             onBlur={() => setIsFocused(false)}
             className={`
               w-full outline-none
-              placeholder:text-[#A8A8A8] 
+              placeholder:text-[#A8A8A8] disabled:placeholder:text-[#161616]/25
               disabled:bg-[#fff] disabled:text-[#161616]/25
               text-[#161616]
               ${sizeStyle[size]["inputFont"]}
