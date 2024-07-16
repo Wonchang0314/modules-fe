@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState } from "react";
+import { ChangeEvent, Suspense, useEffect, useState } from "react";
 import ErrorIcon from "../icon/svg/status/warning-circle-filled.svg";
 import WarnIcon from "../icon/svg/status/warning-triangle-filled.svg";
 import TextFieldSkeleton from "./textfieldSkeleton";
@@ -6,6 +6,8 @@ import TextFieldSkeleton from "./textfieldSkeleton";
 type StateType = "active" | "warning" | "error" | "disabled" | "readOnly";
 
 type TextFieldProps = {
+  value: string;
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   size: "S" | "M" | "L";
   style: "outlined" | "underlined";
   state?: StateType;
@@ -85,6 +87,8 @@ const stateStyle = {
 };
 
 export default function TextField({
+  value,
+  onChange,
   size,
   style = "outlined",
   state = "active",
@@ -153,16 +157,20 @@ export default function TextField({
     borderStyle();
   }, [isFocused, style]);
 
+  const onChangeText = (e: ChangeEvent<HTMLInputElement>) => {
+    onChange(e);
+  };
+
   return (
     <Suspense fallback={<TextFieldSkeleton size={size} style={style} />}>
       <div className="flex flex-col gap-2 w-full">
         <div
           className={`
-          ${style === "outlined" && "pl-4"}
-          ${sizeStyle[size]["label"]} 
-          ${stateStyle[state]["labelColor"]} 
-          ${!label && "hidden"}  
-        `}
+            ${style === "outlined" && "pl-4"}
+            ${sizeStyle[size]["label"]} 
+            ${stateStyle[state]["labelColor"]} 
+            ${!label && "hidden"}  
+          `}
         >
           {labelText}
         </div>
@@ -175,6 +183,8 @@ export default function TextField({
           `}
         >
           <input
+            value={value}
+            onChange={onChangeText}
             type="text"
             readOnly={state === "readOnly"}
             placeholder={placeholder}
@@ -182,12 +192,12 @@ export default function TextField({
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
             className={`
-            w-full outline-none
-            placeholder:text-[#A8A8A8] 
-            disabled:bg-[#fff] disabled:text-[#161616]/25
-            text-[#161616]
-            ${sizeStyle[size]["inputFont"]}
-          `}
+              w-full outline-none
+              placeholder:text-[#A8A8A8] 
+              disabled:bg-[#fff] disabled:text-[#161616]/25
+              text-[#161616]
+              ${sizeStyle[size]["inputFont"]}
+            `}
           />
           {state === "error" && (
             <ErrorIcon
@@ -206,11 +216,11 @@ export default function TextField({
         </div>
         <div
           className={`
-          ${style === "outlined" && "pl-4"}
-          ${!description && "invisible"} 
-          ${sizeStyle[size]["description"]} 
-          ${stateStyle[state]["descriptionColor"]}
-      `}
+            ${style === "outlined" && "pl-4"}
+            ${!description && "invisible"} 
+            ${sizeStyle[size]["description"]} 
+            ${stateStyle[state]["descriptionColor"]}
+          `}
         >
           {descriptionText}
         </div>
