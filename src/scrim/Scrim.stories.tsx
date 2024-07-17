@@ -13,6 +13,4 @@ export default {
 const Template: StoryFn<ScrimProps> = (args) => <Scrim {...args} className="fixed top-0 left-0" />;
 
 export const CustomScrim = Template.bind({});
-CustomScrim.args = {
-    opacity: 0.5,
-};
+CustomScrim.args = {};

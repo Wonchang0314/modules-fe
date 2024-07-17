@@ -1,16 +1,14 @@
+//애니메이션 정의 필요
+
 export interface ScrimProps {
-    opacity: number;
     className?: string;
 }
 
-export default function Scrim({ opacity = 50, className }: ScrimProps) {
+export default function Scrim({ className }: ScrimProps) {
     return (
         <div
-            className={`bg-black w-full h-full duration-150 animate-tranquillo-default
+            className={`bg-overlay w-full h-full
                 ${className}`}
-            style={{ opacity: opacity }}
         />
     );
 }
-
-//bg-overlay
