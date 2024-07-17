@@ -102,7 +102,9 @@ export default function TopBar({
         {SVGRightIcon && (
           <div onClick={onClickRightIcon} className="relative">
             <SVGRightIcon width={20} height={20} />
-            <div className="absolute top-0 right-0 w-2 h-2 bg-[#DA1E28] rounded-full" />
+            {rightIconUnread && (
+              <div className="absolute top-0 right-0 w-2 h-2 bg-[#DA1E28] rounded-full" />
+            )}
             {/* <div className="absolute top-0 right-0 w-2 h-2 bg-support-error rounded-full" /> */}
           </div>
         )}
