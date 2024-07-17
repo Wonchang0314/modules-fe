@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import url('theme.css');
+@import url('ground.css');
 
 :root {
     --foreground-rgb: 0, 0, 0;
