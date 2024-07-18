@@ -113,26 +113,27 @@ export default function TextField({
     if (style === "outlined") {
       switch (state) {
         case "disabled":
-          setInputBorder("border border-[#8D8D8D] rounded-lg");
-          // border border-strong-01 rounded-lg,
+          setInputBorder("border border-[#8D8D8D] rounded-radius-04");
+          // border border-strong-01 rounded-radius-04,
           break;
         case "readOnly":
-          setInputBorder("border border-[#E0E0E0] rounded-lg");
-          // border border-tile-01 rounded-lg,
+          setInputBorder("border border-[#E0E0E0] rounded-radius-04");
+          // border border-tile-01 rounded-radius-04,
           break;
         case "error":
-          setInputBorder("border-2 border-[#DA1E28] rounded-lg");
-          // border-2 border-error rounded-lg,
+          setInputBorder("border-2 border-[#DA1E28] rounded-radius-04");
+          // border-2 border-error rounded-radius-04,
           break;
         case "warning":
-          setInputBorder("border-2 border-[#8D8D8D] rounded-lg");
-          // border-2 border-strong-01 rounded-lg,
+          setInputBorder("border-2 border-[#8D8D8D] rounded-radius-04");
+          // border-2 border-strong-01 rounded-radius-04,
           break;
         default:
-          if (isFocused) setInputBorder("border-2 border-[#131313] rounded-lg");
-          else setInputBorder("border border-[#C6C6C6] rounded-lg");
-          // border border-focus-default rounded-lg,
-          // border border-subtle-01 rounded-lg,
+          if (isFocused)
+            setInputBorder("border-2 border-[#131313] rounded-radius-04");
+          else setInputBorder("border border-[#C6C6C6] rounded-radius-04");
+          // border border-focus-default rounded-radius-04,
+          // border border-subtle-01 rounded-radius-04,
           break;
       }
     } else {
