@@ -4,8 +4,7 @@ import TrashIcon from "../icon/svg/operation/delete.svg";
 import { useEffect, useState } from "react";
 import ErrorIcon from "../icon/svg/status/warning-circle-filled.svg";
 import WarnIcon from "../icon/svg/status/warning-triangle-filled.svg";
-
-type InputStateType = "active" | "warning" | "error" | "disabled" | "readOnly";
+import { InputStateType } from "src/textfield/textfield";
 
 type NumberStepperProps = {
   count: number;
