@@ -1,5 +1,5 @@
 //애니메이션 정의 필요
-//focus 작동 안됨
+//focus 디자이너 보류
 
 import FlexBox from "layout/FlexBox";
 import { useState } from "react";
