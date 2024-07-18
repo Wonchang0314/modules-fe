@@ -113,19 +113,24 @@ export default function NumberStepper({
           ${stateStyle[state]["border"]}
         `}
       >
-        <div onClick={minusValue}>
-          {width === "short" && value === 1 ? (
-            <TrashIcon
-              width={20}
-              height={20}
-              className={stateStyle[state]["iconColor"]}
-            />
-          ) : (
-            <MinusIcon
-              width={20}
-              height={20}
-              className={stateStyle[state]["iconColor"]}
-            />
+        <div className="flex gap-spacing-02 items-center">
+          <div onClick={minusValue}>
+            {width === "short" && value === 1 ? (
+              <TrashIcon
+                width={20}
+                height={20}
+                className={stateStyle[state]["iconColor"]}
+              />
+            ) : (
+              <MinusIcon
+                width={20}
+                height={20}
+                className={stateStyle[state]["iconColor"]}
+              />
+            )}
+          </div>
+          {width === "long" && (
+            <div className="w-[1px] h-4 bg-[#C6C6C6] mr-spacing-02" />
           )}
         </div>
         <div
@@ -134,52 +139,59 @@ export default function NumberStepper({
           {value}
         </div>
         {/* <div className={`min-w-6 text-center text-label-02-regular text-primary ${stateStyle[state]['textColor']}`}>{value}</div> */}
-        <div onClick={() => setValue(value + 1)}>
-          <PlusIcon
-            width={20}
-            height={20}
-            className={stateStyle[state]["iconColor"]}
-          />
+        <div className="flex gap-spacing-02 items-center">
+          {width === "long" && (
+            <div className="w-[1px] h-4 bg-[#C6C6C6] mr-spacing-02" />
+          )}
+          <div onClick={() => setValue(value + 1)}>
+            <PlusIcon
+              width={20}
+              height={20}
+              className={stateStyle[state]["iconColor"]}
+            />
+          </div>
         </div>
       </div>
-      {state === "error" && (
-        <div
-          className={`
+      <>
+        {state === "error" && (
+          <div
+            className={`
             w-full flex gap-spacing-02 items-center
             ${descriptionAlign === "right" && "flex-row-reverse"} 
           `}
-        >
-          <WarnIcon width={20} height={20} className="fill-support-error" />
-          <div
-            className={`
+          >
+            <WarnIcon width={20} height={20} className="fill-support-error" />
+            <div
+              className={`
               text-helpertext-02-regular text-[#DA1E28] 
               ${descriptionAlign === "right" ? "text-end" : "text-start"}
             `}
-          >
-            {description}
+            >
+              {description}
+            </div>
+            {/* <div className='text-helpertext-02-regular text-error'>{description}</div> */}
           </div>
-          {/* <div className='text-helpertext-02-regular text-error'>{description}</div> */}
-        </div>
-      )}
-      {state === "warning" && (
-        <div
-          className={`
+        )}
+        {state === "warning" && (
+          <div
+            className={`
             w-full flex gap-spacing-02 items-center
             ${descriptionAlign === "right" && "flex-row-reverse"} 
           `}
-        >
-          <WarnIcon width={20} height={20} className="fill-support-warning" />
-          <div
-            className={`
+          >
+            <WarnIcon width={20} height={20} className="fill-support-warning" />
+            <div
+              className={`
               text-helpertext-02-regular text-[#F1C21B] 
               ${descriptionAlign === "right" ? "text-end" : "text-start"}
             `}
-          >
-            {description}
+            >
+              {description}
+            </div>
+            {/* <div className='text-helpertext-02-regular text-support-warning'>{description}</div> */}
           </div>
-          {/* <div className='text-helpertext-02-regular text-support-warning'>{description}</div> */}
-        </div>
-      )}
+        )}
+      </>
     </div>
   );
 }
