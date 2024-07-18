@@ -22,16 +22,18 @@ export default function VerticalNavItem({
       onClick={onClick}
     >
       <div>{name}</div>
-      <div
-        className={`rounded-full py-2 px-4 ${
-          isFocused
-            ? "bg-[#0043CE] text-[#E9E9E9]"
-            : "bg-[#161616]/25 text-[#161616]/25"
-          // isFocused ? "bg-support-info text-background" : "bg-icon-disabled text-disabled"
-        }`}
-      >
-        {count}
-      </div>
+      {count !== undefined && (
+        <div
+          className={`rounded-radius-circle py-spacing-02 px-spacing-04 ${
+            isFocused
+              ? "bg-[#0043CE] text-[#E9E9E9]"
+              : "bg-[#161616]/25 text-[#161616]/25"
+            // isFocused ? "bg-support-info text-background" : "bg-icon-disabled text-disabled"
+          }`}
+        >
+          {count}
+        </div>
+      )}
     </div>
   );
 }
