@@ -111,8 +111,8 @@ export default function TextArea({
         // border-2 border-strong-01 ,
         break;
       default:
-        if (isFocused) setInputBorder("border-2 border-[#C6C6C6] rounded-lg");
-        else setInputBorder("border border-[#C6C6C6] rounded-lg m-[1px]");
+        if (isFocused) setInputBorder("border-2 border-[#131313]");
+        else setInputBorder("border border-[#C6C6C6]");
         // border border-focus ,
         // border border-subtle-01 ,
         break;
