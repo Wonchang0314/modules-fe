@@ -13,7 +13,7 @@ export default function VerticalNavItem({
 }: VerticalNavItemProps) {
   return (
     <div
-      className={`w-full h-full flex flex-col gap-4 justify-center items-center ${
+      className={`w-full h-full flex flex-col gap-spacing-04 justify-center items-center ${
         isFocused
           ? "bg-[#131313] text-[#E9E9E9]"
           : "bg-[#A8A8A8] text-[#161616]/25"

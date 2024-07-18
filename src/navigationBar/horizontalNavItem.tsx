@@ -21,7 +21,7 @@ export default function HorizontalNavItem({
 
   return (
     <div
-      className="flex flex-col w-full pt-2.5 pb-8 gap-1 items-center justify-start"
+      className="flex flex-col w-full pt-2.5 pb-spacing-08 gap-spacing-01 items-center justify-start"
       onClick={onClick}
     >
       <SVGIcon

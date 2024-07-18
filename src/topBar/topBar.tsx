@@ -60,7 +60,7 @@ export default function TopBar({
         <div onClick={onClickRightText} className="relative">
           <SVGRightIcon2 width={20} height={20} />
           {rightTextUnread && (
-            <div className="absolute top-0 right-0 w-2 h-2 bg-[#DA1E28] rounded-full" />
+            <div className="absolute top-0 right-0 w-2 h-2 bg-[#DA1E28] rounded-radius-circle" />
             /* <div className="absolute top-0 right-0 w-2 h-2 bg-support-error rounded-full" /> */
           )}
         </div>
@@ -78,8 +78,8 @@ export default function TopBar({
   };
 
   return (
-    <div className="flex w-full h-[32px] bg-[#FFF] justify-between items-center px-4 py-2">
-      <div className="flex items-center gap-5">
+    <div className="flex w-full h-8 bg-[#FFF] justify-between items-center px-spacing-04 py-spacing-02">
+      <div className="flex items-center gap-spacing-05">
         {SVGLeftIcon && (
           <div onClick={onClickLeftIcon}>
             <SVGLeftIcon width={20} height={20} />
@@ -97,7 +97,7 @@ export default function TopBar({
       </div>
       <div className="text-labe-03-medium text-[#161616]">{title}</div>
       {/* <div className="text-labe-03-medium text-primary">{title}</div> */}
-      <div className="flex justify-end items-center gap-5">
+      <div className="flex justify-end items-center gap-spacing-05">
         {returnRightText()}
         {SVGRightIcon && (
           <div onClick={onClickRightIcon} className="relative">
