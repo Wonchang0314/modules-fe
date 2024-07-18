@@ -2,26 +2,14 @@ import { iconKey, icons } from "src/icon/Icon";
 
 type TopBarProps = {
   title?: string;
-  /**
-   * type: iconKey
-   */
   leftIcon?: iconKey;
   leftText?: string;
-  /**
-   * type: iconKey
-   */
   rightIcon?: iconKey;
-  /**
-   * type: string | iconKey
-   */
   rightText?: string | iconKey;
   onClickLeftIcon?: () => void;
   onClickLeftText?: () => void;
   onClickRightIcon?: () => void;
   onClickRightText?: () => void;
-  /**
-   * true일 때 안 읽음 표시
-   */
   rightIconUnread?: boolean;
   /**
    * rightText=iconKey일 때만 표시

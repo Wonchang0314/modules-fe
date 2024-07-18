@@ -26,7 +26,7 @@ export const Example = Template.bind({});
 
 Example.args = {
   items: [
-    { name: "text", count: 0, onClick: () => console.log("clicked") },
+    { name: "text", onClick: () => console.log("clicked") },
     { name: "text", count: 0, onClick: () => console.log("clicked") },
     { name: "text", count: 0, onClick: () => console.log("clicked") },
   ],

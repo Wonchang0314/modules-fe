@@ -1,5 +1,6 @@
 import { Meta, StoryFn } from "@storybook/react/*";
 import TopBar from "./topBar";
+import { icons } from "src/icon/Icon";
 
 export default {
   title: "Navigation/Top Bar",
@@ -14,6 +15,27 @@ export default {
     backgrounds: { default: "dark" },
   },
   tags: ["autodocs"],
+  argTypes: {
+    leftIcon: {
+      description: `type: iconKey`,
+      options: Object.keys(icons),
+    },
+    rightIcon: {
+      description: `type: iconKey`,
+      options: Object.keys(icons),
+    },
+    rightText: {
+      description: `type: string | iconKey`,
+      options: Object.keys(icons),
+    },
+    rightIconUnread: {
+      description: "true일 때 안 읽음 표시<br/>* icon이 있을 때만 표시됨",
+    },
+    rightTextUnread: {
+      description:
+        "true일 때 안 읽음 표시<br/>* rightText의 type=iconKey인 경우에만 표시됨",
+    },
+  },
 } as Meta<typeof TopBar>;
 
 const Template: StoryFn<typeof TopBar> = args => {
@@ -29,7 +51,6 @@ Example.args = {
   leftText: "Text",
   rightIcon: "gear",
   rightText: "menu",
-  rightIconUnread: true,
 };
 Example2.args = {
   title: "Title",

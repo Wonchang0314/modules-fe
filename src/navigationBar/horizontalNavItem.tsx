@@ -3,9 +3,6 @@ import { iconKey, icons } from "src/icon/Icon";
 
 type HorizontalNavItemProps = {
   name?: string;
-  /**
-   * *Icon List 참고
-   */
   icon: iconKey;
   onClick: () => void;
   isFocused: boolean;

@@ -26,7 +26,7 @@ export const Example = Template.bind({});
 
 Example.args = {
   name: "Label",
-  count: 0,
+  count: undefined,
   onClick: () => console.log("clicked"),
   isFocused: true,
 };

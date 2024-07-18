@@ -6,9 +6,14 @@ export default {
   title: "Navigation/Navigation Bar/Horizontal/Nav Bar",
   component: HorizontalNav,
   parameters: {
-    backgrounds: { default: "light" },
+    backgrounds: { default: "dark" },
   },
   tags: ["autodocs"],
+  argTypes: {
+    items: {
+      description: `[> iconKey 확인하러 가기](?path=/docs/components-icon-icon-list--docs)`,
+    },
+  },
 } as Meta<typeof HorizontalNav>;
 
 const Template: StoryFn<typeof HorizontalNav> = args => {

@@ -3,9 +3,6 @@ import { useState } from "react";
 import { iconKey } from "src/icon/Icon";
 
 type NavigationType = {
-  /**
-   * *iconKey는 Icon List 참고
-   */
   items: {
     name?: string;
     icon: iconKey;
