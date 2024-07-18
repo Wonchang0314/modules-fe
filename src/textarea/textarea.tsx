@@ -95,26 +95,26 @@ export default function TextArea({
   const handleBorderStyle = () => {
     switch (state) {
       case "disabled":
-        setInputBorder("border border-[#8D8D8D] rounded-lg");
-        // border border-strong-01 rounded-lg,
+        setInputBorder("border border-[#8D8D8D] ");
+        // border border-strong-01 ,
         break;
       case "readOnly":
-        setInputBorder("border border-[#E0E0E0] rounded-lg");
-        // border border-tile-01 rounded-lg,
+        setInputBorder("border border-[#E0E0E0] ");
+        // border border-tile-01 ,
         break;
       case "error":
-        setInputBorder("border-2 border-[#DA1E28] rounded-lg");
-        // border-2 border-error rounded-lg,
+        setInputBorder("border-2 border-[#DA1E28] ");
+        // border-2 border-error ,
         break;
       case "warning":
-        setInputBorder("border-2 border-[#8D8D8D] rounded-lg");
-        // border-2 border-strong-01 rounded-lg,
+        setInputBorder("border-2 border-[#8D8D8D] ");
+        // border-2 border-strong-01 ,
         break;
       default:
         if (isFocused) setInputBorder("border-2 border-[#C6C6C6] rounded-lg");
         else setInputBorder("border border-[#C6C6C6] rounded-lg m-[1px]");
-        // border border-focus rounded-lg,
-        // border border-subtle-01 rounded-lg,
+        // border border-focus ,
+        // border border-subtle-01 ,
         break;
     }
   };
@@ -142,7 +142,7 @@ export default function TextArea({
         </div>
         <div
           className={`
-            w-full flex gap-4 bg-[#fff] px-4
+            w-full flex gap-4 bg-[#fff] px-4 rounded-lg
             ${inputBorder}
             ${sizeStyle[size]["inputPY"]} 
           `}
