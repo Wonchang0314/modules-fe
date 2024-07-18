@@ -95,19 +95,19 @@ export default function TextArea({
   const handleBorderStyle = () => {
     switch (state) {
       case "disabled":
-        setInputBorder("border border-[#8D8D8D] ");
+        setInputBorder("border border-[#8D8D8D]");
         // border border-strong-01 ,
         break;
       case "readOnly":
-        setInputBorder("border border-[#E0E0E0] ");
+        setInputBorder("border border-[#E0E0E0]");
         // border border-tile-01 ,
         break;
       case "error":
-        setInputBorder("border-2 border-[#DA1E28] ");
+        setInputBorder("border-2 border-[#DA1E28]");
         // border-2 border-error ,
         break;
       case "warning":
-        setInputBorder("border-2 border-[#8D8D8D] ");
+        setInputBorder("border-2 border-[#8D8D8D]");
         // border-2 border-strong-01 ,
         break;
       default:
@@ -142,7 +142,7 @@ export default function TextArea({
         </div>
         <div
           className={`
-            w-full flex gap-spacing-04 bg-[#fff] px-spacing-04 rounded-lg
+            w-full flex gap-spacing-04 bg-[#fff] px-spacing-04 rounded-radius-04
             ${inputBorder}
             ${sizeStyle[size]["inputPY"]} 
           `}
