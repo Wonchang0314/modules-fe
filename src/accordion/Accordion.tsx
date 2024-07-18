@@ -1,7 +1,7 @@
 //애니메이션 정의 필요
 //focus 디자이너 보류
 
-import FlexBox from "layout/FlexBox";
+import FlexBox from "src/layout/FlexBox";
 import { useState } from "react";
 import Divider from "src/divider/Divider";
 import Icon from "src/icon/Icon";
