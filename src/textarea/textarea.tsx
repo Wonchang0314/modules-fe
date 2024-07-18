@@ -129,10 +129,10 @@ export default function TextArea({
 
   return (
     <Suspense fallback={<TextAreaSkeleton size={size} label={label} />}>
-      <div className="flex flex-col gap-1 w-full">
+      <div className="flex flex-col gap-spacing-01 w-full">
         <div
           className={`
-            pl-4
+            pl-spacing-04
             ${sizeStyle[size]["label"]} 
             ${stateStyle[state]["labelColor"]} 
             ${!label && "hidden"}  
@@ -142,7 +142,7 @@ export default function TextArea({
         </div>
         <div
           className={`
-            w-full flex gap-4 bg-[#fff] px-4 rounded-lg
+            w-full flex gap-spacing-04 bg-[#fff] px-spacing-04 rounded-lg
             ${inputBorder}
             ${sizeStyle[size]["inputPY"]} 
           `}
@@ -181,7 +181,7 @@ export default function TextArea({
         </div>
         <div
           className={`
-            pl-4
+            pl-spacing-04
             ${!description && "invisible"} 
             ${sizeStyle[size]["description"]} 
             ${stateStyle[state]["descriptionColor"]}
