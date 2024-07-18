@@ -24,15 +24,6 @@ export default function TopTitle({
   onClickIcon,
 }: Props) {
   const router = useRouter();
-
-  const handleClick = () => {
-    try {
-      (document as any).startViewTransition(router.back);
-    } catch {
-      router.back();
-    }
-  };
-
   return (
     <FlexBox className="w-full h-[60px] shrink-0">
       <div className="w-[32px] shrink-0 cursor-pointer">
@@ -43,7 +34,7 @@ export default function TopTitle({
               : "/icon/control/close.svg"
           }
           sz={32}
-          onClick={handleClick}
+          onClick={router.back}
         />
       </div>
       <FlexBox className="w-full h-full justify-center">

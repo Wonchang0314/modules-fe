@@ -1,0 +1,14 @@
+export { default as calculation } from './calculation.svg';
+export { default as chart_area } from './chart-area.svg';
+export { default as chart_bar_horizontal } from './chart-bar-horizontal.svg';
+export { default as chart_bar_vertical } from './chart-bar-vertical.svg';
+export { default as chart_cohort } from './chart-cohort.svg';
+export { default as chart_line } from './chart-line.svg';
+export { default as chart_pie } from './chart-pie.svg';
+export { default as chart_treemap } from './chart-treemap.svg';
+export { default as database_multiple } from './database-multiple.svg';
+export { default as database } from './database.svg';
+export { default as funnel } from './funnel.svg';
+export { default as precentation } from './precentation.svg';
+export { default as progressbar } from './progressbar.svg';
+export { default as trending } from './trending.svg';
