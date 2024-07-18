@@ -9,11 +9,15 @@ import NumberStepperSkeleton from "./numberStepperSkeleton";
 
 type NumberStepperProps = {
   count: number;
+  setCount: React.Dispatch<React.SetStateAction<number>>;
   width: "short" | "long";
   size: "S" | "M";
   state?: InputStateType;
   description?: string;
   descriptionAlign: "left" | "right";
+  onClickTrashIcon?: () => void;
+  onClickMinusIcon?: () => void;
+  onClickPlusIcon?: () => void;
 };
 
 const widthStyle = {
@@ -81,21 +85,28 @@ const stateStyle = {
 
 export default function NumberStepper({
   count,
+  setCount,
   width,
   size,
   state = "active",
   description,
   descriptionAlign = "left",
+  onClickTrashIcon,
+  onClickMinusIcon,
+  onClickPlusIcon,
 }: NumberStepperProps) {
-  const [value, setValue] = useState<number>(1);
+  const onClickLeftIcon = () => {
+    if (count === 1) {
+      if (width === "short") onClickTrashIcon && onClickTrashIcon();
+    } else {
+      setCount(count - 1);
+      onClickMinusIcon && onClickMinusIcon();
+    }
+  };
 
-  useEffect(() => {
-    setValue(count);
-  }, []);
-
-  const minusValue = () => {
-    if (value === 1) return;
-    setValue(value - 1);
+  const onClickRightIcon = () => {
+    onClickPlusIcon && onClickPlusIcon();
+    setCount(count + 1);
   };
 
   return (
@@ -115,8 +126,8 @@ export default function NumberStepper({
         `}
         >
           <div className="flex gap-spacing-02 items-center">
-            <div onClick={minusValue}>
-              {width === "short" && value === 1 ? (
+            <div onClick={onClickLeftIcon}>
+              {width === "short" && count === 1 ? (
                 <TrashIcon
                   width={20}
                   height={20}
@@ -137,14 +148,14 @@ export default function NumberStepper({
           <div
             className={`min-w-6 text-center text-label-02-regular text-[#161616] ${stateStyle[state]["textColor"]}`}
           >
-            {value}
+            {count}
           </div>
           {/* <div className={`min-w-6 text-center text-label-02-regular text-primary ${stateStyle[state]['textColor']}`}>{value}</div> */}
           <div className="flex gap-spacing-02 items-center">
             {width === "long" && (
               <div className="w-[1px] h-4 bg-[#C6C6C6] mr-spacing-02" />
             )}
-            <div onClick={() => setValue(value + 1)}>
+            <div onClick={onClickRightIcon}>
               <PlusIcon
                 width={20}
                 height={20}
