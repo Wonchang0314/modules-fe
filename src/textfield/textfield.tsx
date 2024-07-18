@@ -129,8 +129,9 @@ export default function TextField({
           // border-2 border-strong-01 rounded-lg,
           break;
         default:
-          if (isFocused) setInputBorder("border-2 border-[#C6C6C6] rounded-lg");
-          else setInputBorder("border border-[#C6C6C6] rounded-lg m-[1px]");
+          if (isFocused) setInputBorder("border-2 border-[#131313] rounded-lg");
+          else setInputBorder("border border-[#C6C6C6] rounded-lg");
+          // border border-focus-default rounded-lg,
           // border border-subtle-01 rounded-lg,
           break;
       }
