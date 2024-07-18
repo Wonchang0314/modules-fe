@@ -39,10 +39,10 @@ const sizeStyle = {
 const stateStyle = {
   active: {
     border: "border-[#C6C6C6]",
-    textColor: "text-[#161616]/25",
+    textColor: "text-[#161616]",
     iconColor: "fill-[#262626]",
     // border: 'border-subtle-01'
-    // textColor: 'text-disabled'
+    // textColor: 'text-primary'
     // iconColor: 'fill-icon-primary'
   },
   warning: {
