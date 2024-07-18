@@ -28,10 +28,10 @@ type TextFieldProps = {
 
 const lineStyle = {
   outlined: {
-    inputPX: "px-4",
+    inputPX: "px-spacing-04",
   },
   underlined: {
-    inputPX: "pr-4",
+    inputPX: "pr-spacing-04",
   },
 };
 
@@ -176,10 +176,10 @@ export default function TextField({
     <Suspense
       fallback={<TextFieldSkeleton size={size} style={style} label={label} />}
     >
-      <div className="flex flex-col gap-1 w-full">
+      <div className="flex flex-col gap-spacing-01 w-full">
         <div
           className={`
-            ${style === "outlined" && "pl-4"}
+            ${style === "outlined" && "pl-spacing-04"}
             ${sizeStyle[size]["label"]} 
             ${stateStyle[state]["labelColor"]} 
             ${!label && "hidden"}  
@@ -189,7 +189,7 @@ export default function TextField({
         </div>
         <div
           className={`
-            w-full flex gap-4 bg-[#fff] 
+            w-full flex gap-spacing-04 bg-[#fff] 
             ${inputBorder}
             ${lineStyle[style]["inputPX"]}
             ${sizeStyle[size]["inputPY"]} 
@@ -229,7 +229,7 @@ export default function TextField({
         </div>
         <div
           className={`
-            ${style === "outlined" && "pl-4"}
+            ${style === "outlined" && "pl-spacing-04"}
             ${!description && "invisible"} 
             ${sizeStyle[size]["description"]} 
             ${stateStyle[state]["descriptionColor"]}
