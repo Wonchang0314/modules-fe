@@ -155,8 +155,9 @@ export default function TextField({
           // border-b-2 border-b-strong-01,
           break;
         default:
-          if (isFocused) setInputBorder("border-b-2 border-b-[#C6C6C6]");
-          else setInputBorder("border-b border-b-[#C6C6C6] mb-[1px]");
+          if (isFocused) setInputBorder("border-b-2 border-b-[#131313]");
+          else setInputBorder("border-b border-b-[#C6C6C6]");
+          // border border-focus-default,
           // border-b border-b-subtle-01,
           break;
       }
