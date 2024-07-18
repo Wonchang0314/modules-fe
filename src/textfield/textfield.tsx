@@ -129,9 +129,27 @@ export default function TextField({
           // border-2 border-strong-01 rounded-radius-04,
           break;
         default:
-          if (isFocused)
-            setInputBorder("border-2 border-[#131313] rounded-radius-04");
-          else setInputBorder("border border-[#C6C6C6] rounded-radius-04");
+          if (isFocused) {
+            switch (size) {
+              case "S":
+                setInputBorder("border-2 border-[#131313] rounded-radius-03");
+                break;
+              case "M":
+              case "L":
+                setInputBorder("border-2 border-[#131313] rounded-radius-04");
+                break;
+            }
+          } else {
+            switch (size) {
+              case "S":
+                setInputBorder("border border-[#C6C6C6] rounded-radius-03");
+                break;
+              case "M":
+              case "L":
+                setInputBorder("border border-[#C6C6C6] rounded-radius-04");
+                break;
+            }
+          }
           // border border-focus-default rounded-radius-04,
           // border border-subtle-01 rounded-radius-04,
           break;
