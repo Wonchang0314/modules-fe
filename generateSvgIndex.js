@@ -1,3 +1,4 @@
+// 입력하기 전에 color, size 관련 생각 한번 더하기 - ex ) modifier, social
 // node generateSvgIndex.js 입력하면 src/icon/svg 폴더에 있는 svg 파일들을 폴더 별로 index.ts 파일로 만들어줌
 
 const fs = require("fs");
@@ -40,7 +41,8 @@ function getDirectories(directory) {
 
 function updateSvgContent(svgContent) {
   svgContent = svgContent.replace(/(width|height)="[^"]*"/g, '$1="current"');
-  svgContent = svgContent.replace(/fill="[^"]*"/g, 'fill="none"');
+  // social , modifier 색깔 변경 x
+  // svgContent = svgContent.replace(/fill="[^"]*"/g, 'fill="current"');
   return svgContent;
 }
 
