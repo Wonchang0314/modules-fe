@@ -3,10 +3,10 @@
 @layer base {
     :root {
         --background: var(--white);
-        --background-hover: rgba(var(--gray-50), 0.14);
-        --background-active: rgba(var(--gray-50), 0.52);
-        --background-selected: rgba(var(--gray-50), 0.2);
-        --background-selected-hover: rgba(var(--gray-50), 0.34);
+        --background-hover: rgba(141, 141, 141, 0.14);
+        --background-active: rgba(141, 141, 141, 0.52);
+        --background-selected: rgba(141, 141, 141, 0.2);
+        --background-selected-hover: rgba(141, 141, 141, 0.34);
         --background-inverse: var(--gray-80);
         --background-inverse-hover: var(--hover-gray-80);
         --background-brand: var(--black);
@@ -60,7 +60,7 @@
         --border-inverse: var(--gray-100);
         --border-disabled: var(--gray-30);
         --border-interactive: var(--black);
-        --border-transparent: rgba(var(--white), 0);
+        --border-transparent: rgba(255, 255, 255, 0);
 
         --text-primary: var(--gray-100);
         --text-secondary: var(--gray-70);
@@ -74,7 +74,7 @@
         --text-error-hover: var(--hover-red-60);
         --text-error-active: var(--red-80);
         --text-inverse: var(--white);
-        --text-disabled: rgba(var(--gray-100), 0.25);
+        --text-disabled: rgba(22, 22, 22, 0.25);
 
         --link: var(--blue-60);
         --link-hover: var(--blue-70);
@@ -84,9 +84,9 @@
 
         --icon-primary: var(--gray-90);
         --icon-secondary: var(--gray-60);
-        --icon-disabled: rgba(var(--gray-100), 0.25);
+        --icon-disabled: rgba(22, 22, 22, 0.25);
         --icon-on-color: var(--white);
-        --icon-on-color-disabled: rgba(var(--black), 0.25);
+        --icon-on-color-disabled: rgba(19, 19, 19, 0.25);
         --icon-interactive: var(--black);
         --icon-inverse: var(--white);
         --icon-error: var(--red-60);
@@ -159,23 +159,23 @@
         --tag-background-outline: var(--white);
         --tag-color-outline: var(--gray-100);
         --tag-border-outline: var(--gray-100);
-        --tag-hover-outline: rgba(var(--gray-50), 0.14);
+        --tag-hover-outline: rgba(141, 141, 141, 0.14);
         --tag-icon-outline: var(--gray-90);
 
         --focus: var(--black);
         --focus-inverse: var(--white);
 
         --interactive: var(--black);
-        --overlay: rgba(var(--gray-100), 0.5);
+        --overlay: rgba(22, 22, 22, 0.5);
         --skeleton-container: var(--gray-20);
         --skeleton-element: var(--gray-30);
     }
     html[theme='Gray10'] {
         --background: var(--gray-10);
-        --background-hover: rgba(var(--gray-50), 0.14);
-        --background-active: rgba(var(--gray-50), 0.52);
-        --background-selected: rgba(var(--gray-50), 0.2);
-        --background-selected-hover: rgba(var(--gray-50), 0.34);
+        --background-hover: rgba(141, 141, 141, 0.14);
+        --background-active: rgba(141, 141, 141, 0.52);
+        --background-selected: rgba(141, 141, 141, 0.2);
+        --background-selected-hover: rgba(141, 141, 141, 0.34);
         --background-inverse: var(--gray-80);
         --background-inverse-hover: var(--hover-gray-80);
         --background-brand: var(--black);
@@ -193,7 +193,7 @@
         --layer-02-selected-hover: var(--hover-gray-30);
         --layer-selected-inverse: var(--gray-100);
         --layer-selected-disabled: var(--gray-40);
-        --layer-transparent: rgba(var(--white), 0);
+        --layer-transparent: rgba(255, 255, 255, 0);
 
         --field-01: var(--white);
         --field-02: var(--gray-10);
@@ -229,7 +229,7 @@
         --border-inverse: var(--gray-100);
         --border-disabled: var(--gray-30);
         --border-interactive: var(--black);
-        --border-transparent: rgba(var(--white), 0);
+        --border-transparent: rgba(255, 255, 255, 0);
 
         --text-primary: var(--gray-100);
         --text-secondary: var(--gray-70);
@@ -243,7 +243,7 @@
         --text-error-hover: var(--hover-red-60);
         --text-error-active: var(--red-80);
         --text-inverse: var(--white);
-        --text-disabled: rgba(var(--gray-100), 0.25);
+        --text-disabled: rgba(22, 22, 22, 0.25);
 
         --link: var(--blue-60);
         --link-hover: var(--blue-70);
@@ -253,9 +253,9 @@
 
         --icon-primary: var(--gray-90);
         --icon-secondary: var(--gray-60);
-        --icon-disabled: rgba(var(--gray-100), 0.25);
+        --icon-disabled: rgba(22, 22, 22, 0.25);
         --icon-on-color: var(--white);
-        --icon-on-color-disabled: rgba(var(--black), 0.25);
+        --icon-on-color-disabled: rgba(19, 19, 19, 0.25);
         --icon-interactive: var(--black);
         --icon-inverse: var(--white);
         --icon-error: var(--red-60);
@@ -328,23 +328,23 @@
         --tag-background-outline: var(--gray-10);
         --tag-color-outline: var(--gray-100);
         --tag-border-outline: var(--gray-100);
-        --tag-hover-outline: rgba(var(--gray-50), 0.14);
+        --tag-hover-outline: rgba(141, 141, 141, 0.14);
         --tag-icon-outline: var(--gray-90);
 
         --focus: var(--black);
         --focus-inverse: var(--white);
 
         --interactive: var(--black);
-        --overlay: rgba(var(--gray-100), 0.5);
+        --overlay: rgba(22, 22, 22, 0.5);
         --skeleton-container: var(--gray-30);
         --skeleton-element: var(--gray-40);
     }
     html[theme='Gray90'] {
         --background: var(--gray-90);
-        --background-hover: rgba(var(--gray-50), 0.18);
-        --background-active: rgba(var(--gray-50), 0.42);
-        --background-selected: rgba(var(--gray-50), 0.24);
-        --background-selected-hover: rgba(var(--gray-50), 0.38);
+        --background-hover: rgba(141, 141, 141, 0.18);
+        --background-active: rgba(141, 141, 141, 0.42);
+        --background-selected: rgba(141, 141, 141, 0.24);
+        --background-selected-hover: rgba(141, 141, 141, 0.38);
         --background-inverse: var(--gray-10);
         --background-inverse-hover: var(--hover-gray-10);
         --background-brand: var(--white);
@@ -362,7 +362,7 @@
         --layer-02-selected-hover: var(--hover-gray-50);
         --layer-selected-inverse: var(--gray-10);
         --layer-selected-disabled: var(--gray-60);
-        --layer-transparent: rgba(var(--black), 0);
+        --layer-transparent: rgba(19, 19, 19, 0);
 
         --field-01: var(--gray-80);
         --field-02: var(--gray-70);
@@ -396,9 +396,9 @@
         --border-tile-01: var(--gray-60);
         --border-tile-02: var(--gray-50);
         --border-inverse: var(--gray-10);
-        --border-disabled: rgba(var(--gray-50), 0.5);
+        --border-disabled: rgba(141, 141, 141, 0.5);
         --border-interactive: var(--white);
-        --border-transparent: rgba(var(--black), 0);
+        --border-transparent: rgba(19, 19, 19, 0);
 
         --text-primary: var(--gray-10);
         --text-secondary: var(--gray-30);
@@ -406,13 +406,13 @@
         --text-on-color: var(--white);
         --text-on-color-hover: var(--hover-white);
         --text-on-color-active: var(--gray-30);
-        --text-on-color-disabled: rgba(var(--white), 0.25);
+        --text-on-color-disabled: rgba(255, 255, 255, 0.25);
         --text-helper: var(--gray-50);
         --text-error: var(--red-30);
         --text-error-hover: var(--hover-red-30);
         --text-error-active: var(--red-50);
         --text-inverse: var(--gray-100);
-        --text-disabled: rgba(var(--gray-10), 0.25);
+        --text-disabled: rgba(244, 244, 244, 0.25);
 
         --link: var(--blue-40);
         --link-hover: var(--blue-30);
@@ -422,9 +422,9 @@
 
         --icon-primary: var(--gray-10);
         --icon-secondary: var(--gray-30);
-        --icon-disabled: rgba(var(--gray-10), 0.25);
+        --icon-disabled: rgba(244, 244, 244, 0.25);
         --icon-on-color: var(--white);
-        --icon-on-color-disabled: rgba(var(--white), 0.25);
+        --icon-on-color-disabled: rgba(255, 255, 255, 0.25);
         --icon-interactive: var(--white);
         --icon-inverse: var(--gray-100);
         --icon-error: var(--red-30);
@@ -497,23 +497,23 @@
         --tag-background-outline: var(--black);
         --tag-color-outline: var(--gray-20);
         --tag-border-outline: var(--gray-10);
-        --tag-hover-outline: rgba(var(--gray-50), 0.18);
+        --tag-hover-outline: rgba(141, 141, 141, 0.18);
         --tag-icon-outline: var(--gray-10);
 
         --focus: var(--white);
         --focus-inverse: var(--black);
 
         --interactive: var(--white);
-        --overlay: rgba(var(--gray-100), 0.7);
+        --overlay: rgba(22, 22, 22, 0.7);
         --skeleton-container: var(--gray-70);
         --skeleton-element: var(--gray-60);
     }
     html[theme='Gray100'] {
         --background: var(--gray-100);
-        --background-hover: rgba(var(--gray-50), 0.18);
-        --background-active: rgba(var(--gray-50), 0.42);
-        --background-selected: rgba(var(--gray-90), 0.24);
-        --background-selected-hover: rgba(var(--gray-50), 0.38);
+        --background-hover: rgba(141, 141, 141, 0.18);
+        --background-active: rgba(141, 141, 141, 0.42);
+        --background-selected: rgba(38, 38, 38, 0.24);
+        --background-selected-hover: rgba(141, 141, 141, 0.38);
         --background-inverse: var(--gray-10);
         --background-inverse-hover: var(--hover-gray-10);
         --background-brand: var(--white);
@@ -531,7 +531,7 @@
         --layer-02-selected-hover: var(--hover-gray-60);
         --layer-selected-inverse: var(--gray-10);
         --layer-selected-disabled: var(--gray-60);
-        --layer-transparent: rgba(var(--black), 0);
+        --layer-transparent: rgba(19, 19, 19, 0);
 
         --field-01: var(--gray-90);
         --field-02: var(--gray-80);
@@ -565,9 +565,9 @@
         --border-tile-01: var(--gray-70);
         --border-tile-02: var(--gray-60);
         --border-inverse: var(--gray-10);
-        --border-disabled: rgba(var(--gray-50), 0.5);
+        --border-disabled: rgba(141, 141, 141, 0.5);
         --border-interactive: var(--white);
-        --border-transparent: rgba(var(--black), 0);
+        --border-transparent: rgba(19, 19, 19, 0);
 
         --text-primary: var(--gray-10);
         --text-secondary: var(--gray-30);
@@ -575,13 +575,13 @@
         --text-on-color: var(--white);
         --text-on-color-hover: var(--hover-white);
         --text-on-color-active: var(--gray-30);
-        --text-on-color-disabled: rgba(var(--white), 0.25);
+        --text-on-color-disabled: rgba(255, 255, 255, 0.25);
         --text-helper: var(--gray-50);
         --text-error: var(--red-40);
         --text-error-hover: var(--hover-red-40);
         --text-error-active: var(--red-60);
         --text-inverse: var(--gray-100);
-        --text-disabled: rgba(var(--gray-10), 0.25);
+        --text-disabled: rgba(244, 244, 244, 0.25);
 
         --link: var(--blue-40);
         --link-hover: var(--blue-30);
@@ -591,9 +591,9 @@
 
         --icon-primary: var(--gray-10);
         --icon-secondary: var(--gray-30);
-        --icon-disabled: rgba(var(--gray-10), 0.25);
+        --icon-disabled: rgba(244, 244, 244, 0.25);
         --icon-on-color: var(--white);
-        --icon-on-color-disabled: rgba(var(--white), 0.25);
+        --icon-on-color-disabled: rgba(255, 255, 255, 0.25);
         --icon-interactive: var(--white);
         --icon-inverse: var(--gray-100);
         --icon-error: var(--red-40);
@@ -666,14 +666,14 @@
         --tag-background-outline: var(--black);
         --tag-color-outline: var(--gray-20);
         --tag-border-outline: var(--gray-10);
-        --tag-hover-outline: rgba(var(--gray-50), 0.18);
+        --tag-hover-outline: rgba(141, 141, 141, 0.18);
         --tag-icon-outline: var(--gray-10);
 
         --focus: var(--white);
         --focus-inverse: var(--black);
 
         --interactive: var(--white);
-        --overlay: rgba(var(--gray-100), 0.7);
+        --overlay: rgba(22, 22, 22, 0.7);
         --skeleton-container: var(--gray-80);
         --skeleton-element: var(--gray-70);
     }

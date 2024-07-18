@@ -17,4 +17,5 @@ export const CustomIcon = Template.bind({});
 CustomIcon.args = {
     icon: 'account',
     size: 24,
+    className: 'fill-Red-60',
 };
