@@ -1,25 +1,25 @@
-import { Meta } from '@storybook/blocks';
-import GridBox from 'layout/GridBox';
+import { Meta } from "@storybook/blocks";
+import GridBox from "src/layout/GridBox";
 
 export default {
-    title: 'Components/Typography',
-    tags: ['autodocs'],
+  title: "Components/Typography",
+  tags: ["autodocs"],
 };
 
 const Typo = {
-    Heading: {
-        'head-01-regular': 'head-01-regular',
-        'head-01-bold': 'head-01-bold',
-        'head-02-regular': 'head-02-regular',
-        'head-02-bold': 'head-02-bold',
-        'head-03-regular': 'head-03-regular',
-        'head-03-bold': 'head-03-bold',
-        'head-04-regular': 'head-04-regular',
-        'head-04-bold': 'head-04-bold',
-        'head-05-regular': 'head-05-regular',
-        'head-05-bold': 'head-05-bold',
-    },
-    /*
+  Heading: {
+    "head-01-regular": "head-01-regular",
+    "head-01-bold": "head-01-bold",
+    "head-02-regular": "head-02-regular",
+    "head-02-bold": "head-02-bold",
+    "head-03-regular": "head-03-regular",
+    "head-03-bold": "head-03-bold",
+    "head-04-regular": "head-04-regular",
+    "head-04-bold": "head-04-bold",
+    "head-05-regular": "head-05-regular",
+    "head-05-bold": "head-05-bold",
+  },
+  /*
     Body: {
         'body-01-regular': 'body-01-regular',
         'body-01-medium': 'body-01-medium',
@@ -52,34 +52,34 @@ const Typo = {
         'body-05-medium-compact': 'body-05-medium-compact',
         'body-05-bold-compact': 'body-05-bold-compact',
     },*/
-    //어디까지 storybook에서 보여줄지 결정
+  //어디까지 storybook에서 보여줄지 결정
 };
 
 export const Docs = () => <></>;
 
 Docs.parameters = {
-    docs: {
-        page: () => (
-            <>
-                <Meta title="Components/Typography" />
-                {Object.entries(Typo).map(([styles, typo]) => (
-                    <div key={styles}>
-                        <div className="py-5 text-black font-bold">{styles}</div>
-                        <GridBox className="text-black font-bold py-4" col={2}>
-                            <div>classname</div>
-                            <div>example</div>
-                        </GridBox>
-                        {Object.keys(typo).map((typo) => (
-                            <GridBox col={2}>
-                                <div className="text-slate-500">{typo}</div>
-                                <div className={`py-2.5 text-black ${typo}`} key={typo}>
-                                    안녕하세요. 팀 얼루가입니다.
-                                </div>
-                            </GridBox>
-                        ))}
-                    </div>
-                ))}
-            </>
-        ),
-    },
+  docs: {
+    page: () => (
+      <>
+        <Meta title="Components/Typography" />
+        {Object.entries(Typo).map(([styles, typo]) => (
+          <div key={styles}>
+            <div className="py-5 text-black font-bold">{styles}</div>
+            <GridBox className="text-black font-bold py-4" col={2}>
+              <div>classname</div>
+              <div>example</div>
+            </GridBox>
+            {Object.keys(typo).map(typo => (
+              <GridBox col={2}>
+                <div className="text-slate-500">{typo}</div>
+                <div className={`py-2.5 text-black ${typo}`} key={typo}>
+                  안녕하세요. 팀 얼루가입니다.
+                </div>
+              </GridBox>
+            ))}
+          </div>
+        ))}
+      </>
+    ),
+  },
 };
