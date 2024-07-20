@@ -1,35 +1,34 @@
-import { TestButtonProps, buttonStyle } from "./Button";
+import { ButtonProps, buttonStyle } from "./Button_Mobile";
 
-export const getStateInfo = (args: TestButtonProps, styles: any) => {
-  const type = args.type || "primary";
-  let state = "default";
-
-  if (args.inactive) {
-    state = "disabled";
-  } else if (args.isClicked) {
-    state = "focus";
-  } else if (args.isClicked === false && !args.inactive) {
-    state = "active";
-  }
-
-  return styles[type][state] || styles[type].default || "";
+export const getStateInfo = (args: ButtonProps, styles: any) => {
+  const style = args.style || "primary";
+  return styles[style][args.state] || styles[style].enabled || "";
 };
 
-export const getPropsInfo = (args: TestButtonProps, color: string) => {
-  let variant = args.variant || "default";
-  let type = args.type || "primary";
+export const getPropsInfo = (args: ButtonProps, color: string) => {
+  const style = args.style || "primary";
+  const stateClass = buttonStyle[style][args.state] || "";
+  const className = `${stateClass}`;
 
-  let className = `${color} ${buttonStyle[type]?.[variant] || ""}`;
   return (
     <div style={{ marginTop: "16px" }}>
-      <strong>Type:</strong> {args.type}
+      <strong>Style:</strong> {args.style}
+      {args.size && (
+        <>
+          <br />
+          <strong>Size:</strong> {args.size}
+        </>
+      )}
       <br />
-      <strong>Variant:</strong> {args.variant}
+      <strong>State:</strong> {args.state}
       <br />
-      <strong>Size:</strong> {args.size}
+      <strong>Round:</strong> {args.round ? "true" : "false"}
       <br />
-      <strong>State:</strong>{" "}
-      {args.inactive ? "disabled" : args.isClicked ? "focus" : "active"}
+      <strong>Left Icon:</strong> {args.leftIcon ? "true" : "false"}
+      <br />
+      <strong>Text1:</strong> {args.text1}
+      <br />
+      <strong>Text2:</strong> {args.text2}
       <br />
       <strong>ClassName:</strong> {className}
     </div>
