@@ -35,8 +35,8 @@
     --button-primary: var(--black-default);
     --button-primary-hover: var(--hover-black);
     --button-primary-active: var(--gray-100);
-    --button-secondary: var(--gray-70);
-    --button-secondary-hover: var(--hover-gray-70);
+    --button-secondary: var(--gray-20);
+    --button-secondary-hover: var(--hover-gray-20);
     --button-secondary-active: var(--gray-50);
     --button-border: var(--gray-20);
     --button-border-hover: var(--hover-gray-20);
@@ -204,7 +204,7 @@
     --button-primary: var(--black-default);
     --button-primary-hover: var(--hover-black);
     --button-primary-active: var(--gray-100);
-    --button-secondary: var(--gray-70);
+    --button-secondary: var(--gray-20);
     --button-secondary-hover: var(--hover-gray-70);
     --button-secondary-active: var(--gray-50);
     --button-border: var(--gray-20);
