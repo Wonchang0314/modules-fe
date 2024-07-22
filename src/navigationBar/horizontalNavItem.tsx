@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { iconKey, icons } from "src/icon/Icon";
 
 type HorizontalNavItemProps = {
