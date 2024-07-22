@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Divider from "src/divider/Divider";
 
-export interface ButtonProps {
+export interface ButtonPropsPC {
   style: "primary" | "secondary" | "border" | "ghost";
-  type: "text-icon" | "icon" | "text" | "text-text";
+  type: "text" | "text-text" | "icon" | "icon-left" | "icon-right";
   state: "enabled" | "hover" | "focus" | "active" | "disabled";
-  leftIcon: boolean;
   round: boolean;
   text1: string;
   text2: string;
   onClick?: () => void;
 }
 
-export const buttonStyle = {
+export const buttonStylePC = {
   primary: {
     enabled: "bg-button-primary text-text-on-color",
     hover: "bg-button-primary-hover text-text-on-color",
@@ -46,16 +45,46 @@ export const buttonStyle = {
   },
 };
 
+const borderColors = {
+  primary: {
+    enabled: "#8D8D80",
+    active: "#8D8D80",
+    disabled: "#8D8D8D",
+    hover: "#8D8D80",
+    focus: "#8D8D80",
+  },
+  secondary: {
+    enabled: "#8D8D80",
+    active: "#8D8D80",
+    disabled: "#8D8D8D",
+    hover: "#8D8D80",
+    focus: "#8D8D80",
+  },
+  border: {
+    enabled: "#8D8D8D",
+    active: "#8D8D8D",
+    disabled: "#C6C6C6",
+    hover: "#8D8D8D",
+    focus: "#8D8D8D",
+  },
+  ghost: {
+    enabled: "#8D8D8D",
+    active: "#8D8D8D",
+    disabled: "#C6C6C6",
+    hover: "#8D8D8D",
+    focus: "#8D8D8D",
+  },
+};
+
 export default function Button({
   style = "primary",
   type = "text-text",
   state = "enabled",
-  leftIcon = false,
   round = false,
   text1 = "Text1",
   text2 = "Text2",
   onClick,
-}: ButtonProps) {
+}: ButtonPropsPC) {
   const [buttonState, setButtonState] = useState(state);
 
   useEffect(() => {
@@ -98,12 +127,13 @@ export default function Button({
     }
   };
 
-  const styleClass = buttonStyle[style][buttonState];
+  const styleClass = buttonStylePC[style][buttonState];
   const roundClass = round ? "rounded-radius-circle" : "rounded-radius-04";
+  const borderColor = borderColors[style][buttonState];
 
   return (
     <button
-      className={`button flex justify-between min-w-[64px] max-w-[1120px] h-[64px] label-04-bold pt-spacing-05 pr-spacing-08 pb-spacing-05 pl-spacing-08 gap-spacing-04 ${styleClass} ${roundClass}`}
+      className={`button flex min-w-[64px] max-w-[1120px] h-[64px] label-04-bold pt-spacing-05 pr-spacing-08 pb-spacing-05 pl-spacing-08 gap-spacing-04 ${styleClass} ${roundClass}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseDown={handleMouseDown}
@@ -113,14 +143,22 @@ export default function Button({
       onClick={onClick}
       disabled={buttonState === "disabled"}
     >
-      {leftIcon && <span className="left-icon">+</span>}
-      {text1}
-
+      {type === "icon-left" && <span className="left-icon">+</span>}
+      {type === "icon-left" && <span>{text1}</span>}
+      {type === "icon-right" && <span>{text1}</span>}
+      {type === "icon-right" && <span className="right-icon">+</span>}
+      {type === "text" && <span>{text1}</span>}
+      {type === "text-text" && <span>{text1}</span>}
       {type === "text-text" && (
-        <Divider type="Vertical" height={16} subheader="|" />
+        <Divider
+          type="Vertical"
+          height={16}
+          subheader="|"
+          borderColor={borderColor}
+        />
       )}
-
-      {type === "text-text" && text2 && <p>{text2}</p>}
+      {type === "text-text" && <span>{text2}</span>}
+      {type === "icon" && <span className="icon">+</span>}
     </button>
   );
 }

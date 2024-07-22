@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Divider from "src/divider/Divider";
 
-export interface ButtonProps {
-  size: "L" | "M" | "S";
+export interface ButtonPropsMobile {
+  size: "L" | "M";
   style:
     | "primary"
     | "secondary"
@@ -12,9 +12,8 @@ export interface ButtonProps {
     | "danger_border"
     | "danger_ghost"
     | "elevated_primiary";
-  type: "text-icon" | "icon" | "text" | "text-text";
-  state: "enabled" | "hover" | "active" | "disabled";
-  leftIcon: boolean;
+  type: "text" | "text-text" | "icon" | "icon-left" | "icon-right";
+  state: "enabled" | "active" | "disabled";
   round: boolean;
   text1: string;
   text2: string;
@@ -23,17 +22,15 @@ export interface ButtonProps {
 
 export const buttonSize = {
   L: "min-w-[64px] max-w-[343px] h-[64px] pt-spacing-05 pr-spacing-07 pb-spacing-05 pl-spacing-07 gap-spacing-04",
-  M: "min-w-[64px] max-w-[343px] h-[40px] pt-3 pr-spacing-04 pb-3 pl-spacing-04 gap-spacing-01",
-  S: "min-w-[64px] max-w-[343px] h-[32px]",
+  M: "min-w-[64px] max-w-[343px] h-[40px] pt-3 pr-spacing-04 pb-3 pl-spacing-04 gap-spacing-02",
 };
 
 export const buttonLabel = {
   L: "label-03-bold",
   M: "label-02-bold",
-  S: "label-02-bold",
 };
 
-export const buttonStyle = {
+export const buttonStyleMobile = {
   primary: {
     enabled: "bg-button-primary text-text-on-color",
     hover: "bg-button-primary-hover text-text-on-color",
@@ -78,9 +75,9 @@ export const buttonStyle = {
 
   ghost: {
     enabled: "text-text-primary",
-    hover: "bg-Gray-50",
+    hover: "bg-text-Gray-50",
     disabled: "text-text-disabled",
-    active: "border border-Gray-90",
+    active: "border border-text-Gray-90",
   },
 
   elevated_primiary: {
@@ -91,37 +88,67 @@ export const buttonStyle = {
   },
 };
 
+const borderColors = {
+  primary: {
+    enabled: "#8D8D80",
+    active: "#8D8D80",
+    disabled: "#8D8D8D",
+  },
+  secondary: {
+    enabled: "#8D8D8D",
+    active: "#8D8D8D",
+    disabled: "#8D8D8D",
+  },
+  border: {
+    enabled: "#8D8D8D",
+    active: "#8D8D8D",
+    disabled: "#C6C6C6",
+  },
+  ghost: {
+    enabled: "#8D8D8D",
+    active: "#8D8D8D",
+    disabled: "#C6C6C6",
+  },
+  danger_primary: {
+    enabled: "#E0E0E0",
+    active: "#E0E0E0",
+    disabled: "#E0E0E0",
+  },
+  danger_border: {
+    enabled: "#DA1E28",
+    active: "#E0E0E0",
+    disabled: "#C6C6C6",
+  },
+  danger_ghost: {
+    enabled: "#E0E0E0",
+    active: "#E0E0E0",
+    disabled: "#C6C6C6",
+  },
+  elevated_primiary: {
+    enabled: "#8D8D8D",
+    active: "#8D8D8D",
+    disabled: "#8D8D8D",
+  },
+};
+
 export default function Button({
   size = "L",
   style = "primary",
-  type = "text-text",
+  type = "text",
   state = "enabled",
-  leftIcon = false,
   round = false,
   text1 = "Text1",
   text2 = "Text2",
   onClick,
-}: ButtonProps) {
+}: ButtonPropsMobile) {
   const [buttonState, setButtonState] = useState(state);
 
   useEffect(() => {
     setButtonState(state);
   }, [state]);
 
-  const handleMouseEnter = () => {
-    if (buttonState === "enabled") {
-      setButtonState("hover");
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (buttonState === "hover") {
-      setButtonState("enabled");
-    }
-  };
-
   const handleMouseDown = () => {
-    if (buttonState === "hover" || buttonState === "enabled") {
+    if (buttonState === "enabled") {
       setButtonState("active");
     }
   };
@@ -134,28 +161,34 @@ export default function Button({
 
   const sizeClass = buttonSize[size];
   const labelClass = buttonLabel[size];
-  const styleClass = buttonStyle[style][buttonState];
+  const styleClass = buttonStyleMobile[style][buttonState];
   const roundClass = round ? "rounded-radius-circle" : "rounded-radius-04";
+  const borderColor = borderColors[style][buttonState];
 
   return (
     <button
-      className={`button flex items-center ${labelClass} ${sizeClass} ${styleClass} ${roundClass}`}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      className={`button flex ${labelClass} ${sizeClass} ${styleClass} ${roundClass}`}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onClick={onClick}
       disabled={buttonState === "disabled"}
     >
-      {leftIcon && <span className="left-icon">+</span>}
-
-      {text1}
-
+      {type === "icon-left" && <span className="left-icon">+</span>}
+      {type === "icon-left" && <span>{text1}</span>}
+      {type === "icon-right" && <span>{text1}</span>}
+      {type === "icon-right" && <span className="right-icon">+</span>}
+      {type === "text" && <span>{text1}</span>}
+      {type === "text-text" && <span>{text1}</span>}
       {type === "text-text" && (
-        <Divider type="Vertical" height={16} subheader="|" />
+        <Divider
+          type="Vertical"
+          height={16}
+          subheader="|"
+          borderColor={borderColor}
+        />
       )}
-
-      {type === "text-text" && text2 && <p>{text2}</p>}
+      {type === "text-text" && <span>{text2}</span>}
+      {type === "icon" && <span className="icon">+</span>}
     </button>
   );
 }

@@ -1,6 +1,21 @@
 import { Meta, StoryFn } from "@storybook/react";
-import Button, { buttonStyle } from "./Button_Mobile";
-import { getStateInfo, getPropsInfo } from "./getPropsInfo";
+import ButtonMobile, {
+  ButtonPropsMobile,
+  buttonStyleMobile as buttonStyleMobile,
+} from "./ButtonMobile";
+import ButtonPC, {
+  ButtonPropsPC,
+  buttonStylePC as buttonStylePC,
+} from "./ButtonPC";
+import {
+  getMobileStateInfo,
+  getPcStateInfo,
+  getPropsMobileInfo,
+  getPropsPCInfo,
+} from "./getPropsInfo";
+import Button from "./ButtonMobile";
+
+type Button = ButtonPropsMobile | ButtonPropsPC;
 
 export default {
   title: "Components/Button",
@@ -9,86 +24,38 @@ export default {
     layout: "centered",
     backgrounds: { default: "light" },
   },
-  argTypes: {
-    size: {
-      control: {
-        type: "select",
-        options: ["L", "M", "S"],
-      },
-    },
-    style: {
-      control: {
-        type: "select",
-        options: [
-          "primary",
-          "secondary",
-          "border",
-          "ghost",
-          "danger_primary",
-          "danger_border",
-          "danger_ghost",
-          "elevated_primiary",
-        ],
-      },
-    },
-    type: {
-      control: {
-        type: "select",
-        options: ["text-icon", "icon", "text", "text-text"],
-      },
-    },
-    state: {
-      control: {
-        type: "select",
-        options: ["enabled", "hover", "active", "disabled"],
-      },
-    },
-    leftIcon: {
-      control: "boolean",
-    },
-    round: {
-      control: "boolean",
-    },
-    text1: {
-      control: "text",
-    },
-    text2: {
-      control: "text",
-    },
-  },
 } as Meta<typeof Button>;
 
-const Template: StoryFn<typeof Button> = args => {
-  const color = getStateInfo(args, buttonStyle);
+const TemplateMobile: StoryFn<typeof ButtonMobile> = args => {
+  const color = getMobileStateInfo(args, buttonStyleMobile);
 
   return (
     <>
-      <Button {...args} />
-      {getPropsInfo(args, color)}
+      <ButtonMobile {...args} />
+      {getPropsMobileInfo(args, color)}
     </>
   );
 };
 
-export const CustomButtonMobile = Template.bind({});
+export const CustomButtonMobile = TemplateMobile.bind({});
 CustomButtonMobile.args = {
   size: "L",
   style: "primary",
   type: "text",
   state: "enabled",
-  leftIcon: false,
   round: false,
   text1: "Text1",
   text2: "Text2",
   onClick: undefined,
 };
 
-const TemplatePC: StoryFn<typeof Button> = args => {
-  const color = getStateInfo(args, buttonStyle);
+const TemplatePC: StoryFn<typeof ButtonPC> = args => {
+  const color = getPcStateInfo(args, buttonStylePC);
 
   return (
     <>
-      <Button {...args} />
-      {getPropsInfo(args, color)}
+      <ButtonPC {...args} />
+      {getPropsPCInfo(args, color)}
     </>
   );
 };
@@ -96,9 +63,8 @@ const TemplatePC: StoryFn<typeof Button> = args => {
 export const CustomButtonPC = TemplatePC.bind({});
 CustomButtonPC.args = {
   style: "primary",
-  type: "text-text",
+  type: "text",
   state: "enabled",
-  leftIcon: false,
   round: false,
   text1: "Text1",
   text2: "Text2",
