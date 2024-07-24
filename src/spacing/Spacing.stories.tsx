@@ -1,7 +1,7 @@
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 import SpacingLayout, { SpacingProps, spacingConfig } from "./SpacingLayout";
-import TestButton from "../../Navigation/button/Button";
+import TestButton from "../button/Button";
 
 export default {
   title: "Foundation/Spacing",
