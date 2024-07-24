@@ -34,7 +34,7 @@ export default {
   },
 } as Meta<typeof SpacingLayout>;
 
-const Template: StoryFn<SpacingProps> = (args) => {
+const Template: StoryFn<SpacingProps> = args => {
   return (
     <SpacingLayout {...args}>
       <TestButton size="L" text="Test Spacing" type="primary" />

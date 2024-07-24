@@ -1,8 +1,8 @@
 import { ChangeEvent, Suspense, useEffect, useState } from "react";
-import ErrorIcon from "../icon/svg/status/warning-circle-filled.svg";
-import WarnIcon from "../icon/svg/status/warning-triangle-filled.svg";
+import ErrorIcon from "../../icon/svg/status/warning-circle-filled.svg";
+import WarnIcon from "../../icon/svg/status/warning-triangle-filled.svg";
 import TextAreaSkeleton from "./textareaSkeleton";
-import { InputStateType } from "src/textfield/textfield";
+import { InputStateType } from "../textfield/textfield";
 
 type TextFieldProps = {
   value: string;
