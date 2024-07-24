@@ -119,7 +119,7 @@ export default function NumberStepper({
       >
         <div
           className={`
-          bg-[#fff] w-full rounded-radius-03 flex items-center justify-between gap-spacing-02 border 
+          bg-[#fff] rounded-radius-03 flex items-center justify-between gap-spacing-02 border 
           ${widthStyle[width][size]}
           ${sizeStyle[size]["padding"]} 
           ${stateStyle[state]["border"]}
