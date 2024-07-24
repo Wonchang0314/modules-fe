@@ -1,7 +1,7 @@
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 import SpacingLayout, { SpacingProps, spacingConfig } from "./SpacingLayout";
-import TestButton from "../button/Button";
+import TestButton from "../../button/Button";
 
 export default {
   title: "Foundation/Spacing",
@@ -34,7 +34,7 @@ export default {
   },
 } as Meta<typeof SpacingLayout>;
 
-const Template: StoryFn<SpacingProps> = (args) => {
+const Template: StoryFn<SpacingProps> = args => {
   return (
     <SpacingLayout {...args}>
       <TestButton size="L" text="Test Spacing" type="primary" />
