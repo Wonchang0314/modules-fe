@@ -196,6 +196,7 @@ export default function TextField({
             onChange={onChangeText}
             type="text"
             readOnly={state === "readOnly"}
+            spellCheck={false}
             placeholder={placeholder}
             disabled={state === "disabled"}
             onFocus={() => setIsFocused(true)}
@@ -205,6 +206,7 @@ export default function TextField({
               placeholder:text-[#A8A8A8] disabled:placeholder:text-[#161616]/25
               disabled:bg-[#fff] disabled:text-[#161616]/25
               text-[#161616]
+              read-only:placeholder:text-text-secondary
               ${sizeStyle[size]["inputFont"]}
             `}
           />
