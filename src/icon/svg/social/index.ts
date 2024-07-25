@@ -1,0 +1,10 @@
+export { default as apple } from "./apple.svg";
+export { default as google_color } from "./google-color.svg";
+export { default as google_filled } from "./google-filled.svg";
+export { default as instagram_color } from "./instagram-color.svg";
+export { default as instagram_filled } from "./instagram-filled.svg";
+export { default as kakaotalk_color } from "./kakaotalk-color.svg";
+export { default as kakaotalk_filled } from "./kakaotalk-filled.svg";
+export { default as meta_color } from "./meta-color.svg";
+export { default as meta_filled } from "./meta-filled.svg";
+export { default as kakaotalk_login } from "./kakaotalk-login.svg";
