@@ -83,13 +83,15 @@ export default function NumberStepper({
   const onClickLeftIcon = () => {
     if (count === 1) {
       if (width === "short") onClickTrashIcon && onClickTrashIcon();
-    } else {
+    } else if (state === "readOnly" || state === "disabled") return;
+    else {
       setCount(count - 1);
       onClickMinusIcon && onClickMinusIcon();
     }
   };
 
   const onClickRightIcon = () => {
+    if (state === "readOnly" || state === "disabled") return;
     onClickPlusIcon && onClickPlusIcon();
     setCount(count + 1);
   };

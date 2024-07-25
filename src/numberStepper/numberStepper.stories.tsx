@@ -10,7 +10,7 @@ export default {
     docs: {
       description: {
         component:
-          "참고<br/>onClickMinusIcon & onClickPlusIcon 에는 기본적으로 count값을 증감하는 기능이 포함되어 있습니다.<br/>추가하고 싶은 함수가 있는 경우에만 활용하시면 됩니다.",
+          "참고<br/>- onClickMinusIcon & onClickPlusIcon 에는 기본적으로 count값을 증감하는 기능이 포함되어 있습니다.<br/>추가하고 싶은 함수가 있는 경우에만 활용하시면 됩니다.<br/><br/>- disabled, readOnly인 경우에도 onClickTrashIcon은 실행 가능합니다.",
       },
     },
   },
