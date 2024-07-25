@@ -69,16 +69,16 @@ const stateStyle = {
   warning: {
     labelColor: "text-[#6F6F6F]",
     descriptionColor: "text-[#161616]",
-    iconColor: "#F1C21B",
     // labelColor: "text-secondary",
     // descriptionColor: "text-primary",
+    iconColor: "fill-support-warning",
   },
   error: {
     labelColor: "text-[#6F6F6F]",
     descriptionColor: "text-[#DA1E28]",
-    iconColor: "#DA1E28",
     // labelColor: "text-secondary",
     // descriptionColor: "text-error",
+    iconColor: "fill-support-error",
   },
   disabled: {
     labelColor: "text-[#161616]/25",
@@ -234,14 +234,14 @@ export default function TextField({
             <ErrorIcon
               width={sizeStyle[size]["iconSize"]}
               height={sizeStyle[size]["iconSize"]}
-              color={stateStyle[state]["iconColor"]}
+              className={stateStyle[state]["iconColor"]}
             />
           )}
           {state === "warning" && (
             <WarnIcon
               width={sizeStyle[size]["iconSize"]}
               height={sizeStyle[size]["iconSize"]}
-              color={stateStyle[state]["iconColor"]}
+              className={stateStyle[state]["iconColor"]}
             />
           )}
         </div>
