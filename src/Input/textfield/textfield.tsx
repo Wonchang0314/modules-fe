@@ -111,47 +111,25 @@ export default function TextField({
 
   const handleBorderStyle = () => {
     if (style === "outlined") {
+      let radiusStyle;
+      radiusStyle = size === "S" ? " rounded-radius-03" : " rounded-radius-04";
       switch (state) {
         case "disabled":
-          setInputBorder("border border-[#8D8D8D] rounded-radius-04");
-          // border border-strong-01 rounded-radius-04,
+          setInputBorder("border border-border-strong-01" + radiusStyle);
           break;
         case "readOnly":
-          setInputBorder("border border-[#E0E0E0] rounded-radius-04");
-          // border border-tile-01 rounded-radius-04,
+          setInputBorder("border border-border-tile-01" + radiusStyle);
           break;
         case "error":
-          setInputBorder("border-2 border-[#DA1E28] rounded-radius-04");
-          // border-2 border-error rounded-radius-04,
+          setInputBorder("border-2 border-border-error" + radiusStyle);
           break;
         case "warning":
-          setInputBorder("border-2 border-[#8D8D8D] rounded-radius-04");
-          // border-2 border-strong-01 rounded-radius-04,
+          setInputBorder("border-2 border-border-strong-01" + radiusStyle);
           break;
         default:
-          if (isFocused) {
-            switch (size) {
-              case "S":
-                setInputBorder("border-2 border-[#131313] rounded-radius-03");
-                break;
-              case "M":
-              case "L":
-                setInputBorder("border-2 border-[#131313] rounded-radius-04");
-                break;
-            }
-          } else {
-            switch (size) {
-              case "S":
-                setInputBorder("border border-[#C6C6C6] rounded-radius-03");
-                break;
-              case "M":
-              case "L":
-                setInputBorder("border border-[#C6C6C6] rounded-radius-04");
-                break;
-            }
-          }
-          // border border-focus-default rounded-radius-04,
-          // border border-subtle-01 rounded-radius-04,
+          if (isFocused)
+            setInputBorder("border border-strong-01" + radiusStyle);
+          else setInputBorder("border border-border-subtle-01" + radiusStyle);
           break;
       }
     } else {
@@ -184,7 +162,7 @@ export default function TextField({
 
   useEffect(() => {
     handleBorderStyle();
-  }, [isFocused, style]);
+  }, [isFocused, style, state, size]);
 
   const onChangeText = (e: ChangeEvent<HTMLInputElement>) => {
     onChange(e);
