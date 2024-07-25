@@ -153,14 +153,14 @@ export default function TextArea({
             <ErrorIcon
               width={sizeStyle[size]["iconSize"]}
               height={sizeStyle[size]["iconSize"]}
-              color={stateStyle[state]["iconColor"]}
+              className={stateStyle[state]["iconColor"]}
             />
           )}
           {state === "warning" && (
             <WarnIcon
               width={sizeStyle[size]["iconSize"]}
               height={sizeStyle[size]["iconSize"]}
-              color={stateStyle[state]["iconColor"]}
+              className={stateStyle[state]["iconColor"]}
             />
           )}
         </div>
