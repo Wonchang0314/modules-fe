@@ -42,44 +42,29 @@ const sizeStyle = {
 
 const stateStyle = {
   active: {
-    border: "border-[#C6C6C6]",
-    textColor: "text-[#161616]",
-    iconColor: "fill-[#262626]",
-    // border: 'border-subtle-01'
-    // textColor: 'text-primary'
-    // iconColor: 'fill-icon-primary'
+    border: "border-border-subtle-01",
+    textColor: "text-text-primary",
+    iconColor: "fill-icon-primary",
   },
   warning: {
-    border: "border-[#F1C21B]",
-    textColor: "text-[#161616]",
-    iconColor: "fill-[#262626]",
-    // border: 'border-support-warning'
-    // textColor: 'text-primary'
-    // iconColor: 'fill-icon-primary'
+    border: "border-support-warning",
+    textColor: "text-text-primary",
+    iconColor: "fill-icon-primary",
   },
   error: {
-    border: "border-[#DA1E28]",
-    textColor: "text-[#DA1E28]",
-    iconColor: "fill-[#DA1E28]",
-    // border: 'border-error'
-    // textColor: 'text-error'
-    // iconColor: 'fill-icon-error'
+    border: "border-border-error",
+    textColor: "text-text-error",
+    iconColor: "fill-icon-error",
   },
   disabled: {
-    border: "border-[#C6C6C6]",
-    textColor: "text-[#161616]/25",
-    iconColor: "fill-[#161616]/25",
-    // border: 'border-disabled'
-    // textColor: 'text-disabled'
-    // iconColor: 'fill-icon-disabled'
+    border: "border-border-disabled",
+    textColor: "text-text-disabled",
+    iconColor: "fill-icon-disabled",
   },
   readOnly: {
-    border: "border-[#C6C6C6]",
-    textColor: "text-[#C6C6C6]",
-    iconColor: "fill-[#161616]/25",
-    // border: 'border-subtle-01'
-    // textColor: 'text-secondary',
-    // iconColor: 'fill-icon-disabled'
+    border: "border-border-subtle-01",
+    textColor: "text-text-secondary",
+    iconColor: "fill-icon-disabled",
   },
 };
 
@@ -119,7 +104,7 @@ export default function NumberStepper({
       >
         <div
           className={`
-          bg-[#fff] rounded-radius-03 flex items-center justify-between gap-spacing-02 border 
+          bg-white rounded-radius-03 flex items-center justify-between gap-spacing-02 border 
           ${widthStyle[width][size]}
           ${sizeStyle[size]["padding"]} 
           ${stateStyle[state]["border"]}
@@ -142,18 +127,17 @@ export default function NumberStepper({
               )}
             </div>
             {width === "long" && (
-              <div className="w-[1px] h-4 bg-[#C6C6C6] mr-spacing-02" />
+              <div className="w-[1px] h-4 bg-border-subtle-01 mr-spacing-02" />
             )}
           </div>
           <div
-            className={`min-w-6 text-center text-label-02-regular text-[#161616] ${stateStyle[state]["textColor"]}`}
+            className={`min-w-6 text-center text-label-02-regular text-primary ${stateStyle[state]["textColor"]}`}
           >
             {count}
           </div>
-          {/* <div className={`min-w-6 text-center text-label-02-regular text-primary ${stateStyle[state]['textColor']}`}>{value}</div> */}
           <div className="flex gap-spacing-02 items-center">
             {width === "long" && (
-              <div className="w-[1px] h-4 bg-[#C6C6C6] mr-spacing-02" />
+              <div className="w-[1px] h-4 bg-border-subtle-01 mr-spacing-02" />
             )}
             <div onClick={onClickRightIcon}>
               <PlusIcon
@@ -175,13 +159,12 @@ export default function NumberStepper({
               <WarnIcon width={20} height={20} className="fill-support-error" />
               <div
                 className={`
-              text-helpertext-02-regular text-[#DA1E28] 
+              text-helpertext-02-regular text-text-error 
               ${descriptionAlign === "right" ? "text-end" : "text-start"}
             `}
               >
                 {description}
               </div>
-              {/* <div className='text-helpertext-02-regular text-error'>{description}</div> */}
             </div>
           )}
           {state === "warning" && (
@@ -198,13 +181,12 @@ export default function NumberStepper({
               />
               <div
                 className={`
-              text-helpertext-02-regular text-[#F1C21B] 
+              text-helpertext-02-regular text-support-warning 
               ${descriptionAlign === "right" ? "text-end" : "text-start"}
             `}
               >
                 {description}
               </div>
-              {/* <div className='text-helpertext-02-regular text-support-warning'>{description}</div> */}
             </div>
           )}
         </>
