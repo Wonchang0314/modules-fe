@@ -105,7 +105,7 @@ export default function TextArea({
 
   useEffect(() => {
     handleBorderStyle();
-  }, [isFocused]);
+  }, [isFocused, state]);
 
   const onChangeText = (e: ChangeEvent<HTMLTextAreaElement>) => {
     onChange(e);
