@@ -22,7 +22,7 @@ export interface ButtonPropsMobile {
 
 export const buttonSize = {
   L: "min-w-[64px] max-w-[343px] h-[64px] pt-spacing-05 pr-spacing-07 pb-spacing-05 pl-spacing-07 gap-spacing-04",
-  M: "min-w-[64px] max-w-[343px] h-[40px] pt-3 pr-spacing-04 pb-3 pl-spacing-04 gap-spacing-02",
+  M: "min-w-[32px] max-w-[343px] h-[40px] pt-3 pr-spacing-04 pb-3 pl-spacing-04 gap-spacing-02",
 };
 
 export const buttonLabel = {
@@ -36,19 +36,21 @@ export const buttonStyleMobile = {
     hover: "bg-button-primary-hover text-text-on-color",
     disabled: "bg-button-disabled text-text-on-color-disabled",
     active:
-      "border border-strong-01 bg-button-primary-active text-text-on-color",
+      "border border-border-strong-01 bg-button-primary-active text-text-on-color",
   },
   secondary: {
     enabled: "bg-button-secondary text-text-secondary",
     hover: "bg-button-secondary-hover text-text-secondary",
     disabled: "bg-button-disabled text-text-on-color-disabled",
-    active: "border border-strong-01 bg-button-secondary text-text-secondary",
+    active:
+      "border border-border-strong-01 bg-button-secondary text-text-secondary",
   },
   danger_primary: {
     enabled: "bg-button-danger text-text-on-color",
     hover: "bg-button-danger-hover text-text-on-color hover",
     disabled: "bg-button-disabled text-text-on-color-disabled",
-    active: "border border-strong-01 bg-button-danger text-text-on-color",
+    active:
+      "border border-border-strong-01 bg-button-danger text-text-on-color",
   },
   danger_border: {
     enabled: "border border-button-danger text-text-error",
@@ -56,7 +58,7 @@ export const buttonStyleMobile = {
       "border border-strong-selected-01 bg-button-danger-hover text-text-on-color-hover",
     disabled: "border border-disabled text-text-disabled",
     active:
-      "border border-strong-selected-01 bg-button-danger text-text-on-color",
+      "border border-border-strong-selected-01 bg-button-danger text-text-on-color",
   },
   danger_ghost: {
     enabled: "text-text-error",
@@ -70,14 +72,14 @@ export const buttonStyleMobile = {
       "border border-button-border-hover bg-button-primary-hover text-text-on-color-hover",
     disabled: "border border-border-disabled text-text-disabled",
     active:
-      "border border-strong-selected-01 bg-button-primary text-text-on-color",
+      "border border-border-strong-selected-01 bg-button-primary text-text-on-color",
   },
 
   ghost: {
     enabled: "text-text-primary",
     hover: "bg-text-Gray-50",
     disabled: "text-text-disabled",
-    active: "border border-text-Gray-90",
+    active: "border-2 border-Gray-90 text-text-primary",
   },
 
   elevated_primiary: {
@@ -162,7 +164,12 @@ export default function Button({
   const sizeClass = buttonSize[size];
   const labelClass = buttonLabel[size];
   const styleClass = buttonStyleMobile[style][buttonState];
-  const roundClass = round ? "rounded-radius-circle" : "rounded-radius-04";
+  const roundClass =
+    style === "ghost" && buttonState === "active"
+      ? ""
+      : round
+      ? "rounded-radius-circle"
+      : "rounded-radius-04";
   const borderColor = borderColors[style][buttonState];
 
   return (

@@ -14,7 +14,7 @@ export interface ButtonPropsPC {
 export const buttonStylePC = {
   primary: {
     enabled: "bg-button-primary text-text-on-color",
-    hover: "bg-button-primary-hover text-text-on-color",
+    hover: "bg-button-primary-hover text-text-on-color-hover",
     focus: "bg-button-primary-active text-text-on-color active",
     disabled: "bg-button-disabled text-text-on-color-disabled",
     active:
@@ -38,7 +38,7 @@ export const buttonStylePC = {
   },
   ghost: {
     enabled: "text-text-primary",
-    hover: "bg-Gray-50",
+    hover: "bg-button-secondary",
     focus: "bg-Gray-50 text-text-primary",
     disabled: "text-text-disabled",
     active: "border border-Gray-90",
@@ -133,7 +133,7 @@ export default function Button({
 
   return (
     <button
-      className={`button flex min-w-[64px] max-w-[1120px] h-[64px] label-04-bold pt-spacing-05 pr-spacing-08 pb-spacing-05 pl-spacing-08 gap-spacing-04 ${styleClass} ${roundClass}`}
+      className={`button flex items-center min-w-[64px] max-w-[1120px] h-[64px] label-04-bold pt-spacing-05 pr-spacing-08 pb-spacing-05 pl-spacing-08 gap-spacing-04 ${styleClass} ${roundClass}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseDown={handleMouseDown}
