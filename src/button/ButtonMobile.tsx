@@ -83,10 +83,12 @@ export const buttonStyleMobile = {
   },
 
   elevated_primiary: {
-    enabled: "bg-button-primary text-text-on-color",
-    hover: "bg-button-primary-hover text-text-on-color",
-    disabled: "bg-button-disabled text-text-on-color-disabled",
-    active: "bg-button-primary text-text-on-color",
+    enabled: "bg-button-primary text-text-on-color shadow-elevation-light-1",
+    hover:
+      "bg-button-primary-hover text-text-on-color shadow-elevation-light-1",
+    disabled:
+      "bg-button-disabled text-text-on-color-disabled shadow-elevation-light-1",
+    active: "bg-button-primary text-text-on-color shadow-elevation-light-1",
   },
 };
 
