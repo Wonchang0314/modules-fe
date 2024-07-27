@@ -1,11 +1,12 @@
 export interface ProgressBarProps {
   size: "S" | "L";
   value: number;
-  state?: "success" | "error";
+  state?: "default" | "success" | "error";
   label?: string;
 }
 
 const bgStyle = {
+  default: "bg-support-info",
   success: "bg-support-success",
   error: "bg-border-error",
 };
@@ -13,7 +14,7 @@ const bgStyle = {
 export default function ProgressBar({
   size,
   value,
-  state,
+  state = "default",
   label,
 }: ProgressBarProps) {
   return (
@@ -26,10 +27,8 @@ export default function ProgressBar({
         style={{ height: size === "S" ? 4 : 8 }}
       >
         <div
-          className={`absolute h-full top-0 left-0 bg-support-info rounded-full ${
-            state ? bgStyle[state] : "bg-support-info"
-          }`}
-          style={{ width: `${state ? 100 : value}%` }}
+          className={`absolute h-full top-0 left-0 rounded-full ${bgStyle[state]}`}
+          style={{ width: `${state === "default" ? value : 100}%` }}
         />
       </div>
     </div>
