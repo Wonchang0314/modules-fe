@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { Button, ConfigProvider, DatePicker as CustomDatePicker } from "antd";
 import locale from "antd/locale/ko_KR";
 import dayjs from "dayjs";
@@ -50,6 +50,10 @@ export default function DatePicker({ state }: CustomDatePickerProps) {
   const [showPanel, setShowPanel] = useState<boolean>(true);
   const [selectedDate, setSelectedDate] = useState<string>("");
 
+  const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
+    setSelectedDate(e.target.value);
+  };
+
   return (
     <div className="flex flex-col gap-spacing-02 w-[332px]">
       <div className={`pl-4 ${stateStyle[state]["labelColor"]}`}>label</div>
@@ -59,6 +63,7 @@ export default function DatePicker({ state }: CustomDatePickerProps) {
           placeholder="yyyy - mm - dd"
           className="w-full text-text-primary outline-none p-spacing-04 rounded-l-radius-04 cursor-pointer"
           value={selectedDate}
+          onChange={onChangeInput}
           onClick={() => setShowPanel(!showPanel)}
         />
         {state === "error" && (

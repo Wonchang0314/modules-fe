@@ -23,7 +23,7 @@ export default function DatePanel({
   setSelectedDate,
   setShowPanel,
 }: DatePanelProps) {
-  const [date, setDate] = useState<dayjs.Dayjs>(dayjs());
+  const [date, setDate] = useState<dayjs.Dayjs>(dayjs()); // header 기준이 되는 날짜
   const [mode, setMode] = useState<datePickerType>("date");
 
   const days = ["일", "월", "화", "수", "목", "금", "토"];
@@ -75,6 +75,11 @@ export default function DatePanel({
     setMode("month");
     setDate(date.set("year", year));
   };
+
+  useEffect(() => {
+    const regex = /^\d{4}-\d{2}-\d{2}$/;
+    regex.test(selectedDate) && setDate(dayjs(selectedDate));
+  }, [selectedDate]);
 
   return (
     <div
