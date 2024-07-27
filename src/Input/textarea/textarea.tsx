@@ -45,36 +45,26 @@ const sizeStyle = {
 
 const stateStyle = {
   active: {
-    labelColor: "text-[#6F6F6F]",
-    descriptionColor: "text-[#6F6F6F]",
-    // labelColor: "text-secondary",
-    // descriptionColor: "text-helper",
+    labelColor: "text-text-secondary",
+    descriptionColor: "text-text-helper",
   },
   warning: {
-    labelColor: "text-[#6F6F6F]",
-    descriptionColor: "text-[#161616]",
-    iconColor: "#F1C21B",
-    // labelColor: "text-secondary",
-    // descriptionColor: "text-primary",
+    labelColor: "text-text-secondary",
+    descriptionColor: "text-text-primary",
+    iconColor: "fill-support-warning",
   },
   error: {
-    labelColor: "text-[#6F6F6F]",
-    descriptionColor: "text-[#DA1E28]",
-    iconColor: "#DA1E28",
-    // labelColor: "text-secondary",
-    // descriptionColor: "text-error",
+    labelColor: "text-text-secondary",
+    descriptionColor: "text-text-error",
+    iconColor: "fill-support-error",
   },
   disabled: {
-    labelColor: "text-[#161616]/25",
-    descriptionColor: "text-[#161616]/25",
-    // labelColor: "text-disabled",
-    // descriptionColor: "text-disabled",
+    labelColor: "text-text-disabled",
+    descriptionColor: "text-text-disabled",
   },
   readOnly: {
-    labelColor: "text-[#6F6F6F]",
-    descriptionColor: "text-[#6F6F6F]",
-    // labelColor: "text-secondary",
-    // descriptionColor: "text-helper",
+    labelColor: "text-text-secondary",
+    descriptionColor: "text-text-helper",
   },
 };
 
@@ -95,33 +85,27 @@ export default function TextArea({
   const handleBorderStyle = () => {
     switch (state) {
       case "disabled":
-        setInputBorder("border border-[#8D8D8D]");
-        // border border-strong-01 ,
+        setInputBorder("border border-border-strong-01");
         break;
       case "readOnly":
-        setInputBorder("border border-[#E0E0E0]");
-        // border border-tile-01 ,
+        setInputBorder("border border-border-tile-01");
         break;
       case "error":
-        setInputBorder("border-2 border-[#DA1E28]");
-        // border-2 border-error ,
+        setInputBorder("border-2 border-border-error");
         break;
       case "warning":
-        setInputBorder("border-2 border-[#8D8D8D]");
-        // border-2 border-strong-01 ,
+        setInputBorder("border-2 border-border-strong-01");
         break;
       default:
-        if (isFocused) setInputBorder("border-2 border-[#131313]");
-        else setInputBorder("border border-[#C6C6C6]");
-        // border border-focus ,
-        // border border-subtle-01 ,
+        if (isFocused) setInputBorder("border border-border-strong-01");
+        else setInputBorder("border border-border-subtle-01");
         break;
     }
   };
 
   useEffect(() => {
     handleBorderStyle();
-  }, [isFocused]);
+  }, [isFocused, state]);
 
   const onChangeText = (e: ChangeEvent<HTMLTextAreaElement>) => {
     onChange(e);
@@ -142,7 +126,7 @@ export default function TextArea({
         </div>
         <div
           className={`
-            w-full flex gap-spacing-04 bg-[#fff] px-spacing-04 rounded-radius-04
+            w-full flex gap-spacing-04 bg-white px-spacing-04 rounded-radius-04
             ${inputBorder}
             ${sizeStyle[size]["inputPY"]} 
           `}
@@ -158,9 +142,10 @@ export default function TextArea({
             onBlur={() => setIsFocused(false)}
             className={`
               w-full outline-none resize-none
-              placeholder:text-[#A8A8A8] disabled:placeholder:text-[#161616]/25
-              disabled:bg-[#fff] disabled:text-[#161616]/25
-              text-[#161616]
+              placeholder:text-text-placeholder disabled:placeholder:text-text-disabled
+              disabled:bg-white disabled:text-text-diasbled
+              read-only:placeholder:text-text-secondary
+              text-text-primary
               ${sizeStyle[size]["inputFont"]}
             `}
           />
@@ -168,14 +153,14 @@ export default function TextArea({
             <ErrorIcon
               width={sizeStyle[size]["iconSize"]}
               height={sizeStyle[size]["iconSize"]}
-              color={stateStyle[state]["iconColor"]}
+              className={stateStyle[state]["iconColor"]}
             />
           )}
           {state === "warning" && (
             <WarnIcon
               width={sizeStyle[size]["iconSize"]}
               height={sizeStyle[size]["iconSize"]}
-              color={stateStyle[state]["iconColor"]}
+              className={stateStyle[state]["iconColor"]}
             />
           )}
         </div>

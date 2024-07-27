@@ -61,36 +61,26 @@ const sizeStyle = {
 
 const stateStyle = {
   active: {
-    labelColor: "text-[#6F6F6F]",
-    descriptionColor: "text-[#6F6F6F]",
-    // labelColor: "text-secondary",
-    // descriptionColor: "text-helper",
+    labelColor: "text-text-secondary",
+    descriptionColor: "text-text-helper",
   },
   warning: {
-    labelColor: "text-[#6F6F6F]",
-    descriptionColor: "text-[#161616]",
-    iconColor: "#F1C21B",
-    // labelColor: "text-secondary",
-    // descriptionColor: "text-primary",
+    labelColor: "text-text-secondary",
+    descriptionColor: "text-text-primary",
+    iconColor: "fill-support-warning",
   },
   error: {
-    labelColor: "text-[#6F6F6F]",
-    descriptionColor: "text-[#DA1E28]",
-    iconColor: "#DA1E28",
-    // labelColor: "text-secondary",
-    // descriptionColor: "text-error",
+    labelColor: "text-text-secondary",
+    descriptionColor: "text-text-error",
+    iconColor: "fill-support-error",
   },
   disabled: {
-    labelColor: "text-[#161616]/25",
-    descriptionColor: "text-[#161616]/25",
-    // labelColor: "text-disabled",
-    // descriptionColor: "text-disabled",
+    labelColor: "text-text-disabled",
+    descriptionColor: "text-text-disabled",
   },
   readOnly: {
-    labelColor: "text-[#6F6F6F]",
-    descriptionColor: "text-[#6F6F6F]",
-    // labelColor: "text-secondary",
-    // descriptionColor: "text-helper",
+    labelColor: "text-text-secondary",
+    descriptionColor: "text-text-helper",
   },
 };
 
@@ -111,72 +101,44 @@ export default function TextField({
 
   const handleBorderStyle = () => {
     if (style === "outlined") {
+      let radiusStyle;
+      radiusStyle = size === "S" ? " rounded-radius-03" : " rounded-radius-04";
       switch (state) {
         case "disabled":
-          setInputBorder("border border-[#8D8D8D] rounded-radius-04");
-          // border border-strong-01 rounded-radius-04,
+          setInputBorder("border border-border-strong-01" + radiusStyle);
           break;
         case "readOnly":
-          setInputBorder("border border-[#E0E0E0] rounded-radius-04");
-          // border border-tile-01 rounded-radius-04,
+          setInputBorder("border border-border-tile-01" + radiusStyle);
           break;
         case "error":
-          setInputBorder("border-2 border-[#DA1E28] rounded-radius-04");
-          // border-2 border-error rounded-radius-04,
+          setInputBorder("border-2 border-border-error" + radiusStyle);
           break;
         case "warning":
-          setInputBorder("border-2 border-[#8D8D8D] rounded-radius-04");
-          // border-2 border-strong-01 rounded-radius-04,
+          setInputBorder("border-2 border-border-strong-01" + radiusStyle);
           break;
         default:
-          if (isFocused) {
-            switch (size) {
-              case "S":
-                setInputBorder("border-2 border-[#131313] rounded-radius-03");
-                break;
-              case "M":
-              case "L":
-                setInputBorder("border-2 border-[#131313] rounded-radius-04");
-                break;
-            }
-          } else {
-            switch (size) {
-              case "S":
-                setInputBorder("border border-[#C6C6C6] rounded-radius-03");
-                break;
-              case "M":
-              case "L":
-                setInputBorder("border border-[#C6C6C6] rounded-radius-04");
-                break;
-            }
-          }
-          // border border-focus-default rounded-radius-04,
-          // border border-subtle-01 rounded-radius-04,
+          if (isFocused)
+            setInputBorder("border border-strong-01" + radiusStyle);
+          else setInputBorder("border border-border-subtle-01" + radiusStyle);
           break;
       }
     } else {
       switch (state) {
         case "disabled":
-          setInputBorder("border-b border-b-[#8D8D8D]");
-          // border-b border-b-strong-01,
+          setInputBorder("border-b border-b-border-strong-01");
           break;
         case "readOnly":
-          setInputBorder("border-b border-b-[#E0E0E0]");
-          // border-b border-b-tile-01,
+          setInputBorder("border-b border-b-border-tile-01");
           break;
         case "error":
-          setInputBorder("border-b-2 border-b-[#DA1E28]");
-          // border-b-2 border-b-error,
+          setInputBorder("border-b-2 border-b-border-error");
           break;
         case "warning":
-          setInputBorder("border-b-2 border-b-[#8D8D8D]");
-          // border-b-2 border-b-strong-01,
+          setInputBorder("border-b-2 border-b-border-strong-01");
           break;
         default:
-          if (isFocused) setInputBorder("border-b-2 border-b-[#131313]");
-          else setInputBorder("border-b border-b-[#C6C6C6]");
-          // border border-focus-default,
-          // border-b border-b-subtle-01,
+          if (isFocused) setInputBorder("border-b border-b-border-strong-01");
+          else setInputBorder("border-b border-b-border-subtle-01");
           break;
       }
     }
@@ -184,7 +146,7 @@ export default function TextField({
 
   useEffect(() => {
     handleBorderStyle();
-  }, [isFocused, style]);
+  }, [isFocused, style, state, size]);
 
   const onChangeText = (e: ChangeEvent<HTMLInputElement>) => {
     onChange(e);
@@ -207,7 +169,7 @@ export default function TextField({
         </div>
         <div
           className={`
-            w-full flex gap-spacing-04 bg-[#fff] 
+            w-full flex gap-spacing-04 bg-white
             ${inputBorder}
             ${lineStyle[style]["inputPX"]}
             ${sizeStyle[size]["inputPY"]} 
@@ -218,15 +180,17 @@ export default function TextField({
             onChange={onChangeText}
             type="text"
             readOnly={state === "readOnly"}
+            spellCheck={false}
             placeholder={placeholder}
             disabled={state === "disabled"}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
             className={`
               w-full outline-none
-              placeholder:text-[#A8A8A8] disabled:placeholder:text-[#161616]/25
-              disabled:bg-[#fff] disabled:text-[#161616]/25
-              text-[#161616]
+              placeholder:text-text-placeholder disabled:placeholder:text-text-disabled
+              disabled:bg-white disabled:text-text-disabled
+              read-only:placeholder:text-text-secondary
+              text-text-primary
               ${sizeStyle[size]["inputFont"]}
             `}
           />
@@ -234,14 +198,14 @@ export default function TextField({
             <ErrorIcon
               width={sizeStyle[size]["iconSize"]}
               height={sizeStyle[size]["iconSize"]}
-              color={stateStyle[state]["iconColor"]}
+              className={stateStyle[state]["iconColor"]}
             />
           )}
           {state === "warning" && (
             <WarnIcon
               width={sizeStyle[size]["iconSize"]}
               height={sizeStyle[size]["iconSize"]}
-              color={stateStyle[state]["iconColor"]}
+              className={stateStyle[state]["iconColor"]}
             />
           )}
         </div>
