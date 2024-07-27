@@ -25,3 +25,21 @@ export const getCalendarDates = (year: number, month: number) => {
 
   return result;
 };
+
+export const getCalendarMonth = () => {
+  return Array.from({ length: 12 }).map((_, i) => i + 1);
+};
+
+export const getCalendarYear = (year: number) => {
+  const startYear = Math.floor(year / 10) * 10 - 1;
+
+  const yearList: { state: "current" | "other"; value: number }[] = Array.from({
+    length: 12,
+  }).map((_, i) => {
+    return { state: "current", value: startYear + i };
+  });
+  yearList[0]["state"] = "other";
+  yearList[yearList.length - 1]["state"] = "other";
+
+  return yearList;
+};

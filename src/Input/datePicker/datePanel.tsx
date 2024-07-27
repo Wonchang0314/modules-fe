@@ -1,0 +1,134 @@
+import React, { SetStateAction, useEffect, useState } from "react";
+
+import dayjs from "dayjs";
+import "dayjs/locale/ko";
+import {
+  getCalendarDates,
+  getCalendarMonth,
+  getCalendarYear,
+} from "src/utils/datepicker";
+import DayCell from "./dayCell";
+import DatePickerHeader from "./datePickerHeader";
+import MonthCell from "./monthCell";
+
+export type datePickerType = "date" | "month" | "year";
+
+interface DatePanelProps {
+  selectedDate: string;
+  setSelectedDate: React.Dispatch<SetStateAction<string>>;
+  setShowPanel: React.Dispatch<SetStateAction<boolean>>;
+}
+export default function DatePanel({
+  selectedDate,
+  setSelectedDate,
+  setShowPanel,
+}: DatePanelProps) {
+  const [date, setDate] = useState<dayjs.Dayjs>(dayjs());
+  const [mode, setMode] = useState<datePickerType>("date");
+
+  const days = ["일", "월", "화", "수", "목", "금", "토"];
+
+  const onClickLeftIcon = () => {
+    switch (mode) {
+      case "date":
+        if (date.month() === 0) {
+          const newDate = date.subtract(1, "year").set("month", 11);
+          setDate(newDate);
+        } else setDate(date.subtract(1, "month"));
+        break;
+      case "month":
+        setDate(date.subtract(1, "year"));
+        break;
+      case "year":
+        setDate(date.subtract(10, "year"));
+        break;
+    }
+  };
+  const onClickRightIcon = () => {
+    switch (mode) {
+      case "date":
+        if (date.month() === 11) {
+          const newDate = date.add(1, "year").set("month", 0);
+          setDate(newDate);
+        } else setDate(date.add(1, "month"));
+        break;
+      case "month":
+        setDate(date.add(1, "year"));
+        break;
+      case "year":
+        setDate(date.add(10, "year"));
+        break;
+    }
+  };
+
+  const onClickDayCell = (value: string) => {
+    setSelectedDate(value);
+    setShowPanel(false);
+  };
+
+  const onClickMonthCell = (month: number) => {
+    setMode("date");
+    setDate(date.set("month", month - 1));
+  };
+
+  const onClickYearCell = (year: number) => {
+    setMode("month");
+    setDate(date.set("year", year));
+  };
+
+  return (
+    <div
+      className={`w-full border-b border absolute bottom-0 left-0 translate-y-full bg-white p-spacing-03 flex flex-col gap-spacing-${mode === "date" ? "01" : "02"}`}
+    >
+      <DatePickerHeader
+        onClickLeftIcon={onClickLeftIcon}
+        onClickRightIcon={onClickRightIcon}
+        date={date}
+        mode={mode}
+        setMode={setMode}
+      />
+      {mode === "date" && (
+        <div className="w-full grid grid-cols-7 text-center">
+          {days.map(day => (
+            <div className="text-text-primary w-11 h-11 flex items-center justify-center">
+              {day}
+            </div>
+          ))}
+        </div>
+      )}
+      {mode === "date" && (
+        <div className="w-full grid grid-cols-7">
+          {getCalendarDates(date.year(), date.month() + 1).map(date => (
+            <DayCell
+              state={date.state}
+              date={date.label}
+              onClick={() => onClickDayCell(date.value)}
+              selected={date.value === selectedDate}
+            />
+          ))}
+        </div>
+      )}
+      {mode === "month" && (
+        <div className="w-full grid grid-cols-3">
+          {getCalendarMonth().map(month => (
+            <MonthCell
+              date={`${month}월`}
+              onClick={() => onClickMonthCell(month)}
+            />
+          ))}
+        </div>
+      )}
+      {mode === "year" && (
+        <div className="w-full grid grid-cols-3">
+          {getCalendarYear(date.year()).map(year => (
+            <MonthCell
+              date={`${year.value}년`}
+              state={year.state}
+              onClick={() => onClickYearCell(year.value)}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
