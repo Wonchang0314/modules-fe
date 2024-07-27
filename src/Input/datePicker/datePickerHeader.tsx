@@ -30,9 +30,16 @@ export default function DatePickerHeader({
   };
 
   return (
-    <div className="w-full px-spacing-04 flex justify-between items-center">
-      <div onClick={onClickLeftIcon}>
-        <LeftArrowIcon width={16} height={16} className="fill-icon-secondary" />
+    <div className="w-full flex justify-between items-center">
+      <div
+        onClick={onClickLeftIcon}
+        className="hover:bg-layer-01-hover p-spacing-04"
+      >
+        <LeftArrowIcon
+          width={mode === "date" ? 16 : 20}
+          height={mode === "date" ? 16 : 20}
+          className="fill-icon-secondary"
+        />
       </div>
       <div className="flex gap-spacing-01">
         {mode === "year" && (
@@ -59,10 +66,13 @@ export default function DatePickerHeader({
           </div>
         )}
       </div>
-      <div onClick={onClickRightIcon}>
+      <div
+        onClick={onClickRightIcon}
+        className="hover:bg-layer-01-hover p-spacing-04"
+      >
         <RightArrowIcon
-          width={16}
-          height={16}
+          width={mode === "date" ? 16 : 20}
+          height={mode === "date" ? 16 : 20}
           className="fill-icon-secondary"
         />
       </div>
