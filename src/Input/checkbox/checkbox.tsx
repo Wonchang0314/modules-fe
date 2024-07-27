@@ -34,7 +34,7 @@ const sizeStyles = {
 };
 
 const stateStyles = (isChecked: boolean) => ({
-  Enabled: isChecked ? "support-info" : "icon-primary",
+  Enabled: isChecked ? "fill-support-info" : "fill-icon-primary",
   Disabled: "fill-icon-disabled",
   Readonly: "fill-icon-disabled",
   Warning: "fill-support-warning",
