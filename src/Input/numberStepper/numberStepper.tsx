@@ -1,10 +1,9 @@
-import MinusIcon from "../icon/svg/navigation/subtract.svg";
-import PlusIcon from "../icon/svg/navigation/add.svg";
-import TrashIcon from "../icon/svg/operation/delete.svg";
+import MinusIcon from "../../icon/svg/navigation/subtract.svg";
+import PlusIcon from "../../icon/svg/navigation/add.svg";
+import TrashIcon from "../../icon/svg/operation/delete.svg";
 import { Suspense, useEffect, useState } from "react";
-import ErrorIcon from "../icon/svg/status/warning-circle-filled.svg";
-import WarnIcon from "../icon/svg/status/warning-triangle-filled.svg";
-import { InputStateType } from "src/textfield/textfield";
+import WarnIcon from "../../icon/svg/status/warning-triangle-filled.svg";
+import { InputStateType } from "../textfield/textfield";
 import NumberStepperSkeleton from "./numberStepperSkeleton";
 
 type NumberStepperProps = {
