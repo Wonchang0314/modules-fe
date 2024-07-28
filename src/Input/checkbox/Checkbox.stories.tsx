@@ -2,7 +2,7 @@ import { Meta, StoryFn } from "@storybook/react/*";
 import Checkbox, { CheckboxProps } from "./checkbox";
 
 export default {
-  title: "Input/Checkbox",
+  title: "Input/Checkbox/Checkbox",
   component: Checkbox,
   parameters: {
     layout: "centered",
