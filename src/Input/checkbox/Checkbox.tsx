@@ -75,7 +75,7 @@ export default function Checkbox({
         </span>
       )}
       <button onClick={handleToggle}>
-        <FlexBox direction="row" className="gap-spacing-02">
+        <div className="flex flex-row">
           {isChecked ? (
             <Icon
               icon={"checkmark_square_filled"}
@@ -89,10 +89,12 @@ export default function Checkbox({
               className={`${stateStyle}`}
             />
           )}
-          <span className={`flex pt-1 ${sizeStyle.titleDetail} ${titleColor}`}>
+          <span
+            className={`pl-spacing-02 flex pt-1 ${sizeStyle.titleDetail} ${titleColor}`}
+          >
             {title}
           </span>
-        </FlexBox>
+        </div>
       </button>
       {alert && (state === "Error" || state === "Warning") && (
         <FlexBox
