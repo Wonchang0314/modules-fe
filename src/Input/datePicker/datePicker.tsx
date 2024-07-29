@@ -67,18 +67,24 @@ export default function DatePicker({
 
   const inputRef = useRef<HTMLInputElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
+  const iconRef = useRef<HTMLDivElement>(null);
 
   const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
 
-  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) =>
+  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
     setIsFocused(true);
+  };
 
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    if (!showPanel) setIsFocused(false);
+
     if (
       panelRef.current &&
-      !panelRef.current.contains(document.activeElement)
+      !panelRef.current.contains(document.activeElement) &&
+      iconRef.current &&
+      !iconRef.current.contains(document.activeElement)
     ) {
       setShowPanel(false);
       setIsFocused(true);
@@ -101,10 +107,10 @@ export default function DatePicker({
     }
   };
 
-  const onClickInput = () => {
+  const onClickIcon = () => {
     if (!(state === "disabled" || state === "readOnly")) {
+      setIsFocused(true);
       setShowPanel(!showPanel);
-      setIsFocused(!isFocused);
     }
   };
 
@@ -151,6 +157,7 @@ export default function DatePicker({
 
   return (
     <div className="flex flex-col justify-center gap-spacing-02 w-[332px]">
+      <input type="date" />
       <div className={`pl-4 ${stateStyle[state]["labelColor"]}`}>{label}</div>
       <div
         className={`bg-white cursor-pointer rounded-radius-04 w-full ${borderStyle}`}
@@ -173,17 +180,13 @@ export default function DatePicker({
             onBlur={handleBlur}
             readOnly={state === "readOnly"}
             disabled={state === "disabled"}
-            onClick={onClickInput}
             className={`
               w-full outline-none p-spacing-04 rounded-l-radius-04 cursor-pointer bg-transparent
               ${stateStyle[state]["inputColor"]}
             `}
           />
           {state === "error" && (
-            <div
-              className="p-spacing-04"
-              onClick={() => setShowPanel(!showPanel)}
-            >
+            <div className="p-spacing-04" onClick={onClickIcon}>
               <ErrorIcon
                 width={26}
                 height={26}
@@ -192,10 +195,7 @@ export default function DatePicker({
             </div>
           )}
           {state === "warning" && (
-            <div
-              className="p-spacing-04"
-              onClick={() => setShowPanel(!showPanel)}
-            >
+            <div className="p-spacing-04" onClick={onClickIcon}>
               <WarnIcon
                 width={26}
                 height={26}
@@ -204,10 +204,7 @@ export default function DatePicker({
             </div>
           )}
           {!(state === "error" || state === "warning") && (
-            <div
-              className="p-spacing-04"
-              onClick={() => setShowPanel(!showPanel)}
-            >
+            <div ref={iconRef} className="p-spacing-04" onClick={onClickIcon}>
               <CalendarIcon
                 width={26}
                 height={26}
