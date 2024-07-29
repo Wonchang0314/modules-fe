@@ -1,53 +1,72 @@
 import { Meta, StoryFn } from "@storybook/react";
-import TestButton, { buttonStyle } from "./Button";
-import { getStateInfo, getPropsInfo } from "./getPropsInfo";
+import ButtonMobile, {
+  ButtonPropsMobile,
+  buttonStyleMobile as buttonStyleMobile,
+} from "./ButtonMobile";
+import ButtonPC, {
+  ButtonPropsPC,
+  buttonStylePC as buttonStylePC,
+} from "./ButtonPC";
+import {
+  getMobileStateInfo,
+  getPcStateInfo,
+  getPropsMobileInfo,
+  getPropsPCInfo,
+} from "./getPropsInfo";
+import Button from "./ButtonMobile";
+
+type Button = ButtonPropsMobile | ButtonPropsPC;
 
 export default {
   title: "Components/Button",
-  component: TestButton,
+  component: Button,
   parameters: {
     layout: "centered",
     backgrounds: { default: "light" },
   },
-  argTypes: {
-    type: {
-      control: {
-        type: "select",
-        options: ["primary", "secondary", "border", "ghost"],
-      },
-    },
-    size: {
-      control: {
-        type: "select",
-        options: ["L", "M", "S", "full"],
-      },
-    },
-    variant: {
-      control: {
-        type: "select",
-        options: ["default", "danger", "elevated"],
-      },
-    },
-  },
-} as Meta<typeof TestButton>;
+} as Meta<typeof Button>;
 
-const Template: StoryFn<typeof TestButton> = (args) => {
-  const color = getStateInfo(args, buttonStyle);
+const TemplateMobile: StoryFn<typeof ButtonMobile> = args => {
+  const color = getMobileStateInfo(args, buttonStyleMobile);
 
   return (
     <>
-      <TestButton {...args} />
-      {getPropsInfo(args, color)}
+      <ButtonMobile {...args} />
+      {getPropsMobileInfo(args, color)}
     </>
   );
 };
-export const CustomButton = Template.bind({});
-CustomButton.args = {
+
+export const CustomButtonMobile = TemplateMobile.bind({});
+CustomButtonMobile.args = {
   size: "L",
-  text: "Button",
-  type: "primary",
-  variant: "default",
-  isClicked: false,
-  inactive: false,
-  className: "",
+  style: "primary",
+  type: "text",
+  state: "enabled",
+  round: false,
+  text1: "Text1",
+  text2: "Text2",
+  onClick: undefined,
+};
+
+const TemplatePC: StoryFn<typeof ButtonPC> = args => {
+  const color = getPcStateInfo(args, buttonStylePC);
+
+  return (
+    <>
+      <ButtonPC {...args} />
+      {getPropsPCInfo(args, color)}
+    </>
+  );
+};
+
+export const CustomButtonPC = TemplatePC.bind({});
+CustomButtonPC.args = {
+  style: "primary",
+  type: "text",
+  state: "enabled",
+  round: false,
+  text1: "Text1",
+  text2: "Text2",
+  onClick: undefined,
 };
