@@ -1,6 +1,4 @@
 import { ChangeEvent, useEffect, useRef, useState } from "react";
-import { Button, ConfigProvider, DatePicker as CustomDatePicker } from "antd";
-import locale from "antd/locale/ko_KR";
 import dayjs from "dayjs";
 import { InputStateType } from "../textfield/textfield";
 dayjs.locale("ko-kr");
@@ -8,6 +6,7 @@ import ErrorIcon from "../../icon/svg/status/warning-circle-filled.svg";
 import WarnIcon from "../../icon/svg/status/warning-triangle-filled.svg";
 import CalendarIcon from "../../icon/svg/time/calendar.svg";
 import DatePanel from "./datePanel";
+import { f } from "@storybook/theming/dist/create-e8afafc2";
 
 type CustomDatePickerProps = {
   state: InputStateType;
@@ -16,32 +15,32 @@ type CustomDatePickerProps = {
 const stateStyle = {
   active: {
     labelColor: "text-text-secondary",
-    descriptionColor: "text-text-helper",
-    iconName: "CalendarIcon",
+    inputColor: "text-text-primary",
+    descriptionColor: "text-text-secondary",
     iconColor: "fill-icon-secondary",
   },
   warning: {
     labelColor: "text-text-secondary",
+    inputColor: "text-text-primary",
     descriptionColor: "text-text-primary",
-    iconName: "WarnIcon",
     iconColor: "fill-support-warning",
   },
   error: {
     labelColor: "text-text-secondary",
+    inputColor: "text-text-primary",
     descriptionColor: "text-text-error",
-    iconName: "ErrorIcon",
     iconColor: "fill-support-error",
   },
   disabled: {
     labelColor: "text-text-disabled",
+    inputColor: "text-text-disabled",
     descriptionColor: "text-text-disabled",
-    iconName: "CalendarIcon",
     iconColor: "fill-icon-disabled",
   },
   readOnly: {
     labelColor: "text-text-secondary",
-    descriptionColor: "text-text-helper",
-    iconName: "CalendarIcon",
+    inputColor: "text-text-secondary",
+    descriptionColor: "text-text-secondary",
     iconColor: "fill-icon-secondary",
   },
 };
@@ -49,6 +48,9 @@ const stateStyle = {
 export default function DatePicker({ state }: CustomDatePickerProps) {
   const [showPanel, setShowPanel] = useState<boolean>(true);
   const [selectedDate, setSelectedDate] = useState<string>("");
+  const [isFocused, setIsFocused] = useState<boolean>(false);
+  const [borderStyle, setBorderStyle] = useState<string>("");
+  const [dividerStyle, setDividerStyle] = useState<string>("");
 
   const inputRef = useRef<HTMLInputElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
@@ -57,12 +59,16 @@ export default function DatePicker({ state }: CustomDatePickerProps) {
     setSelectedDate(e.target.value);
   };
 
+  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) =>
+    setIsFocused(true);
+
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     if (
       panelRef.current &&
       !panelRef.current.contains(document.activeElement)
     ) {
       setShowPanel(false);
+      setIsFocused(true);
     }
   };
 
@@ -78,6 +84,14 @@ export default function DatePicker({ state }: CustomDatePickerProps) {
       !inputRef.current.contains(event.target as Node)
     ) {
       setShowPanel(false);
+      setIsFocused(false);
+    }
+  };
+
+  const onClickInput = () => {
+    if (!(state === "disabled" || state === "readOnly")) {
+      setShowPanel(!showPanel);
+      setIsFocused(!isFocused);
     }
   };
 
@@ -88,58 +102,111 @@ export default function DatePicker({ state }: CustomDatePickerProps) {
     };
   }, []);
 
+  const returnBorderColor = () => {
+    switch (state) {
+      case "active":
+        if (isFocused) {
+          setDividerStyle("border-b-[3px] border-b-focus-default");
+          setBorderStyle("border-[3px] border-focus-default");
+        } else {
+          setDividerStyle("border-b-2 border-b-border-subtle-01");
+          setBorderStyle("border-2 border-border-subtle-01");
+        }
+        break;
+      case "warning":
+        setDividerStyle("border-b-2 border-b-border-strong-01");
+        setBorderStyle("border-2 border-border-strong-01");
+        break;
+      case "error":
+        setDividerStyle("border-b-2 border-b-border-error");
+        setBorderStyle("border-2 border-border-error");
+        break;
+      case "disabled":
+        setDividerStyle("border-b-2 border-b-border-disabled");
+        setBorderStyle("border-2 border-border-disabled");
+        break;
+      case "readOnly":
+        setDividerStyle("border-b-2 border-b-subtle-01");
+        setBorderStyle("border-2 border-subtle-01");
+        break;
+    }
+  };
+
+  useEffect(() => {
+    returnBorderColor();
+  }, [state, isFocused]);
+
+  useEffect(() => {
+    console.log(isFocused);
+  }, [isFocused]);
+
   return (
-    <div className="flex flex-col gap-spacing-02 w-[332px]">
+    <div className="flex flex-col justify-center gap-spacing-02 w-[332px]">
       <div className={`pl-4 ${stateStyle[state]["labelColor"]}`}>label</div>
       <div
-        className={`border-2 flex items-center justify-between bg-white cursor-pointer relative ${showPanel ? "rounded-t-radius-04" : "rounded-radius-04"}`}
+        className={`bg-white cursor-pointer rounded-radius-04 w-full ${borderStyle}`}
       >
-        <input
-          ref={inputRef}
-          type="text"
-          placeholder="yyyy - mm - dd"
-          className="w-full text-text-primary outline-none p-spacing-04 rounded-l-radius-04 cursor-pointer mr-spacing-04"
-          value={selectedDate}
-          onChange={onChangeInput}
-          onBlur={handleBlur}
-          onClick={() => setShowPanel(!showPanel)}
-        />
-        {state === "error" && (
-          <div
-            className="p-spacing-04"
-            onClick={() => setShowPanel(!showPanel)}
-          >
-            <ErrorIcon
-              width={26}
-              height={26}
-              className={stateStyle[state]["iconColor"]}
-            />
-          </div>
-        )}
-        {state === "warning" && (
-          <div
-            className="p-spacing-04"
-            onClick={() => setShowPanel(!showPanel)}
-          >
-            <WarnIcon
-              width={26}
-              height={26}
-              className={stateStyle[state]["iconColor"]}
-            />
-          </div>
-        )}
-        {!(state === "error" || state === "warning") && (
-          <div
-            className="p-spacing-04"
-            onClick={() => setShowPanel(!showPanel)}
-          >
-            <CalendarIcon
-              width={26}
-              height={26}
-              className={stateStyle[state]["iconColor"]}
-            />
-          </div>
-        )}
+        <div
+          className={`
+            w-full flex item-center justify-between gap-spacing-04 
+            ${showPanel && dividerStyle} 
+            ${showPanel ? "rounded-t-radius-04" : "rounded-radius-04"}
+            ${!(state === "disabled" || state === "readOnly") && "hover:bg-background-hover"}
+          `}
+        >
+          <input
+            ref={inputRef}
+            type="text"
+            placeholder="yyyy - mm - dd"
+            value={selectedDate}
+            onChange={onChangeInput}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            readOnly={state === "readOnly"}
+            disabled={state === "disabled"}
+            onClick={onClickInput}
+            className={`
+              w-full outline-none p-spacing-04 rounded-l-radius-04 cursor-pointer bg-transparent
+              ${stateStyle[state]["inputColor"]}
+            `}
+          />
+          {state === "error" && (
+            <div
+              className="p-spacing-04"
+              onClick={() => setShowPanel(!showPanel)}
+            >
+              <ErrorIcon
+                width={26}
+                height={26}
+                className={stateStyle[state]["iconColor"]}
+              />
+            </div>
+          )}
+          {state === "warning" && (
+            <div
+              className="p-spacing-04"
+              onClick={() => setShowPanel(!showPanel)}
+            >
+              <WarnIcon
+                width={26}
+                height={26}
+                className={stateStyle[state]["iconColor"]}
+              />
+            </div>
+          )}
+          {!(state === "error" || state === "warning") && (
+            <div
+              className="p-spacing-04"
+              onClick={() => setShowPanel(!showPanel)}
+            >
+              <CalendarIcon
+                width={26}
+                height={26}
+                className={stateStyle[state]["iconColor"]}
+              />
+            </div>
+          )}
+        </div>
         {showPanel && (
           <div ref={panelRef} onMouseDown={handlePanelMouseDown}>
             <DatePanel
@@ -153,7 +220,6 @@ export default function DatePicker({ state }: CustomDatePickerProps) {
       <div className={`pl-4 ${stateStyle[state]["descriptionColor"]}`}>
         Helper text
       </div>
-      {/* <CustomDatePicker /> */}
     </div>
   );
 }

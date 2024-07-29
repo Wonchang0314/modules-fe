@@ -83,7 +83,8 @@ export default function DatePanel({
 
   return (
     <div
-      className={`w-full border-b border absolute bottom-0 left-0 translate-y-full bg-white p-spacing-03 flex flex-col gap-spacing-${mode === "date" ? "01" : "02"}`}
+      className={`w-full bg-white p-spacing-03 flex flex-col rounded-b-radius-04
+      gap-spacing-${mode === "date" ? "01" : "02"}`}
     >
       <DatePickerHeader
         onClickLeftIcon={onClickLeftIcon}
