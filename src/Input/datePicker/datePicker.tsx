@@ -5,7 +5,6 @@ import {
   useRef,
   useState,
 } from "react";
-import dayjs from "dayjs";
 import { InputStateType } from "../textfield/textfield";
 import ErrorIcon from "../../icon/svg/status/warning-circle-filled.svg";
 import WarnIcon from "../../icon/svg/status/warning-triangle-filled.svg";
@@ -67,7 +66,6 @@ export default function DatePicker({
 
   const inputRef = useRef<HTMLInputElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
-  const iconRef = useRef<HTMLDivElement>(null);
 
   const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
@@ -82,9 +80,7 @@ export default function DatePicker({
 
     if (
       panelRef.current &&
-      !panelRef.current.contains(document.activeElement) &&
-      iconRef.current &&
-      !iconRef.current.contains(document.activeElement)
+      !panelRef.current.contains(document.activeElement)
     ) {
       setShowPanel(false);
       setIsFocused(true);
@@ -204,7 +200,7 @@ export default function DatePicker({
             </div>
           )}
           {!(state === "error" || state === "warning") && (
-            <div ref={iconRef} className="p-spacing-04" onClick={onClickIcon}>
+            <div className="p-spacing-04" onClick={onClickIcon}>
               <CalendarIcon
                 width={26}
                 height={26}
