@@ -59,7 +59,7 @@ export default function DatePicker({
   value,
   setValue,
 }: CustomDatePickerProps) {
-  const [showPanel, setShowPanel] = useState<boolean>(true);
+  const [showPanel, setShowPanel] = useState<boolean>(false);
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const [borderStyle, setBorderStyle] = useState<string>("");
   const [dividerStyle, setDividerStyle] = useState<string>("");
