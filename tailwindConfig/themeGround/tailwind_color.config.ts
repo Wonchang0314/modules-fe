@@ -22,7 +22,7 @@ const tailwindColorConfig = {
         "layer-02-selected": "var(--layer-02-selected)",
         "layer-01-selected-hover": "var(--layer-01-selected-hover)",
         "layer-02-selected-hover": "var(--layer-02-selected-hover)",
-        "layer-selected-inverse": "var(--layer-selected-inverse)",
+        "layer-inverse": "var(--layer-inverse)",
         "layer-selected-disabled": "var(--layer-selected-disabled)",
         "layer-transparent": "var(--layer-transparent)",
 

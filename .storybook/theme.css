@@ -22,7 +22,7 @@
     --layer-02-selected: var(--gray-40);
     --layer-01-selected-hover: var(--hover-gray-50);
     --layer-02-selected-hover: var(--hover-gray-40);
-    --layer-selected-inverse: var(--gray-100);
+    --layer-inverse: var(--gray-80);
     --layer-selected-disabled: var(--gray-30);
     --layer-transparent: var(--white-default);
 
@@ -191,7 +191,7 @@
     --layer-02-selected: var(--gray-20);
     --layer-01-selected-hover: var(--hover-gray-60);
     --layer-02-selected-hover: var(--hover-gray-30);
-    --layer-selected-inverse: var(--gray-100);
+    --layer-inverse: var(--gray-80);
     --layer-selected-disabled: var(--gray-40);
     --layer-transparent: rgba(255, 255, 255, 0);
 
@@ -360,7 +360,7 @@
     --layer-02-selected: var(--gray-30);
     --layer-01-selected-hover: var(--hover-gray-40);
     --layer-02-selected-hover: var(--hover-gray-50);
-    --layer-selected-inverse: var(--gray-10);
+    --layer-inverse: var(--gray-20);
     --layer-selected-disabled: var(--gray-60);
     --layer-transparent: rgba(19, 19, 19, 0);
 
@@ -529,7 +529,7 @@
     --layer-02-selected: var(--gray-40);
     --layer-01-selected-hover: var(--hover-gray-50);
     --layer-02-selected-hover: var(--hover-gray-60);
-    --layer-selected-inverse: var(--gray-10);
+    --layer-inverse: var(--gray-20);
     --layer-selected-disabled: var(--gray-60);
     --layer-transparent: rgba(19, 19, 19, 0);
 
