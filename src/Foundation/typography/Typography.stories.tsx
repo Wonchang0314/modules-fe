@@ -2,7 +2,7 @@ import { Meta } from "@storybook/blocks";
 import GridBox from "src/layout/GridBox";
 
 export default {
-  title: "Components/Typography",
+  title: "Foundation/Typography",
   tags: ["autodocs"],
 };
 

@@ -18,7 +18,7 @@ import Button from "./ButtonMobile";
 type Button = ButtonPropsMobile | ButtonPropsPC;
 
 export default {
-  title: "Components/Button",
+  title: "Navigation/Button",
   component: Button,
   parameters: {
     layout: "centered",
