@@ -1,4 +1,4 @@
-import Checkbox, { CheckboxProps } from "./checkbox";
+import Checkbox, { CheckboxProps } from "./Checkbox";
 
 export interface CheckboxGroupProps extends Omit<CheckboxProps, "title"> {
   titles: string[];
