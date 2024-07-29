@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Icon from "src/icon/Icon";
 import { FlexBox } from "src/layout";
 
@@ -12,6 +12,8 @@ export interface RadioProps {
   labelText?: string;
   alert: boolean;
   alertText?: string;
+  checked?: boolean;
+  onChange?: () => void;
 }
 
 const sizeStyles = {
@@ -49,11 +51,20 @@ export default function Radio({
   labelText,
   alert,
   alertText,
+  checked = false,
+  onChange,
 }: RadioProps) {
-  const [isChecked, setIsChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState(checked);
+
+  useEffect(() => {
+    setIsChecked(checked);
+  }, [checked]);
 
   const handleToggle = () => {
     if (state !== "Disabled" && state !== "Readonly") {
+      if (onChange) {
+        onChange();
+      }
       setIsChecked(!isChecked);
     }
   };
@@ -76,6 +87,13 @@ export default function Radio({
       )}
       <button onClick={handleToggle}>
         <div className="flex flex-row gap-spacing-02">
+          <input
+            type="radio"
+            name="radio"
+            checked={isChecked}
+            onChange={handleToggle}
+            hidden
+          />
           {isChecked ? (
             <Icon
               icon={"radio_circle_filled"}

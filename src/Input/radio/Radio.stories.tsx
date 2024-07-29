@@ -15,7 +15,7 @@ const Template: StoryFn<RadioProps> = args => <Radio {...args} />;
 
 export const CustomRadio = Template.bind({});
 CustomRadio.args = {
-  title: "Checkbox label",
+  title: "Radio label",
   size: "M",
   state: "Enabled",
   label: true,
