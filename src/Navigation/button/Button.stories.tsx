@@ -1,21 +1,7 @@
 import { Meta, StoryFn } from "@storybook/react";
-import ButtonMobile, {
-  ButtonPropsMobile,
-  buttonStyleMobile as buttonStyleMobile,
-} from "./ButtonMobile";
-import ButtonPC, {
-  ButtonPropsPC,
-  buttonStylePC as buttonStylePC,
-} from "./ButtonPC";
-import {
-  getMobileStateInfo,
-  getPcStateInfo,
-  getPropsMobileInfo,
-  getPropsPCInfo,
-} from "./getPropsInfo";
+import ButtonMobile, { ButtonPropsMobile } from "./ButtonMobile";
+import ButtonPC, { ButtonPropsPC } from "./ButtonPC";
 import Button from "./ButtonMobile";
-
-type Button = ButtonPropsMobile | ButtonPropsPC;
 
 export default {
   title: "Navigation/Button",
@@ -26,15 +12,8 @@ export default {
   },
 } as Meta<typeof Button>;
 
-const TemplateMobile: StoryFn<typeof ButtonMobile> = args => {
-  const color = getMobileStateInfo(args, buttonStyleMobile);
-
-  return (
-    <>
-      <ButtonMobile {...args} />
-      {getPropsMobileInfo(args, color)}
-    </>
-  );
+const TemplateMobile: StoryFn<ButtonPropsMobile> = args => {
+  return <ButtonMobile {...args} />;
 };
 
 export const CustomButtonMobile = TemplateMobile.bind({});
@@ -46,18 +25,10 @@ CustomButtonMobile.args = {
   round: false,
   text1: "Text1",
   text2: "Text2",
-  onClick: undefined,
 };
 
-const TemplatePC: StoryFn<typeof ButtonPC> = args => {
-  const color = getPcStateInfo(args, buttonStylePC);
-
-  return (
-    <>
-      <ButtonPC {...args} />
-      {getPropsPCInfo(args, color)}
-    </>
-  );
+const TemplatePC: StoryFn<ButtonPropsPC> = args => {
+  return <ButtonPC {...args} />;
 };
 
 export const CustomButtonPC = TemplatePC.bind({});
@@ -68,5 +39,4 @@ CustomButtonPC.args = {
   round: false,
   text1: "Text1",
   text2: "Text2",
-  onClick: undefined,
 };
