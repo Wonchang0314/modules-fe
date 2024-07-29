@@ -9,10 +9,20 @@ export default {
   parameters: {
     layout: "centered",
     backgrounds: { default: "light" },
+    docs: {
+      description: {
+        component: "width = 332px (fixed)",
+      },
+    },
+  },
+  argTypes: {
+    value: {
+      description: "형식: 'YYYY-DD-MM'",
+    },
   },
   decorators: [
     Story => (
-      <div className="w-full h-[500px]">
+      <div className="w-full h-[430px]">
         <Story />
       </div>
     ),
