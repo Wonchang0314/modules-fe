@@ -67,21 +67,34 @@ export default function DatePicker({ state }: CustomDatePickerProps) {
           onClick={() => setShowPanel(!showPanel)}
         />
         {state === "error" && (
-          <ErrorIcon
-            width={26}
-            height={26}
-            className={stateStyle[state]["iconColor"]}
-          />
+          <div
+            className="p-spacing-04"
+            onClick={() => setShowPanel(!showPanel)}
+          >
+            <ErrorIcon
+              width={26}
+              height={26}
+              className={stateStyle[state]["iconColor"]}
+            />
+          </div>
         )}
         {state === "warning" && (
-          <WarnIcon
-            width={26}
-            height={26}
-            className={stateStyle[state]["iconColor"]}
-          />
+          <div
+            className="p-spacing-04"
+            onClick={() => setShowPanel(!showPanel)}
+          >
+            <WarnIcon
+              width={26}
+              height={26}
+              className={stateStyle[state]["iconColor"]}
+            />
+          </div>
         )}
         {!(state === "error" || state === "warning") && (
-          <div className="p-spacing-04">
+          <div
+            className="p-spacing-04"
+            onClick={() => setShowPanel(!showPanel)}
+          >
             <CalendarIcon
               width={26}
               height={26}
