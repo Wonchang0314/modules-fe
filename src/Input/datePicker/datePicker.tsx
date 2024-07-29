@@ -1,15 +1,23 @@
-import { ChangeEvent, useEffect, useRef, useState } from "react";
+import {
+  ChangeEvent,
+  SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import dayjs from "dayjs";
 import { InputStateType } from "../textfield/textfield";
-dayjs.locale("ko-kr");
 import ErrorIcon from "../../icon/svg/status/warning-circle-filled.svg";
 import WarnIcon from "../../icon/svg/status/warning-triangle-filled.svg";
 import CalendarIcon from "../../icon/svg/time/calendar.svg";
 import DatePanel from "./datePanel";
-import { f } from "@storybook/theming/dist/create-e8afafc2";
 
 type CustomDatePickerProps = {
   state: InputStateType;
+  label?: string;
+  description?: string;
+  value: string;
+  setValue: React.Dispatch<SetStateAction<string>>;
 };
 
 const stateStyle = {
@@ -45,9 +53,14 @@ const stateStyle = {
   },
 };
 
-export default function DatePicker({ state }: CustomDatePickerProps) {
+export default function DatePicker({
+  state,
+  label,
+  description,
+  value,
+  setValue,
+}: CustomDatePickerProps) {
   const [showPanel, setShowPanel] = useState<boolean>(true);
-  const [selectedDate, setSelectedDate] = useState<string>("");
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const [borderStyle, setBorderStyle] = useState<string>("");
   const [dividerStyle, setDividerStyle] = useState<string>("");
@@ -56,7 +69,7 @@ export default function DatePicker({ state }: CustomDatePickerProps) {
   const panelRef = useRef<HTMLDivElement>(null);
 
   const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
-    setSelectedDate(e.target.value);
+    setValue(e.target.value);
   };
 
   const handleFocus = (e: React.FocusEvent<HTMLInputElement>) =>
@@ -136,13 +149,9 @@ export default function DatePicker({ state }: CustomDatePickerProps) {
     returnBorderColor();
   }, [state, isFocused]);
 
-  useEffect(() => {
-    console.log(isFocused);
-  }, [isFocused]);
-
   return (
     <div className="flex flex-col justify-center gap-spacing-02 w-[332px]">
-      <div className={`pl-4 ${stateStyle[state]["labelColor"]}`}>label</div>
+      <div className={`pl-4 ${stateStyle[state]["labelColor"]}`}>{label}</div>
       <div
         className={`bg-white cursor-pointer rounded-radius-04 w-full ${borderStyle}`}
       >
@@ -158,7 +167,7 @@ export default function DatePicker({ state }: CustomDatePickerProps) {
             ref={inputRef}
             type="text"
             placeholder="yyyy - mm - dd"
-            value={selectedDate}
+            value={value}
             onChange={onChangeInput}
             onFocus={handleFocus}
             onBlur={handleBlur}
@@ -210,15 +219,15 @@ export default function DatePicker({ state }: CustomDatePickerProps) {
         {showPanel && (
           <div ref={panelRef} onMouseDown={handlePanelMouseDown}>
             <DatePanel
-              selectedDate={selectedDate}
-              setSelectedDate={setSelectedDate}
+              selectedDate={value}
+              setSelectedDate={setValue}
               setShowPanel={setShowPanel}
             />
           </div>
         )}
       </div>
       <div className={`pl-4 ${stateStyle[state]["descriptionColor"]}`}>
-        Helper text
+        {description}
       </div>
     </div>
   );
