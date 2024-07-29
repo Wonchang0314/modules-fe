@@ -153,7 +153,6 @@ export default function DatePicker({
 
   return (
     <div className="flex flex-col justify-center gap-spacing-02 w-[332px]">
-      <input type="date" />
       <div className={`pl-4 ${stateStyle[state]["labelColor"]}`}>{label}</div>
       <div
         className={`bg-white cursor-pointer rounded-radius-04 w-full ${borderStyle}`}

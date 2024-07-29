@@ -13,10 +13,10 @@ export const getCalendarDates = (year: number, month: number) => {
     const value = currentDate.format("YYYY-MM-DD");
     const label = currentDate.date();
 
-    let state: "thisMonth" | "otherMonth" | "today";
+    let state: "today" | "inPeriod" | "outPeriod";
     if (currentDate.isSame(dayjs(), "day")) state = "today";
-    else if (currentDate.month() + 1 === month) state = "thisMonth";
-    else state = "otherMonth";
+    else if (currentDate.month() + 1 === month) state = "inPeriod";
+    else state = "outPeriod";
 
     result.push({ value, label, state });
 
@@ -33,13 +33,14 @@ export const getCalendarMonth = () => {
 export const getCalendarYear = (year: number) => {
   const startYear = Math.floor(year / 10) * 10 - 1;
 
-  const yearList: { state: "current" | "other"; value: number }[] = Array.from({
-    length: 12,
-  }).map((_, i) => {
-    return { state: "current", value: startYear + i };
-  });
-  yearList[0]["state"] = "other";
-  yearList[yearList.length - 1]["state"] = "other";
+  const yearList: { state: "inPeriod" | "outPeriod"; value: number }[] =
+    Array.from({
+      length: 12,
+    }).map((_, i) => {
+      return { state: "inPeriod", value: startYear + i };
+    });
+  yearList[0]["state"] = "outPeriod";
+  yearList[yearList.length - 1]["state"] = "outPeriod";
 
   return yearList;
 };

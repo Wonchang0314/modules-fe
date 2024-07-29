@@ -6,9 +6,8 @@ import {
   getCalendarMonth,
   getCalendarYear,
 } from "src/utils/datepicker";
-import DayCell from "./dayCell";
+import CalendarCell from "./calendarCell";
 import DatePickerHeader from "./datePickerHeader";
-import MonthCell from "./monthCell";
 
 export type datePickerType = "date" | "month" | "year";
 
@@ -104,7 +103,8 @@ export default function DatePanel({
       {mode === "date" && (
         <div className="w-full grid grid-cols-7">
           {getCalendarDates(date.year(), date.month() + 1).map(date => (
-            <DayCell
+            <CalendarCell
+              cellType="date"
               state={date.state}
               date={date.label}
               onClick={() => onClickDayCell(date.value)}
@@ -116,9 +116,11 @@ export default function DatePanel({
       {mode === "month" && (
         <div className="w-full grid grid-cols-3">
           {getCalendarMonth().map(month => (
-            <MonthCell
+            <CalendarCell
               date={`${month}월`}
               onClick={() => onClickMonthCell(month)}
+              cellType="month"
+              state="inPeriod"
             />
           ))}
         </div>
@@ -126,10 +128,11 @@ export default function DatePanel({
       {mode === "year" && (
         <div className="w-full grid grid-cols-3">
           {getCalendarYear(date.year()).map(year => (
-            <MonthCell
+            <CalendarCell
               date={`${year.value}년`}
               state={year.state}
               onClick={() => onClickYearCell(year.value)}
+              cellType="year"
             />
           ))}
         </div>
