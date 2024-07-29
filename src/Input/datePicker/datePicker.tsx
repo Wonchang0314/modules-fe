@@ -61,7 +61,7 @@ export default function DatePicker({ state }: CustomDatePickerProps) {
         <input
           type="text"
           placeholder="yyyy - mm - dd"
-          className="w-full text-text-primary outline-none p-spacing-04 rounded-l-radius-04 cursor-pointer"
+          className="w-full text-text-primary outline-none p-spacing-04 rounded-l-radius-04 cursor-pointer mr-spacing-04"
           value={selectedDate}
           onChange={onChangeInput}
           onClick={() => setShowPanel(!showPanel)}
