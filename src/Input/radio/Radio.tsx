@@ -8,9 +8,9 @@ export interface RadioProps {
   title: string;
   size: "L" | "M";
   state: "Enabled" | "Disabled" | "Readonly" | "Error" | "Warning";
-  label: boolean;
+  label?: boolean;
   labelText?: string;
-  alert: boolean;
+  alert?: boolean;
   alertText?: string;
   checked?: boolean;
   onChange?: () => void;
@@ -47,9 +47,9 @@ export default function Radio({
   title,
   size,
   state,
-  label,
+  label = false,
   labelText,
-  alert,
+  alert = false,
   alertText,
   checked = false,
   onChange,

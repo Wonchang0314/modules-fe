@@ -8,9 +8,9 @@ export interface CheckboxProps {
   title: string;
   size: "L" | "M";
   state: "Enabled" | "Disabled" | "Readonly" | "Error" | "Warning";
-  label: boolean;
+  label?: boolean;
   labelText?: string;
-  alert: boolean;
+  alert?: boolean;
   alertText?: string;
 }
 
@@ -45,9 +45,9 @@ export default function Checkbox({
   title,
   size,
   state,
-  label,
+  label = false,
   labelText,
-  alert,
+  alert = false,
   alertText,
 }: CheckboxProps) {
   const [isChecked, setIsChecked] = useState(false);
