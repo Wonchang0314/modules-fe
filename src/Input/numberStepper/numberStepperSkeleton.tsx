@@ -1,5 +1,5 @@
-import MinusIcon from "../icon/svg/navigation/subtract.svg";
-import PlusIcon from "../icon/svg/navigation/add.svg";
+import MinusIcon from "../../icon/svg/navigation/subtract.svg";
+import PlusIcon from "../../icon/svg/navigation/add.svg";
 
 const widthStyle = {
   short: {

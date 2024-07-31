@@ -1,7 +1,6 @@
-import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 import SpacingLayout, { SpacingProps, spacingConfig } from "./SpacingLayout";
-import TestButton from "../button/ButtonMobile";
+import TestButton from "../../Navigation/button/ButtonMobile";
 
 export default {
   title: "Foundation/Spacing",
@@ -37,8 +36,24 @@ export default {
 const Template: StoryFn<SpacingProps> = args => {
   return (
     <SpacingLayout {...args}>
-      <TestButton size="L" text="Test Spacing" type="primary" />
-      <TestButton size="L" text="Test Spacing" type="primary" />
+      <TestButton
+        size="L"
+        style={"primary"}
+        type={"text"}
+        state={"enabled"}
+        round={false}
+        text1={"Text"}
+        text2={"Text"}
+      />
+      <TestButton
+        size="L"
+        style={"primary"}
+        type={"text"}
+        state={"enabled"}
+        round={false}
+        text1={"Text"}
+        text2={"Text"}
+      />
     </SpacingLayout>
   );
 };

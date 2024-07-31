@@ -14,15 +14,15 @@ export interface ButtonPropsMobile {
     | "elevated_primiary";
   type: "text" | "text-text" | "icon" | "icon-left" | "icon-right";
   state: "enabled" | "active" | "disabled";
-  round: boolean;
+  round?: boolean;
   text1: string;
-  text2: string;
+  text2?: string;
   onClick?: () => void;
 }
 
 export const buttonSize = {
-  L: "min-w-[64px] max-w-[343px] h-[64px] pt-spacing-05 pr-spacing-07 pb-spacing-05 pl-spacing-07 gap-spacing-04",
-  M: "min-w-[32px] max-w-[343px] h-[40px] pt-3 pr-spacing-04 pb-3 pl-spacing-04 gap-spacing-02",
+  L: "w-full min-w-[64px] max-w-[343px] h-[64px] py-spacing-05 px-spacing-07 gap-spacing-04 flex justify-center items-center",
+  M: "w-full min-w-[32px] max-w-[343px] h-[40px] px-spacing-04 py-spacing-03 gap-spacing-02 flex justify-center items-center",
 };
 
 export const buttonLabel = {
