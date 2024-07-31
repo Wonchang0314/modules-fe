@@ -21,7 +21,7 @@ const temp = Array.from({ length: 8 }).map((_, index) => (
     state="enabled"
     style="complex"
     type="icon-right"
-    text={`Menu Item ${index + 1}`}
+    text={`Menu Item`}
     className=""
   />
 ));

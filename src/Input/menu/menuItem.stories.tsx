@@ -17,7 +17,7 @@ Example.args = {
   size: "L",
   state: "enabled",
   style: "simple",
-  type: "default",
+  type: "icon-right",
   text: "Menu Item",
   className: "",
 };

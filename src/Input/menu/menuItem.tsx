@@ -19,12 +19,12 @@ const MenuItemState = {
 
 const MenuItemStyle = {
   simple: {
-    L: "w-40 h-12 p-spacing-04 gap-spacing-02",
-    M: "w-40 h-10 pt-spacing-03 pr-spacing-04 pb-spacing-03 pl-spacing-04 gap-spacing-02",
+    L: "w-40 max-h-12 p-spacing-04 gap-spacing-02",
+    M: "w-40 max-h-10 pt-spacing-03 pr-spacing-04 pb-spacing-03 pl-spacing-04 gap-spacing-02",
   },
   complex: {
-    L: "w-40 h-[52px] p-spacing-04 gap-spacing-02",
-    M: "w-40 h-[44px] pt-spacing-03 pr-spacing-04 pb-spacing-03 pl-spacing-04 gap-spacing-02",
+    L: "w-40 max-h-[52px] p-spacing-04 gap-spacing-02",
+    M: "w-40 max-h-[44px] pt-spacing-03 pr-spacing-04 pb-spacing-03 pl-spacing-04 gap-spacing-02",
   },
 };
 
