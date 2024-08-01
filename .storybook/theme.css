@@ -63,7 +63,7 @@
     --border-transparent: rgba(255, 255, 255, 0);
 
     --text-primary: var(--gray-100);
-    --text-secondary: var(--gray-70);
+    --text-secondary: var(--gray-60);
     --text-placeholder: var(--gray-40);
     --text-on-color: var(--white-default);
     --text-on-color-hover: var(--hover-white);
@@ -232,7 +232,7 @@
     --border-transparent: rgba(255, 255, 255, 0);
 
     --text-primary: var(--gray-100);
-    --text-secondary: var(--gray-70);
+    --text-secondary: var(--gray-60);
     --text-placeholder: var(--gray-40);
     --text-on-color: var(--white-default);
     --text-on-color-hover: var(--hover-white);
