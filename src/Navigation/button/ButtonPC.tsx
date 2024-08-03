@@ -18,30 +18,31 @@ export const buttonStylePC = {
     focus: "bg-button-primary-active text-text-on-color active",
     disabled: "bg-button-disabled text-text-on-color-disabled",
     active:
-      "border border-strong-01 bg-button-primary-active text-text-on-color",
+      "border border-strong-01 bg-button-primary-active text-text-on-color m-[-1px]",
   },
   secondary: {
     enabled: "bg-button-secondary text-text-secondary",
     hover: "bg-button-secondary-hover text-text-secondary",
     focus: "bg-button-secondary-active text-text-secondary",
     disabled: "bg-button-disabled text-text-on-color-disabled",
-    active: "border border-strong-01 bg-button-secondary text-text-secondary",
+    active:
+      "border border-strong-01 bg-button-secondary text-text-secondary m-[-1px]",
   },
   border: {
-    enabled: "border border-button-border text-text-secondary",
+    enabled: "border border-button-border text-text-secondary m-[-1px]",
     hover:
-      "border border-button-border-hover bg-button-primary-hover text-text-on-color-hover",
+      "border border-button-border-hover bg-button-primary-hover text-text-on-color-hover m-[-1px]",
     focus: "bg-button-primary-active text-text-on-color active",
-    disabled: "border border-border-disabled text-text-disabled",
+    disabled: "border border-border-disabled text-text-disabled m-[-1px]",
     active:
-      "border border-strong-selected-01 bg-button-primary text-text-on-color",
+      "border border-strong-selected-01 bg-button-primary text-text-on-color m-[-1px]",
   },
   ghost: {
     enabled: "text-text-primary",
     hover: "bg-button-secondary",
     focus: "bg-Gray-50 text-text-primary",
     disabled: "text-text-disabled",
-    active: "border border-Gray-90",
+    active: "border border-Gray-90 m-[-1px]",
   },
 };
 

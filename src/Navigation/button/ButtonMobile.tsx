@@ -36,50 +36,50 @@ export const buttonStyleMobile = {
     hover: "bg-button-primary-hover text-text-on-color",
     disabled: "bg-button-disabled text-text-on-color-disabled",
     active:
-      "border border-border-strong-01 bg-button-primary-active text-text-on-color",
+      "border border-border-strong-01 bg-button-primary-active text-text-on-color m-[-1px]",
   },
   secondary: {
     enabled: "bg-button-secondary text-text-secondary",
     hover: "bg-button-secondary-hover text-text-secondary",
     disabled: "bg-button-disabled text-text-on-color-disabled",
     active:
-      "border border-border-strong-01 bg-button-secondary text-text-secondary",
+      "border border-border-strong-01 bg-button-secondary text-text-secondary m-[-1px]",
   },
   danger_primary: {
     enabled: "bg-button-danger text-text-on-color",
     hover: "bg-button-danger-hover text-text-on-color hover",
     disabled: "bg-button-disabled text-text-on-color-disabled",
     active:
-      "border border-border-strong-01 bg-button-danger text-text-on-color",
+      "border border-border-strong-01 bg-button-danger text-text-on-color m-[-1px]",
   },
   danger_border: {
-    enabled: "border border-button-danger text-text-error",
+    enabled: "border border-button-danger text-text-error m-[-1px]",
     hover:
-      "border border-strong-selected-01 bg-button-danger-hover text-text-on-color-hover",
-    disabled: "border border-disabled text-text-disabled",
+      "border border-strong-selected-01 bg-button-danger-hover text-text-on-color-hover m-[-1px]",
+    disabled: "border border-disabled text-text-disabled m-[-1px]",
     active:
-      "border border-border-strong-selected-01 bg-button-danger text-text-on-color",
+      "border border-border-strong-selected-01 bg-button-danger text-text-on-color m-[-1px]",
   },
   danger_ghost: {
     enabled: "text-text-error",
     hover: "bg-background-hover text-text-error",
     disabled: "text-text-disabled",
-    active: "border border-border-error text-text-error",
+    active: "border border-border-error text-text-error m-[-1px]",
   },
   border: {
-    enabled: "border border-button-border text-text-secondary",
+    enabled: "border border-button-border text-text-secondary m-[-1px]",
     hover:
-      "border border-button-border-hover bg-button-primary-hover text-text-on-color-hover",
-    disabled: "border border-border-disabled text-text-disabled",
+      "border border-button-border-hover bg-button-primary-hover text-text-on-color-hover m-[-1px]",
+    disabled: "border border-border-disabled text-text-disabled m-[-1px]",
     active:
-      "border border-border-strong-selected-01 bg-button-primary text-text-on-color",
+      "border border-border-strong-selected-01 bg-button-primary text-text-on-color m-[-1px]",
   },
 
   ghost: {
     enabled: "text-text-primary",
     hover: "bg-text-Gray-50",
     disabled: "text-text-disabled",
-    active: "border-2 border-Gray-90 text-text-primary",
+    active: "border-2 border-Gray-90 text-text-primary m-[-2px]",
   },
 
   elevated_primiary: {
@@ -170,8 +170,8 @@ export default function Button({
     style === "ghost" && buttonState === "active"
       ? ""
       : round
-      ? "rounded-radius-circle"
-      : "rounded-radius-04";
+        ? "rounded-radius-circle"
+        : "rounded-radius-04";
   const borderColor = borderColors[style][buttonState];
 
   return (
