@@ -4,7 +4,7 @@ import Divider from "src/divider/Divider";
 export interface ButtonPropsPC {
   style: "primary" | "secondary" | "border" | "ghost";
   type: "text" | "text-text" | "icon" | "icon-left" | "icon-right";
-  state: "enabled" | "hover" | "focus" | "active" | "disabled";
+  state: "enabled" | "active" | "disabled";
   round: boolean;
   text1: string;
   text2: string;
@@ -18,7 +18,7 @@ export const buttonStylePC = {
     focus: "bg-button-primary-active text-text-on-color active",
     disabled: "bg-button-disabled text-text-on-color-disabled",
     active:
-      "border border-strong-01 bg-button-primary-active text-text-on-color m-[-1px]",
+      "border border-border-strong-01 bg-button-primary-active text-text-on-color m-[-1px]",
   },
   secondary: {
     enabled: "bg-button-secondary text-text-secondary",
@@ -26,7 +26,7 @@ export const buttonStylePC = {
     focus: "bg-button-secondary-active text-text-secondary",
     disabled: "bg-button-disabled text-text-on-color-disabled",
     active:
-      "border border-strong-01 bg-button-secondary text-text-secondary m-[-1px]",
+      "border border-border-strong-01 bg-button-secondary text-text-secondary m-[-1px]",
   },
   border: {
     enabled: "border border-button-border text-text-secondary m-[-1px]",
@@ -39,10 +39,10 @@ export const buttonStylePC = {
   },
   ghost: {
     enabled: "text-text-primary",
-    hover: "bg-button-secondary",
-    focus: "bg-Gray-50 text-text-primary",
+    hover: "bg-Gray-Light text-text-primary",
+    focus: "bg-Gray-Medium text-text-primary",
     disabled: "text-text-disabled",
-    active: "border border-Gray-90 m-[-1px]",
+    active: "border border-Gray-90 m-[-1px] text-text-primary",
   },
 };
 
@@ -87,25 +87,15 @@ export default function Button({
   onClick,
 }: ButtonPropsPC) {
   const [buttonState, setButtonState] = useState(state);
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
 
   useEffect(() => {
     setButtonState(state);
   }, [state]);
 
-  const handleMouseEnter = () => {
-    if (buttonState === "enabled") {
-      setButtonState("hover");
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (buttonState === "hover") {
-      setButtonState("enabled");
-    }
-  };
-
   const handleMouseDown = () => {
-    if (buttonState === "hover" || buttonState === "enabled") {
+    if (buttonState === "enabled") {
       setButtonState("active");
     }
   };
@@ -116,29 +106,26 @@ export default function Button({
     }
   };
 
-  const handleFocus = () => {
-    if (buttonState === "enabled") {
-      setButtonState("focus");
-    }
-  };
-
-  const handleBlur = () => {
-    if (buttonState === "focus") {
-      setButtonState("enabled");
-    }
-  };
+  const handleMouseEnter = () => setHovered(true);
+  const handleMouseLeave = () => setHovered(false);
+  const handleFocus = () => setFocused(true);
+  const handleBlur = () => setFocused(false);
 
   const styleClass = buttonStylePC[style][buttonState];
   const roundClass = round ? "rounded-radius-circle" : "rounded-radius-04";
   const borderColor = borderColors[style][buttonState];
+  const hoverClass = hovered ? buttonStylePC[style]["hover"] : "";
+  const focusClass = focused ? buttonStylePC[style]["focus"] : "";
 
   return (
     <button
-      className={`button flex items-center min-w-[64px] max-w-[1120px] h-[64px] label-04-bold pt-spacing-05 pr-spacing-08 pb-spacing-05 pl-spacing-08 gap-spacing-04 ${styleClass} ${roundClass}`}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      className={`button flex items-center min-w-[64px] max-w-[1120px] h-[64px] 
+        label-04-bold pt-spacing-05 pr-spacing-08 pb-spacing-05 pl-spacing-08 gap-spacing-04 
+        ${styleClass} ${roundClass} ${hoverClass} ${focusClass}`}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       onFocus={handleFocus}
       onBlur={handleBlur}
       onClick={onClick}

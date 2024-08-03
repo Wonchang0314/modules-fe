@@ -29,6 +29,8 @@ const ColorGroundConfig = {
         "Hover-Gray-80": "var(--hover-gray-80)",
         "Hover-Gray-90": "var(--hover-gray-90)",
         "Hover-Gray-100": "var(--hover-gray-100)",
+        "Gray-Light": "rgba(141, 141, 141, 0.14)",
+        "Gray-Medium": "rgba(141, 141, 141, 0.52)",
 
         // Red
         "Red-10": "var(--red-10)",
