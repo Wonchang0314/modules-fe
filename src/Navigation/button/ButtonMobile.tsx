@@ -22,8 +22,14 @@ export interface ButtonPropsMobile {
 }
 
 export const buttonSize = {
-  L: "w-full min-w-[64px] max-w-[343px] h-[64px] py-spacing-05 px-spacing-07 gap-spacing-04 flex justify-center items-center",
-  M: "w-full min-w-[32px] max-w-[343px] h-[40px] px-spacing-04 py-spacing-03 gap-spacing-02 flex justify-center items-center",
+  iconOnly: {
+    L: "w-full min-w-[64px] max-w-[343px] h-[64px] p-spacing-05 gap-spacing-04 flex justify-center items-center",
+    M: "w-full min-w-[32px] max-w-[343px] h-[40px] p-spacing-04 gap-spacing-02 flex justify-center items-center",
+  },
+  withText: {
+    L: "w-full min-w-[64px] max-w-[343px] h-[64px] py-spacing-05 px-spacing-07 gap-spacing-04 flex justify-center items-center",
+    M: "w-full min-w-[32px] max-w-[343px] h-[40px] px-spacing-04 py-spacing-03 gap-spacing-02 flex justify-center items-center",
+  },
 };
 
 export const buttonLabel = {
@@ -220,7 +226,8 @@ export default function Button({
     }
   };
 
-  const sizeClass = buttonSize[size];
+  const buttonType = type === "icon" ? "iconOnly" : "withText";
+  const sizeClass = buttonSize[buttonType][size];
   const labelClass = buttonLabel[size];
   const styleClass = buttonStyleMobile[style][buttonState];
   const roundClass =

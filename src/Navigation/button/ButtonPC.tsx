@@ -150,7 +150,10 @@ export default function Button({
   const borderColor = borderColors[style][buttonState];
   const hoverClass = hovered ? buttonStylePC[style]["hover"] : "";
   const focusClass = focused ? buttonStylePC[style]["focus"] : "";
-
+  const buttonType =
+    type === "icon"
+      ? `p-spacing-05`
+      : `pt-spacing-05 pr-spacing-08 pb-spacing-05 pl-spacing-08`;
   const clonedIcon = icon
     ? cloneElement(icon as React.ReactElement, {
         className: `${(icon as React.ReactElement).props.className} ${buttonIconColors[style][buttonState]}`,
@@ -160,7 +163,7 @@ export default function Button({
   return (
     <button
       className={`button flex items-center min-w-[64px] max-w-[1120px] h-[64px] 
-        label-04-bold pt-spacing-05 pr-spacing-08 pb-spacing-05 pl-spacing-08 gap-spacing-04 
+        label-04-bold ${buttonType} gap-spacing-04 
         ${styleClass} ${roundClass} ${hoverClass} ${focusClass}`}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
