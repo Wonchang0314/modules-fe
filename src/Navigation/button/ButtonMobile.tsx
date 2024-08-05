@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { cloneElement, useEffect, useState } from "react";
 import Divider from "src/divider/Divider";
 
 export interface ButtonPropsMobile {
@@ -17,6 +17,7 @@ export interface ButtonPropsMobile {
   round?: boolean;
   text1: string;
   text2?: string;
+  icon?: React.ReactNode;
   onClick?: () => void;
 }
 
@@ -92,6 +93,61 @@ export const buttonStyleMobile = {
   },
 };
 
+const buttonIconColors = {
+  primary: {
+    enabled: "fill-text-on-color",
+    hover: "fill-text-on-color-hover",
+    focus: "fill-text-on-color active",
+    disabled: "fill-text-on-color-disabled",
+    active: "fill-text-on-color",
+  },
+  secondary: {
+    enabled: "fill-text-secondary",
+    hover: "fill-text-secondary",
+    focus: "fill-text-secondary",
+    disabled: "fill-text-on-color-disabled",
+    active: "fill-text-secondary",
+  },
+  danger_primary: {
+    enabled: "fill-text-on-color",
+    hover: "fill-text-on-color hover",
+    disabled: "fill-text-on-color-disabled",
+    active: "fill-text-on-color",
+  },
+  danger_border: {
+    enabled: "fill-text-error",
+    hover: "fill-text-on-color-hover",
+    disabled: "fill-text-disabled",
+    active: "fill-text-on-color",
+  },
+  danger_ghost: {
+    enabled: "fill-text-error",
+    hover: "fill-text-error",
+    disabled: "fill-text-disabled",
+    active: "fill-text-error",
+  },
+  border: {
+    enabled: "fill-text-secondary",
+    hover: "fill-text-on-color-hover",
+    focus: "fill-text-on-color active",
+    disabled: "fill-text-disabled",
+    active: "fill-text-on-color",
+  },
+  ghost: {
+    enabled: "fill-text-primary",
+    hover: "fill-text-primary",
+    focus: "fill-text-primary",
+    disabled: "fill-text-disabled",
+    active: "fill-text-primary",
+  },
+  elevated_primiary: {
+    enabled: "fill-text-on-color",
+    hover: "fill-text-on-color",
+    disabled: "fill-text-on-color-disabled",
+    active: "fill-text-on-color",
+  },
+};
+
 const borderColors = {
   primary: {
     enabled: "#8D8D80",
@@ -143,6 +199,7 @@ export default function Button({
   round = false,
   text1 = "Text1",
   text2 = "Text2",
+  icon,
   onClick,
 }: ButtonPropsMobile) {
   const [buttonState, setButtonState] = useState(state);
@@ -174,6 +231,12 @@ export default function Button({
         : "rounded-radius-04";
   const borderColor = borderColors[style][buttonState];
 
+  const clonedIcon = icon
+    ? cloneElement(icon as React.ReactElement, {
+        className: `${(icon as React.ReactElement).props.className} ${buttonIconColors[style][buttonState]}`,
+      })
+    : null;
+
   return (
     <button
       className={`button flex ${labelClass} ${sizeClass} ${styleClass} ${roundClass}`}
@@ -182,10 +245,12 @@ export default function Button({
       onClick={onClick}
       disabled={buttonState === "disabled"}
     >
-      {type === "icon-left" && <span className="left-icon">+</span>}
+      {type === "icon-left" && <span className="left-icon">{clonedIcon}</span>}
       {type === "icon-left" && <span>{text1}</span>}
       {type === "icon-right" && <span>{text1}</span>}
-      {type === "icon-right" && <span className="right-icon">+</span>}
+      {type === "icon-right" && (
+        <span className="right-icon">{clonedIcon}</span>
+      )}
       {type === "text" && <span>{text1}</span>}
       {type === "text-text" && <span>{text1}</span>}
       {type === "text-text" && (
@@ -197,7 +262,7 @@ export default function Button({
         />
       )}
       {type === "text-text" && <span>{text2}</span>}
-      {type === "icon" && <span className="icon">+</span>}
+      {type === "icon" && <span className="icon">{clonedIcon}</span>}
     </button>
   );
 }
