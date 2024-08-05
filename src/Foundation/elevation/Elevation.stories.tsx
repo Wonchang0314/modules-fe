@@ -19,7 +19,7 @@ const ElevationBox: React.FC<{ className: string; label: string }> = ({
       <p>{label}</p>
     </div>
     <div className="ml-5">
-      <p className="font-bold">className: {className}</p>
+      <p className="text-slate-950">className: {className}</p>
     </div>
   </FlexBox>
 );
