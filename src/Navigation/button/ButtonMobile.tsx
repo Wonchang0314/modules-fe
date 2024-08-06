@@ -1,5 +1,6 @@
 import React, { cloneElement, useEffect, useState } from "react";
 import Divider from "src/divider/Divider";
+import Icon, { iconKey } from "src/icon/Icon";
 
 export interface ButtonPropsMobile {
   size: "L" | "M";
@@ -17,7 +18,7 @@ export interface ButtonPropsMobile {
   round?: boolean;
   text1: string;
   text2?: string;
-  icon?: React.ReactNode;
+  iconKey: iconKey;
   onClick?: () => void;
 }
 
@@ -205,7 +206,7 @@ export default function Button({
   round = false,
   text1 = "Text1",
   text2 = "Text2",
-  icon,
+  iconKey,
   onClick,
 }: ButtonPropsMobile) {
   const [buttonState, setButtonState] = useState(state);
@@ -237,12 +238,7 @@ export default function Button({
         ? "rounded-radius-circle"
         : "rounded-radius-04";
   const borderColor = borderColors[style][buttonState];
-
-  const clonedIcon = icon
-    ? cloneElement(icon as React.ReactElement, {
-        className: `${(icon as React.ReactElement).props.className} ${buttonIconColors[style][buttonState]}`,
-      })
-    : null;
+  const iconColor = buttonIconColors[style][buttonState];
 
   return (
     <button
@@ -252,11 +248,17 @@ export default function Button({
       onClick={onClick}
       disabled={buttonState === "disabled"}
     >
-      {type === "icon-left" && <span className="left-icon">{clonedIcon}</span>}
+      {type === "icon-left" && (
+        <span className="left-icon">
+          <Icon icon={iconKey} className={`${iconColor}`} />
+        </span>
+      )}
       {type === "icon-left" && <span>{text1}</span>}
       {type === "icon-right" && <span>{text1}</span>}
       {type === "icon-right" && (
-        <span className="right-icon">{clonedIcon}</span>
+        <span className="right-icon">
+          <Icon icon={iconKey} className={`${iconColor}`} />
+        </span>
       )}
       {type === "text" && <span>{text1}</span>}
       {type === "text-text" && <span>{text1}</span>}
@@ -269,7 +271,11 @@ export default function Button({
         />
       )}
       {type === "text-text" && <span>{text2}</span>}
-      {type === "icon" && <span className="icon">{clonedIcon}</span>}
+      {type === "icon" && (
+        <span className="icon">
+          <Icon icon={iconKey} className={`${iconColor}`} />
+        </span>
+      )}
     </button>
   );
 }

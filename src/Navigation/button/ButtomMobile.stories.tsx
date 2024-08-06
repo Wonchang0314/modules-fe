@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from "@storybook/react";
 import ButtonMobile, { ButtonPropsMobile } from "./ButtonMobile";
-import Icon from "src/icon/Icon";
+import Icon, { iconKey } from "src/icon/Icon";
 
 export default {
   title: "Navigation/Button/ButtonMobile",
@@ -15,7 +15,7 @@ const TemplateMobile: StoryFn<ButtonPropsMobile> = args => {
   return <ButtonMobile {...args} />;
 };
 
-const tempIcon = <Icon icon="add"></Icon>;
+const tempKey: iconKey = "add";
 
 export const CustomButtonMobile = TemplateMobile.bind({});
 CustomButtonMobile.args = {
@@ -26,5 +26,5 @@ CustomButtonMobile.args = {
   round: false,
   text1: "Text1",
   text2: "Text2",
-  icon: tempIcon,
+  iconKey: tempKey,
 };
