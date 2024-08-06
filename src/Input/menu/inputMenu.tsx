@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { ReactElement } from "react";
 import { FlexBox } from "src/layout";
+import { MenuItemProps } from "./menuItem";
 
 export interface InputMenuProps {
   size: "L" | "M";
-  style?: "simple" | "complex";
-  menuItem: React.ReactNode;
+  menuItem: ReactElement<MenuItemProps>[];
   className?: string;
 }
 
@@ -24,7 +24,10 @@ export default function InputMenu({
   className,
   menuItem,
 }: InputMenuProps) {
-  const [menuSize, setMenuSize] = useState<"simple" | "complex">("simple");
+  const menuSize =
+    menuItem.length > 0 && menuItem[0].props.type === "default"
+      ? "simple"
+      : "complex";
   const sizeClass = InputMenuSize[menuSize][size];
 
   return (
