@@ -7,7 +7,7 @@ export default {
   component: SpacingLayout,
   parameters: {
     layout: "centered",
-    backgrounds: { default: "light" },
+    backgrounds: { default: "dark" },
   },
   argTypes: {
     margin: {
@@ -31,6 +31,14 @@ export default {
       options: ["", ...Object.keys(spacingConfig.spaceY)],
     },
   },
+  tags: ["autodocs"],
+  decorators: [
+    Story => (
+      <div className="bg-white flex items-start justify-center">
+        <Story />
+      </div>
+    ),
+  ],
 } as Meta<typeof SpacingLayout>;
 
 const Template: StoryFn<SpacingProps> = args => {
