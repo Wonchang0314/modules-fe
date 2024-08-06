@@ -150,18 +150,26 @@ export default function TextArea({
             `}
           />
           {state === "error" && (
-            <ErrorIcon
-              width={sizeStyle[size]["iconSize"]}
-              height={sizeStyle[size]["iconSize"]}
-              className={stateStyle[state]["iconColor"]}
-            />
+            <div
+              className={`w-${sizeStyle[size]["iconSize"] / 4} h-${sizeStyle[size]["iconSize"] / 4} shrink-0`}
+            >
+              <ErrorIcon
+                width={sizeStyle[size]["iconSize"]}
+                height={sizeStyle[size]["iconSize"]}
+                className={`${stateStyle[state]["iconColor"]}`}
+              />
+            </div>
           )}
           {state === "warning" && (
-            <WarnIcon
-              width={sizeStyle[size]["iconSize"]}
-              height={sizeStyle[size]["iconSize"]}
-              className={stateStyle[state]["iconColor"]}
-            />
+            <div
+              className={`w-${sizeStyle[size]["iconSize"] / 4} h-${sizeStyle[size]["iconSize"] / 4} shrink-0`}
+            >
+              <WarnIcon
+                width={sizeStyle[size]["iconSize"]}
+                height={sizeStyle[size]["iconSize"]}
+                className={`${stateStyle[state]["iconColor"]}`}
+              />
+            </div>
           )}
         </div>
         <div
