@@ -28,7 +28,9 @@ export default function ProgressBar({
       >
         <div
           className={`absolute h-full top-0 left-0 rounded-full ${bgStyle[state]}`}
-          style={{ width: `${state === "default" ? value : 100}%` }}
+          style={{
+            width: `${state === "default" ? (value < 100 ? value : 100) : 100}%`,
+          }}
         />
       </div>
     </div>
