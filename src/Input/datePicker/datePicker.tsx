@@ -20,7 +20,7 @@ type CustomDatePickerProps = {
 };
 
 const stateStyle = {
-  active: {
+  enable: {
     labelColor: "text-text-secondary",
     inputColor: "text-text-primary",
     descriptionColor: "text-text-secondary",
@@ -119,7 +119,7 @@ export default function DatePicker({
 
   const returnBorderColor = () => {
     switch (state) {
-      case "active":
+      case "enable":
         if (isFocused) {
           setDividerStyle("border-b-[3px] border-b-focus-default");
           setBorderStyle("border-[3px] border-focus-default");

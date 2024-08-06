@@ -4,7 +4,7 @@ import WarnIcon from "../../icon/svg/status/warning-triangle-filled.svg";
 import TextFieldSkeleton from "./textfieldSkeleton";
 
 export type InputStateType =
-  | "active"
+  | "enable"
   | "warning"
   | "error"
   | "disabled"
@@ -60,7 +60,7 @@ const sizeStyle = {
 };
 
 const stateStyle = {
-  active: {
+  enable: {
     labelColor: "text-text-secondary",
     descriptionColor: "text-text-helper",
   },
@@ -89,7 +89,7 @@ export default function TextField({
   onChange,
   size,
   style = "outlined",
-  state = "active",
+  state = "enable",
   label,
   labelText,
   description,

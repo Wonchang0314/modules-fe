@@ -44,7 +44,7 @@ const sizeStyle = {
 };
 
 const stateStyle = {
-  active: {
+  enable: {
     labelColor: "text-text-secondary",
     descriptionColor: "text-text-helper",
   },
@@ -72,7 +72,7 @@ export default function TextArea({
   value,
   onChange,
   size,
-  state = "active",
+  state = "enable",
   label,
   labelText,
   description,

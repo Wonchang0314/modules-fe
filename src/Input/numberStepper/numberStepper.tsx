@@ -40,7 +40,7 @@ const sizeStyle = {
 };
 
 const stateStyle = {
-  active: {
+  enable: {
     border: "border-border-subtle-01",
     textColor: "text-text-primary",
     iconColor: "fill-icon-primary",
@@ -72,7 +72,7 @@ export default function NumberStepper({
   setCount,
   width,
   size,
-  state = "active",
+  state = "enable",
   description,
   descriptionAlign = "left",
   onClickTrashIcon,
