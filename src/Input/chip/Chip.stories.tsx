@@ -18,7 +18,6 @@ CustomChip.args = {
   size: "L",
   state: "Enabled",
   dismissible: false,
-  icon: true,
   iconName: "fish",
   label: "Chip",
   color: "Yellow",

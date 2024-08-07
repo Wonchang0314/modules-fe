@@ -9,7 +9,6 @@ export interface ChipProps {
   state: "Enabled" | "Disabled";
   dismissible: boolean;
   label: string;
-  icon: boolean;
   color:
     | "Black"
     | "Gray"
@@ -142,7 +141,6 @@ export default function Chipl({
   state,
   dismissible,
   label,
-  icon,
   iconName,
   color,
   readonly,
@@ -166,12 +164,12 @@ export default function Chipl({
        state === "Enabled" && color !== "Outline" && readonly
          ? ""
          : state == "Disabled" && color === "Outline"
-         ? ""
-         : colorStyle.borderColor
+           ? ""
+           : colorStyle.borderColor
      }
      `}
       >
-        {icon && (
+        {iconName && (
           <Icon
             icon={iconName as iconKey}
             size={sizeStyle.iconSize}

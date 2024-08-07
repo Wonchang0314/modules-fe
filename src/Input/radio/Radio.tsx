@@ -8,10 +8,8 @@ export interface RadioProps {
   title: string;
   size: "L" | "M";
   state: "Enabled" | "Disabled" | "Readonly" | "Error" | "Warning";
-  label?: boolean;
-  labelText?: string;
-  alert?: boolean;
-  alertText?: string;
+  label?: string;
+  alert?: string;
   checked?: boolean;
   onChange?: () => void;
 }
@@ -47,10 +45,8 @@ export default function Radio({
   title,
   size,
   state,
-  label = false,
-  labelText,
-  alert = false,
-  alertText,
+  label,
+  alert,
   checked = false,
   onChange,
 }: RadioProps) {
@@ -82,7 +78,7 @@ export default function Radio({
     <FlexBox direction="col" className="gap-spacing-02 items-start">
       {label && (
         <span className={`${labelColor} ${sizeStyle.labelDetail}`}>
-          {labelText}
+          {label}
         </span>
       )}
       <button onClick={handleToggle}>
@@ -126,13 +122,13 @@ export default function Radio({
               state === "Error"
                 ? "warning_circle_filled"
                 : state === "Warning"
-                ? "warning_triangle_filled"
-                : "eye_slash"
+                  ? "warning_triangle_filled"
+                  : "eye_slash"
             }
             size={sizeStyle.alertSize}
             className={`${stateStyle}`}
           />
-          {alertText}
+          {alert}
         </FlexBox>
       )}
     </FlexBox>

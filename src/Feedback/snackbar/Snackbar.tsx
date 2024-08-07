@@ -6,8 +6,7 @@ export interface SnackbarProps {
   lineMessage?: string;
   alert?: boolean;
   dismissible?: boolean;
-  action?: boolean;
-  actionText?: string;
+  action?: string;
   onClick?: () => void;
 }
 
@@ -16,8 +15,7 @@ export default function Snackbar({
   lineMessage,
   alert = false,
   dismissible = false,
-  action = false,
-  actionText,
+  action,
   onClick,
 }: SnackbarProps) {
   const [isVisible, setIsVisible] = useState(true);
@@ -56,7 +54,7 @@ export default function Snackbar({
               className="text-support-info-inverse body-01-bold-compact"
               onClick={onClick}
             >
-              {actionText}
+              {action}
             </div>
           )}
           {dismissible && (

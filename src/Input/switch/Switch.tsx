@@ -4,10 +4,8 @@ import { useState } from "react";
 
 export interface SwitchProps {
   state: "Enabled" | "Disabled" | "ReadOnly";
-  title?: boolean;
-  titleText?: string;
-  label?: boolean;
-  labelText?: string;
+  title?: string;
+  label?: string;
 }
 
 const stateStyles = (isOn: boolean) => ({
@@ -25,13 +23,7 @@ const stateStyles = (isOn: boolean) => ({
   },
 });
 
-export default function Switch({
-  state,
-  title = false,
-  titleText,
-  label = false,
-  labelText,
-}: SwitchProps) {
+export default function Switch({ state, title, label }: SwitchProps) {
   const [isOn, setIsOn] = useState(false);
 
   const stateStyle = stateStyles(isOn)[state];
@@ -52,15 +44,15 @@ export default function Switch({
     <>
       {label && (
         <div className={`pb-spacing-02 label-01-regular ${labelColor}`}>
-          {labelText}
+          {label}
         </div>
       )}
       <div className="flex gap-spacing-02">
         <div
           className={`w-12 h-6 rounded-full py-[3px]
             ${stateStyle.bgColor} ${
-            state === "ReadOnly" ? "border border-border-subtle-01" : ""
-          }`}
+              state === "ReadOnly" ? "border border-border-subtle-01" : ""
+            }`}
           onClick={toggleSwitch}
         >
           <div
@@ -71,9 +63,7 @@ export default function Switch({
           />
         </div>
         {title && (
-          <div className={`pt-1 body-02-regular ${titleColor}`}>
-            {titleText}
-          </div>
+          <div className={`pt-1 body-02-regular ${titleColor}`}>{title}</div>
         )}
       </div>
     </>

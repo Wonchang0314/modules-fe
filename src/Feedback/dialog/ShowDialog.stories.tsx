@@ -44,8 +44,7 @@ export const Docs = () => {
               lefttext="Button"
               righttext="Button"
               dismissible={true}
-              label={true}
-              labeltext="Label"
+              label="Label"
             />
           </div>
         </>

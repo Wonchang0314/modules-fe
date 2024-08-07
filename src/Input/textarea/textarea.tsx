@@ -9,13 +9,11 @@ type TextFieldProps = {
   onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   size: "S" | "M" | "L";
   state?: InputStateType;
-  label: boolean;
-  labelText?: string;
+  label?: string;
   /**
    * false일 때도 항상 글씨 크기만큼 공간 차지
    */
-  description: boolean;
-  descriptionText?: string;
+  description?: string;
   placeholder?: string;
 };
 
@@ -74,9 +72,7 @@ export default function TextArea({
   size,
   state = "active",
   label,
-  labelText,
   description,
-  descriptionText,
   placeholder,
 }: TextFieldProps) {
   const [isFocused, setIsFocused] = useState<boolean>(false);
@@ -112,7 +108,9 @@ export default function TextArea({
   };
 
   return (
-    <Suspense fallback={<TextAreaSkeleton size={size} label={label} />}>
+    <Suspense
+      fallback={<TextAreaSkeleton size={size} label={label ? true : false} />}
+    >
       <div className="flex flex-col gap-spacing-01 w-full">
         <div
           className={`
@@ -122,7 +120,7 @@ export default function TextArea({
             ${!label && "hidden"}  
           `}
         >
-          {labelText}
+          {label}
         </div>
         <div
           className={`
@@ -172,7 +170,7 @@ export default function TextArea({
             ${stateStyle[state]["descriptionColor"]}
           `}
         >
-          {descriptionText}
+          {description}
         </div>
       </div>
     </Suspense>

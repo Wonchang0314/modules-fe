@@ -14,9 +14,7 @@ export default function RadioGroup({
   size,
   state,
   label,
-  labelText,
   alert,
-  alertText,
   direction = "col",
 }: RadioGroupProps) {
   const [selectedRadio, setSelectedRadio] = useState<number>(-1);
@@ -31,15 +29,15 @@ export default function RadioGroup({
         direction === "col"
           ? "flex-col gap-spacing-02"
           : direction === "row" &&
-            label &&
-            alert &&
-            (state === "Error" || state === "Warning")
-          ? "flex-row gap-spacing-04 items-center"
-          : direction === "row" && label
-          ? "flex-row gap-spacing-04 items-end"
-          : direction === "row" && alert
-          ? "flex-row gap-spacing-04 items-start"
-          : "flex-row gap-spacing-04"
+              label &&
+              alert &&
+              (state === "Error" || state === "Warning")
+            ? "flex-row gap-spacing-04 items-center"
+            : direction === "row" && label
+              ? "flex-row gap-spacing-04 items-end"
+              : direction === "row" && alert
+                ? "flex-row gap-spacing-04 items-start"
+                : "flex-row gap-spacing-04"
       }`}
     >
       {titles.map((title, index) => (
@@ -50,13 +48,13 @@ export default function RadioGroup({
           title={title}
           size={size}
           state={state}
-          label={label && index === 0}
-          labelText={labelText}
+          label={label && index === 0 ? label : undefined}
           alert={
             (alert && direction === "col" && index === titles.length - 1) ||
             (alert && direction === "row" && index === 0)
+              ? alert
+              : undefined
           }
-          alertText={alertText}
         />
       ))}
     </div>
