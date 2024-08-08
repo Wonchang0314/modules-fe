@@ -1,46 +1,39 @@
-import { useState } from "react";
 import Button from "src/Navigation/button/ButtonMobile";
 import Icon from "src/icon/Icon";
 
-//애니메이션 정의
+// TODO : 애니메이션 정의
 
 export interface DialogProps {
+  open: boolean;
   title: string;
-  description: string;
-  lefttext: string;
-  righttext: string;
-  dismissible: boolean;
-  label?: boolean;
-  labeltext?: string;
+  leftText: string;
+  rightText: string;
+  dismissible?: boolean;
+  description?: string;
+  label?: string;
   leftOnClick?: () => void;
   rightOnClick?: () => void;
   onClose?: () => void;
 }
 
 export default function Dialog({
+  open,
   title,
   description,
-  lefttext,
-  righttext,
+  leftText,
+  rightText,
   dismissible = true,
   leftOnClick,
   rightOnClick,
-  label = false,
-  labeltext,
+  label,
   onClose,
 }: DialogProps) {
-  const [isVisible, setIsVisible] = useState(true);
-
-  const handleClose = () => {
-    setIsVisible(false);
-    if (onClose) {
-      onClose();
-    }
-  };
-
   return (
-    isVisible && (
-      <div className="w-[272px] flex flex-col py-spacing-07 px-spacing-05 bg-white rounded-xl">
+    open && (
+      <div
+        className="w-[272px] flex flex-col py-spacing-07 px-spacing-05 bg-white rounded-xl"
+        onClick={e => e.stopPropagation()}
+      >
         <div className="flex flex-row pb-spacing-04 justify-between items-start">
           <div
             className="flex flex-col gap-spacing-01 body-05-bold
@@ -48,27 +41,29 @@ export default function Dialog({
           >
             {label && (
               <div className="label-01-regular text-text-secondary">
-                {labeltext}
+                {label}
               </div>
             )}
             {title}
           </div>
           {dismissible && (
-            <button onClick={handleClose}>
+            <button onClick={onClose}>
               <Icon icon={"close"} size={24} />
             </button>
           )}
         </div>
-        <div className="pb-spacing-06 body-02-regular text-text-primary">
-          {description}
-        </div>
+        {description && (
+          <div className="pb-spacing-06 body-02-regular text-text-primary">
+            {description}
+          </div>
+        )}
         <div className="flex flex-row gap-spacing-02 w-full">
           <Button
             size={"M"}
             style={"secondary"}
             type={"text"}
             state={"enabled"}
-            text1={lefttext}
+            text1={leftText}
             onClick={leftOnClick}
           />
           <Button
@@ -76,7 +71,7 @@ export default function Dialog({
             style={"primary"}
             type={"text"}
             state={"enabled"}
-            text1={righttext}
+            text1={rightText}
             onClick={rightOnClick}
           />
         </div>
