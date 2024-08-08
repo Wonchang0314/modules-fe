@@ -2,7 +2,7 @@ import { Meta, StoryFn } from "@storybook/react/*";
 import Tabs, { TabsProps } from "./Tabs";
 
 export default {
-  title: "Input/Tabs/Tabs",
+  title: "Navigation/Tabs/Tabs",
   component: Tabs,
   parameters: {
     layout: "centered",
@@ -18,19 +18,19 @@ CustomTabs.args = {
   state: "Enabled",
   items: [
     {
-      iconName: "home",
+      icon: "home",
       label: "Home",
       dismissable: false,
       onClick: () => console.log("Home clicked"),
     },
     {
-      iconName: "menu",
+      icon: "menu",
       label: "Menu",
       dismissable: false,
       onClick: () => console.log("Menu clicked"),
     },
     {
-      iconName: "search",
+      icon: "search",
       label: "Search",
       dismissable: false,
       onClick: () => console.log("Search clicked"),

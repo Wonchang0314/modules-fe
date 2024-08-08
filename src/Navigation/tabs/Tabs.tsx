@@ -5,7 +5,7 @@ import TabItem from "./TabItem";
 export interface TabsProps {
   state: "Enabled" | "Disabled";
   items: {
-    iconName?: iconKey;
+    icon?: iconKey;
     label?: string;
     dismissable?: boolean;
     onClick: () => void;
@@ -23,7 +23,7 @@ export default function Tabs({ items, state }: TabsProps) {
     <div className="flex flex-row w-full min-w-[328px]">
       {items.map((item, i) => (
         <TabItem
-          iconName={item.iconName}
+          icon={item.icon}
           label={item.label}
           onClick={() => onClickItem(i, item.onClick)}
           state={state}

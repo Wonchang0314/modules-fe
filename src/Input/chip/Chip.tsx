@@ -22,7 +22,7 @@ export interface ChipProps {
     | "Purple"
     | "Teal"
     | "Outline";
-  iconName?: iconKey;
+  icon?: iconKey;
   readonly: boolean;
 }
 
@@ -141,7 +141,7 @@ export default function Chipl({
   state,
   dismissible,
   label,
-  iconName,
+  icon,
   color,
   readonly,
 }: ChipProps) {
@@ -169,9 +169,9 @@ export default function Chipl({
      }
      `}
       >
-        {iconName && (
+        {icon && (
           <Icon
-            icon={iconName as iconKey}
+            icon={icon as iconKey}
             size={sizeStyle.iconSize}
             className={colorStyle.iconColor}
           />

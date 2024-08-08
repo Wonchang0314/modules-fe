@@ -2,7 +2,7 @@ import { useState } from "react";
 import Icon, { iconKey } from "src/icon/Icon";
 
 export interface TabItemProps {
-  iconName?: iconKey;
+  icon?: iconKey;
   label?: string;
   dismissable?: boolean;
   onClick?: () => void;
@@ -23,7 +23,7 @@ const stateStyles = {
 };
 
 export default function Tab({
-  iconName,
+  icon,
   label,
   dismissable,
   state,
@@ -43,15 +43,15 @@ export default function Tab({
       <div
         className={`flex flex-row gap-spacing-02 items-center justify-center w-full
         border-b-2 border-border-stong-selected-01
-        ${dismissable || iconName ? "py-2.5" : "py-spacing-03"}
+        ${dismissable || icon ? "py-2.5" : "py-spacing-03"}
         ${label ? "px-spacing-03" : "px-2.5"}
         ${isFocused ? "text-text-primary border-border-strong-selected-01" : StateStyle.classColor}
         group`}
         onClick={onClick}
       >
-        {iconName && (
+        {icon && (
           <Icon
-            icon={iconName}
+            icon={icon}
             size={20}
             className={`${isFocused ? "fill-icon-primary" : StateStyle.iconColor}`}
           />

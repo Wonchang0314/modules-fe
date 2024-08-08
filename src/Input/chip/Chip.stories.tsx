@@ -1,5 +1,6 @@
 import { Meta, StoryFn } from "@storybook/react/*";
 import Chip, { ChipProps } from "./Chip";
+import { icons } from "src/icon/Icon";
 
 export default {
   title: "Input/Chip",
@@ -7,6 +8,11 @@ export default {
   parameters: {
     layout: "centered",
     backgrounds: { default: "light" },
+  },
+  argTypes: {
+    icon: {
+      options: Object.keys(icons),
+    },
   },
   tags: ["autodocs"],
 } as Meta<typeof Chip>;
@@ -18,7 +24,7 @@ CustomChip.args = {
   size: "L",
   state: "Enabled",
   dismissible: false,
-  iconName: "fish",
+  icon: "fish",
   label: "Chip",
   color: "Yellow",
   readonly: false,
