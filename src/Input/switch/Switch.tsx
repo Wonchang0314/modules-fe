@@ -49,9 +49,11 @@ export default function Switch({ state, title, label }: SwitchProps) {
       )}
       <div className="flex gap-spacing-02">
         <div
-          className={`w-12 h-6 rounded-full py-[3px]
+          className={`w-12 h-6 rounded-full
             ${stateStyle.bgColor} ${
-              state === "ReadOnly" ? "border border-border-subtle-01" : ""
+              state === "ReadOnly"
+                ? "border border-border-subtle-01 py-[2px]"
+                : "py-[3px]"
             }`}
           onClick={toggleSwitch}
         >
