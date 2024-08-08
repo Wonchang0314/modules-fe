@@ -10,7 +10,7 @@ export default {
     backgrounds: { default: "light" },
   },
   argTypes: {
-    iconName: {
+    icon: {
       options: Object.keys(icons),
     },
   },
