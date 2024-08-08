@@ -15,10 +15,11 @@ const Template: StoryFn<DialogProps> = args => <Dialog {...args} />;
 
 export const CustomDialog = Template.bind({});
 CustomDialog.args = {
+  open: true,
   title: "Title",
+  leftText: "LeftButton",
+  rightText: "RightButton",
   description: "Description",
-  lefttext: "Button",
-  righttext: "Button",
   dismissible: true,
   label: "Label",
 };

@@ -1,31 +1,33 @@
-import { Meta } from "@storybook/react/*";
-import Dialog, { DialogProps } from "./Dialog";
 import { useState } from "react";
 import Button from "src/Navigation/button/ButtonMobile";
 import Scrim from "src/scrim/Scrim";
+import Dialog from "./Dialog";
 
 export default {
-  title: "Feedback/Dialog/Show Dialog",
-  component: Dialog,
-  tags: ["autodocs"],
-} as Meta<typeof Dialog>;
+  title: "Feedback/Dialog",
+  parameters: {
+    layout: "centered",
+    backgrounds: { default: "light" },
+  },
+  tags: ["!autodocs"],
+};
 
-export const Docs = () => {
-  const [isOpen, setIsOpen] = useState(false);
+export const ShowDialog = () => {
+  const [open, setOpen] = useState(false);
 
-  const handleClick = () => {
-    setIsOpen(!isOpen);
+  const handleOpen = () => {
+    setOpen(true);
   };
 
   const handleClose = () => {
-    setIsOpen(false);
+    setOpen(false);
   };
 
   return (
     <>
       <div className="flex items-center justify-center h-full w-full">
         <Button
-          onClick={handleClick}
+          onClick={handleOpen}
           size={"L"}
           style={"primary"}
           type={"text"}
@@ -33,28 +35,24 @@ export const Docs = () => {
           text1={"Show Dialog"}
         />
       </div>
-      {isOpen && (
-        <>
-          <Scrim className="fixed inset-0 z-40" />
-          <div className="fixed inset-0 flex items-center justify-center z-50">
-            <Dialog
-              onClose={handleClose}
-              title="Title"
-              description="Description"
-              lefttext="Button"
-              righttext="Button"
-              dismissible={true}
-              label="Label"
-            />
-          </div>
-        </>
+      {open && (
+        <Scrim
+          className="fixed inset-0 z-40 flex items-center justify-center"
+          onClick={handleClose}
+        >
+          <Dialog
+            open={open}
+            onClose={handleClose}
+            title="Title"
+            description="Description"
+            leftText="Button"
+            rightText="Button"
+            dismissible={true}
+            label="Label"
+            leftOnClick={handleClose}
+          />
+        </Scrim>
       )}
     </>
   );
-};
-
-Docs.parameters = {
-  docs: {
-    page: () => <Docs />,
-  },
 };
