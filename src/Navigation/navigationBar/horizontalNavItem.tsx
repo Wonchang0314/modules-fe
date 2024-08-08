@@ -1,4 +1,4 @@
-import { iconKey, icons } from "src/icon/Icon";
+import Icon, { iconKey } from "src/icon/Icon";
 
 type HorizontalNavItemProps = {
   name?: string;
@@ -13,25 +13,19 @@ export default function HorizontalNavItem({
   onClick,
   isFocused,
 }: HorizontalNavItemProps) {
-  const SVGIcon = icons[icon];
-
   return (
     <div
       className="flex flex-col w-full pt-2.5 pb-spacing-08 gap-spacing-01 items-center justify-start"
       onClick={onClick}
     >
-      <SVGIcon
-        width={24}
-        height={24}
-        color={isFocused ? "#262626" : "#6F6F6F"}
+      <Icon
+        icon={icon}
+        size={24}
+        className={`${isFocused ? "fill-icon-primary" : "fill-icon-secondary"}`}
       />
       <div
         className={`
-          text-label-01-medium 
-          ${
-            isFocused ? "text-[#161616]" : "text-[#6f6f6f]"
-            //isFocused ? "text-primary" : "text-secondary"
-          }`}
+          ${isFocused ? "text-text-primary label-01-bold" : "text-text-secondary label-01-medium"}`}
       >
         {name}
       </div>
