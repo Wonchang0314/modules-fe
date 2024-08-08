@@ -17,21 +17,11 @@ export const CustomAccordion = Template.bind({});
 CustomAccordion.args = {
   state: "Disabled",
   size: "L",
-  data: [
-    {
-      title: "Title",
-      content:
-        "An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.",
-      children: (
-        <div className="w-[336px] h-[32px] bg-black text-white p-2">
-          changer
-        </div>
-      ),
-    },
-    {
-      title: "Title",
-      content:
-        "An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.",
-    },
-  ],
+  title: "Title",
+  children: (
+    <div>
+      "An accordion is a vertically stacked list of headers that reveal or hide
+      associated sections of content.",
+    </div>
+  ),
 };
