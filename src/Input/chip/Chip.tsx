@@ -9,7 +9,6 @@ export interface ChipProps {
   state: "Enabled" | "Disabled";
   dismissible: boolean;
   label: string;
-  icon: boolean;
   color:
     | "Black"
     | "Gray"
@@ -23,7 +22,7 @@ export interface ChipProps {
     | "Purple"
     | "Teal"
     | "Outline";
-  iconName?: iconKey;
+  icon?: iconKey;
   readonly: boolean;
 }
 
@@ -143,7 +142,6 @@ export default function Chipl({
   dismissible,
   label,
   icon,
-  iconName,
   color,
   readonly,
 }: ChipProps) {
@@ -160,34 +158,36 @@ export default function Chipl({
   return (
     isVisible && (
       <div
-        className={`flex flex-row rounded-full ${sizeStyle.Detail} 
+        className={`rounded-full
       ${colorStyle.bgColor} ${colorStyle.textColor} ${colorStyle.bgHoverColor}
      ${
        state === "Enabled" && color !== "Outline" && readonly
          ? ""
          : state == "Disabled" && color === "Outline"
-         ? ""
-         : colorStyle.borderColor
+           ? ""
+           : colorStyle.borderColor
      }
      `}
       >
-        {icon && (
-          <Icon
-            icon={iconName as iconKey}
-            size={sizeStyle.iconSize}
-            className={colorStyle.iconColor}
-          />
-        )}
-        {label}
-        {dismissible && (
-          <button onClick={handleClose}>
+        <div className={`flex flex-row p-px ${sizeStyle.Detail}`}>
+          {icon && (
             <Icon
-              icon={"close"}
+              icon={icon}
               size={sizeStyle.iconSize}
               className={colorStyle.iconColor}
             />
-          </button>
-        )}
+          )}
+          {label}
+          {dismissible && (
+            <button onClick={handleClose}>
+              <Icon
+                icon={"close"}
+                size={sizeStyle.iconSize}
+                className={colorStyle.iconColor}
+              />
+            </button>
+          )}
+        </div>
       </div>
     )
   );

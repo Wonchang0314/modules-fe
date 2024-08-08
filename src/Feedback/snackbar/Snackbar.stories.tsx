@@ -19,6 +19,5 @@ CustomSnackbar.args = {
   lineMessage: "Line message",
   alert: true,
   dismissible: true,
-  action: true,
-  actionText: "Action",
+  action: "Action",
 };

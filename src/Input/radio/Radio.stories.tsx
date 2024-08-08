@@ -18,8 +18,6 @@ CustomRadio.args = {
   title: "Radio label",
   size: "M",
   state: "Enabled",
-  label: true,
-  labelText: "Label",
-  alert: true,
-  alertText: "Warning text",
+  label: "Label",
+  alert: "Warning text",
 };

@@ -10,8 +10,7 @@ export interface DialogProps {
   lefttext: string;
   righttext: string;
   dismissible: boolean;
-  label?: boolean;
-  labeltext?: string;
+  label?: string;
   leftOnClick?: () => void;
   rightOnClick?: () => void;
   onClose?: () => void;
@@ -25,8 +24,7 @@ export default function Dialog({
   dismissible = true,
   leftOnClick,
   rightOnClick,
-  label = false,
-  labeltext,
+  label,
   onClose,
 }: DialogProps) {
   const [isVisible, setIsVisible] = useState(true);
@@ -48,7 +46,7 @@ export default function Dialog({
           >
             {label && (
               <div className="label-01-regular text-text-secondary">
-                {labeltext}
+                {label}
               </div>
             )}
             {title}

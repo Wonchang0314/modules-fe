@@ -8,10 +8,8 @@ export interface CheckboxProps {
   title: string;
   size: "L" | "M";
   state: "Enabled" | "Disabled" | "Readonly" | "Error" | "Warning";
-  label?: boolean;
-  labelText?: string;
-  alert?: boolean;
-  alertText?: string;
+  label?: string;
+  alert?: string;
 }
 
 const sizeStyles = {
@@ -45,10 +43,8 @@ export default function Checkbox({
   title,
   size,
   state,
-  label = false,
-  labelText,
-  alert = false,
-  alertText,
+  label,
+  alert,
 }: CheckboxProps) {
   const [isChecked, setIsChecked] = useState(false);
 
@@ -71,7 +67,7 @@ export default function Checkbox({
     <FlexBox direction="col" className="gap-spacing-02 items-start">
       {label && (
         <span className={`${labelColor} ${sizeStyle.labelDetail}`}>
-          {labelText}
+          {label}
         </span>
       )}
       <button onClick={handleToggle}>
@@ -110,13 +106,13 @@ export default function Checkbox({
               state === "Error"
                 ? "warning_circle_filled"
                 : state === "Warning"
-                ? "warning_triangle_filled"
-                : "eye_slash"
+                  ? "warning_triangle_filled"
+                  : "eye_slash"
             }
             size={sizeStyle.alertSize}
             className={`${stateStyle}`}
           />
-          {alertText}
+          {alert}
         </FlexBox>
       )}
     </FlexBox>

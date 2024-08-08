@@ -16,13 +16,11 @@ type TextFieldProps = {
   size: "S" | "M" | "L";
   style: "outlined" | "underlined";
   state?: InputStateType;
-  label: boolean;
-  labelText?: string;
+  label?: string;
   /**
    * false일 때도 항상 글씨 크기만큼 공간 차지
    */
-  description: boolean;
-  descriptionText?: string;
+  description?: string;
   placeholder?: string;
 };
 
@@ -91,9 +89,7 @@ export default function TextField({
   style = "outlined",
   state = "active",
   label,
-  labelText,
   description,
-  descriptionText,
   placeholder,
 }: TextFieldProps) {
   const [isFocused, setIsFocused] = useState<boolean>(false);
@@ -154,7 +150,13 @@ export default function TextField({
 
   return (
     <Suspense
-      fallback={<TextFieldSkeleton size={size} style={style} label={label} />}
+      fallback={
+        <TextFieldSkeleton
+          size={size}
+          style={style}
+          label={label ? true : false}
+        />
+      }
     >
       <div className="flex flex-col gap-spacing-01 w-full">
         <div
@@ -165,7 +167,7 @@ export default function TextField({
             ${!label && "hidden"}  
           `}
         >
-          {labelText}
+          {label}
         </div>
         <div
           className={`
@@ -217,7 +219,7 @@ export default function TextField({
             ${stateStyle[state]["descriptionColor"]}
           `}
         >
-          {descriptionText}
+          {description}
         </div>
       </div>
     </Suspense>
