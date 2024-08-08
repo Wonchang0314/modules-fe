@@ -158,7 +158,7 @@ export default function Chipl({
   return (
     isVisible && (
       <div
-        className={`flex flex-row rounded-full ${sizeStyle.Detail} 
+        className={`rounded-full
       ${colorStyle.bgColor} ${colorStyle.textColor} ${colorStyle.bgHoverColor}
      ${
        state === "Enabled" && color !== "Outline" && readonly
@@ -169,23 +169,25 @@ export default function Chipl({
      }
      `}
       >
-        {icon && (
-          <Icon
-            icon={icon as iconKey}
-            size={sizeStyle.iconSize}
-            className={colorStyle.iconColor}
-          />
-        )}
-        {label}
-        {dismissible && (
-          <button onClick={handleClose}>
+        <div className={`flex flex-row p-px ${sizeStyle.Detail}`}>
+          {icon && (
             <Icon
-              icon={"close"}
+              icon={icon}
               size={sizeStyle.iconSize}
               className={colorStyle.iconColor}
             />
-          </button>
-        )}
+          )}
+          {label}
+          {dismissible && (
+            <button onClick={handleClose}>
+              <Icon
+                icon={"close"}
+                size={sizeStyle.iconSize}
+                className={colorStyle.iconColor}
+              />
+            </button>
+          )}
+        </div>
       </div>
     )
   );
