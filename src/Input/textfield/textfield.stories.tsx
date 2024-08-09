@@ -29,9 +29,7 @@ Example.args = {
   size: "L",
   style: "outlined",
   state: "active",
-  label: true,
-  labelText: "Label",
-  description: true,
-  descriptionText: "Helper text",
+  label: "Label",
+  description: "Helper text",
   placeholder: "Placeholder Text",
 };

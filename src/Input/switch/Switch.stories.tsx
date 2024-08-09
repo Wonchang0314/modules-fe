@@ -16,8 +16,7 @@ const Template: StoryFn<SwitchProps> = args => <Switch {...args} />;
 export const CustomSwitch = Template.bind({});
 CustomSwitch.args = {
   state: "Enabled",
-  title: true,
-  titleText: "State text",
-  label: true,
-  labelText: "Label",
+
+  title: "State text",
+  label: "Label",
 };

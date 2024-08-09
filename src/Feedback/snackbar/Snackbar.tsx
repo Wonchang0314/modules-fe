@@ -1,36 +1,33 @@
-import { useState } from "react";
 import Icon from "src/icon/Icon";
 
 export interface SnackbarProps {
+  open: boolean;
   message: string;
   lineMessage?: string;
   alert?: boolean;
   dismissible?: boolean;
-  action?: boolean;
-  actionText?: string;
-  onClick?: () => void;
+  action?: string;
+  actionOnClick?: () => void;
+  onClose?: () => void;
 }
 
+// TODO : 애니메이션 정의 (Motion 사용)
+
 export default function Snackbar({
+  open,
   message,
   lineMessage,
   alert = false,
   dismissible = false,
-  action = false,
-  actionText,
-  onClick,
+  action,
+  actionOnClick,
+  onClose,
 }: SnackbarProps) {
-  const [isVisible, setIsVisible] = useState(true);
-
-  const handleClose = () => {
-    setIsVisible(false);
-  };
-
   return (
-    isVisible && (
+    open && (
       <div
-        className={`flex flex-row px-spacing-05 py-spacing-03 justify-between bg-layer-inverse rounded-full
-      ${action ? "w-[328px]" : ""}`}
+        className={`flex flex-row px-spacing-05 py-spacing-03 bg-layer-inverse rounded-full w-full
+          ${!alert && !action && !dismissible ? "justify-center text-center" : "justify-between"}`}
       >
         <div className="flex flex-row items-center">
           {alert && (
@@ -52,16 +49,16 @@ export default function Snackbar({
         </div>
         <div className="flex flex-row items-center">
           {action && (
-            <div
+            <button
               className="text-support-info-inverse body-01-bold-compact"
-              onClick={onClick}
+              onClick={actionOnClick}
             >
-              {actionText}
-            </div>
+              {action}
+            </button>
           )}
           {dismissible && (
             <button
-              onClick={handleClose}
+              onClick={onClose}
               className={`flex ${action ? "ml-spacing-02" : "ml-spacing-04"}`}
             >
               <Icon icon={"close"} size={20} className="fill-icon-on-color" />
