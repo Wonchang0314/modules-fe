@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { cloneElement, useEffect, useState } from "react";
 import Divider from "src/divider/Divider";
+import Icon, { iconKey } from "src/icon/Icon";
 
 export interface ButtonPropsPC {
   style: "primary" | "secondary" | "border" | "ghost";
   type: "text" | "text-text" | "icon" | "icon-left" | "icon-right";
-  state: "enabled" | "hover" | "focus" | "active" | "disabled";
+  state: "enabled" | "active" | "disabled";
   round: boolean;
   text1: string;
-  text2: string;
+  text2?: string;
+  iconKey: iconKey;
   onClick?: () => void;
 }
 
@@ -18,30 +20,62 @@ export const buttonStylePC = {
     focus: "bg-button-primary-active text-text-on-color active",
     disabled: "bg-button-disabled text-text-on-color-disabled",
     active:
-      "border border-strong-01 bg-button-primary-active text-text-on-color",
+      "border border-border-strong-01 bg-button-primary-active text-text-on-color m-[-1px]",
   },
   secondary: {
     enabled: "bg-button-secondary text-text-secondary",
     hover: "bg-button-secondary-hover text-text-secondary",
     focus: "bg-button-secondary-active text-text-secondary",
     disabled: "bg-button-disabled text-text-on-color-disabled",
-    active: "border border-strong-01 bg-button-secondary text-text-secondary",
+    active:
+      "border border-border-strong-01 bg-button-secondary text-text-secondary m-[-1px]",
   },
   border: {
-    enabled: "border border-button-border text-text-secondary",
+    enabled: "border border-button-border text-text-secondary m-[-1px]",
     hover:
-      "border border-button-border-hover bg-button-primary-hover text-text-on-color-hover",
+      "border border-button-border-hover bg-button-primary-hover text-text-on-color-hover m-[-1px]",
     focus: "bg-button-primary-active text-text-on-color active",
-    disabled: "border border-border-disabled text-text-disabled",
+    disabled: "border border-border-disabled text-text-disabled m-[-1px]",
     active:
-      "border border-strong-selected-01 bg-button-primary text-text-on-color",
+      "border border-strong-selected-01 bg-button-primary text-text-on-color m-[-1px]",
   },
   ghost: {
     enabled: "text-text-primary",
-    hover: "bg-button-secondary",
-    focus: "bg-Gray-50 text-text-primary",
+    hover: "bg-Gray-Light text-text-primary",
+    focus: "bg-Gray-Medium text-text-primary",
     disabled: "text-text-disabled",
-    active: "border border-Gray-90",
+    active: "border border-Gray-90 m-[-1px] text-text-primary",
+  },
+};
+
+const buttonIconColors = {
+  primary: {
+    enabled: "fill-text-on-color",
+    hover: "fill-text-on-color-hover",
+    focus: "fill-text-on-color active",
+    disabled: "fill-text-on-color-disabled",
+    active: "fill-text-on-color",
+  },
+  secondary: {
+    enabled: "fill-text-secondary",
+    hover: "fill-text-secondary",
+    focus: "fill-text-secondary",
+    disabled: "fill-text-on-color-disabled",
+    active: "fill-text-secondary",
+  },
+  border: {
+    enabled: "fill-text-secondary",
+    hover: "fill-text-on-color-hover",
+    focus: "fill-text-on-color active",
+    disabled: "fill-text-disabled",
+    active: "fill-text-on-color",
+  },
+  ghost: {
+    enabled: "fill-text-primary",
+    hover: "fill-text-primary",
+    focus: "fill-text-primary",
+    disabled: "fill-text-disabled",
+    active: "fill-text-primary",
   },
 };
 
@@ -83,28 +117,19 @@ export default function Button({
   round = false,
   text1 = "Text1",
   text2 = "Text2",
+  iconKey,
   onClick,
 }: ButtonPropsPC) {
   const [buttonState, setButtonState] = useState(state);
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
 
   useEffect(() => {
     setButtonState(state);
   }, [state]);
 
-  const handleMouseEnter = () => {
-    if (buttonState === "enabled") {
-      setButtonState("hover");
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (buttonState === "hover") {
-      setButtonState("enabled");
-    }
-  };
-
   const handleMouseDown = () => {
-    if (buttonState === "hover" || buttonState === "enabled") {
+    if (buttonState === "enabled") {
       setButtonState("active");
     }
   };
@@ -115,38 +140,48 @@ export default function Button({
     }
   };
 
-  const handleFocus = () => {
-    if (buttonState === "enabled") {
-      setButtonState("focus");
-    }
-  };
-
-  const handleBlur = () => {
-    if (buttonState === "focus") {
-      setButtonState("enabled");
-    }
-  };
+  const handleMouseEnter = () => setHovered(true);
+  const handleMouseLeave = () => setHovered(false);
+  const handleFocus = () => setFocused(true);
+  const handleBlur = () => setFocused(false);
 
   const styleClass = buttonStylePC[style][buttonState];
   const roundClass = round ? "rounded-radius-circle" : "rounded-radius-04";
   const borderColor = borderColors[style][buttonState];
+  const hoverClass = hovered ? buttonStylePC[style]["hover"] : "";
+  const focusClass = focused ? buttonStylePC[style]["focus"] : "";
+  const buttonType =
+    type === "icon"
+      ? `p-spacing-05`
+      : `pt-spacing-05 pr-spacing-08 pb-spacing-05 pl-spacing-08`;
+  const iconColor = buttonIconColors[style][buttonState];
 
   return (
     <button
-      className={`button flex items-center min-w-[64px] max-w-[1120px] h-[64px] label-04-bold pt-spacing-05 pr-spacing-08 pb-spacing-05 pl-spacing-08 gap-spacing-04 ${styleClass} ${roundClass}`}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      className={`button flex items-center min-w-[64px] max-w-[1120px] h-[64px] 
+        label-04-bold ${buttonType} gap-spacing-04 
+        ${styleClass} ${roundClass} ${hoverClass} ${focusClass}`}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       onFocus={handleFocus}
       onBlur={handleBlur}
       onClick={onClick}
       disabled={buttonState === "disabled"}
     >
-      {type === "icon-left" && <span className="left-icon">+</span>}
+      {type === "icon-left" && (
+        <span className="left-icon">
+          <Icon icon={iconKey} className={`${iconColor}`} />
+        </span>
+      )}
       {type === "icon-left" && <span>{text1}</span>}
       {type === "icon-right" && <span>{text1}</span>}
-      {type === "icon-right" && <span className="right-icon">+</span>}
+      {type === "icon-right" && (
+        <span className="right-icon">
+          <Icon icon={iconKey} className={`${iconColor}`} />
+        </span>
+      )}
       {type === "text" && <span>{text1}</span>}
       {type === "text-text" && <span>{text1}</span>}
       {type === "text-text" && (
@@ -158,7 +193,11 @@ export default function Button({
         />
       )}
       {type === "text-text" && <span>{text2}</span>}
-      {type === "icon" && <span className="icon">+</span>}
+      {type === "icon" && (
+        <span className="icon">
+          <Icon icon={iconKey} className={`${iconColor}`} />
+        </span>
+      )}
     </button>
   );
 }

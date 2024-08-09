@@ -17,6 +17,7 @@ export default function ProgressBar({
   state = "default",
   label,
 }: ProgressBarProps) {
+  value = Math.min(value, 100);
   return (
     <div className="flex flex-col gap-2 items-start w-full">
       {label && (

@@ -1,20 +1,21 @@
 import { Meta, StoryFn } from "@storybook/react";
 import ButtonMobile, { ButtonPropsMobile } from "./ButtonMobile";
-import ButtonPC, { ButtonPropsPC } from "./ButtonPC";
-import Button from "./ButtonMobile";
+import Icon, { iconKey } from "src/icon/Icon";
 
 export default {
-  title: "Navigation/Button",
-  component: Button,
+  title: "Navigation/Button/ButtonMobile",
+  component: ButtonMobile,
   parameters: {
     layout: "centered",
     backgrounds: { default: "light" },
   },
-} as Meta<typeof Button>;
+} as Meta<typeof ButtonMobile>;
 
 const TemplateMobile: StoryFn<ButtonPropsMobile> = args => {
   return <ButtonMobile {...args} />;
 };
+
+const tempKey: iconKey = "add";
 
 export const CustomButtonMobile = TemplateMobile.bind({});
 CustomButtonMobile.args = {
@@ -25,18 +26,5 @@ CustomButtonMobile.args = {
   round: false,
   text1: "Text1",
   text2: "Text2",
-};
-
-const TemplatePC: StoryFn<ButtonPropsPC> = args => {
-  return <ButtonPC {...args} />;
-};
-
-export const CustomButtonPC = TemplatePC.bind({});
-CustomButtonPC.args = {
-  style: "primary",
-  type: "text",
-  state: "enabled",
-  round: false,
-  text1: "Text1",
-  text2: "Text2",
+  iconKey: tempKey,
 };

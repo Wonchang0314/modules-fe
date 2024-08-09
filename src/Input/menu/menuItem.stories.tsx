@@ -16,7 +16,6 @@ export const Example = Template.bind({});
 Example.args = {
   size: "L",
   state: "enabled",
-  style: "simple",
   type: "icon-right",
   text: "Menu Item",
   className: "",
