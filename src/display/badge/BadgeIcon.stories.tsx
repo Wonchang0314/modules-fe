@@ -13,6 +13,9 @@ export default {
     icon: {
       options: Object.keys(icons),
     },
+    state: {
+      options: ["success", "warning", "error", "processing"],
+    },
   },
   tags: ["autodocs"],
 } as Meta<typeof BadgeIcon>;
@@ -22,5 +25,5 @@ const Template: StoryFn<BadgeIconProps> = args => <BadgeIcon {...args} />;
 export const CustomBadgeIcon = Template.bind({});
 CustomBadgeIcon.args = {
   icon: "error_spaced_outlined",
-  status: "success",
+  state: "success",
 };
