@@ -16,13 +16,11 @@ type TextFieldProps = {
   size: "S" | "M" | "L";
   style: "outlined" | "underlined";
   state?: InputStateType;
-  label: boolean;
-  labelText?: string;
+  label?: string;
   /**
    * false일 때도 항상 글씨 크기만큼 공간 차지
    */
-  description: boolean;
-  descriptionText?: string;
+  description?: string;
   placeholder?: string;
 };
 
@@ -37,25 +35,25 @@ const lineStyle = {
 
 const sizeStyle = {
   S: {
-    label: "text-helpertext-01-regular",
+    label: "helpertext-01-regular",
     inputPY: "py-[11px]",
-    inputFont: "text-label-02-medium",
+    inputFont: "label-02-medium",
     iconSize: 16,
-    description: "text-helpertext-01-regular",
+    description: "helpertext-01-regular",
   },
   M: {
-    label: "text-helpertext-02-regular",
+    label: "helpertext-02-regular",
     inputPY: "py-[13px]",
-    inputFont: "text-label-03-medium",
+    inputFont: "label-03-medium",
     iconSize: 16,
-    description: "text-helpertext-01-regular",
+    description: "helpertext-01-regular",
   },
   L: {
-    label: "text-helpertext-02-regular",
+    label: "helpertext-02-regular",
     inputPY: "py-[15px]",
-    inputFont: "text-label-04-medium",
+    inputFont: "label-04-medium",
     iconSize: 24,
-    description: "text-helpertext-02-regular",
+    description: "helpertext-02-regular",
   },
 };
 
@@ -91,9 +89,7 @@ export default function TextField({
   style = "outlined",
   state = "enable",
   label,
-  labelText,
   description,
-  descriptionText,
   placeholder,
 }: TextFieldProps) {
   const [isFocused, setIsFocused] = useState<boolean>(false);
@@ -154,7 +150,13 @@ export default function TextField({
 
   return (
     <Suspense
-      fallback={<TextFieldSkeleton size={size} style={style} label={label} />}
+      fallback={
+        <TextFieldSkeleton
+          size={size}
+          style={style}
+          label={label ? true : false}
+        />
+      }
     >
       <div className="flex flex-col gap-spacing-01 w-full">
         <div
@@ -165,7 +167,7 @@ export default function TextField({
             ${!label && "hidden"}  
           `}
         >
-          {labelText}
+          {label}
         </div>
         <div
           className={`
@@ -217,7 +219,7 @@ export default function TextField({
             ${stateStyle[state]["descriptionColor"]}
           `}
         >
-          {descriptionText}
+          {description}
         </div>
       </div>
     </Suspense>

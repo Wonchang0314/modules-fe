@@ -2,7 +2,6 @@ import { Meta, StoryFn } from "@storybook/react/*";
 import InputMenu from "./inputMenu";
 import MenuItem from "./menuItem";
 
-// eslint-disable-next-line storybook/story-exports
 export default {
   title: "Input/Menu/InputMenu",
   component: InputMenu,
@@ -19,7 +18,6 @@ const temp = Array.from({ length: 8 }).map((_, index) => (
     key={index}
     size="L"
     state="enabled"
-    style="complex"
     type="icon-right"
     text={`Menu Item`}
     className=""
@@ -29,7 +27,6 @@ const temp = Array.from({ length: 8 }).map((_, index) => (
 export const Example = Template.bind({});
 Example.args = {
   size: "L",
-  style: "complex",
   menuItem: temp,
   className: "",
 };

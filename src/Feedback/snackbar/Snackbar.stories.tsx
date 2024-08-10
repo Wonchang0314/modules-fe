@@ -2,10 +2,9 @@ import { Meta, StoryFn } from "@storybook/react/*";
 import Snackbar, { SnackbarProps } from "./Snackbar";
 
 export default {
-  title: "Feedback/Snackbar/Snackbar",
+  title: "Feedback/Snackbar",
   component: Snackbar,
   parameters: {
-    layout: "centered",
     backgrounds: { default: "light" },
   },
   tags: ["autodocs"],
@@ -15,10 +14,10 @@ const Template: StoryFn<SnackbarProps> = args => <Snackbar {...args} />;
 
 export const CustomSnackbar = Template.bind({});
 CustomSnackbar.args = {
+  open: true,
   message: "Message",
   lineMessage: "Line message",
   alert: true,
   dismissible: true,
-  action: true,
-  actionText: "Action",
+  action: "Action",
 };

@@ -9,37 +9,35 @@ type TextFieldProps = {
   onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   size: "S" | "M" | "L";
   state?: InputStateType;
-  label: boolean;
-  labelText?: string;
+  label?: string;
   /**
    * false일 때도 항상 글씨 크기만큼 공간 차지
    */
-  description: boolean;
-  descriptionText?: string;
+  description?: string;
   placeholder?: string;
 };
 
 const sizeStyle = {
   S: {
-    label: "text-helpertext-01-regular",
+    label: "helpertext-01-regular",
     inputPY: "py-[7px]",
-    inputFont: "text-body-02-regular",
+    inputFont: "body-02-regular",
     iconSize: 16,
-    description: "text-helpertext-01-regular",
+    description: "helpertext-01-regular",
   },
   M: {
-    label: "text-helpertext-02-regular",
+    label: "helpertext-02-regular",
     inputPY: "py-[13px]",
-    inputFont: "text-label-03-medium",
+    inputFont: "label-03-medium",
     iconSize: 20,
-    description: "text-helpertext-02-regular",
+    description: "helpertext-02-regular",
   },
   L: {
-    label: "text-helpertext-02-regular",
+    label: "helpertext-02-regular",
     inputPY: "py-[17px]",
-    inputFont: "text-label-04-medium",
+    inputFont: "label-04-medium",
     iconSize: 24,
-    description: "text-helpertext-02-regular",
+    description: "helpertext-02-regular",
   },
 };
 
@@ -74,9 +72,7 @@ export default function TextArea({
   size,
   state = "enable",
   label,
-  labelText,
   description,
-  descriptionText,
   placeholder,
 }: TextFieldProps) {
   const [isFocused, setIsFocused] = useState<boolean>(false);
@@ -112,7 +108,9 @@ export default function TextArea({
   };
 
   return (
-    <Suspense fallback={<TextAreaSkeleton size={size} label={label} />}>
+    <Suspense
+      fallback={<TextAreaSkeleton size={size} label={label ? true : false} />}
+    >
       <div className="flex flex-col gap-spacing-01 w-full">
         <div
           className={`
@@ -122,7 +120,7 @@ export default function TextArea({
             ${!label && "hidden"}  
           `}
         >
-          {labelText}
+          {label}
         </div>
         <div
           className={`
@@ -180,7 +178,7 @@ export default function TextArea({
             ${stateStyle[state]["descriptionColor"]}
           `}
         >
-          {descriptionText}
+          {description}
         </div>
       </div>
     </Suspense>

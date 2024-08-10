@@ -21,8 +21,6 @@ CustomCheckboxGroup.args = {
   direction: "row",
   size: "M",
   state: "Warning",
-  label: true,
-  labelText: "Group Label",
-  alert: true,
-  alertText: "Warning text",
+  label: "Group Label",
+  alert: "Warning text",
 };

@@ -1,5 +1,6 @@
 import { Meta, StoryFn } from "@storybook/react/*";
 import BadgeIcon, { BadgeIconProps } from "./BadgeIcon";
+import { icons } from "src/icon/Icon";
 
 export default {
   title: "Display/Badge/BadgeIcon",
@@ -7,6 +8,11 @@ export default {
   parameters: {
     layout: "centered",
     backgrounds: { default: "light" },
+  },
+  argTypes: {
+    icon: {
+      options: Object.keys(icons),
+    },
   },
   tags: ["autodocs"],
 } as Meta<typeof BadgeIcon>;

@@ -1,5 +1,6 @@
 import { Meta, StoryFn } from "@storybook/react/*";
 import Icon from "./Icon";
+import { icons } from "./Icon";
 
 export default {
   title: "Icon/Icon",
@@ -7,6 +8,11 @@ export default {
   parameters: {
     layout: "centered",
     backgrounds: { default: "light" },
+  },
+  argTypes: {
+    icon: {
+      options: Object.keys(icons),
+    },
   },
   tags: ["autodocs"],
 } as Meta<typeof Icon>;
