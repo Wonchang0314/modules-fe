@@ -14,22 +14,22 @@ export interface ButtonPropsMobile {
     | "danger_ghost"
     | "elevated_primiary";
   type: "text" | "text-text" | "icon" | "icon-left" | "icon-right";
-  state: "enabled" | "active" | "disabled";
+  state: "enabled" | "disabled";
   round?: boolean;
   text1: string;
   text2?: string;
-  iconKey: iconKey;
+  iconKey?: iconKey;
   onClick?: () => void;
 }
 
 export const buttonSize = {
   iconOnly: {
-    L: "w-full min-w-[64px] max-w-[343px] h-[64px] p-spacing-05 gap-spacing-04 flex justify-center items-center",
-    M: "w-full min-w-[32px] max-w-[343px] h-[40px] p-spacing-04 gap-spacing-02 flex justify-center items-center",
+    L: "w-[64px] h-[64px] p-spacing-05 gap-spacing-04 flex justify-center items-center",
+    M: "w-[40px] h-[40px] p-spacing-04 gap-spacing-02 flex justify-center items-center",
   },
   withText: {
-    L: "w-full min-w-[64px] max-w-[343px] h-[64px] py-spacing-05 px-spacing-07 gap-spacing-04 flex justify-center items-center",
-    M: "w-full min-w-[32px] max-w-[343px] h-[40px] px-spacing-04 py-spacing-03 gap-spacing-02 flex justify-center items-center",
+    L: "min-w-[64px] max-w-[343px] h-[64px] py-spacing-05 px-spacing-07 gap-spacing-04 flex justify-center items-center",
+    M: "min-w-[32px] max-w-[343px] h-[40px] px-spacing-04 py-spacing-03 gap-spacing-02 flex justify-center items-center",
   },
 };
 
@@ -96,7 +96,8 @@ export const buttonStyleMobile = {
       "bg-button-primary-hover text-text-on-color shadow-elevation-light-1",
     disabled:
       "bg-button-disabled text-text-on-color-disabled shadow-elevation-light-1",
-    active: "bg-button-primary text-text-on-color shadow-elevation-light-1",
+    active:
+      "border border-border-strong-selected-01 bg-button-primary text-text-on-color shadow-elevation-light-1 m-[-1px]",
   },
 };
 
@@ -157,44 +158,44 @@ const buttonIconColors = {
 
 const borderColors = {
   primary: {
-    enabled: "#8D8D80",
-    active: "#8D8D80",
-    disabled: "#8D8D8D",
+    enabled: "bg-Gray-50",
+    active: "shrink-0 bg-Gray-50",
+    disabled: "bg-Gray-50",
   },
   secondary: {
-    enabled: "#8D8D8D",
-    active: "#8D8D8D",
-    disabled: "#8D8D8D",
+    enabled: "bg-Gray-50",
+    active: "shrink-0 bg-Gray-50",
+    disabled: "bg-Gray-50",
   },
   border: {
-    enabled: "#8D8D8D",
-    active: "#8D8D8D",
-    disabled: "#C6C6C6",
+    enabled: "shrink-0 bg-Gray-50",
+    active: "shrink-0 bg-Gray-50",
+    disabled: "shrink-0 bg-Gray-30",
   },
   ghost: {
-    enabled: "#8D8D8D",
-    active: "#8D8D8D",
-    disabled: "#C6C6C6",
+    enabled: "bg-Gray-50",
+    active: "shrink-0 bg-Gray-50",
+    disabled: "bg-Gray-30",
   },
   danger_primary: {
-    enabled: "#E0E0E0",
-    active: "#E0E0E0",
-    disabled: "#E0E0E0",
+    enabled: "bg-Gray-20",
+    active: "shrink-0 bg-Gray-20",
+    disabled: "bg-Gray-20",
   },
   danger_border: {
-    enabled: "#DA1E28",
-    active: "#E0E0E0",
-    disabled: "#C6C6C6",
+    enabled: "shrink-0 bg-Red-60",
+    active: "shrink-0 bg-Gray-20",
+    disabled: "shrink-0 bg-Gray-30",
   },
   danger_ghost: {
-    enabled: "#E0E0E0",
-    active: "#E0E0E0",
-    disabled: "#C6C6C6",
+    enabled: "bg-Gray-20",
+    active: "shrink-0 bg-Gray-20",
+    disabled: "bg-Gray-30",
   },
   elevated_primiary: {
-    enabled: "#8D8D8D",
-    active: "#8D8D8D",
-    disabled: "#8D8D8D",
+    enabled: "bg-Gray-50",
+    active: "shrink-0 Gray-50",
+    disabled: "bg-Gray-50",
   },
 };
 
@@ -209,44 +210,42 @@ export default function Button({
   iconKey,
   onClick,
 }: ButtonPropsMobile) {
-  const [buttonState, setButtonState] = useState(state);
-
-  useEffect(() => {
-    setButtonState(state);
-  }, [state]);
+  const [isPressed, setIsPressed] = useState(false);
 
   const handleMouseDown = () => {
-    if (buttonState === "enabled") {
-      setButtonState("active");
+    if (state === "enabled") {
+      setIsPressed(true); // 버튼이 눌렸을 때
     }
   };
 
   const handleMouseUp = () => {
-    if (buttonState === "active") {
-      setButtonState("enabled");
+    if (isPressed) {
+      setIsPressed(false); // 마우스를 떼면 원래 상태로 복구
     }
   };
 
   const buttonType = type === "icon" ? "iconOnly" : "withText";
   const sizeClass = buttonSize[buttonType][size];
   const labelClass = buttonLabel[size];
-  const styleClass = buttonStyleMobile[style][buttonState];
+  const styleClass = isPressed
+    ? buttonStyleMobile[style]["active"]
+    : buttonStyleMobile[style][state];
   const roundClass =
-    style === "ghost" && buttonState === "active"
+    style === "ghost" && isPressed
       ? ""
       : round
         ? "rounded-radius-circle"
         : "rounded-radius-04";
-  const borderColor = borderColors[style][buttonState];
-  const iconColor = buttonIconColors[style][buttonState];
+  const borderColor = borderColors[style][isPressed ? "active" : state];
+  const iconColor = buttonIconColors[style][isPressed ? "active" : state];
 
   return (
     <button
-      className={`button flex ${labelClass} ${sizeClass} ${styleClass} ${roundClass}`}
+      className={`button flex shrink-0 ${labelClass} ${sizeClass} ${styleClass} ${roundClass}`}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onClick={onClick}
-      disabled={buttonState === "disabled"}
+      disabled={state === "disabled"}
     >
       {type === "icon-left" && (
         <span className="left-icon">
@@ -263,12 +262,7 @@ export default function Button({
       {type === "text" && <span>{text1}</span>}
       {type === "text-text" && <span>{text1}</span>}
       {type === "text-text" && (
-        <Divider
-          type="Vertical"
-          height={16}
-          subheader="|"
-          borderColor={borderColor}
-        />
+        <Divider type="Vertical" size={16} className={borderColor} />
       )}
       {type === "text-text" && <span>{text2}</span>}
       {type === "icon" && (

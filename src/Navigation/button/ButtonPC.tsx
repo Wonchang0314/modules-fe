@@ -5,11 +5,11 @@ import Icon, { iconKey } from "src/icon/Icon";
 export interface ButtonPropsPC {
   style: "primary" | "secondary" | "border" | "ghost";
   type: "text" | "text-text" | "icon" | "icon-left" | "icon-right";
-  state: "enabled" | "active" | "disabled";
+  state: "enabled" | "disabled";
   round: boolean;
   text1: string;
   text2?: string;
-  iconKey: iconKey;
+  iconKey?: iconKey;
   onClick?: () => void;
 }
 
@@ -81,32 +81,32 @@ const buttonIconColors = {
 
 const borderColors = {
   primary: {
-    enabled: "#8D8D80",
-    active: "#8D8D80",
-    disabled: "#8D8D8D",
-    hover: "#8D8D80",
-    focus: "#8D8D80",
+    enabled: "Gray-50",
+    active: "shrink-0 Gray-50",
+    disabled: "Gray-50",
+    hover: "Gray-50",
+    focus: "Gray-50",
   },
   secondary: {
-    enabled: "#8D8D80",
-    active: "#8D8D80",
-    disabled: "#8D8D8D",
-    hover: "#8D8D80",
-    focus: "#8D8D80",
+    enabled: "Gray-50",
+    active: "shrink-0 Gray-50",
+    disabled: "Gray-50",
+    hover: "Gray-50",
+    focus: "Gray-50",
   },
   border: {
-    enabled: "#8D8D8D",
-    active: "#8D8D8D",
-    disabled: "#C6C6C6",
-    hover: "#8D8D8D",
-    focus: "#8D8D8D",
+    enabled: "shrink-0 Gray-50",
+    active: "shrink-0 Gray-50",
+    disabled: "shrink-0 Gray-30",
+    hover: "shrink-0 Gray-50",
+    focus: "shrink-0 Gray-50",
   },
   ghost: {
-    enabled: "#8D8D8D",
-    active: "#8D8D8D",
-    disabled: "#C6C6C6",
-    hover: "#8D8D8D",
-    focus: "#8D8D8D",
+    enabled: "Gray-50",
+    active: "shrink-0 Gray-50",
+    disabled: "Gray-30",
+    hover: "Gray-50",
+    focus: "Gray-50",
   },
 };
 
@@ -120,6 +120,7 @@ export default function Button({
   iconKey,
   onClick,
 }: ButtonPropsPC) {
+  const [isPressed, setIsPressed] = useState(false);
   const [buttonState, setButtonState] = useState(state);
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
@@ -129,14 +130,14 @@ export default function Button({
   }, [state]);
 
   const handleMouseDown = () => {
-    if (buttonState === "enabled") {
-      setButtonState("active");
+    if (state === "enabled") {
+      setIsPressed(true); // 버튼이 눌렸을 때
     }
   };
 
   const handleMouseUp = () => {
-    if (buttonState === "active") {
-      setButtonState("enabled");
+    if (isPressed) {
+      setIsPressed(false); // 마우스를 떼면 원래 상태로 복구
     }
   };
 
@@ -187,9 +188,9 @@ export default function Button({
       {type === "text-text" && (
         <Divider
           type="Vertical"
-          height={16}
+          size={16}
           subheader="|"
-          borderColor={borderColor}
+          className={borderColor}
         />
       )}
       {type === "text-text" && <span>{text2}</span>}
