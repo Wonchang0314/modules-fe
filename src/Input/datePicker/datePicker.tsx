@@ -154,15 +154,19 @@ export default function DatePicker({
   return (
     <div className="flex flex-col justify-center gap-spacing-02 w-[332px]">
       <div className={`pl-4 ${stateStyle[state]["labelColor"]}`}>{label}</div>
-      <div className="bg-white cursor-pointer rounded-radius-04 w-full relative">
+      <div
+        className={`
+          bg-white cursor-pointer rounded-radius-04 w-full relative 
+          ${showPanel ? "rounded-t-radius-04" : "rounded-radius-04"}`}
+      >
         <div
-          className={`absolute inset-0 rounded-radius-04 pointer-events-none ${borderStyle}`}
+          className={`absolute inset-0 pointer-events-none
+          ${borderStyle} 
+          ${showPanel ? "rounded-t-radius-04" : "rounded-radius-04"}`}
         />
         <div
           className={`
             w-full flex item-center justify-between
-            ${showPanel && dividerStyle} 
-            ${showPanel ? "rounded-t-radius-04" : "rounded-radius-04"}
             ${!(state === "disabled" || state === "readOnly") && "hover:bg-background-hover"}
           `}
         >
@@ -210,8 +214,13 @@ export default function DatePicker({
           )}
         </div>
         {showPanel && (
-          <div ref={panelRef} onMouseDown={handlePanelMouseDown}>
+          <div
+            ref={panelRef}
+            onMouseDown={handlePanelMouseDown}
+            className="absolute bottom-0 translate-y-full"
+          >
             <DatePanel
+              state={state}
               selectedDate={value}
               setSelectedDate={setValue}
               setShowPanel={setShowPanel}

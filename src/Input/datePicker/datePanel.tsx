@@ -8,15 +8,36 @@ import {
 } from "src/utils/datepicker";
 import CalendarCell from "./calendarCell";
 import DatePickerHeader from "./datePickerHeader";
+import { InputStateType } from "../textfield/textfield";
 
 export type datePickerType = "date" | "month" | "year";
 
 interface DatePanelProps {
+  state: InputStateType;
   selectedDate: string;
   setSelectedDate: React.Dispatch<SetStateAction<string>>;
   setShowPanel: React.Dispatch<SetStateAction<boolean>>;
 }
+
+const stateStyle = {
+  enable: {
+    borderColor: "border-focus-default",
+  },
+  warning: {
+    borderColor: "border-strong-01",
+  },
+  error: {
+    borderColor: "border-border-error",
+  },
+  disabled: {
+    borderColor: "border-border-disabled",
+  },
+  readOnly: {
+    borderColor: "border-subtle-01",
+  },
+};
 export default function DatePanel({
+  state,
   selectedDate,
   setSelectedDate,
   setShowPanel,
@@ -79,9 +100,26 @@ export default function DatePanel({
     regex.test(selectedDate) && setDate(dayjs(selectedDate));
   }, [selectedDate]);
 
+  const returnBorderColor = () => {
+    switch (state) {
+      case "enable":
+        return "border-focus-default";
+      case "warning":
+        return "border-border-strong-01";
+      case "error":
+        return "border-border-error";
+    }
+  };
+
+  useEffect(() => {
+    returnBorderColor();
+  }, [state]);
+
   return (
     <div
       className={`w-full bg-white p-spacing-03 flex flex-col rounded-b-radius-04
+      ${state === "enable" ? "border-b-[3px] border-x-[3px]" : "border-b-2 border-x-2"}
+      ${returnBorderColor()}
       gap-spacing-${mode === "date" ? "01" : "02"}`}
     >
       <DatePickerHeader
