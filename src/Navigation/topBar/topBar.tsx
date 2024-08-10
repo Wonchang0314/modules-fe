@@ -48,25 +48,23 @@ export default function TopBar({
         <div onClick={onClickRightText} className="relative">
           <SVGRightIcon2 width={20} height={20} />
           {rightTextUnread && (
-            <div className="absolute top-0 right-0 w-2 h-2 bg-[#DA1E28] rounded-radius-circle" />
-            /* <div className="absolute top-0 right-0 w-2 h-2 bg-support-error rounded-full" /> */
+            <div className="absolute top-0 right-0 w-2 h-2 bg-support-error rounded-radius-circle" />
           )}
         </div>
       );
     } else
       return (
         <div
-          className="text-[#0043CE] text-label-02-medium"
+          className="text-support-info label-02-medium"
           onClick={onClickRightText}
         >
-          {/* <div className="text-support-info text-label-02-medium"> */}
           {rightText}
         </div>
       );
   };
 
   return (
-    <div className="flex w-full h-8 bg-[#FFF] justify-between items-center px-spacing-04 py-spacing-02">
+    <div className="flex w-full h-8 bg-white justify-between items-center px-spacing-04 py-spacing-02 relative">
       <div className="flex items-center gap-spacing-05">
         {SVGLeftIcon && (
           <div onClick={onClickLeftIcon}>
@@ -75,12 +73,11 @@ export default function TopBar({
         )}
         {leftText && (
           <div
-            className="text-label-02-meidum text-[#161616]"
+            className="label-03-medium text-text-primary"
             onClick={onClickLeftText}
           >
             {leftText}
           </div>
-          // <div className="text-label-02-meidum text-primary">{leftText}</div>
         )}
       </div>
       <div className="label-03-medium text-text-primary absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -92,9 +89,8 @@ export default function TopBar({
           <div onClick={onClickRightIcon} className="relative">
             <SVGRightIcon width={20} height={20} />
             {rightIconUnread && (
-              <div className="absolute top-0 right-0 w-2 h-2 bg-[#DA1E28] rounded-full" />
+              <div className="absolute top-0 right-0 w-2 h-2 bg-support-error rounded-full" />
             )}
-            {/* <div className="absolute top-0 right-0 w-2 h-2 bg-support-error rounded-full" /> */}
           </div>
         )}
       </div>

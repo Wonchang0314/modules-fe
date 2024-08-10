@@ -14,7 +14,7 @@ export default function VerticalNav({ items }: VerticalNavProps) {
   };
 
   return (
-    <div className="w-full h-full flex flex-col divide-y divide-[#ABABAB] divide-y-4">
+    <div className="w-full h-full flex flex-col divide-y divide-button-border divide-y-4">
       {items.map((item, i) => (
         <VerticalNavItem
           name={item.name}
