@@ -154,12 +154,13 @@ export default function DatePicker({
   return (
     <div className="flex flex-col justify-center gap-spacing-02 w-[332px]">
       <div className={`pl-4 ${stateStyle[state]["labelColor"]}`}>{label}</div>
-      <div
-        className={`bg-white cursor-pointer rounded-radius-04 w-full ${borderStyle}`}
-      >
+      <div className="bg-white cursor-pointer rounded-radius-04 w-full relative">
+        <div
+          className={`absolute inset-0 rounded-radius-04 pointer-events-none ${borderStyle}`}
+        />
         <div
           className={`
-            w-full flex item-center justify-between gap-spacing-04 
+            w-full flex item-center justify-between
             ${showPanel && dividerStyle} 
             ${showPanel ? "rounded-t-radius-04" : "rounded-radius-04"}
             ${!(state === "disabled" || state === "readOnly") && "hover:bg-background-hover"}
