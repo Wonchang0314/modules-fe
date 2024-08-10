@@ -44,7 +44,7 @@ export default function DatePickerHeader({
       <div className="flex gap-spacing-01">
         {mode === "year" && (
           <div
-            className={`text-text-primary cursor-pointer ${mode !== "year" && "hover:text-support-info"}`}
+            className={`text-text-primary cursor-pointer label-04-bold ${mode !== "year" && "hover:text-support-info"}`}
           >
             {returnYearText()}
           </div>
@@ -52,7 +52,7 @@ export default function DatePickerHeader({
         {(mode === "month" || mode === "date") && (
           <div
             onClick={onClickYear}
-            className="text-text-primary cursor-pointer hover:text-support-info"
+            className="text-text-primary cursor-pointer label-04-bold hover:text-support-info"
           >
             {date.format("YYYY")}년
           </div>
@@ -60,7 +60,7 @@ export default function DatePickerHeader({
         {mode === "date" && (
           <div
             onClick={onClickMonth}
-            className="text-text-primary cursor-pointer hover:text-support-info"
+            className="text-text-primary cursor-pointer label-04-bold hover:text-support-info"
           >
             {date.format("MM")}월
           </div>

@@ -153,7 +153,11 @@ export default function DatePicker({
 
   return (
     <div className="flex flex-col justify-center gap-spacing-02 w-[332px]">
-      <div className={`pl-4 ${stateStyle[state]["labelColor"]}`}>{label}</div>
+      <div
+        className={`pl-4 label-03-regular ${stateStyle[state]["labelColor"]}`}
+      >
+        {label}
+      </div>
       <div
         className={`
           bg-white cursor-pointer rounded-radius-04 w-full relative 
@@ -181,7 +185,7 @@ export default function DatePicker({
             readOnly={state === "readOnly"}
             disabled={state === "disabled"}
             className={`
-              w-full outline-none p-spacing-04 rounded-l-radius-04 cursor-pointer bg-transparent
+              w-full outline-none p-spacing-04 rounded-l-radius-04 cursor-pointer bg-transparent labe-04-medium
               ${stateStyle[state]["inputColor"]}
             `}
           />
@@ -228,7 +232,9 @@ export default function DatePicker({
           </div>
         )}
       </div>
-      <div className={`pl-4 ${stateStyle[state]["descriptionColor"]}`}>
+      <div
+        className={`pl-4 label-03-regular ${stateStyle[state]["descriptionColor"]}`}
+      >
         {description}
       </div>
     </div>

@@ -132,7 +132,7 @@ export default function DatePanel({
       {mode === "date" && (
         <div className="w-full grid grid-cols-7 text-center">
           {days.map(day => (
-            <div className="text-text-primary w-11 h-11 flex items-center justify-center">
+            <div className="text-text-primary w-11 h-11 flex items-center justify-center label-03-medium">
               {day}
             </div>
           ))}
