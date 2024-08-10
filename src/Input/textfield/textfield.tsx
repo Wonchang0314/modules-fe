@@ -2,13 +2,7 @@ import { ChangeEvent, Suspense, useEffect, useState } from "react";
 import ErrorIcon from "../../icon/svg/status/warning-circle-filled.svg";
 import WarnIcon from "../../icon/svg/status/warning-triangle-filled.svg";
 import TextFieldSkeleton from "./textfieldSkeleton";
-
-export type InputStateType =
-  | "enable"
-  | "warning"
-  | "error"
-  | "disabled"
-  | "readOnly";
+import { InputStateType } from "src/utils/type";
 
 type TextFieldProps = {
   value: string;

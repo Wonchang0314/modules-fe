@@ -5,11 +5,11 @@ import {
   useRef,
   useState,
 } from "react";
-import { InputStateType } from "../textfield/textfield";
 import ErrorIcon from "../../icon/svg/status/warning-circle-filled.svg";
 import WarnIcon from "../../icon/svg/status/warning-triangle-filled.svg";
 import CalendarIcon from "../../icon/svg/time/calendar.svg";
 import DatePanel from "./datePanel";
+import { InputStateType } from "src/utils/type";
 
 type CustomDatePickerProps = {
   state: InputStateType;

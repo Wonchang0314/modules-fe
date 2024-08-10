@@ -3,8 +3,8 @@ import PlusIcon from "../../icon/svg/navigation/add.svg";
 import TrashIcon from "../../icon/svg/operation/delete.svg";
 import { Suspense, useEffect, useState } from "react";
 import WarnIcon from "../../icon/svg/status/warning-triangle-filled.svg";
-import { InputStateType } from "../textfield/textfield";
 import NumberStepperSkeleton from "./numberStepperSkeleton";
+import { InputStateType } from "src/utils/type";
 
 type NumberStepperProps = {
   count: number;
