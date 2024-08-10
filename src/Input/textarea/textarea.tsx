@@ -19,25 +19,25 @@ type TextFieldProps = {
 
 const sizeStyle = {
   S: {
-    label: "text-helpertext-01-regular",
+    label: "helpertext-01-regular",
     inputPY: "py-[7px]",
-    inputFont: "text-body-02-regular",
+    inputFont: "body-02-regular",
     iconSize: 16,
-    description: "text-helpertext-01-regular",
+    description: "helpertext-01-regular",
   },
   M: {
-    label: "text-helpertext-02-regular",
+    label: "helpertext-02-regular",
     inputPY: "py-[13px]",
-    inputFont: "text-label-03-medium",
+    inputFont: "label-03-medium",
     iconSize: 20,
-    description: "text-helpertext-02-regular",
+    description: "helpertext-02-regular",
   },
   L: {
-    label: "text-helpertext-02-regular",
+    label: "helpertext-02-regular",
     inputPY: "py-[17px]",
-    inputFont: "text-label-04-medium",
+    inputFont: "label-04-medium",
     iconSize: 24,
-    description: "text-helpertext-02-regular",
+    description: "helpertext-02-regular",
   },
 };
 
