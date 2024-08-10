@@ -8,6 +8,11 @@ export default {
     layout: "centered",
     backgrounds: { default: "light" },
   },
+  argTypes: {
+    state: {
+      options: ["success", "warning", "error", "processing"],
+    },
+  },
   tags: ["autodocs"],
 } as Meta<typeof BadgeCount>;
 
@@ -16,5 +21,5 @@ const Template: StoryFn<BadgeCountProps> = args => <BadgeCount {...args} />;
 export const CustomBadgeCount = Template.bind({});
 CustomBadgeCount.args = {
   count: 11,
-  status: "success",
+  state: "success",
 };
