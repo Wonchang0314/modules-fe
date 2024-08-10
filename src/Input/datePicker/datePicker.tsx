@@ -53,7 +53,7 @@ const stateStyle = {
 };
 
 export default function DatePicker({
-  state,
+  state = "enable",
   label,
   description,
   value,
