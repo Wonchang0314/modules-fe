@@ -28,7 +28,7 @@ export const Example = Template.bind({});
 Example.args = {
   size: "L",
   style: "outlined",
-  state: "active",
+  state: "enable",
   label: "Label",
   description: "Helper text",
   placeholder: "Placeholder Text",
