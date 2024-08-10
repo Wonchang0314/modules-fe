@@ -83,9 +83,10 @@ export default function TopBar({
           // <div className="text-label-02-meidum text-primary">{leftText}</div>
         )}
       </div>
-      <div className="text-labe-03-medium text-[#161616]">{title}</div>
-      {/* <div className="text-labe-03-medium text-primary">{title}</div> */}
-      <div className="flex justify-end items-center gap-spacing-05">
+      <div className="label-03-medium text-text-primary absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        {title}
+      </div>
+      <div className="flex justify-end items-center gap-spacing-05 label-02-medium">
         {returnRightText()}
         {SVGRightIcon && (
           <div onClick={onClickRightIcon} className="relative">
