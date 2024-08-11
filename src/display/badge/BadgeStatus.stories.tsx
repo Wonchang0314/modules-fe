@@ -1,20 +1,25 @@
 import { Meta, StoryFn } from "@storybook/react/*";
-import BadgeStatus, { BadgeStatusProps } from "./BadgeStatus";
+import Badgestatus, { BadgestatusProps } from "./BadgeStatus";
 
 export default {
-  title: "Display/Badge/BadgeStatus",
-  component: BadgeStatus,
+  title: "Display/Badge/Badgestatus",
+  component: Badgestatus,
   parameters: {
     layout: "centered",
     backgrounds: { default: "light" },
   },
+  argTypes: {
+    state: {
+      options: ["success", "warning", "error", "processing"],
+    },
+  },
   tags: ["autodocs"],
-} as Meta<typeof BadgeStatus>;
+} as Meta<typeof Badgestatus>;
 
-const Template: StoryFn<BadgeStatusProps> = args => <BadgeStatus {...args} />;
+const Template: StoryFn<BadgestatusProps> = args => <Badgestatus {...args} />;
 
-export const CustomBadgeStatus = Template.bind({});
-CustomBadgeStatus.args = {
+export const CustomBadgestatus = Template.bind({});
+CustomBadgestatus.args = {
   style: "dot",
-  status: "success",
+  state: "success",
 };

@@ -1,1 +1,1 @@
-export type BadgeStatusType = "success" | "error" | "processing" | "warning";
+export type BadgeStateType = "success" | "error" | "processing" | "warning";

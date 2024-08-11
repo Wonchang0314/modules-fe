@@ -1,10 +1,10 @@
 import Icon, { iconKey } from "src/icon/Icon";
-import { BadgeStatusType } from "./Badge";
+import { BadgeStateType } from "./Badge";
 
 export interface BadgeIconProps {
   icon: iconKey;
   size?: number;
-  status: BadgeStatusType;
+  state: BadgeStateType;
 }
 
 const iconStyle = {
@@ -14,6 +14,6 @@ const iconStyle = {
   processing: "fill-support-info",
 };
 
-export default function BadgeIcon({ icon, size = 24, status }: BadgeIconProps) {
-  return <Icon icon={icon} size={size} className={`${iconStyle[status]}`} />;
+export default function BadgeIcon({ icon, size = 24, state }: BadgeIconProps) {
+  return <Icon icon={icon} size={size} className={`${iconStyle[state]}`} />;
 }
