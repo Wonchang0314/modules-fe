@@ -1,8 +1,5 @@
 //애니메이션 정의 필요
-
-import FlexBox from "src/layout/FlexBox";
-import { useState } from "react";
-import Divider from "src/divider/Divider";
+import { useEffect, useRef, useState } from "react";
 import Icon from "src/icon/Icon";
 
 export interface AccordionProps {
@@ -36,6 +33,7 @@ export default function Accordion({
   children,
 }: AccordionProps) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   const handleToggle = () => {
     if (state !== "Disabled") {
@@ -43,35 +41,47 @@ export default function Accordion({
     }
   };
 
+  useEffect(() => {
+    if (contentRef.current) {
+      const contentHeight = contentRef.current.scrollHeight;
+
+      if (isOpen) {
+        contentRef.current.style.maxHeight = `${contentHeight}px`;
+      } else {
+        contentRef.current.style.maxHeight = "0px";
+      }
+    }
+  }, [isOpen]);
+
   return (
-    <div className="w-[400px] bg-layer-transparent">
+    <div className="w-full bg-layer-transparent relative">
       <div
-        className={`flex flex-row justify-between w-full
-              px-spacing-04 items-center
-                            ${
-                              state === "Enabled"
-                                ? "hover:bg-layer-01-hover"
-                                : ""
-                            }  ${sizeStyle[size]}`}
+        className={`flex flex-row z-1 justify-between w-full px-spacing-04 items-center
+        ${state === "Enabled" ? "hover:bg-layer-01-hover" : ""} ${sizeStyle[size]}`}
         onClick={() => handleToggle()}
       >
         <div className={`label-02-regular ${stateStyle.inText[state]}`}>
           {title}
         </div>
         <Icon
-          icon={isOpen ? "chevron_up_outlined" : "chevron_down_outlined"}
+          icon={"chevron_down_outlined"}
           size={24}
-          className={`ml-spacing-04 ${stateStyle.iconColor[state]}`}
+          className={`absolute right-spacing-04 transition-opacity ${isOpen ? "opacity-0" : "opacity-100 duration-duration-03 tranquillo-enter"} ${stateStyle.iconColor[state]}`}
+        />
+        <Icon
+          icon={"chevron_up_outlined"}
+          size={24}
+          className={`absolute right-spacing-04 transition-opacity ${isOpen ? "opacity-100 duration-duration-05 tranquillo-exit" : "opacity-0"} ${stateStyle.iconColor[state]}`}
         />
       </div>
-      {isOpen && (
-        <FlexBox
-          direction="col"
-          className={`gap-spacing-04 ml-spacing-04 mr-spacing-10 my-spacing-03 body-02-regular ${stateStyle.inText[state]}`}
-        >
+      <div
+        ref={contentRef}
+        className={`overflow-hidden transition-[max-height] ${isOpen ? "duration-duration-03 tranquillo-enter" : "duration-duration-05 tranquillo-exit"}`}
+      >
+        <div className="px-spacing-04 py-spacing-03 body-02-regular">
           {children}
-        </FlexBox>
-      )}
+        </div>
+      </div>
     </div>
   );
 }

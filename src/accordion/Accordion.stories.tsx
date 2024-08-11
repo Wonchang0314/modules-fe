@@ -11,7 +11,11 @@ export default {
   tags: ["autodocs"],
 } as Meta<typeof Accordion>;
 
-const Template: StoryFn<AccordionProps> = args => <Accordion {...args} />;
+const Template: StoryFn<AccordionProps> = args => (
+  <div className="w-[400px]">
+    <Accordion {...args} />
+  </div>
+);
 
 export const CustomAccordion = Template.bind({});
 CustomAccordion.args = {
