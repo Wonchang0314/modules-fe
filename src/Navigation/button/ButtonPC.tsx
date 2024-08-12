@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Divider from "src/divider/Divider";
-import Icon, { iconKey } from "src/icon/Icon";
+import Icon, { iconKey, icons } from "src/icon/Icon";
 
 export interface ButtonPropsPC {
   style: "primary" | "secondary" | "border" | "ghost";
@@ -79,7 +79,7 @@ const buttonIconColors = {
   },
 };
 
-const borderColors = {
+const dividerColors = {
   primary: {
     enabled: "Gray-50",
     active: "shrink-0 Gray-50",
@@ -148,7 +148,7 @@ export default function Button({
 
   const styleClass = buttonStylePC[style][buttonState];
   const roundClass = round ? "rounded-radius-circle" : "rounded-radius-04";
-  const borderColor = borderColors[style][buttonState];
+  const dividerColor = dividerColors[style][buttonState];
   const hoverClass = hovered ? buttonStylePC[style]["hover"] : "";
   const focusClass = focused ? buttonStylePC[style]["focus"] : "";
   const buttonType =
@@ -173,14 +173,20 @@ export default function Button({
     >
       {type === "icon-left" && (
         <span className="left-icon">
-          <Icon icon={iconKey} className={`${iconColor}`} />
+          <Icon
+            icon={iconKey as keyof typeof icons}
+            className={`${iconColor}`}
+          />
         </span>
       )}
       {type === "icon-left" && <span>{text1}</span>}
       {type === "icon-right" && <span>{text1}</span>}
       {type === "icon-right" && (
         <span className="right-icon">
-          <Icon icon={iconKey} className={`${iconColor}`} />
+          <Icon
+            icon={iconKey as keyof typeof icons}
+            className={`${iconColor}`}
+          />
         </span>
       )}
       {type === "text" && <span>{text1}</span>}
@@ -190,13 +196,16 @@ export default function Button({
           type="Vertical"
           size={16}
           subheader="|"
-          className={borderColor}
+          className={dividerColor}
         />
       )}
       {type === "text-text" && <span>{text2}</span>}
       {type === "icon" && (
         <span className="icon">
-          <Icon icon={iconKey} className={`${iconColor}`} />
+          <Icon
+            icon={iconKey as keyof typeof icons}
+            className={`${iconColor}`}
+          />
         </span>
       )}
     </button>
