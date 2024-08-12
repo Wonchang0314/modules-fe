@@ -47,6 +47,8 @@ export const icons = {
   ...Toggle,
   ...User,
 };
+// 아이콘 목록을 배열로 정의
+export const iconKeys: iconKey[] = Object.keys(icons) as iconKey[];
 
 export type iconKey = keyof typeof icons;
 

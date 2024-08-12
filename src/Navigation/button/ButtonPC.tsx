@@ -1,4 +1,4 @@
-import React, { cloneElement, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Divider from "src/divider/Divider";
 import Icon, { iconKey } from "src/icon/Icon";
 
