@@ -23,7 +23,7 @@ CustomAccordion.args = {
   size: "L",
   title: "Title",
   children: (
-    <div>
+    <div className="text-text-primary">
       "An accordion is a vertically stacked list of headers that reveal or hide
       associated sections of content.",
     </div>
