@@ -39,7 +39,7 @@ const sizeStyle = {
     label: "helpertext-02-regular",
     inputPY: "py-[13px]",
     inputFont: "label-03-medium",
-    iconSize: 16,
+    iconSize: 20,
     description: "helpertext-01-regular",
   },
   L: {
@@ -191,18 +191,26 @@ export default function TextField({
             `}
           />
           {state === "error" && (
-            <ErrorIcon
-              width={sizeStyle[size]["iconSize"]}
-              height={sizeStyle[size]["iconSize"]}
-              className={stateStyle[state]["iconColor"]}
-            />
+            <div
+              className={`w-${sizeStyle[size]["iconSize"] / 4} h-${sizeStyle[size]["iconSize"] / 4} shrink-0`}
+            >
+              <ErrorIcon
+                width={sizeStyle[size]["iconSize"]}
+                height={sizeStyle[size]["iconSize"]}
+                className={`${stateStyle[state]["iconColor"]}`}
+              />
+            </div>
           )}
           {state === "warning" && (
-            <WarnIcon
-              width={sizeStyle[size]["iconSize"]}
-              height={sizeStyle[size]["iconSize"]}
-              className={stateStyle[state]["iconColor"]}
-            />
+            <div
+              className={`w-${sizeStyle[size]["iconSize"] / 4} h-${sizeStyle[size]["iconSize"] / 4} shrink-0`}
+            >
+              <WarnIcon
+                width={sizeStyle[size]["iconSize"]}
+                height={sizeStyle[size]["iconSize"]}
+                className={`${stateStyle[state]["iconColor"]}`}
+              />
+            </div>
           )}
         </div>
         <div
