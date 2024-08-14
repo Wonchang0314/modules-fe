@@ -12,6 +12,7 @@ import * as Technology from "./svg/technology";
 import * as Time from "./svg/time";
 import * as Toggle from "./svg/toggle";
 import * as User from "./svg/user";
+import { AriaAttributes, FC, SVGProps } from "react";
 
 export const IconCategory = {
   Commerce: { ...Commerce },
@@ -46,6 +47,8 @@ export const icons = {
   ...Toggle,
   ...User,
 };
+// 아이콘 목록을 배열로 정의
+export const iconKeys: iconKey[] = Object.keys(icons) as iconKey[];
 
 export type iconKey = keyof typeof icons;
 
@@ -67,11 +70,13 @@ type IconProps = {
  * 대 주제 Social, Modifier 은 색상 변경이 불가능합니다.
  */
 
-const Icon = ({ icon, size = 24, className }: IconProps) => {
+const Icon = (props: IconProps & AriaAttributes) => {
+  const { icon, size = 24, className } = props;
   const SVGIcon = icons[icon];
 
   return (
     <SVGIcon
+      {...props}
       className={`${className} ${
         className?.includes("fill-") ? "" : "fill-icon-primary"
       }`}

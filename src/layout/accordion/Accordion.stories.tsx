@@ -11,7 +11,11 @@ export default {
   tags: ["autodocs"],
 } as Meta<typeof Accordion>;
 
-const Template: StoryFn<AccordionProps> = args => <Accordion {...args} />;
+const Template: StoryFn<AccordionProps> = args => (
+  <div className="w-[400px]">
+    <Accordion {...args} />
+  </div>
+);
 
 export const CustomAccordion = Template.bind({});
 CustomAccordion.args = {
@@ -19,7 +23,7 @@ CustomAccordion.args = {
   size: "L",
   title: "Title",
   children: (
-    <div>
+    <div className="text-text-primary">
       "An accordion is a vertically stacked list of headers that reveal or hide
       associated sections of content.",
     </div>
