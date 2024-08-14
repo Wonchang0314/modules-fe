@@ -2,7 +2,7 @@ import { ChangeEvent, Suspense, useEffect, useState } from "react";
 import ErrorIcon from "../../icon/svg/status/warning-circle-filled.svg";
 import WarnIcon from "../../icon/svg/status/warning-triangle-filled.svg";
 import TextAreaSkeleton from "./textareaSkeleton";
-import { InputStateType } from "../textfield/textfield";
+import { InputStateType } from "src/utils/type";
 
 type TextFieldProps = {
   value: string;
@@ -42,7 +42,7 @@ const sizeStyle = {
 };
 
 const stateStyle = {
-  active: {
+  enable: {
     labelColor: "text-text-secondary",
     descriptionColor: "text-text-helper",
   },
@@ -70,7 +70,7 @@ export default function TextArea({
   value,
   onChange,
   size,
-  state = "active",
+  state = "enable",
   label,
   description,
   placeholder,
@@ -148,18 +148,26 @@ export default function TextArea({
             `}
           />
           {state === "error" && (
-            <ErrorIcon
-              width={sizeStyle[size]["iconSize"]}
-              height={sizeStyle[size]["iconSize"]}
-              className={stateStyle[state]["iconColor"]}
-            />
+            <div
+              className={`w-${sizeStyle[size]["iconSize"] / 4} h-${sizeStyle[size]["iconSize"] / 4} shrink-0`}
+            >
+              <ErrorIcon
+                width={sizeStyle[size]["iconSize"]}
+                height={sizeStyle[size]["iconSize"]}
+                className={`${stateStyle[state]["iconColor"]}`}
+              />
+            </div>
           )}
           {state === "warning" && (
-            <WarnIcon
-              width={sizeStyle[size]["iconSize"]}
-              height={sizeStyle[size]["iconSize"]}
-              className={stateStyle[state]["iconColor"]}
-            />
+            <div
+              className={`w-${sizeStyle[size]["iconSize"] / 4} h-${sizeStyle[size]["iconSize"] / 4} shrink-0`}
+            >
+              <WarnIcon
+                width={sizeStyle[size]["iconSize"]}
+                height={sizeStyle[size]["iconSize"]}
+                className={`${stateStyle[state]["iconColor"]}`}
+              />
+            </div>
           )}
         </div>
         <div

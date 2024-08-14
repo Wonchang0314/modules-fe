@@ -38,5 +38,5 @@ const Template: StoryFn<typeof DatePicker> = args => {
 
 export const Example = Template.bind({});
 Example.args = {
-  state: "active",
+  state: "enable",
 };

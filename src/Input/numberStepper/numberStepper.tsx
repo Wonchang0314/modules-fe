@@ -3,8 +3,8 @@ import PlusIcon from "../../icon/svg/navigation/add.svg";
 import TrashIcon from "../../icon/svg/operation/delete.svg";
 import { Suspense, useEffect, useState } from "react";
 import WarnIcon from "../../icon/svg/status/warning-triangle-filled.svg";
-import { InputStateType } from "../textfield/textfield";
 import NumberStepperSkeleton from "./numberStepperSkeleton";
+import { InputStateType } from "src/utils/type";
 
 type NumberStepperProps = {
   count: number;
@@ -40,7 +40,7 @@ const sizeStyle = {
 };
 
 const stateStyle = {
-  active: {
+  enable: {
     border: "border-border-subtle-01",
     textColor: "text-text-primary",
     iconColor: "fill-icon-primary",
@@ -72,7 +72,7 @@ export default function NumberStepper({
   setCount,
   width,
   size,
-  state = "active",
+  state = "enable",
   description,
   descriptionAlign = "left",
   onClickTrashIcon,

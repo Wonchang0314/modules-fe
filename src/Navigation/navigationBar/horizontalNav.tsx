@@ -20,7 +20,7 @@ export default function HorizontalNav({ items }: NavigationType) {
 
   return (
     <div
-      className={`flex px-spacing-04 gap-spacing-02 border-t border-t-[#E0E0E0] bg-[#FFF]`}
+      className={`flex px-spacing-04 gap-spacing-02 border-t border-t-border-tile-01 bg-white`}
     >
       {items.map((item, i) => (
         <HorizontalNavItem

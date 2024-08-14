@@ -5,11 +5,11 @@ import {
   useRef,
   useState,
 } from "react";
-import { InputStateType } from "../textfield/textfield";
 import ErrorIcon from "../../icon/svg/status/warning-circle-filled.svg";
 import WarnIcon from "../../icon/svg/status/warning-triangle-filled.svg";
 import CalendarIcon from "../../icon/svg/time/calendar.svg";
 import DatePanel from "./datePanel";
+import { InputStateType } from "src/utils/type";
 
 type CustomDatePickerProps = {
   state: InputStateType;
@@ -20,7 +20,7 @@ type CustomDatePickerProps = {
 };
 
 const stateStyle = {
-  active: {
+  enable: {
     labelColor: "text-text-secondary",
     inputColor: "text-text-primary",
     descriptionColor: "text-text-secondary",
@@ -53,7 +53,7 @@ const stateStyle = {
 };
 
 export default function DatePicker({
-  state,
+  state = "enable",
   label,
   description,
   value,
@@ -119,7 +119,7 @@ export default function DatePicker({
 
   const returnBorderColor = () => {
     switch (state) {
-      case "active":
+      case "enable":
         if (isFocused) {
           setDividerStyle("border-b-[3px] border-b-focus-default");
           setBorderStyle("border-[3px] border-focus-default");
@@ -153,15 +153,24 @@ export default function DatePicker({
 
   return (
     <div className="flex flex-col justify-center gap-spacing-02 w-[332px]">
-      <div className={`pl-4 ${stateStyle[state]["labelColor"]}`}>{label}</div>
       <div
-        className={`bg-white cursor-pointer rounded-radius-04 w-full ${borderStyle}`}
+        className={`pl-4 label-03-regular ${stateStyle[state]["labelColor"]}`}
+      >
+        {label}
+      </div>
+      <div
+        className={`
+          bg-white cursor-pointer rounded-radius-04 w-full relative 
+          ${showPanel ? "rounded-t-radius-04" : "rounded-radius-04"}`}
       >
         <div
+          className={`absolute inset-0 pointer-events-none
+          ${borderStyle} 
+          ${showPanel ? "rounded-t-radius-04" : "rounded-radius-04"}`}
+        />
+        <div
           className={`
-            w-full flex item-center justify-between gap-spacing-04 
-            ${showPanel && dividerStyle} 
-            ${showPanel ? "rounded-t-radius-04" : "rounded-radius-04"}
+            w-full flex item-center justify-between
             ${!(state === "disabled" || state === "readOnly") && "hover:bg-background-hover"}
           `}
         >
@@ -176,7 +185,7 @@ export default function DatePicker({
             readOnly={state === "readOnly"}
             disabled={state === "disabled"}
             className={`
-              w-full outline-none p-spacing-04 rounded-l-radius-04 cursor-pointer bg-transparent
+              w-full outline-none p-spacing-04 rounded-l-radius-04 cursor-pointer bg-transparent labe-04-medium
               ${stateStyle[state]["inputColor"]}
             `}
           />
@@ -209,8 +218,13 @@ export default function DatePicker({
           )}
         </div>
         {showPanel && (
-          <div ref={panelRef} onMouseDown={handlePanelMouseDown}>
+          <div
+            ref={panelRef}
+            onMouseDown={handlePanelMouseDown}
+            className="absolute bottom-0 translate-y-full"
+          >
             <DatePanel
+              state={state}
               selectedDate={value}
               setSelectedDate={setValue}
               setShowPanel={setShowPanel}
@@ -218,7 +232,9 @@ export default function DatePicker({
           </div>
         )}
       </div>
-      <div className={`pl-4 ${stateStyle[state]["descriptionColor"]}`}>
+      <div
+        className={`pl-4 label-03-regular ${stateStyle[state]["descriptionColor"]}`}
+      >
         {description}
       </div>
     </div>

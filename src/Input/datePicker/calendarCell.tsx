@@ -36,7 +36,7 @@ export default function CalendarCell({
         ${stateStyle[state]["fontColor"]}
         ${selected && selectedStyle}
         flex flex-col items-center justify-center w-11 h-11 relative border-2 
-        hover:bg-layer-01-hover hover:border-layer-01-hover border-transparent group
+        hover:bg-layer-01-hover hover:border-layer-01-hover border-transparent label-04-regular group
       `}
           onClick={onClick}
         >
@@ -49,7 +49,7 @@ export default function CalendarCell({
         </div>
       ) : (
         <div
-          className={`flex flex-col items-center justify-center w-[100px] h-[66px] hover:bg-layer-01-hover ${state === "inPeriod" ? "text-text-primary" : "text-text-secondary"}`}
+          className={`flex flex-col items-center justify-center w-[100px] h-[66px] label-04-bold hover:bg-layer-01-hover ${state === "inPeriod" ? "text-text-primary" : "text-text-secondary"}`}
           onClick={onClick}
         >
           {date}
