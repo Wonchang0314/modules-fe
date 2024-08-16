@@ -39,6 +39,7 @@ const configList = [
       }),
       svgr(),
     ],
+    external: ["react", "react-dom"],
   },
   {
     input: "dist/index.d.ts",
