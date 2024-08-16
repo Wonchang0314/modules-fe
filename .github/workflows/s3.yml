@@ -3,7 +3,7 @@ name: Storybook Deploy To S3
 on:
   push:
     branches:
-      - Publish
+      - StorybookNpm
 
 jobs:
   publish-storybook:

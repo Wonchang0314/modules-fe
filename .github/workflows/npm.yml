@@ -29,9 +29,6 @@ jobs:
       - name: Npm Package Build
         run: yarn build-npm
 
-      - name: List files in dist folder
-        run: ls -la dist
-
       - name: Publish to NPM
         uses: JS-DevTools/npm-publish@v3
         with:
