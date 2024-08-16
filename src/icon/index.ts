@@ -1,3 +1,2 @@
-import Icon from "./Icon";
-
-export { Icon };
+export * from "./svg";
+export * from "./Icon";
