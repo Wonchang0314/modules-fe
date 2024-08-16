@@ -32,7 +32,6 @@ export const ShowSnackbar = () => {
           type={"text"}
           state={"enabled"}
           text1={"Show Snackbar"}
-          iconKey={"search"} //원석님 pr 머지 후 삭제 필요
         />
       </div>
       <div className="fixed left-0 bottom-0 w-screen h-fit z-40 p-4">
@@ -40,7 +39,7 @@ export const ShowSnackbar = () => {
           open={open}
           message={"hello"}
           onClose={handleClose}
-          dismissible
+          dismissible={true}
         />
       </div>
     </div>

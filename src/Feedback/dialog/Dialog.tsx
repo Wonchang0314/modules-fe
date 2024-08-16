@@ -1,8 +1,6 @@
 import Button from "src/Navigation/button/ButtonMobile";
 import Icon from "src/icon/Icon";
 
-// TODO : 애니메이션 정의
-
 export interface DialogProps {
   open: boolean;
   title: string;
