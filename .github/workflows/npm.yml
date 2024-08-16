@@ -1,0 +1,35 @@
+name: Npm Publish
+
+on:
+  push:
+    branches:
+      - Publish
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+"
+
+jobs:
+  publish-npm:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "v20.10.0"
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Npm Package Build
+        run: yarn build-npm
+
+      - name: Publish to NPM
+        uses: JS-DevTools/npm-publish@v3
+        with:
+          token: ${{secrets.PACKAGE_PUBLISH_KEY_NPM }}
+          access: public

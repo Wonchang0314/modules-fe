@@ -1,5 +1,5 @@
 import { atom, useAtom } from "jotai";
-import FlexBox from "../layout/FlexBox";
+import FlexBox from "src/layout/FlexBox";
 
 const dialogAtom = atom<JSX.Element | null>(null);
 dialogAtom.debugLabel = "dialogAtom";
@@ -8,9 +8,6 @@ interface DialogProps {
   title: string;
   discription: string;
   type: "confirm" | "notice";
-  noticeText?: string;
-  confirmText?: string;
-  closeText?: string;
   onAction?: () => void;
   onClose?: () => void;
 }
@@ -19,9 +16,6 @@ function DialogTemplate({
   title,
   discription,
   type,
-  noticeText = "확인",
-  confirmText = "삭제",
-  closeText = "취소",
   onAction,
   onClose,
 }: DialogProps) {
@@ -43,7 +37,7 @@ function DialogTemplate({
               className="w-full B4-regular text-Gray5"
               onClick={onClose}
             >
-              {noticeText}
+              확인
             </button>
           ) : (
             <>
@@ -52,14 +46,14 @@ function DialogTemplate({
                 className="w-full B4-regular text-Red"
                 onClick={onAction}
               >
-                {confirmText}
+                삭제
               </button>
               <button
                 type="button"
                 className="w-full B4-regular text-Gray5"
                 onClick={onClose}
               >
-                {closeText}
+                취소
               </button>
             </>
           )}
