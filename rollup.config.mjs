@@ -4,6 +4,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import postcss from "rollup-plugin-postcss";
 import dts from "rollup-plugin-dts";
+import svgr from "@svgr/rollup";  // svgr 플러그인 임포트
 
 // This is required to read package.json file when
 // using Native ES modules in Node.js
@@ -36,7 +37,7 @@ const configList = [
       postcss({
         extensions: [".css"],
       }),
-
+      svgr(),  // svgr 플러그인 추가
     ],
   },
   {
