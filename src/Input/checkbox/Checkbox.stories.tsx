@@ -17,7 +17,7 @@ export const CustomCheckbox = Template.bind({});
 CustomCheckbox.args = {
   title: "Checkbox label",
   size: "M",
-  state: "Enabled",
+  state: "enable",
   label: "Label",
   alert: "Warning text",
 };

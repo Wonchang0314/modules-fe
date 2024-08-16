@@ -1,5 +1,4 @@
 import { ReactElement } from "react";
-import { FlexBox } from "src/layout";
 import { MenuItemProps } from "./menuItem";
 
 export interface InputMenuProps {
@@ -31,11 +30,10 @@ export default function InputMenu({
   const sizeClass = InputMenuSize[menuSize][size];
 
   return (
-    <FlexBox
-      direction="col"
-      className={`bg-layer-01 rounded-radius-04 pt-spacing-01 pr-0 pb-spacing-01 pl-0 shadow-elevation-light-2 overflow-scroll overflow-x-hidden ${sizeClass} ${className}`}
+    <div
+      className={`flex flex-col items-center bg-layer-01 rounded-radius-04 pt-spacing-01 pr-0 pb-spacing-01 pl-0 shadow-elevation-light-2 overflow-scroll overflow-x-hidden ${sizeClass} ${className}`}
     >
       {menuItem}
-    </FlexBox>
+    </div>
   );
 }

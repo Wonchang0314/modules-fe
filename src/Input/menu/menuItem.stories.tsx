@@ -8,6 +8,11 @@ export default {
     layout: "centered",
     backgrounds: { default: "light" },
   },
+  argTypes: {
+    state: {
+      options: ["enable", "disabled", "error"],
+    },
+  },
 } as Meta<typeof MenuItem>;
 
 const Template: StoryFn<typeof MenuItem> = args => <MenuItem {...args} />;
@@ -15,7 +20,7 @@ const Template: StoryFn<typeof MenuItem> = args => <MenuItem {...args} />;
 export const Example = Template.bind({});
 Example.args = {
   size: "L",
-  state: "enabled",
+  state: "enable",
   type: "icon-right",
   text: "Menu Item",
   className: "",

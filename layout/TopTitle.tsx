@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import FlexBox from "./FlexBox";
+import FlexBox from "../../layout/FlexBox";
 import Icon from "./Icon";
 
 interface Props {

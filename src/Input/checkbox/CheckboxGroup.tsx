@@ -1,9 +1,10 @@
+import { InputStateType } from "src/utils/type";
 import Checkbox, { CheckboxProps } from "./Checkbox";
 
 export interface CheckboxGroupProps extends Omit<CheckboxProps, "title"> {
   titles: string[];
   size: "L" | "M";
-  state: "Enabled" | "Disabled" | "Readonly" | "Error" | "Warning";
+  state: InputStateType;
   direction?: "row" | "col";
 }
 
@@ -23,7 +24,7 @@ export default function CheckboxGroup({
           : direction === "row" &&
               label &&
               alert &&
-              (state === "Error" || state === "Warning")
+              (state === "error" || state === "warning")
             ? "flex-row gap-spacing-04 items-center"
             : direction === "row" && label
               ? "flex-row gap-spacing-04 items-end"

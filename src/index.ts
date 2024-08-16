@@ -1,2 +1,3 @@
 export * from "./Display";
-export * from "./layout";
+export * from "./Feedback";
+export * from "./icon";

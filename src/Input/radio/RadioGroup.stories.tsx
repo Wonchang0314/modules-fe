@@ -18,7 +18,7 @@ CustomRadioGroup.args = {
   titles: ["Radio label", "Radio label", "Radio label"],
   direction: "row",
   size: "M",
-  state: "Warning",
+  state: "warning",
   label: "Group Label",
   alert: "Warning text",
 };

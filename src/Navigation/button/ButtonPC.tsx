@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Divider from "src/layout/divider/Divider";
+import Divider from "src/Layout/divider/Divider";
 import Icon, { iconKey, icons } from "src/icon/Icon";
 
 export interface ButtonPropsPC {

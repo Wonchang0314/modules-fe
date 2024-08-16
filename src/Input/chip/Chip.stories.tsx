@@ -13,6 +13,9 @@ export default {
     icon: {
       options: Object.keys(icons),
     },
+    state: {
+      options: ["enable", "disabled"],
+    },
   },
   tags: ["autodocs"],
 } as Meta<typeof Chip>;
@@ -22,10 +25,10 @@ const Template: StoryFn<ChipProps> = args => <Chip {...args} />;
 export const CustomChip = Template.bind({});
 CustomChip.args = {
   size: "L",
-  state: "Enabled",
+  state: "enable",
   dismissible: false,
   icon: "fish",
   label: "Chip",
-  color: "Yellow",
-  readonly: false,
+  color: "yellow",
+  readOnly: false,
 };

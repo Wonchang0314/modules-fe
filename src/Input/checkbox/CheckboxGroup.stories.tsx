@@ -20,7 +20,7 @@ CustomCheckboxGroup.args = {
   titles: ["Checkbox label", "Checkbox label", "Checkbox label"],
   direction: "row",
   size: "M",
-  state: "Warning",
+  state: "warning",
   label: "Group Label",
   alert: "Warning text",
 };

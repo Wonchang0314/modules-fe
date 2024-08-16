@@ -1,23 +1,22 @@
-import React from "react";
-import { FlexBox } from "src/layout";
 import Icon from "src/icon/Icon";
+import { InputStateType } from "src/utils/type";
 
 export interface MenuItemProps {
   size: "L" | "M";
-  state: "enabled" | "error" | "disabled";
+  state: Exclude<InputStateType, "warning" | "readOnly">;
   type: "default" | "icon-left" | "icon-right";
   text?: string;
   className?: string;
 }
 
 const MenuItemState = {
-  enabled: "bg-layer-01 text-text-primary",
+  enable: "bg-layer-01 text-text-primary",
   error: "bg-support-error text-text-on-color",
   disabled: "bg-layer-01 text-text-disabled cursor-not-allowed",
 };
 
 const IconColors = {
-  enabled: "text-primary",
+  enable: "text-primary",
   error: "text-on-color",
   disabled: "text-disabled",
 };
@@ -47,9 +46,8 @@ export default function MenuItem({
   const iconRightDisplay = type === "icon-right" ? "justify-between" : "";
 
   return (
-    <FlexBox
-      direction="row"
-      className={`flex ${iconRightDisplay} ${stateClass} ${styleClass} ${className} hover:bg-layer-01-hover hover:text-text-primary cursor-pointer`}
+    <div
+      className={`flex flex-row items-center ${iconRightDisplay} ${stateClass} ${styleClass} ${className} hover:bg-layer-01-hover hover:text-text-primary cursor-pointer`}
     >
       {type === "icon-left" && (
         <Icon icon="fruit_apple" size={20} className={`fill-${IconClass}`} />
@@ -58,6 +56,6 @@ export default function MenuItem({
       {type === "icon-right" && (
         <Icon icon="fruit_apple" size={20} className={`fill-${IconClass}`} />
       )}
-    </FlexBox>
+    </div>
   );
 }

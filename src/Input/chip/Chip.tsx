@@ -1,29 +1,28 @@
 import Icon from "src/icon/Icon";
 import { useState } from "react";
 import { iconKey } from "src/icon/Icon";
-
-//radius 적용 안됨
+import { InputStateType } from "src/utils/type";
 
 export interface ChipProps {
   size: "L" | "M" | "S";
-  state: "Enabled" | "Disabled";
+  state: Omit<InputStateType, "warning" | "error" | "readOnly">;
   dismissible: boolean;
   label: string;
   color:
-    | "Black"
-    | "Gray"
-    | "Red"
-    | "Orange"
-    | "Yellow"
-    | "Green"
-    | "Blue"
-    | "Cyan"
-    | "Magenta"
-    | "Purple"
-    | "Teal"
-    | "Outline";
+    | "black"
+    | "gray"
+    | "red"
+    | "orange"
+    | "yellow"
+    | "green"
+    | "blue"
+    | "cyan"
+    | "magenta"
+    | "purple"
+    | "teal"
+    | "outline";
   icon?: iconKey;
-  readonly: boolean;
+  readOnly: boolean;
 }
 
 const sizeStyles = {
@@ -50,84 +49,84 @@ const DisableColorStyles = {
 };
 
 const EnableColorStyles = {
-  Black: {
+  black: {
     iconColor: "fill-tag-icon-black",
     textColor: "text-tag-color-black",
     bgColor: "bg-tag-background-black",
     bgHoverColor: "hover:bg-tag-hover-black",
     borderColor: "border border-tag-border-black",
   },
-  Gray: {
+  gray: {
     iconColor: "fill-tag-icon-gray",
     textColor: "text-tag-color-gray",
     bgColor: "bg-tag-background-gray",
     bgHoverColor: "hover:bg-tag-hover-gray",
     borderColor: "border border-tag-border-gray",
   },
-  Red: {
+  red: {
     iconColor: "fill-tag-icon-red",
     textColor: "text-tag-color-red",
     bgColor: "bg-tag-background-red",
     bgHoverColor: "hover:bg-tag-hover-red",
     borderColor: "border border-tag-border-red",
   },
-  Orange: {
+  orange: {
     iconColor: "fill-tag-icon-orange",
     textColor: "text-tag-color-orange",
     bgColor: "bg-tag-background-orange",
     bgHoverColor: "hover:bg-tag-hover-orange",
     borderColor: "border border-tag-border-orange",
   },
-  Yellow: {
+  yellow: {
     iconColor: "fill-tag-icon-yellow",
     textColor: "text-tag-color-yellow",
     bgColor: "bg-tag-background-yellow",
     bgHoverColor: "hover:bg-tag-hover-yellow",
     borderColor: "border border-tag-border-yellow",
   },
-  Green: {
+  green: {
     iconColor: "fill-tag-icon-green",
     textColor: "text-tag-color-green",
     bgColor: "bg-tag-background-green",
     bgHoverColor: "hover:bg-tag-hover-green",
     borderColor: "border border-tag-border-green",
   },
-  Blue: {
+  blue: {
     iconColor: "fill-tag-icon-blue",
     textColor: "text-tag-color-blue",
     bgColor: "bg-tag-background-blue",
     bgHoverColor: "hover:bg-tag-hover-blue",
     borderColor: "border border-tag-border-blue",
   },
-  Cyan: {
+  cyan: {
     iconColor: "fill-tag-icon-cyan",
     textColor: "text-tag-color-cyan",
     bgColor: "bg-tag-background-cyan",
     bgHoverColor: "hover:bg-tag-hover-cyan",
     borderColor: "border border-tag-border-cyan",
   },
-  Magenta: {
+  magenta: {
     iconColor: "fill-tag-icon-magenta",
     textColor: "text-tag-color-magenta",
     bgColor: "bg-tag-background-magenta",
     bgHoverColor: "hover:bg-tag-hover-magenta",
     borderColor: "border border-tag-border-magenta",
   },
-  Purple: {
+  purple: {
     iconColor: "fill-tag-icon-purple",
     textColor: "text-tag-color-purple",
     bgColor: "bg-tag-background-purple",
     bgHoverColor: "hover:bg-tag-hover-purple",
     borderColor: "border border-tag-border-purple",
   },
-  Teal: {
+  teal: {
     iconColor: "fill-tag-icon-teal",
     textColor: "text-tag-color-teal",
     bgColor: "bg-tag-background-teal",
     bgHoverColor: "hover:bg-tag-hover-teal",
     borderColor: "border border-tag-border-teal",
   },
-  Outline: {
+  outline: {
     iconColor: "fill-tag-icon-outline",
     textColor: "text-tag-color-outline",
     bgColor: "bg-tag-background-outline",
@@ -136,19 +135,19 @@ const EnableColorStyles = {
   },
 };
 
-export default function Chipl({
+export default function Chip({
   size,
   state,
   dismissible,
   label,
   icon,
   color,
-  readonly,
+  readOnly,
 }: ChipProps) {
   const [isVisible, setIsVisible] = useState(true);
 
   const colorStyle =
-    state === "Enabled" ? EnableColorStyles[color] : DisableColorStyles;
+    state === "enable" ? EnableColorStyles[color] : DisableColorStyles;
   const sizeStyle = sizeStyles[size];
 
   const handleClose = () => {
@@ -161,9 +160,9 @@ export default function Chipl({
         className={`rounded-full
       ${colorStyle.bgColor} ${colorStyle.textColor} ${colorStyle.bgHoverColor}
      ${
-       state === "Enabled" && color !== "Outline" && readonly
+       state === "enable" && color !== "outline" && readOnly
          ? ""
-         : state == "Disabled" && color === "Outline"
+         : state == "disabled" && color === "outline"
            ? ""
            : colorStyle.borderColor
      }

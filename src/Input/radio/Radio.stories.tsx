@@ -17,7 +17,7 @@ export const CustomRadio = Template.bind({});
 CustomRadio.args = {
   title: "Radio label",
   size: "M",
-  state: "Enabled",
+  state: "enable",
   label: "Label",
   alert: "Warning text",
 };

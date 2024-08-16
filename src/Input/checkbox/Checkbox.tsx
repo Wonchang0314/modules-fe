@@ -1,13 +1,11 @@
 import { useState } from "react";
 import Icon from "src/icon/Icon";
-import { FlexBox } from "src/layout";
-
-//motion 적용 안함
+import { InputStateType } from "src/utils/type";
 
 export interface CheckboxProps {
   title: string;
   size: "L" | "M";
-  state: "Enabled" | "Disabled" | "Readonly" | "Error" | "Warning";
+  state: InputStateType;
   label?: string;
   alert?: string;
 }
@@ -32,11 +30,11 @@ const sizeStyles = {
 };
 
 const stateStyles = (isChecked: boolean) => ({
-  Enabled: isChecked ? "fill-support-info" : "fill-icon-primary",
-  Disabled: "fill-icon-disabled",
-  Readonly: "fill-icon-disabled",
-  Warning: "fill-support-warning",
-  Error: "fill-icon-error",
+  enable: isChecked ? "fill-support-info" : "fill-icon-primary",
+  disabled: "fill-icon-disabled",
+  readOnly: "fill-icon-disabled",
+  warning: "fill-support-warning",
+  error: "fill-icon-error",
 });
 
 export default function Checkbox({
@@ -49,7 +47,7 @@ export default function Checkbox({
   const [isChecked, setIsChecked] = useState(false);
 
   const handleToggle = () => {
-    if (state !== "Disabled" && state !== "Readonly") {
+    if (state !== "disabled" && state !== "readOnly") {
       setIsChecked(!isChecked);
     }
   };
@@ -58,13 +56,13 @@ export default function Checkbox({
   const stateStyle = stateStyles(isChecked)[state];
 
   const labelColor =
-    state === "Disabled" ? "text-text-disabled" : "text-text-secondary";
+    state === "disabled" ? "text-text-disabled" : "text-text-secondary";
 
   const titleColor =
-    state === "Disabled" ? "text-text-disabled" : "text-text-primary";
+    state === "disabled" ? "text-text-disabled" : "text-text-primary";
 
   return (
-    <FlexBox direction="col" className="gap-spacing-02 items-start">
+    <div className="flex flex-col gap-spacing-02 items-start">
       {label && (
         <span className={`${labelColor} ${sizeStyle.labelDetail}`}>
           {label}
@@ -92,20 +90,19 @@ export default function Checkbox({
           </span>
         </div>
       </button>
-      {alert && (state === "Error" || state === "Warning") && (
-        <FlexBox
-          direction="row"
-          className={`${sizeStyle.alertgap} ${
+      {alert && (state === "error" || state === "warning") && (
+        <div
+          className={`flex felx-row items-center ${sizeStyle.alertgap} ${
             sizeStyle.alertDetail
           } ${stateStyle} ${
-            state === "Error" ? "text-text-error" : "text-support-warning"
+            state === "error" ? "text-text-error" : "text-support-warning"
           }`}
         >
           <Icon
             icon={
-              state === "Error"
+              state === "error"
                 ? "warning_circle_filled"
-                : state === "Warning"
+                : state === "warning"
                   ? "warning_triangle_filled"
                   : "eye_slash"
             }
@@ -113,8 +110,8 @@ export default function Checkbox({
             className={`${stateStyle}`}
           />
           {alert}
-        </FlexBox>
+        </div>
       )}
-    </FlexBox>
+    </div>
   );
 }

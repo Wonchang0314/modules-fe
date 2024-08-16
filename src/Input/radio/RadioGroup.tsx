@@ -1,11 +1,12 @@
 import { useState } from "react";
 import Radio, { RadioProps } from "./Radio";
+import { InputStateType } from "src/utils/type";
 
 export interface RadioGroupProps
   extends Omit<RadioProps, "title" | "checked" | "onChange"> {
   titles: string[];
   size: "L" | "M";
-  state: "Enabled" | "Disabled" | "Readonly" | "Error" | "Warning";
+  state: InputStateType;
   direction?: "row" | "col";
 }
 
@@ -31,7 +32,7 @@ export default function RadioGroup({
           : direction === "row" &&
               label &&
               alert &&
-              (state === "Error" || state === "Warning")
+              (state === "error" || state === "warning")
             ? "flex-row gap-spacing-04 items-center"
             : direction === "row" && label
               ? "flex-row gap-spacing-04 items-end"

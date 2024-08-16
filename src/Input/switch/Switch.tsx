@@ -1,23 +1,22 @@
-// radius 적용 안됨
-
 import { useState } from "react";
+import { InputStateType } from "src/utils/type";
 
 export interface SwitchProps {
-  state: "Enabled" | "Disabled" | "ReadOnly";
+  state: Exclude<InputStateType, "error" | "warning">;
   title?: string;
   label?: string;
 }
 
 const stateStyles = (isOn: boolean) => ({
-  Enabled: {
+  enable: {
     iconColor: "bg-icon-on-color",
     bgColor: isOn ? "bg-support-info" : "bg-button-disabled",
   },
-  Disabled: {
+  disabled: {
     iconColor: "bg-icon-on-color-disabled",
     bgColor: "bg-button-disabled",
   },
-  ReadOnly: {
+  readOnly: {
     iconColor: "bg-icon-primary",
     bgColor: "bg-layer-transparent",
   },
@@ -29,13 +28,13 @@ export default function Switch({ state, title, label }: SwitchProps) {
   const stateStyle = stateStyles(isOn)[state];
 
   const labelColor =
-    state === "Disabled" ? "text-text-disabled" : "text-text-secondary";
+    state === "disabled" ? "text-text-disabled" : "text-text-secondary";
 
   const titleColor =
-    state === "Disabled" ? "text-text-disabled" : "text-text-primary";
+    state === "disabled" ? "text-text-disabled" : "text-text-primary";
 
   const toggleSwitch = () => {
-    if (state == "Enabled") {
+    if (state == "enable") {
       setIsOn(!isOn);
     }
   };
@@ -51,7 +50,7 @@ export default function Switch({ state, title, label }: SwitchProps) {
         <div
           className={`w-12 h-6 rounded-full
             ${stateStyle.bgColor} ${
-              state === "ReadOnly"
+              state === "readOnly"
                 ? "border border-border-subtle-01 py-[2px]"
                 : "py-[3px]"
             }`}
