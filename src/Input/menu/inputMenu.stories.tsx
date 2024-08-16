@@ -17,7 +17,7 @@ const temp = Array.from({ length: 8 }).map((_, index) => (
   <MenuItem
     key={index}
     size="L"
-    state="enabled"
+    state="enable"
     type="icon-right"
     text={`Menu Item`}
     className=""
