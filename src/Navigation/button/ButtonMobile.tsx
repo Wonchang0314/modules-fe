@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Divider from "src/divider/Divider";
+import Divider from "src/layout/divider/Divider";
 import Icon, { iconKey, icons } from "src/icon/Icon";
 
 export interface ButtonPropsMobile {
@@ -28,8 +28,8 @@ export const buttonSize = {
     M: "w-[40px] h-[40px] p-spacing-04 gap-spacing-02 flex justify-center items-center",
   },
   withText: {
-    L: "min-w-[64px] max-w-[343px] h-[64px] py-spacing-05 px-spacing-07 gap-spacing-04 flex justify-center items-center",
-    M: "min-w-[32px] max-w-[343px] h-[40px] px-spacing-04 py-spacing-03 gap-spacing-02 flex justify-center items-center",
+    L: "w-full h-[64px] py-spacing-05 px-spacing-07 gap-spacing-04 flex justify-center items-center",
+    M: "w-full h-[40px] px-spacing-04 py-spacing-03 gap-spacing-02 flex justify-center items-center",
   },
 };
 
@@ -241,7 +241,7 @@ export default function Button({
 
   return (
     <button
-      className={`button flex shrink-0 ${labelClass} ${sizeClass} ${styleClass} ${roundClass}`}
+      className={`flex ${labelClass} ${sizeClass} ${styleClass} ${roundClass}`}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onClick={onClick}
