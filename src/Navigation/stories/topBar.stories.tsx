@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react/*";
-import TopBar from "./topBar";
+import TopBar from "../topBar";
 import { icons } from "src/icon/Icon";
 
 export default {

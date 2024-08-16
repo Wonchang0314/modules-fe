@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react/*";
-import Dialog, { DialogProps } from "./Dialog";
+import Dialog, { DialogProps } from "../Dialog";
 
 export default {
   title: "Feedback/Dialog",

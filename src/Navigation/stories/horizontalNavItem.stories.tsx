@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react/*";
-import HorizontalNavItem from "./horizontalNavItem";
+import HorizontalNavItem from "../horizontalNavItem";
 import { icons } from "src/icon/Icon";
 
 export default {

@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react";
-import ButtonMobile, { ButtonPropsMobile } from "./ButtonMobile";
+import ButtonMobile, { ButtonPropsMobile } from "../ButtonMobile";
 import { iconKeys } from "src/icon/Icon";
 
 export default {

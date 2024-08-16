@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Button from "src/Navigation/button/ButtonMobile";
-import Snackbar from "./Snackbar";
+import Button from "src/Navigation/ButtonMobile";
+import Snackbar from "../Snackbar";
 
 export default {
   title: "Feedback/Snackbar",

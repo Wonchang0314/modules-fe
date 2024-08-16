@@ -1,4 +1,4 @@
-import Button from "src/Navigation/button/ButtonMobile";
+import Button from "src/Navigation/ButtonMobile";
 import Icon from "src/icon/Icon";
 
 export interface DialogProps {

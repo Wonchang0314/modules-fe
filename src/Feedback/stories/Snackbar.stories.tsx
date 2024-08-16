@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react/*";
-import Snackbar, { SnackbarProps } from "./Snackbar";
+import Snackbar, { SnackbarProps } from "../Snackbar";
 
 export default {
   title: "Feedback/Snackbar",

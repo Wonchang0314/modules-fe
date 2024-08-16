@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react/*";
-import TabItem, { TabItemProps } from "./TabItem";
+import TabItem, { TabItemProps } from "../TabItem";
 import { icons } from "src/icon/Icon";
 
 export default {

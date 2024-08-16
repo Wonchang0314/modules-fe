@@ -1,6 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react/*";
-import HorizontalNav from "./horizontalNav";
-import HorizontalNavItem from "./horizontalNavItem";
+import HorizontalNav from "../horizontalNav";
 
 export default {
   title: "Navigation/Navigation Bar/Horizontal/Nav Bar",

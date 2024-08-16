@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Button from "src/Navigation/button/ButtonMobile";
+import Button from "src/Navigation/ButtonMobile";
 import Scrim from "src/Layout/Scrim";
-import Dialog from "./Dialog";
+import Dialog from "../Dialog";
 
 export default {
   title: "Feedback/Dialog",

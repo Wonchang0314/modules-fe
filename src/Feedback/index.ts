@@ -1,3 +1,4 @@
-import Snackbar from "./snackbar/Snackbar";
+import Snackbar from "./Snackbar";
+import Dialog from "./Dialog";
 
-export { Snackbar };
+export { Snackbar, Dialog };

@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react";
-import ButtonPC, { ButtonPropsPC } from "./ButtonPC";
+import ButtonPC, { ButtonPropsPC } from "../ButtonPC";
 import { iconKeys } from "src/icon/Icon";
 
 export default {
