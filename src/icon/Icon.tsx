@@ -12,7 +12,7 @@ import * as Technology from "./svg/technology";
 import * as Time from "./svg/time";
 import * as Toggle from "./svg/toggle";
 import * as User from "./svg/user";
-import { AriaAttributes, FC, SVGProps } from "react";
+import { AriaAttributes } from "react";
 
 export const IconCategory = {
   Commerce: { ...Commerce },
