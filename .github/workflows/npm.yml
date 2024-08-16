@@ -13,6 +13,7 @@ jobs:
     permissions:
       contents: read
       packages: write
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -25,8 +26,14 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
+      - name: Clean up node_modules
+        run: rm -rf node_modules
+
       - name: Npm Package Build
         run: yarn build-npm
+
+      - name: List files in dist folder
+        run: ls -la dist
 
       - name: Publish to NPM
         uses: JS-DevTools/npm-publish@v3
