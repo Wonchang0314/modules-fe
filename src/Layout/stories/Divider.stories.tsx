@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react/*";
-import Divider, { DividerProps } from "./Divider";
+import Divider, { DividerProps } from "../Divider";
 
 export default {
   title: "Layout/Divider",

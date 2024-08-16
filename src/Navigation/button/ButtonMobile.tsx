@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Divider from "src/Layout/divider/Divider";
+import Divider from "src/Layout/Divider";
 import Icon, { iconKey, icons } from "src/icon/Icon";
 
 export interface ButtonPropsMobile {

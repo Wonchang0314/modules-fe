@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Button from "src/Navigation/button/ButtonMobile";
-import Scrim from "src/Layout/scrim/Scrim";
+import Scrim from "src/Layout/Scrim";
 import Dialog from "./Dialog";
 
 export default {
