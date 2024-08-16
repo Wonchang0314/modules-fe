@@ -26,9 +26,6 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Clean up node_modules
-        run: rm -rf node_modules
-
       - name: Npm Package Build
         run: yarn build-npm
 
