@@ -368,8 +368,6 @@ export const colorItems: Color[] = [
       Yellow: "#FDDC69",
     },
   },
-
-  // 추가 색상 아이템을 여기에 정의할 수 있습니다.
 ];
 
 const ColorItemList: React.FC = () => (

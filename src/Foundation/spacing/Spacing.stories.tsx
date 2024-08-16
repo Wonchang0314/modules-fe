@@ -1,6 +1,3 @@
-import React from "react";
-import { Meta, StoryFn } from "@storybook/react";
-
 interface SpacingConfig {
   margin: Record<string, string>;
   padding: Record<string, string>;
@@ -74,13 +71,10 @@ const spacingConfig: SpacingConfig = {
 
 export default {
   title: "Foundation/Spacing",
-  parameters: {
-    layout: "centered",
-    backgrounds: { default: "light" },
-  },
-} as Meta;
+  tags: ["autodocs"],
+};
 
-const Template: StoryFn = () => (
+export const Docs = () => (
   <div className="flex flex-col gap-8">
     <div>
       <h2 className="text-lg font-bold mb-2">Margin</h2>
@@ -127,5 +121,3 @@ const Template: StoryFn = () => (
     </div>
   </div>
 );
-
-export const Example = Template.bind({});

@@ -1,4 +1,4 @@
-import { ColorItem, ColorPalette, Meta } from "@storybook/blocks";
+import { ColorPalette } from "@storybook/blocks";
 import ColorItemList from "./ColorItems";
 
 export default {
@@ -9,7 +9,6 @@ export default {
 
 export const Docs = () => (
   <>
-    <Meta title="Components/Color Ground" />
     <ColorPalette>
       <ColorItemList />
     </ColorPalette>
@@ -20,8 +19,6 @@ Docs.parameters = {
   docs: {
     page: () => (
       <>
-        <Meta title="Components/Color Ground" />
-
         <ColorPalette>
           <ColorItemList />
         </ColorPalette>

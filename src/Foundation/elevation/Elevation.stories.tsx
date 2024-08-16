@@ -1,30 +1,25 @@
 import React from "react";
-import { Meta, StoryFn } from "@storybook/react";
-import FlexBox from "src/layout/FlexBox";
 
 export default {
   title: "Foundation/Elevation",
-  parameters: {
-    layout: "centered",
-    backgrounds: { default: "light" },
-  },
-} as Meta;
+  tags: ["autodocs"],
+};
 
 const ElevationBox: React.FC<{ className: string; label: string }> = ({
   className,
   label,
 }) => (
-  <FlexBox direction="row">
+  <div className="flex flex-row">
     <div className={`p-6 ${className} rounded-lg mb-4`}>
       <p>{label}</p>
     </div>
     <div className="ml-5">
       <p className="text-slate-950">className: {className}</p>
     </div>
-  </FlexBox>
+  </div>
 );
 
-const Template: StoryFn = () => (
+export const Docs = () => (
   <div>
     <ElevationBox
       className="shadow-elevation-light-1 bg-Gray-10"
@@ -44,5 +39,3 @@ const Template: StoryFn = () => (
     />
   </div>
 );
-
-export const Elevations = Template.bind({});
