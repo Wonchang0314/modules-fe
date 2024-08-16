@@ -1,5 +1,6 @@
-import Divider from "./Divider";
+/*import Divider from "./Divider";
 import Scrim from "./Scrim";
-import Accordion from "./Accordion";
+import Accordion from "./Accordion";*/
+import FlexBox from "./FlexBox";
 
-export { Divider, Scrim, Accordion };
+export { FlexBox };
