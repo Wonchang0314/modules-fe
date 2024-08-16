@@ -1,2 +1,2 @@
-export * from "./hooks";
+export * from "./Display";
 export * from "./layout";
