@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from "@storybook/react/*";
-import Icon from "./Icon";
-import { icons } from "./Icon";
+import Icon from "../Icon";
+import { icons } from "../Icon";
 
 export default {
   title: "Icon/Icon",

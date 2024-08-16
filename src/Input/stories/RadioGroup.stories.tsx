@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react/*";
-import RadioGroup, { RadioGroupProps } from "./RadioGroup";
+import RadioGroup, { RadioGroupProps } from "../RadioGroup";
 
 export default {
   title: "Input/Radio/RadioGroup",

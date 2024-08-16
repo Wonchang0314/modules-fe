@@ -1,5 +1,5 @@
 import { Meta, IconGallery, IconItem } from "@storybook/blocks";
-import Icon, { iconKey, IconCategory } from "./Icon";
+import Icon, { iconKey, IconCategory } from "../Icon";
 
 export default {
   title: "Icon/Icon List",

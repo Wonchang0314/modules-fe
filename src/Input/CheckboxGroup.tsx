@@ -1,4 +1,4 @@
-import { InputStateType } from "src/utils/type";
+import { InputStateType } from "src/Input/type";
 import Checkbox, { CheckboxProps } from "./Checkbox";
 
 export interface CheckboxGroupProps extends Omit<CheckboxProps, "title"> {

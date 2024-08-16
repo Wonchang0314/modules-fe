@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react/*";
-import CheckboxGroup, { CheckboxGroupProps } from "./CheckboxGroup";
+import CheckboxGroup, { CheckboxGroupProps } from "../CheckboxGroup";
 
 export default {
   title: "Input/Checkbox/CheckboxGroup",

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { InputStateType } from "src/utils/type";
+import { InputStateType } from "src/Input/type";
 
 export interface SwitchProps {
   state: Exclude<InputStateType, "error" | "warning">;

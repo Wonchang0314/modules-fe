@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Icon from "src/icon/Icon";
-import { InputStateType } from "src/utils/type";
+import { InputStateType } from "src/Input/type";
 
 //motion 적용 안함
 

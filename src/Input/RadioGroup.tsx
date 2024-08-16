@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Radio, { RadioProps } from "./Radio";
-import { InputStateType } from "src/utils/type";
+import { InputStateType } from "src/Input/type";
 
 export interface RadioGroupProps
   extends Omit<RadioProps, "title" | "checked" | "onChange"> {

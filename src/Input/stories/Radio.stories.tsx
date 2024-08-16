@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react/*";
-import Radio, { RadioProps } from "./Radio";
+import Radio, { RadioProps } from "../Radio";
 
 export default {
   title: "Input/Radio/Radio",

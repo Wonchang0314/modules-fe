@@ -8,7 +8,7 @@ import {
 } from "src/utils/datepicker";
 import CalendarCell from "./CalendarCell";
 import DatePickerHeader from "./DatePickerHeader";
-import { InputStateType } from "src/utils/type";
+import { InputStateType } from "src/Input/type";
 
 export type datePickerType = "date" | "month" | "year";
 

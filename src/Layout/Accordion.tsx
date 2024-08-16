@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Icon from "src/icon/Icon";
-import { InputStateType } from "src/utils/type";
+import { InputStateType } from "src/Input/type";
 
 export interface AccordionProps {
   state: Exclude<InputStateType, "error" | "warning" | "readOnly">;

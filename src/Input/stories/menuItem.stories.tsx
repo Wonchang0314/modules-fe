@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react/*";
-import MenuItem from "./menuItem";
+import MenuItem from "../menuItem";
 
 export default {
   title: "Input/Menu/MenuItem",

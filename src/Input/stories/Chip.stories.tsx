@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react/*";
-import Chip, { ChipProps } from "./Chip";
+import Chip, { ChipProps } from "../Chip";
 import { icons } from "src/icon/Icon";
 
 export default {

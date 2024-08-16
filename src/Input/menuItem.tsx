@@ -1,5 +1,5 @@
 import Icon from "src/icon/Icon";
-import { InputStateType } from "src/utils/type";
+import { InputStateType } from "src/Input/type";
 
 export interface MenuItemProps {
   size: "L" | "M";

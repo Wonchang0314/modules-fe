@@ -4,7 +4,7 @@ import TrashIcon from "../../icon/svg/operation/delete.svg";
 import { Suspense, useEffect, useState } from "react";
 import WarnIcon from "../../icon/svg/status/warning-triangle-filled.svg";
 import NumberStepperSkeleton from "./numberStepperSkeleton";
-import { InputStateType } from "src/utils/type";
+import { InputStateType } from "src/Input/type";
 
 type NumberStepperProps = {
   count: number;

@@ -9,7 +9,7 @@ import ErrorIcon from "../../icon/svg/status/warning-circle-filled.svg";
 import WarnIcon from "../../icon/svg/status/warning-triangle-filled.svg";
 import CalendarIcon from "../../icon/svg/time/calendar.svg";
 import DatePanel from "./DatePanel";
-import { InputStateType } from "src/utils/type";
+import { InputStateType } from "src/Input/type";
 
 type CustomDatePickerProps = {
   state: InputStateType;
