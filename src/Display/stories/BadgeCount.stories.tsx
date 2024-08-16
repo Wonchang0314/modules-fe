@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react/*";
-import BadgeCount, { BadgeCountProps } from "./BadgeCount";
+import BadgeCount, { BadgeCountProps } from "../BadgeCount";
 
 export default {
   title: "Display/Badge/BadgeCount",

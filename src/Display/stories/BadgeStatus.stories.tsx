@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react/*";
-import Badgestatus, { BadgestatusProps } from "./BadgeStatus";
+import Badgestatus, { BadgestatusProps } from "../BadgeStatus";
 
 export default {
   title: "Display/Badge/Badgestatus",
