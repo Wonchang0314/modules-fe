@@ -25,15 +25,6 @@
       }
     ]
   },
-  "include": [
-    "custom.d.ts",
-    "src",
-    "layout/Divider.tsx",
-    "layout/FlexBox.tsx",
-    "layout/GridBox.tsx",
-    "layout/Layout.tsx",
-    "layout/Slider.tsx",
-    "layout/Icon.tsx"
-  ],
+  "include": ["custom.d.ts", "src", "layout/FlexBox.tsx"],
   "exclude": ["node_modules", "dist"]
 }

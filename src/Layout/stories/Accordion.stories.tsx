@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react/*";
-import Accordion, { AccordionProps } from "./Accordion";
+import Accordion, { AccordionProps } from "../Accordion";
 
 export default {
   title: "Layout/Accordion",
