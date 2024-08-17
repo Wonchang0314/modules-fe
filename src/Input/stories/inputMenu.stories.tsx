@@ -9,6 +9,7 @@ export default {
     layout: "centered",
     backgrounds: { default: "light" },
   },
+  tags: ["autodocs"],
 } as Meta<typeof InputMenu>;
 
 const Template: StoryFn<typeof InputMenu> = args => <InputMenu {...args} />;
@@ -24,8 +25,8 @@ const temp = Array.from({ length: 8 }).map((_, index) => (
   />
 ));
 
-export const Example = Template.bind({});
-Example.args = {
+export const CustomInputMenu = Template.bind({});
+CustomInputMenu.args = {
   size: "L",
   menuItem: temp,
   className: "",

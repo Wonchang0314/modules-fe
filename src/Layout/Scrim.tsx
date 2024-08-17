@@ -1,5 +1,3 @@
-//애니메이션 정의 필요
-
 export interface ScrimProps {
   className?: string;
   children?: React.ReactNode;

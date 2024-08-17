@@ -1,10 +1,9 @@
 import { ChangeEvent, Suspense, useEffect, useState } from "react";
-import ErrorIcon from "../../icon/svg/status/warning-circle-filled.svg";
-import WarnIcon from "../../icon/svg/status/warning-triangle-filled.svg";
 import TextAreaSkeleton from "./textareaSkeleton";
 import { InputStateType } from "src/Input/type";
+import Icon from "src/icon/Icon";
 
-type TextFieldProps = {
+type TextAreaProps = {
   value: string;
   onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   size: "S" | "M" | "L";
@@ -74,7 +73,7 @@ export default function TextArea({
   label,
   description,
   placeholder,
-}: TextFieldProps) {
+}: TextAreaProps) {
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const [inputBorder, setInputBorder] = useState<string>("");
 
@@ -151,9 +150,9 @@ export default function TextArea({
             <div
               className={`w-${sizeStyle[size]["iconSize"] / 4} h-${sizeStyle[size]["iconSize"] / 4} shrink-0`}
             >
-              <ErrorIcon
-                width={sizeStyle[size]["iconSize"]}
-                height={sizeStyle[size]["iconSize"]}
+              <Icon
+                icon="warning_circle_filled"
+                size={sizeStyle[size]["iconSize"]}
                 className={`${stateStyle[state]["iconColor"]}`}
               />
             </div>
@@ -162,9 +161,9 @@ export default function TextArea({
             <div
               className={`w-${sizeStyle[size]["iconSize"] / 4} h-${sizeStyle[size]["iconSize"] / 4} shrink-0`}
             >
-              <WarnIcon
-                width={sizeStyle[size]["iconSize"]}
-                height={sizeStyle[size]["iconSize"]}
+              <Icon
+                icon="warning_triangle_filled"
+                size={sizeStyle[size]["iconSize"]}
                 className={`${stateStyle[state]["iconColor"]}`}
               />
             </div>

@@ -15,6 +15,7 @@ export default {
       control: { type: "select" },
     },
   },
+  tags: ["autodocs"],
 } as Meta<typeof ButtonPC>;
 
 const TemplatePC: StoryFn<ButtonPropsPC> = args => {

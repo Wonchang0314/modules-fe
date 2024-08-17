@@ -19,9 +19,9 @@ const Template: StoryFn<typeof HorizontalNav> = args => {
   return <HorizontalNav {...args} />;
 };
 
-export const Example = Template.bind({});
+export const CustomNav = Template.bind({});
 
-Example.args = {
+CustomNav.args = {
   items: [
     {
       name: "menu",

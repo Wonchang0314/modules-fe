@@ -22,9 +22,9 @@ const Template: StoryFn<typeof VerticalNav> = args => {
   return <VerticalNav {...args} />;
 };
 
-export const Example = Template.bind({});
+export const CustomNav = Template.bind({});
 
-Example.args = {
+CustomNav.args = {
   items: [
     { name: "text", onClick: () => console.log("clicked") },
     { name: "text", count: 0, onClick: () => console.log("clicked") },

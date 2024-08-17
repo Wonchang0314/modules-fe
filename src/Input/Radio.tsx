@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import Icon from "src/icon/Icon";
 import { InputStateType } from "src/Input/type";
 
-//motion 적용 안함
-
 export interface RadioProps {
   title: string;
   size: "L" | "M";

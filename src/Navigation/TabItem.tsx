@@ -22,7 +22,7 @@ const stateStyles = {
   },
 };
 
-export default function Tab({
+export default function TabItem({
   icon,
   label,
   dismissable,

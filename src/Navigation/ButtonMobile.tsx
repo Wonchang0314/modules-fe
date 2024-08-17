@@ -199,7 +199,7 @@ const dividerColors = {
   },
 };
 
-export default function Button({
+export default function ButtonMobile({
   size = "L",
   style = "primary",
   type = "text",

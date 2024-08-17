@@ -24,7 +24,7 @@ const Template: StoryFn<AccordionProps> = args => (
 
 export const CustomAccordion = Template.bind({});
 CustomAccordion.args = {
-  state: "disabled",
+  state: "enable",
   size: "L",
   title: "Title",
   children: (

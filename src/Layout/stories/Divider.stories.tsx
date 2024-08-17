@@ -12,15 +12,15 @@ export default {
 
 const Template: StoryFn<DividerProps> = args => <Divider {...args} />;
 
-export const Horizontal = Template.bind({});
-Horizontal.args = {
+export const CustomHorizontalDivider = Template.bind({});
+CustomHorizontalDivider.args = {
   type: "Horizontal",
   size: 100,
-  subheader: " I'm a subheader",
+  subHeader: " I'm a subheader",
 };
 
-export const Vertical = Template.bind({});
-Vertical.args = {
+export const CustomVerticalDivider = Template.bind({});
+CustomVerticalDivider.args = {
   type: "Vertical",
   size: 100,
   className: "bg-support-error",

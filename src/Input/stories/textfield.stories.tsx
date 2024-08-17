@@ -24,8 +24,8 @@ const Template: StoryFn<typeof TextField> = args => {
   return <TextField {...args} value={value} onChange={handleValue} />;
 };
 
-export const Example = Template.bind({});
-Example.args = {
+export const CutomTextField = Template.bind({});
+CutomTextField.args = {
   size: "L",
   style: "outlined",
   state: "enable",

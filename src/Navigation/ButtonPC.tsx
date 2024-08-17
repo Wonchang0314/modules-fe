@@ -110,7 +110,7 @@ const dividerColors = {
   },
 };
 
-export default function Button({
+export default function ButtonPC({
   style = "primary",
   type = "text-text",
   state = "enabled",
@@ -195,7 +195,7 @@ export default function Button({
         <Divider
           type="Vertical"
           size={16}
-          subheader="|"
+          subHeader="|"
           className={dividerColor}
         />
       )}

@@ -22,9 +22,9 @@ const Template: StoryFn<typeof HorizontalNavItem> = args => {
   return <HorizontalNavItem {...args} />;
 };
 
-export const Example = Template.bind({});
+export const CustomNavItem = Template.bind({});
 
-Example.args = {
+CustomNavItem.args = {
   name: "Label",
   icon: "folder",
   onClick: () => console.log("clicked"),

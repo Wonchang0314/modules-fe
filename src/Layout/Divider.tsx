@@ -1,7 +1,7 @@
 export interface DividerProps {
   type: "Horizontal" | "Vertical";
   size?: number;
-  subheader?: string;
+  subHeader?: string;
   className?: string;
 }
 
@@ -13,7 +13,7 @@ export interface DividerProps {
 export default function Divider({
   type,
   size,
-  subheader,
+  subHeader,
   className,
 }: DividerProps) {
   const style = size
@@ -31,9 +31,9 @@ export default function Divider({
         }`}
         style={style}
       />
-      {type === "Horizontal" && subheader && (
+      {type === "Horizontal" && subHeader && (
         <div className="mt-spacing-02 text-text-helper label-01-regular">
-          {subheader}
+          {subHeader}
         </div>
       )}
     </>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "src/Navigation/ButtonMobile";
+import ButtonMobile from "src/Navigation/ButtonMobile";
 import Scrim from "src/Layout/Scrim";
 import Dialog from "../Dialog";
 
@@ -26,7 +26,7 @@ export const ShowDialog = () => {
   return (
     <>
       <div className="flex items-center justify-center h-full w-full">
-        <Button
+        <ButtonMobile
           onClick={handleOpen}
           size={"L"}
           style={"primary"}

@@ -24,8 +24,8 @@ const Template: StoryFn<typeof TextArea> = args => {
   return <TextArea {...args} value={value} onChange={handleValue} />;
 };
 
-export const Example = Template.bind({});
-Example.args = {
+export const CustomTextArea = Template.bind({});
+CustomTextArea.args = {
   size: "L",
   state: "enable",
   label: "Label",

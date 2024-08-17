@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "src/Navigation/ButtonMobile";
+import ButtonMobile from "src/Navigation/ButtonMobile";
 import Snackbar from "../Snackbar";
 
 export default {
@@ -25,7 +25,7 @@ export const ShowSnackbar = () => {
   return (
     <div className="w-full h-full">
       <div className="flex items-center justify-center h-full w-full">
-        <Button
+        <ButtonMobile
           onClick={handleOpen}
           size={"L"}
           style={"primary"}

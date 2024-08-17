@@ -1,10 +1,7 @@
-import MinusIcon from "../../icon/svg/navigation/subtract.svg";
-import PlusIcon from "../../icon/svg/navigation/add.svg";
-import TrashIcon from "../../icon/svg/operation/delete.svg";
-import { Suspense, useEffect, useState } from "react";
-import WarnIcon from "../../icon/svg/status/warning-triangle-filled.svg";
+import { Suspense } from "react";
 import NumberStepperSkeleton from "./numberStepperSkeleton";
 import { InputStateType } from "src/Input/type";
+import Icon from "src/icon/Icon";
 
 type NumberStepperProps = {
   count: number;
@@ -114,15 +111,15 @@ export default function NumberStepper({
           <div className="flex gap-spacing-02 items-center">
             <div onClick={onClickLeftIcon}>
               {width === "short" && count === 1 ? (
-                <TrashIcon
-                  width={20}
-                  height={20}
+                <Icon
+                  icon="delete"
+                  size={20}
                   className={stateStyle[state]["iconColor"]}
                 />
               ) : (
-                <MinusIcon
-                  width={20}
-                  height={20}
+                <Icon
+                  icon="subtract"
+                  size={20}
                   className={stateStyle[state]["iconColor"]}
                 />
               )}
@@ -141,9 +138,9 @@ export default function NumberStepper({
               <div className="w-[1px] h-4 bg-border-subtle-01 mr-spacing-02" />
             )}
             <div onClick={onClickRightIcon}>
-              <PlusIcon
-                width={20}
-                height={20}
+              <Icon
+                icon="add"
+                size={20}
                 className={stateStyle[state]["iconColor"]}
               />
             </div>
@@ -157,7 +154,11 @@ export default function NumberStepper({
             ${descriptionAlign === "right" && "flex-row-reverse"} 
           `}
             >
-              <WarnIcon width={20} height={20} className="fill-support-error" />
+              <Icon
+                icon="warning_triangle_filled"
+                size={20}
+                className="fill-support-error"
+              />
               <div
                 className={`
               text-helpertext-02-regular text-text-error 
@@ -175,9 +176,9 @@ export default function NumberStepper({
             ${descriptionAlign === "right" && "flex-row-reverse"} 
           `}
             >
-              <WarnIcon
-                width={20}
-                height={20}
+              <Icon
+                icon="warning_triangle_filled"
+                size={20}
                 className="fill-support-warning"
               />
               <div

@@ -1,5 +1,4 @@
-import MinusIcon from "../../icon/svg/navigation/subtract.svg";
-import PlusIcon from "../../icon/svg/navigation/add.svg";
+import Icon from "src/icon/Icon";
 
 const widthStyle = {
   short: {
@@ -46,7 +45,7 @@ export default function NumberStepperSkeleton({
     `}
     > */}
       <div className="flex gap-spacing-02 items-center">
-        <MinusIcon width={20} height={20} className="fill-icon-primary" />
+        <Icon icon="subtract" size={20} className="fill-icon-primary" />
         {width === "long" && (
           <div className="w-[1px] h-4 bg-[#C6C6C6] mr-spacing-02" />
           // <div className="w-[1px] h-4 bg-skeleton-element mr-spacing-02" />
@@ -58,7 +57,7 @@ export default function NumberStepperSkeleton({
           <div className="w-[1px] h-4 bg-[#C6C6C6] mr-spacing-02" />
           // <div className="w-[1px] h-4 bg-skeleton-element mr-spacing-02" />
         )}
-        <PlusIcon width={20} height={20} className="fill-icon-primary" />
+        <Icon icon="add" size={20} className="fill-icon-primary" />
       </div>
     </div>
   );

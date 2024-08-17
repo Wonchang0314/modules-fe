@@ -13,12 +13,13 @@ export default {
       options: ["enable", "disabled", "error"],
     },
   },
+  tags: ["autodocs"],
 } as Meta<typeof MenuItem>;
 
 const Template: StoryFn<typeof MenuItem> = args => <MenuItem {...args} />;
 
-export const Example = Template.bind({});
-Example.args = {
+export const CustomMenuItem = Template.bind({});
+CustomMenuItem.args = {
   size: "L",
   state: "enable",
   type: "icon-right",

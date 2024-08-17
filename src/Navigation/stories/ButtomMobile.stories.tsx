@@ -15,6 +15,7 @@ export default {
       control: { type: "select" },
     },
   },
+  tags: ["autodocs"],
 } as Meta<typeof ButtonMobile>;
 
 const TemplateMobile: StoryFn<ButtonPropsMobile> = args => {

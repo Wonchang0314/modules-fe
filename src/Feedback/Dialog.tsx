@@ -1,4 +1,4 @@
-import Button from "src/Navigation/ButtonMobile";
+import ButtonMobile from "src/Navigation/ButtonMobile";
 import Icon from "src/icon/Icon";
 
 export interface DialogProps {
@@ -56,7 +56,7 @@ export default function Dialog({
           </div>
         )}
         <div className="flex flex-row gap-spacing-02 w-full">
-          <Button
+          <ButtonMobile
             size={"M"}
             style={"secondary"}
             type={"text"}
@@ -64,7 +64,7 @@ export default function Dialog({
             text1={leftText}
             onClick={leftOnClick}
           />
-          <Button
+          <ButtonMobile
             size={"M"}
             style={"primary"}
             type={"text"}
