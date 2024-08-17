@@ -1,4 +1,4 @@
-import Icon from "src/icon/Icon";
+import Icon, { iconKey, icons } from "src/icon/Icon";
 import { InputStateType } from "src/Input/type";
 
 export interface MenuItemProps {
@@ -6,6 +6,7 @@ export interface MenuItemProps {
   state: Exclude<InputStateType, "warning" | "readOnly">;
   type: "default" | "icon-left" | "icon-right";
   text?: string;
+  iconKey?: iconKey;
   className?: string;
 }
 
@@ -37,6 +38,7 @@ export default function MenuItem({
   state,
   type,
   text = "Menu Item",
+  iconKey,
   className,
 }: MenuItemProps) {
   const menuType = type === "default" ? "simple" : "complex";
@@ -50,11 +52,19 @@ export default function MenuItem({
       className={`flex flex-row items-center ${iconRightDisplay} ${stateClass} ${styleClass} ${className} hover:bg-layer-01-hover hover:text-text-primary cursor-pointer`}
     >
       {type === "icon-left" && (
-        <Icon icon="fruit_apple" size={20} className={`fill-${IconClass}`} />
+        <Icon
+          icon={iconKey as keyof typeof icons}
+          size={20}
+          className={`fill-${IconClass}`}
+        />
       )}
       <p>{text}</p>
       {type === "icon-right" && (
-        <Icon icon="fruit_apple" size={20} className={`fill-${IconClass}`} />
+        <Icon
+          icon={iconKey as keyof typeof icons}
+          size={20}
+          className={`fill-${IconClass}`}
+        />
       )}
     </div>
   );

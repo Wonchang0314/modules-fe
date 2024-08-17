@@ -24,5 +24,6 @@ CustomMenuItem.args = {
   state: "enable",
   type: "icon-right",
   text: "Menu Item",
+  iconKey: "fruit_apple",
   className: "",
 };
