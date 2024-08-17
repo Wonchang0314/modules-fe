@@ -255,8 +255,8 @@ export default function ButtonMobile({
           />
         </span>
       )}
-      {type === "icon-left" && <span>{text1}</span>}
-      {type === "icon-right" && <span>{text1}</span>}
+      {type === "icon-left" && <span className="shrink-0">{text1}</span>}
+      {type === "icon-right" && <span className="shrink-0">{text1}</span>}
       {type === "icon-right" && (
         <span className="right-icon">
           <Icon
@@ -265,12 +265,12 @@ export default function ButtonMobile({
           />
         </span>
       )}
-      {type === "text" && <span>{text1}</span>}
-      {type === "text-text" && <span>{text1}</span>}
+      {type === "text" && <span className="shrink-0">{text1}</span>}
+      {type === "text-text" && <span className="shrink-0">{text1}</span>}
       {type === "text-text" && (
         <Divider type="Vertical" size={16} className={dividerColor} />
       )}
-      {type === "text-text" && <span>{text2}</span>}
+      {type === "text-text" && <span className="shrink-0">{text2}</span>}
       {type === "icon" && (
         <span className="icon">
           <Icon
