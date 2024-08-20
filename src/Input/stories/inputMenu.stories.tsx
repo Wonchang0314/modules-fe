@@ -21,6 +21,7 @@ const temp = Array.from({ length: 8 }).map((_, index) => (
     state="enable"
     type="icon-right"
     text={`Menu Item`}
+    iconKey="fruit_apple"
     className=""
   />
 ));

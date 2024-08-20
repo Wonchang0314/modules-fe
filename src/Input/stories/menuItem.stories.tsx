@@ -1,5 +1,6 @@
 import { Meta, StoryFn } from "@storybook/react/*";
 import MenuItem from "../menuItem";
+import { iconKeys } from "src/icon/Icon";
 
 export default {
   title: "Input/Menu/MenuItem",
@@ -11,6 +12,10 @@ export default {
   argTypes: {
     state: {
       options: ["enable", "disabled", "error"],
+    },
+    iconKey: {
+      options: iconKeys,
+      control: { type: "select" },
     },
   },
   tags: ["autodocs"],
