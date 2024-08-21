@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react/*";
-import NumberStepper from "../numberStepper";
+import NumberStepper from "../NumberStepper";
 import { useState } from "react";
 
 export default {

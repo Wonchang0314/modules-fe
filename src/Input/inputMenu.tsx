@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import { MenuItemProps } from "./menuItem";
+import { MenuItemProps } from "./MenuItem";
 
 export interface InputMenuProps {
   size: "L" | "M";

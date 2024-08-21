@@ -1,12 +1,12 @@
 import ButtonMobile from "./ButtonMobile";
 import ButtonPC from "./ButtonPC";
-import HorizontalNav from "./horizontalNav";
-import HorizontalNavItem from "./horizontalNavItem";
+import HorizontalNav from "./HorizontalNav";
+import HorizontalNavItem from "./HorizontalNavItem";
 import TabItem from "./TabItem";
 import Tabs from "./Tabs";
-import TopBar from "./topBar";
-import VerticalNav from "./verticalNav";
-import VerticalNavItem from "./verticalNavItem";
+import TopBar from "./TopBar";
+import VerticalNav from "./VerticalNav";
+import VerticalNavItem from "./VerticalNavItem";
 
 export {
   ButtonMobile,

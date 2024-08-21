@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react/*";
-import Checkbox, { CheckboxProps } from "../Checkbox";
+import Checkbox, { CheckBoxProps } from "../CheckBox";
 
 export default {
   title: "Input/Checkbox/Checkbox",
@@ -11,7 +11,7 @@ export default {
   tags: ["autodocs"],
 } as Meta<typeof Checkbox>;
 
-const Template: StoryFn<CheckboxProps> = args => <Checkbox {...args} />;
+const Template: StoryFn<CheckBoxProps> = args => <Checkbox {...args} />;
 
 export const CustomCheckbox = Template.bind({});
 CustomCheckbox.args = {

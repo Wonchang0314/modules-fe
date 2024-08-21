@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import NumberStepperSkeleton from "./numberStepperSkeleton";
+import NumberStepperSkeleton from "./NumberStepperSkeleton";
 import { InputStateType } from "src/Input/type";
 import Icon from "src/icon/Icon";
 

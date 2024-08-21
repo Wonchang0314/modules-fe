@@ -1,18 +1,18 @@
 import { Meta, StoryFn } from "@storybook/react/*";
-import CheckboxGroup, { CheckboxGroupProps } from "../CheckboxGroup";
+import CheckBoxGroup, { CheckBoxGroupProps } from "../CheckBoxGroup";
 
 export default {
   title: "Input/Checkbox/CheckboxGroup",
-  component: CheckboxGroup,
+  component: CheckBoxGroup,
   parameters: {
     layout: "centered",
     backgrounds: { default: "light" },
   },
   tags: ["autodocs"],
-} as Meta<typeof CheckboxGroup>;
+} as Meta<typeof CheckBoxGroup>;
 
-const Template: StoryFn<CheckboxGroupProps> = args => (
-  <CheckboxGroup {...args} />
+const Template: StoryFn<CheckBoxGroupProps> = args => (
+  <CheckBoxGroup {...args} />
 );
 
 export const CustomCheckboxGroup = Template.bind({});

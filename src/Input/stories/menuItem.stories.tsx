@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react/*";
-import MenuItem from "../menuItem";
+import MenuItem from "../MenuItem";
 import { iconKeys } from "src/icon/Icon";
 
 export default {

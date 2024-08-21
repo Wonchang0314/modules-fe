@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Icon from "src/icon/Icon";
 
-export interface SnackbarProps {
+export interface SnackBarProps {
   open: boolean;
   message: string;
   lineMessage?: string;
@@ -12,7 +12,7 @@ export interface SnackbarProps {
   onClose?: () => void;
 }
 
-export default function Snackbar({
+export default function SnackBar({
   open,
   message,
   lineMessage,
@@ -21,7 +21,7 @@ export default function Snackbar({
   action,
   actionOnClick,
   onClose,
-}: SnackbarProps) {
+}: SnackBarProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [shouldRender, setShouldRender] = useState(open);
 

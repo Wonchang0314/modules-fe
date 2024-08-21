@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from "@storybook/react/*";
 import { useArgs } from "@storybook/preview-api";
-import TextField from "../textfield";
+import TextField from "../TextField";
 import { ChangeEvent, useEffect, useState } from "react";
 
 export default {

@@ -2,7 +2,7 @@ import { useState } from "react";
 import Icon from "src/icon/Icon";
 import { InputStateType } from "src/Input/type";
 
-export interface CheckboxProps {
+export interface CheckBoxProps {
   title: string;
   size: "L" | "M";
   state: InputStateType;
@@ -43,7 +43,7 @@ export default function Checkbox({
   state,
   label,
   alert,
-}: CheckboxProps) {
+}: CheckBoxProps) {
   const [isChecked, setIsChecked] = useState(false);
 
   const handleToggle = () => {

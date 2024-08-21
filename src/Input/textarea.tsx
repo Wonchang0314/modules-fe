@@ -1,5 +1,5 @@
 import { ChangeEvent, Suspense, useEffect, useState } from "react";
-import TextAreaSkeleton from "./textareaSkeleton";
+import TextAreaSkeleton from "./TextAreaSkeleton";
 import { InputStateType } from "src/Input/type";
 import Icon from "src/icon/Icon";
 

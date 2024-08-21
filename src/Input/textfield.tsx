@@ -1,5 +1,5 @@
 import { ChangeEvent, Suspense, useEffect, useState } from "react";
-import TextFieldSkeleton from "./textfieldSkeleton";
+import TextFieldSkeleton from "./TextFieldSkeleton";
 import { InputStateType } from "src/Input/type";
 import Icon from "src/icon/Icon";
 

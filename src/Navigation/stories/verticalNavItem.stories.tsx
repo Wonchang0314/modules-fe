@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react/*";
-import VerticalNavItem from "../verticalNavItem";
+import VerticalNavItem from "../VerticalNavItem";
 
 export default {
   title: "Navigation/Navigation Bar/Vertical/Nav Bar Item",

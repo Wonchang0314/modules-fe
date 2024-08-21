@@ -1,4 +1,4 @@
-import HorizontalNavItem from "./horizontalNavItem";
+import HorizontalNavItem from "./HorizontalNavItem";
 import { useState } from "react";
 import { iconKey } from "src/icon/Icon";
 

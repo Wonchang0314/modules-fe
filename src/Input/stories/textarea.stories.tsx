@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from "@storybook/react/*";
 import { useArgs } from "@storybook/preview-api";
 import { ChangeEvent, useEffect, useState } from "react";
-import TextArea from "../textarea";
+import TextArea from "../TextArea";
 
 export default {
   title: "Input/Text Area",

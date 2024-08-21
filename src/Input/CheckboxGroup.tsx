@@ -1,7 +1,7 @@
 import { InputStateType } from "src/Input/type";
-import Checkbox, { CheckboxProps } from "./Checkbox";
+import Checkbox, { CheckBoxProps } from "./CheckBox";
 
-export interface CheckboxGroupProps extends Omit<CheckboxProps, "title"> {
+export interface CheckBoxGroupProps extends Omit<CheckBoxProps, "title"> {
   titles: string[];
   size: "L" | "M";
   state: InputStateType;
@@ -15,7 +15,7 @@ export default function CheckboxGroup({
   label,
   alert,
   direction = "col",
-}: CheckboxGroupProps) {
+}: CheckBoxGroupProps) {
   return (
     <div
       className={`flex ${

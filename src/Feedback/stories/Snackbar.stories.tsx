@@ -1,16 +1,16 @@
 import { Meta, StoryFn } from "@storybook/react/*";
-import Snackbar, { SnackbarProps } from "../Snackbar";
+import SnackBar, { SnackBarProps } from "../SnackBar";
 
 export default {
   title: "Feedback/Snackbar",
-  component: Snackbar,
+  component: SnackBar,
   parameters: {
     backgrounds: { default: "light" },
   },
   tags: ["autodocs"],
-} as Meta<typeof Snackbar>;
+} as Meta<typeof SnackBar>;
 
-const Template: StoryFn<SnackbarProps> = args => <Snackbar {...args} />;
+const Template: StoryFn<SnackBarProps> = args => <SnackBar {...args} />;
 
 export const CustomSnackbar = Template.bind({});
 CustomSnackbar.args = {

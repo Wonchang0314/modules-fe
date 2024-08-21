@@ -1,5 +1,5 @@
 import { useState } from "react";
-import VerticalNavItem from "./verticalNavItem";
+import VerticalNavItem from "./VerticalNavItem";
 
 type VerticalNavProps = {
   items: { name: string; count?: number; onClick: () => void }[];
