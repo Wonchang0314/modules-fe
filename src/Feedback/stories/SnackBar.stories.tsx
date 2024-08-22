@@ -2,7 +2,7 @@ import { Meta, StoryFn } from "@storybook/react/*";
 import SnackBar, { SnackBarProps } from "../SnackBar";
 
 export default {
-  title: "Feedback/Snackbar",
+  title: "Feedback/SnackBar",
   component: SnackBar,
   parameters: {
     backgrounds: { default: "light" },
