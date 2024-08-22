@@ -22,6 +22,7 @@ export default function Tabs({ items, state }: TabsProps) {
   return (
     <div className="flex flex-row w-full min-w-[328px]">
       {items.map((item, i) => (
+        // eslint-disable-next-line react/jsx-key
         <TabItem
           icon={item.icon}
           label={item.label}
