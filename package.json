@@ -5,7 +5,8 @@
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build-npm": "rollup -c",
+    "clean": "rimraf dist",
+    "build-npm": "npm run clean && rollup -c",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
