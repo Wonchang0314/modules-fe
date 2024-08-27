@@ -25,6 +25,6 @@
       }
     ]
   },
-  "include": ["custom.d.ts", "src"],
+  "include": ["custom.d.ts", "src", "custom-tailwind-config.ts"],
   "exclude": ["node_modules", "dist"]
 }
