@@ -22,10 +22,10 @@ StorybookNpm - storybook과 npm 배포가 이루어지는 브랜치
 - Npm package 배포는 version이 변경될 때 작동 : npm.yml
 
 # 부모 프로젝트에서 우리팀 디자인을 사용하는 방법
-1.작업할 프로젝트의 tailwind.config.ts 파일로 이동
-2. yarn add lodash (tailwind.config파일 merge를 위한 라이브러리 설치)
-3. 아래 예시처럼 저희가 생성한 스타일관련 설정파일들을 import
-4. import한 설정요소들을 lodash의 merge를 통해 하나로 통합
+1. 작업할 프로젝트의 tailwind.config.ts 파일로 이동 </br>
+2. yarn add lodash (tailwind.config파일 merge를 위한 라이브러리 설치) </br>
+3. 아래 예시처럼 저희가 생성한 스타일관련 설정파일들을 import </br>
+4. import한 설정요소들을 lodash의 merge를 통해 하나로 통합 </br>
 
 ## 실사용 예시
    
