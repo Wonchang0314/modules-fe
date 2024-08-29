@@ -39,7 +39,7 @@ const configList = [
       postcss({
         extensions: [".css"],
         plugins: [tailwindcss, autoprefixer],
-        extract: true,
+        extract: "src/styles/globals.css",
       }),
       svgr(),
     ],
