@@ -7,6 +7,7 @@ import Tabs from "./Tabs";
 import TopBar from "./TopBar";
 import VerticalNav from "./VerticalNav";
 import VerticalNavItem from "./VerticalNavItem";
+import "./styles/globals.css";
 
 export {
   ButtonMobile,

@@ -14,6 +14,7 @@ import TextAreaSkeleton from "./TextAreaSkeleton";
 import TextArea from "./TextArea";
 import TextFieldSkeleton from "./TextFieldSkeleton";
 import TextField from "./TextField";
+import "./styles/globals.css";
 
 export type { InputStateType };
 export { NumberStepperSkeleton, TextAreaSkeleton, TextFieldSkeleton };
