@@ -1,4 +1,4 @@
 import Icon from "./Icon";
-import "./styles/globals.css";
+import "src/styles/globals.css";
 
 export { Icon };

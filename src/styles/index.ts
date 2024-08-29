@@ -1,3 +1,3 @@
-import "./styles/globals.css";
-import "./styles/ground.css";
-import "./styles/theme.css";
+import "./globals.css";
+import "./ground.css";
+import "./theme.css";
