@@ -40,8 +40,7 @@ const configList = [
       postcss({
         extensions: [".css"],
         plugins: [tailwindcss, autoprefixer],
-        extract: false,
-        modules: true,
+        extract: true,
       }),
       svgr(),
       copy({
