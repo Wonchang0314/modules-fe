@@ -1,13 +1,9 @@
 {
   "name": "@eolluga/eolluga-ui",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "custom-tailwind-config.ts"
-  ],
   "scripts": {
     "build-npm": "rollup -c",
     "storybook": "storybook dev -p 6006",
