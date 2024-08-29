@@ -1,3 +1,4 @@
+import "./styles/globals.css";
 export * from "./icon";
 export * from "./Navigation";
 export * from "./Feedback";
