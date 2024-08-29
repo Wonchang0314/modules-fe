@@ -7,6 +7,7 @@ import dts from "rollup-plugin-dts";
 import svgr from "@svgr/rollup";
 import tailwindcss from "tailwindcss";
 import autoprefixer from "autoprefixer";
+import copy from "rollup-plugin-copy";
 
 // This is required to read package.json file when
 // using Native ES modules in Node.js
@@ -39,9 +40,12 @@ const configList = [
       postcss({
         extensions: [".css"],
         plugins: [tailwindcss, autoprefixer],
-        extract: "src/styles/globals.css",
+        extract: true,
       }),
       svgr(),
+      copy({
+        targets: [{ src: "src/styles/*.css", dest: "dist/styles" }],
+      }),
     ],
     external: ["react", "react-dom"],
   },
