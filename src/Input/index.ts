@@ -1,5 +1,5 @@
 import { InputStateType } from "./type";
-import CheckBox from "./Checkbox";
+import CheckBox from "./CheckBox";
 import CheckBoxGroup from "./CheckBoxGroup";
 import Chip from "./Chip";
 import MenuItem from "./MenuItem";

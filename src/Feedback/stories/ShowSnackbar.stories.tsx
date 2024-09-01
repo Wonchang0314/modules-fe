@@ -35,7 +35,7 @@ export const ShowSnackbar = () => {
         />
       </div>
       <div className="fixed left-0 bottom-0 w-screen h-fit z-40 p-4">
-        <Snackbar
+        <SnackBar
           open={open}
           message={"hello"}
           onClose={handleClose}
