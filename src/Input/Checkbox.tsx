@@ -37,7 +37,7 @@ const stateStyles = (isChecked: boolean) => ({
   error: "fill-icon-error",
 });
 
-export default function Checkbox({
+export default function CheckBox({
   title,
   size,
   state,

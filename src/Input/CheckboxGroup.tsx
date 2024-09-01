@@ -1,5 +1,5 @@
 import { InputStateType } from "src/Input/type";
-import Checkbox, { CheckBoxProps } from "./CheckBox";
+import CheckBox, { CheckBoxProps } from "./CheckBox";
 
 export interface CheckBoxGroupProps extends Omit<CheckBoxProps, "title"> {
   titles: string[];
@@ -8,7 +8,7 @@ export interface CheckBoxGroupProps extends Omit<CheckBoxProps, "title"> {
   direction?: "row" | "col";
 }
 
-export default function CheckboxGroup({
+export default function CheckBoxGroup({
   titles,
   size,
   state,
@@ -34,7 +34,7 @@ export default function CheckboxGroup({
       }`}
     >
       {titles.map((title, index) => (
-        <Checkbox
+        <CheckBox
           key={index}
           title={title}
           size={size}
