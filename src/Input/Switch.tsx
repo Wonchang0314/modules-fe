@@ -60,11 +60,13 @@ export default function Switch({ state, title, label }: SwitchProps) {
             className={`w-[18px] h-[18px] rounded-full ${stateStyle.iconColor} 
                 transform transition-transform duration-250 ${
                   isOn ? "translate-x-[27px]" : "translate-x-[3px]"
-                }`} // motion 적용 안됨
+                }`}
           />
         </div>
         {title && (
-          <div className={`pt-1 body-02-regular ${titleColor}`}>{title}</div>
+          <div className={`flex items-center body-02-regular ${titleColor}`}>
+            {title}
+          </div>
         )}
       </div>
     </>

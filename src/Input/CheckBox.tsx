@@ -84,7 +84,7 @@ export default function Checkbox({
             />
           )}
           <span
-            className={`pl-spacing-02 flex pt-1 ${sizeStyle.titleDetail} ${titleColor}`}
+            className={`pl-spacing-02 flex items-center ${sizeStyle.titleDetail} ${titleColor}`}
           >
             {title}
           </span>

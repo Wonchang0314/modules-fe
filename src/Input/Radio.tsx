@@ -101,7 +101,9 @@ export default function Radio({
               className={`${stateStyle}`}
             />
           )}
-          <span className={`flex pt-1 ${sizeStyle.titleDetail} ${titleColor}`}>
+          <span
+            className={`flex items-center ${sizeStyle.titleDetail} ${titleColor}`}
+          >
             {title}
           </span>
         </div>
