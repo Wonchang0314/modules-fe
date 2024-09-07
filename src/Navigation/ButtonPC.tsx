@@ -159,7 +159,7 @@ export default function ButtonPC({
 
   return (
     <button
-      className={`button flex items-center min-w-[64px] max-w-[1120px] h-[64px] 
+      className={`button cursor-pointer flex items-center min-w-[64px] max-w-[1120px] h-[64px] 
         label-04-bold ${buttonType} gap-spacing-04 
         ${styleClass} ${roundClass} ${hoverClass} ${focusClass}`}
       onMouseDown={handleMouseDown}
