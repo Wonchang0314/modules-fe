@@ -4,180 +4,23 @@
   "files": [
     "dist"
   ],
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
   "exports": {
-    "./Display/Avatar": {
-      "import": "./dist/Display/Avatar.js",
-      "types": "./dist/types/Display/Avatar.d.ts"
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs.js",
+      "types": "./dist/index.d.ts"
     },
-    "./Display/Badge": {
-      "import": "./dist/Display/Badge.js",
-      "types": "./dist/types/Display/Badge.d.ts"
-    },
-    "./Display/BadgeCount": {
-      "import": "./dist/Display/BadgeCount.js",
-      "types": "./dist/types/Display/BadgeCount.d.ts"
-    },
-    "./Display/BadgeIcon": {
-      "import": "./dist/Display/BadgeIcon.js",
-      "types": "./dist/types/Display/BadgeIcon.d.ts"
-    },
-    "./Display/BadgeStatus": {
-      "import": "./dist/Display/BadgeStatus.js",
-      "types": "./dist/types/Display/BadgeStatus.d.ts"
-    },
-    "./Feedback/SnackBar": {
-      "import": "./dist/Feedback/SnackBar.js",
-      "types": "./dist/types/Feedback/SnackBar.d.ts"
-    },
-    "./Feedback/Dialog": {
-      "import": "./dist/Feedback/Dialog.js",
-      "types": "./dist/types/Feedback/Dialog.d.ts"
-    },
-    "./icon/Icon": {
-      "import": "./dist/icon/Icon.js",
-      "types": "./dist/types/icon/Icon.d.ts"
-    },
-    "./Input/CheckBox": {
-      "import": "./dist/Input/CheckBox.js",
-      "types": "./dist/types/Input/CheckBox.d.ts"
-    },
-    "./Input/CheckBoxGroup": {
-      "import": "./dist/Input/CheckBoxGroup.js",
-      "types": "./dist/types/Input/CheckBoxGroup.d.ts"
-    },
-    "./Input/Chip": {
-      "import": "./dist/Input/Chip.js",
-      "types": "./dist/types/Input/Chip.d.ts"
-    },
-    "./Input/MenuItem": {
-      "import": "./dist/Input/MenuItem.js",
-      "types": "./dist/types/Input/MenuItem.d.ts"
-    },
-    "./Input/InputMenu": {
-      "import": "./dist/Input/InputMenu.js",
-      "types": "./dist/types/Input/InputMenu.d.ts"
-    },
-    "./Input/NumberStepper": {
-      "import": "./dist/Input/NumberStepper.js",
-      "types": "./dist/types/Input/NumberStepper.d.ts"
-    },
-    "./Input/NumberStepperSkeleton": {
-      "import": "./dist/Input/NumberStepperSkeleton.js",
-      "types": "./dist/types/Input/NumberStepperSkeleton.d.ts"
-    },
-    "./Input/ProgressBar": {
-      "import": "./dist/Input/ProgressBar.js",
-      "types": "./dist/types/Input/ProgressBar.d.ts"
-    },
-    "./Input/Radio": {
-      "import": "./dist/Input/Radio.js",
-      "types": "./dist/types/Input/Radio.d.ts"
-    },
-    "./Input/RadioGroup": {
-      "import": "./dist/Input/RadioGroup.js",
-      "types": "./dist/types/Input/RadioGroup.d.ts"
-    },
-    "./Input/Switch": {
-      "import": "./dist/Input/Switch.js",
-      "types": "./dist/types/Input/Switch.d.ts"
-    },
-    "./Input/TextArea": {
-      "import": "./dist/Input/TextArea.js",
-      "types": "./dist/types/Input/TextArea.d.ts"
-    },
-    "./Input/TextAreaSkeleton": {
-      "import": "./dist/Input/TextAreaSkeleton.js",
-      "types": "./dist/types/Input/TextAreaSkeleton.d.ts"
-    },
-    "./Input/TextField": {
-      "import": "./dist/Input/TextField.js",
-      "types": "./dist/types/Input/TextField.d.ts"
-    },
-    "./Input/TextFieldSkeleton": {
-      "import": "./dist/Input/TextFieldSkeleton.js",
-      "types": "./dist/types/Input/TextFieldSkeleton.d.ts"
-    },
-    "./Layout/Divider": {
-      "import": "./dist/Layout/Divider.js",
-      "types": "./dist/types/Layout/Divider.d.ts"
-    },
-    "./Layout/Scrim": {
-      "import": "./dist/Layout/Scrim.js",
-      "types": "./dist/types/Layout/Scrim.d.ts"
-    },
-    "./Layout/Accordion": {
-      "import": "./dist/Layout/Accordion.js",
-      "types": "./dist/types/Layout/Accordion.d.ts"
-    },
-    "./Navigation/ButtonMobile": {
-      "import": "./dist/Navigation/ButtonMobile.js",
-      "types": "./dist/types/Navigation/ButtonMobile.d.ts"
-    },
-    "./Navigation/ButtonPC": {
-      "import": "./dist/Navigation/ButtonPC.js",
-      "types": "./dist/types/Navigation/ButtonPC.d.ts"
-    },
-    "./Navigation/HorizontalNav": {
-      "import": "./dist/Navigation/HorizontalNav.js",
-      "types": "./dist/types/Navigation/HorizontalNav.d.ts"
-    },
-    "./Navigation/HorizontalNavItem": {
-      "import": "./dist/Navigation/HorizontalNavItem.js",
-      "types": "./dist/types/Navigation/HorizontalNavItem.d.ts"
-    },
-    "./Navigation/TabItem": {
-      "import": "./dist/Navigation/TabItem.js",
-      "types": "./dist/types/Navigation/TabItem.d.ts"
-    },
-    "./Navigation/Tabs": {
-      "import": "./dist/Navigation/Tabs.js",
-      "types": "./dist/types/Navigation/Tabs.d.ts"
-    },
-    "./Navigation/TopBar": {
-      "import": "./dist/Navigation/TopBar.js",
-      "types": "./dist/types/Navigation/TopBar.d.ts"
-    },
-    "./Navigation/VerticalNav": {
-      "import": "./dist/Navigation/VerticalNav.js",
-      "types": "./dist/types/Navigation/VerticalNav.d.ts"
-    },
-    "./tailwindConfig/ColorGround": {
-      "import": "./dist/tailwindConfig/index.js",
-      "types": "./dist/types/tailwindConfig/index.d.ts"
-    },
-    "./tailwindConfig/tailwind_color": {
-      "import": "./dist/tailwindConfig/index.js",
-      "types": "./dist/types/tailwindConfig/index.d.ts"
-    },
-    "./tailwindConfig/tailwind_elevation": {
-      "import": "./dist/tailwindConfig/index.js",
-      "types": "./dist/types/tailwindConfig/index.d.ts"
-    },
-    "./tailwindConfig/tailwind_spacing": {
-      "import": "./dist/tailwindConfig/index.js",
-      "types": "./dist/types/tailwindConfig/index.d.ts"
-    },
-    "./tailwindConfig/tailwind_radius": {
-      "import": "./dist/tailwindConfig/index.js",
-      "types": "./dist/types/tailwindConfig/index.d.ts"
-    },
-    "./tailwindConfig/tailwind_motions": {
-      "import": "./dist/tailwindConfig/index.js",
-      "types": "./dist/types/tailwindConfig/index.d.ts"
-    },
-    "./tailwindConfig/tailwind_typography": {
-      "import": "./dist/tailwindConfig/index.js",
-      "types": "./dist/types/tailwindConfig/index.d.ts"
-    },
-    "./styles/globals.css": {
-      "default": "./dist/styles/globals.css"
-    },
-    "./styles/ground.css": {
-      "default": "./dist/styles/ground.css"
-    },
-    "./styles/theme.css": {
-      "default": "./dist/styles/theme.css"
-    }
+    "./Display/*": "./dist/Display/*",
+    "./Input/*": "./dist/Input/*",
+    "./Feedback/*": "./dist/Feedback/*",
+    "./icon/*": "./dist/icon/*",
+    "./Layout/*": "./dist/Layout/*",
+    "./Navigation/*": "./dist/Navigation/*",
+    "./tailwindConfig/*": "./dist/tailwindConfig/*",
+    "./styles/*": "./dist/styles/*"
   },
   "scripts": {
     "build-npm": "tsc --emitDeclarationOnly && NODE_OPTIONS='--max-old-space-size=16384' rollup -c",
