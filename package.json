@@ -1,27 +1,12 @@
 {
   "name": "@eolluga/eolluga-ui",
-  "version": "3.1.6",
+  "version": "3.1.7",
   "files": [
     "dist"
   ],
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/index.esm.js",
-      "require": "./dist/index.cjs.js",
-      "types": "./dist/index.d.ts"
-    },
-    "./Display/*": "./dist/Display/*",
-    "./Input/*": "./dist/Input/*",
-    "./Feedback/*": "./dist/Feedback/*",
-    "./icon/*": "./dist/icon/*",
-    "./Layout/*": "./dist/Layout/*",
-    "./Navigation/*": "./dist/Navigation/*",
-    "./tailwindConfig/*": "./dist/tailwindConfig/*",
-    "./styles/*": "./dist/styles/*"
-  },
   "scripts": {
     "build-npm": "tsc --emitDeclarationOnly && NODE_OPTIONS='--max-old-space-size=16384' rollup -c",
     "storybook": "storybook dev -p 6006",

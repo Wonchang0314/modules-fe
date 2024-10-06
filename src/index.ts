@@ -1,3 +1,11 @@
+// Tailwind Config
+export { default as ColorGroundConfig } from "./tailwindConfig/ColorGround.config";
+export { default as tailwindElevationConfig } from "./tailwindConfig/tailwind_elevation.config";
+export { default as tailwindSpacingConfig } from "./tailwindConfig/tailwind_spacing.config";
+export { default as tailwindRadiusConfig } from "./tailwindConfig/tailwind_radius.config";
+export { default as tailwindMotionsConfig } from "./tailwindConfig/tailwind_motions.config";
+export { default as tailwindTypographyConfig } from "./tailwindConfig/tailwind_typography.config";
+
 // icon
 export { default as Icon } from "./icon/Icon";
 
