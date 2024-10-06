@@ -171,7 +171,7 @@
     }
   },
   "scripts": {
-    "build-npm": "NODE_OPTIONS='--max-old-space-size=16384' rollup -c",
+    "build-npm": "tsc --emitDeclarationOnly && NODE_OPTIONS='--max-old-space-size=16384' rollup -c",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },

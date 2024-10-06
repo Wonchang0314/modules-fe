@@ -4,7 +4,7 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "outDir": "dist",
     "declaration": true,
-    "declarationDir": "dist",
+    "declarationDir": "dist/types",
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -16,7 +16,6 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": false,
     "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
@@ -26,5 +25,5 @@
     ]
   },
   "include": ["custom.d.ts", "src"],
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["node_modules"]
 }
