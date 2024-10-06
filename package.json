@@ -1,55 +1,175 @@
 {
   "name": "@eolluga/eolluga-ui",
   "version": "3.0.8",
-  "main": "dist/index.js",
   "files": [
     "dist"
   ],
-  "module": "dist/index.esm.js",
   "exports": {
-    "./Display/Avatar": "./dist/Display/index.js",
-    "./Display/Badge": "./dist/Display/index.js",
-    "./Display/BadgeCount": "./dist/Display/index.js",
-    "./Display/BadgeIcon": "./dist/Display/index.js",
-    "./Display/BadgeStatus": "./dist/Display/index.js",
-    "./Feedback/SnackBar": "./dist/Feedback/index.js",
-    "./Feedback/Dialog": "./dist/Feedback/index.js",
-    "./icon/Icon": "./dist/icon/index.js",
-    "./Input/CheckBox": "./dist/Input/index.js",
-    "./Input/CheckBoxGroup": "./dist/Input/index.js",
-    "./Input/Chip": "./dist/Input/index.js",
-    "./Input/MenuItem": "./dist/Input/index.js",
-    "./Input/InputMenu": "./dist/Input/index.js",
-    "./Input/NumberStepper": "./dist/Input/index.js",
-    "./Input/NumberStepperSkeleton": "./dist/Input/index.js",
-    "./Input/ProgressBar": "./dist/Input/index.js",
-    "./Input/Radio": "./dist/Input/index.js",
-    "./Input/RadioGroup": "./dist/Input/index.js",
-    "./Input/Switch": "./dist/Input/index.js",
-    "./Input/TextArea": "./dist/Input/index.js",
-    "./Input/TextAreaSkeleton": "./dist/Input/index.js",
-    "./Input/TextField": "./dist/Input/index.js",
-    "./Input/TextFieldSkeleton": "./dist/Input/index.js",
-    "./Layout/Divider": "./dist/Layout/index.js",
-    "./Layout/Scrim": "./dist/Layout/index.js",
-    "./Layout/Accordion": "./dist/Layout/index.js",
-    "./Navigation/ButtonMobile": "./dist/Navigation/index.js",
-    "./Navigation/ButtonPC": "./dist/Navigation/index.js",
-    "./Navigation/HorizontalNav": "./dist/Navigation/index.js",
-    "./Navigation/HorizontalNavItem": "./dist/Navigation/index.js",
-    "./Navigation/TabItem": "./dist/Navigation/index.js",
-    "./Navigation/Tab": "./dist/Navigation/index.js",
-    "./Navigation/TopBar": "./dist/Navigation/index.js",
-    "./Navigation/VerticalNav": "./dist/Navigation/index.js",
-    "./tailwindConfig/ColorGround": "./dist/tailwindConfig/index.js",
-    "./tailwindConfig/tailwind_color": "./dist/tailwindConfig/index.js",
-    "./tailwindConfig/tailwind_elevation": "./dist/tailwindConfig/index.js",
-    "./tailwindConfig/tailwind_spacing": "./dist/tailwindConfig/index.js",
-    "./tailwindConfig/tailwind_radius": "./dist/tailwindConfig/index.js",
-    "./tailwindConfig/tailwind_motions": "./dist/tailwindConfig/index.js",
-    "./tailwindConfig/tailwind_typography": "./dist/tailwindConfig/index.js"
+    "./Display/Avatar": {
+      "import": "./dist/Display/index.js",
+      "types": "./dist/Display/index.d.ts"
+    },
+    "./Display/Badge": {
+      "import": "./dist/Display/index.js",
+      "types": "./dist/Display/index.d.ts"
+    },
+    "./Display/BadgeCount": {
+      "import": "./dist/Display/index.js",
+      "types": "./dist/Display/index.d.ts"
+    },
+    "./Display/BadgeIcon": {
+      "import": "./dist/Display/index.js",
+      "types": "./dist/Display/index.d.ts"
+    },
+    "./Display/BadgeStatus": {
+      "import": "./dist/Display/index.js",
+      "types": "./dist/Display/index.d.ts"
+    },
+    "./Feedback/SnackBar": {
+      "import": "./dist/Feedback/index.js",
+      "types": "./dist/Feedback/index.d.ts"
+    },
+    "./Feedback/Dialog": {
+      "import": "./dist/Feedback/index.js",
+      "types": "./dist/Feedback/index.d.ts"
+    },
+    "./icon/Icon": {
+      "import": "./dist/icon/index.js",
+      "types": "./dist/icon/index.d.ts"
+    },
+    "./Input/CheckBox": {
+      "import": "./dist/Input/index.js",
+      "types": "./dist/Input/index.d.ts"
+    },
+    "./Input/CheckBoxGroup": {
+      "import": "./dist/Input/index.js",
+      "types": "./dist/Input/index.d.ts"
+    },
+    "./Input/Chip": {
+      "import": "./dist/Input/index.js",
+      "types": "./dist/Input/index.d.ts"
+    },
+    "./Input/MenuItem": {
+      "import": "./dist/Input/index.js",
+      "types": "./dist/Input/index.d.ts"
+    },
+    "./Input/InputMenu": {
+      "import": "./dist/Input/index.js",
+      "types": "./dist/Input/index.d.ts"
+    },
+    "./Input/NumberStepper": {
+      "import": "./dist/Input/index.js",
+      "types": "./dist/Input/index.d.ts"
+    },
+    "./Input/NumberStepperSkeleton": {
+      "import": "./dist/Input/index.js",
+      "types": "./dist/Input/index.d.ts"
+    },
+    "./Input/ProgressBar": {
+      "import": "./dist/Input/index.js",
+      "types": "./dist/Input/index.d.ts"
+    },
+    "./Input/Radio": {
+      "import": "./dist/Input/index.js",
+      "types": "./dist/Input/index.d.ts"
+    },
+    "./Input/RadioGroup": {
+      "import": "./dist/Input/index.js",
+      "types": "./dist/Input/index.d.ts"
+    },
+    "./Input/Switch": {
+      "import": "./dist/Input/index.js",
+      "types": "./dist/Input/index.d.ts"
+    },
+    "./Input/TextArea": {
+      "import": "./dist/Input/index.js",
+      "types": "./dist/Input/index.d.ts"
+    },
+    "./Input/TextAreaSkeleton": {
+      "import": "./dist/Input/index.js",
+      "types": "./dist/Input/index.d.ts"
+    },
+    "./Input/TextField": {
+      "import": "./dist/Input/index.js",
+      "types": "./dist/Input/index.d.ts"
+    },
+    "./Input/TextFieldSkeleton": {
+      "import": "./dist/Input/index.js",
+      "types": "./dist/Input/index.d.ts"
+    },
+    "./Layout/Divider": {
+      "import": "./dist/Layout/index.js",
+      "types": "./dist/Layout/index.d.ts"
+    },
+    "./Layout/Scrim": {
+      "import": "./dist/Layout/index.js",
+      "types": "./dist/Layout/index.d.ts"
+    },
+    "./Layout/Accordion": {
+      "import": "./dist/Layout/index.js",
+      "types": "./dist/Layout/index.d.ts"
+    },
+    "./Navigation/ButtonMobile": {
+      "import": "./dist/Navigation/index.js",
+      "types": "./dist/Navigation/index.d.ts"
+    },
+    "./Navigation/ButtonPC": {
+      "import": "./dist/Navigation/index.js",
+      "types": "./dist/Navigation/index.d.ts"
+    },
+    "./Navigation/HorizontalNav": {
+      "import": "./dist/Navigation/index.js",
+      "types": "./dist/Navigation/index.d.ts"
+    },
+    "./Navigation/HorizontalNavItem": {
+      "import": "./dist/Navigation/index.js",
+      "types": "./dist/Navigation/index.d.ts"
+    },
+    "./Navigation/TabItem": {
+      "import": "./dist/Navigation/index.js",
+      "types": "./dist/Navigation/index.d.ts"
+    },
+    "./Navigation/Tab": {
+      "import": "./dist/Navigation/index.js",
+      "types": "./dist/Navigation/index.d.ts"
+    },
+    "./Navigation/TopBar": {
+      "import": "./dist/Navigation/index.js",
+      "types": "./dist/Navigation/index.d.ts"
+    },
+    "./Navigation/VerticalNav": {
+      "import": "./dist/Navigation/index.js",
+      "types": "./dist/Navigation/index.d.ts"
+    },
+    "./tailwindConfig/ColorGround": {
+      "import": "./dist/tailwindConfig/index.js",
+      "types": "./dist/tailwindConfig/index.d.ts"
+    },
+    "./tailwindConfig/tailwind_color": {
+      "import": "./dist/tailwindConfig/index.js",
+      "types": "./dist/tailwindConfig/index.d.ts"
+    },
+    "./tailwindConfig/tailwind_elevation": {
+      "import": "./dist/tailwindConfig/index.js",
+      "types": "./dist/tailwindConfig/index.d.ts"
+    },
+    "./tailwindConfig/tailwind_spacing": {
+      "import": "./dist/tailwindConfig/index.js",
+      "types": "./dist/tailwindConfig/index.d.ts"
+    },
+    "./tailwindConfig/tailwind_radius": {
+      "import": "./dist/tailwindConfig/index.js",
+      "types": "./dist/tailwindConfig/index.d.ts"
+    },
+    "./tailwindConfig/tailwind_motions": {
+      "import": "./dist/tailwindConfig/index.js",
+      "types": "./dist/tailwindConfig/index.d.ts"
+    },
+    "./tailwindConfig/tailwind_typography": {
+      "import": "./dist/tailwindConfig/index.js",
+      "types": "./dist/tailwindConfig/index.d.ts"
+    }
   },
-  "types": "dist/index.d.ts",
   "scripts": {
     "build-npm": "NODE_OPTIONS='--max-old-space-size=16384' rollup -c",
     "storybook": "storybook dev -p 6006",
