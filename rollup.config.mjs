@@ -86,7 +86,7 @@ const configList = [
       peerDepsExternal(),
       resolve(),
       commonjs(),
-      typescript({ declaration: false }),
+      typescript({ tsconfig: "./tsconfig.json" }),
       postcss({
         extensions: [".css"],
         plugins: [tailwindcss, autoprefixer],
@@ -99,12 +99,45 @@ const configList = [
     ],
     external: ["react", "react-dom"],
   })),
+  // index.ts 빌드 설정 추가
+  {
+    input: `src/index.ts`,
+    output: [
+      {
+        file: `dist/index.js`,
+        format: "esm",
+        sourcemap: true,
+      },
+      {
+        file: `dist/index.cjs`,
+        format: "cjs",
+        sourcemap: true,
+      },
+    ],
+    plugins: [
+      peerDepsExternal(),
+      resolve(),
+      commonjs(),
+      typescript({ tsconfig: "./tsconfig.json" }),
+      postcss({
+        extensions: [".css"],
+        plugins: [tailwindcss, autoprefixer],
+        extract: false,
+      }),
+    ],
+    external: ["react", "react-dom"],
+  },
   ...components.map(({ name, path }) => ({
     input: `dist/types/${path}/${name}.d.ts`,
     output: [{ file: `dist/types/${path}/${name}.d.ts`, format: "es" }],
     plugins: [dts()],
     external: [/\.css$/],
   })),
+  // index.d.ts 타입 파일도 함께 빌드
+  {
+    input: `dist/types/index.d.ts`,
+    output: [{ file: `dist/index.d.ts`, format: "es" }],
+    plugins: [dts()],
+    external: [/\.css$/],
+  },
 ];
-
-export default configList;
