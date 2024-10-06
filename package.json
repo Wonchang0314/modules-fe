@@ -1,9 +1,8 @@
 {
   "name": "@eolluga/eolluga-ui",
-  "version": "3.0.5",
+  "version": "3.0.7",
   "main": "dist/index.js",
   "files": [
-    "src",
     "dist"
   ],
   "module": "dist/index.esm.js",
@@ -52,7 +51,7 @@
   },
   "types": "dist/index.d.ts",
   "scripts": {
-    "build-npm": "rollup -c",
+    "build-npm": "NODE_OPTIONS='--max-old-space-size=16384' rollup -c",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
