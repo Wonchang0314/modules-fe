@@ -6,7 +6,11 @@ const tailwindTypographyConfig = {
     },
   },
   plugins: [
-    ({ addUtilities }) => {
+    ({
+      addUtilities,
+    }: {
+      addUtilities: (utilities: Record<string, any>) => void;
+    }) => {
       addUtilities({
         ".head-01-regular": {
           fontFamily: "SCoreDream",
