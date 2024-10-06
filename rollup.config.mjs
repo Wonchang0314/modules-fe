@@ -3,15 +3,10 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import postcss from "rollup-plugin-postcss";
-import dts from "rollup-plugin-dts";
 import svgr from "@svgr/rollup";
 import tailwindcss from "tailwindcss";
 import autoprefixer from "autoprefixer";
 import copy from "rollup-plugin-copy";
-
-// This is required to read package.json file when
-// using Native ES modules in Node.js
-// https://rollupjs.org/command-line-interface/#importing-package-json
 
 import { createRequire } from "node:module";
 const requireFile = createRequire(import.meta.url);
@@ -54,17 +49,11 @@ const components = [
   { name: "VerticalNav", path: "Navigation" },
   { name: "ColorGround.config", path: "tailwindConfig" },
   { name: "tailwind_color.config", path: "tailwindConfig" },
-  {
-    name: "tailwind_elevation.config",
-    path: "tailwindConfig",
-  },
+  { name: "tailwind_elevation.config", path: "tailwindConfig" },
   { name: "tailwind_spacing.config", path: "tailwindConfig" },
   { name: "tailwind_radius.config", path: "tailwindConfig" },
   { name: "tailwind_motions.config", path: "tailwindConfig" },
-  {
-    name: "tailwind_typography.config",
-    path: "tailwindConfig",
-  },
+  { name: "tailwind_typography.config", path: "tailwindConfig" },
 ];
 
 const configList = [
@@ -86,7 +75,11 @@ const configList = [
       peerDepsExternal(),
       resolve(),
       commonjs(),
-      typescript({ tsconfig: "./tsconfig.json" }),
+      typescript({
+        tsconfig: "./tsconfig.json",
+        declaration: true,
+        declarationDir: "dist/types",
+      }),
       postcss({
         extensions: [".css"],
         plugins: [tailwindcss, autoprefixer],
@@ -99,7 +92,6 @@ const configList = [
     ],
     external: ["react", "react-dom"],
   })),
-  // index.ts 빌드 설정 추가
   {
     input: `src/index.ts`,
     output: [
@@ -118,26 +110,20 @@ const configList = [
       peerDepsExternal(),
       resolve(),
       commonjs(),
-      typescript({ tsconfig: "./tsconfig.json" }),
+      typescript({
+        tsconfig: "./tsconfig.json",
+        declaration: true,
+        declarationDir: "dist/types",
+      }),
       postcss({
         extensions: [".css"],
         plugins: [tailwindcss, autoprefixer],
         extract: false,
       }),
+      svgr(),
     ],
     external: ["react", "react-dom"],
   },
-  ...components.map(({ name, path }) => ({
-    input: `dist/types/${path}/${name}.d.ts`,
-    output: [{ file: `dist/types/${path}/${name}.d.ts`, format: "es" }],
-    plugins: [dts()],
-    external: [/\.css$/],
-  })),
-  // index.d.ts 타입 파일도 함께 빌드
-  {
-    input: `dist/types/index.d.ts`,
-    output: [{ file: `dist/index.d.ts`, format: "es" }],
-    plugins: [dts()],
-    external: [/\.css$/],
-  },
 ];
+
+export default configList;
