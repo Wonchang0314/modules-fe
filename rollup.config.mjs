@@ -65,6 +65,7 @@ const components = [
     name: "TailwindTypographyConfig",
     path: "tailwindConfig",
   },
+  { name: "index" },
 ];
 
 const configList = [
@@ -100,8 +101,8 @@ const configList = [
     external: ["react", "react-dom"],
   })),
   {
-    input: "dist/index.d.ts",
-    output: [{ file: "dist/index.d.ts", format: "es" }],
+    input: `src/${path}/index.d.ts`,
+    output: [{ file: `dist/${path}/index.d.ts`, format: "es" }],
     plugins: [dts()],
     external: [/\.css$/],
   },
