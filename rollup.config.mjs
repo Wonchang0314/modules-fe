@@ -49,23 +49,22 @@ const components = [
   { name: "HorizontalNav", path: "Navigation" },
   { name: "HorizontalNavItem", path: "Navigation" },
   { name: "TabItem", path: "Navigation" },
-  { name: "Tab", path: "Navigation" },
+  { name: "Tabs", path: "Navigation" },
   { name: "TopBar", path: "Navigation" },
   { name: "VerticalNav", path: "Navigation" },
-  { name: "ColorGroundConfig", path: "tailwindConfig" },
-  { name: "TailwindColorConfig", path: "tailwindConfig" },
+  { name: "ColorGround.config", path: "tailwindConfig" },
+  { name: "tailwind_color.config", path: "tailwindConfig" },
   {
-    name: "TailwindElevationConfig",
+    name: "tailwind_elevation.config",
     path: "tailwindConfig",
   },
-  { name: "TailwindSpacingConfig", path: "tailwindConfig" },
-  { name: "TailwindRadiusConfig", path: "tailwindConfig" },
-  { name: "TailwindMotionsConfig", path: "tailwindConfig" },
+  { name: "tailwind_spacing.config", path: "tailwindConfig" },
+  { name: "tailwind_radius.config", path: "tailwindConfig" },
+  { name: "tailwind_motions.config", path: "tailwindConfig" },
   {
-    name: "TailwindTypographyConfig",
+    name: "tailwind_typography.config",
     path: "tailwindConfig",
   },
-  { name: "index" },
 ];
 
 const configList = [
@@ -73,12 +72,12 @@ const configList = [
     input: `src/${path}/index.ts`,
     output: [
       {
-        file: `dist/${path}/index.js`,
+        file: `dist/${path}/${name}.js`,
         format: "esm",
         sourcemap: true,
       },
       {
-        file: `dist/${path}/index.cjs`,
+        file: `dist/${path}/${name}.cjs`,
         format: "cjs",
         sourcemap: true,
       },
@@ -87,7 +86,7 @@ const configList = [
       peerDepsExternal(),
       resolve(),
       commonjs(),
-      typescript(),
+      typescript({ declaration: false }),
       postcss({
         extensions: [".css"],
         plugins: [tailwindcss, autoprefixer],
@@ -100,12 +99,12 @@ const configList = [
     ],
     external: ["react", "react-dom"],
   })),
-  {
-    input: `src/${path}/index.d.ts`,
-    output: [{ file: `dist/${path}/index.d.ts`, format: "es" }],
+  ...components.map(({ name, path }) => ({
+    input: `dist/types/${path}/${name}.d.ts`,
+    output: [{ file: `dist/types/${path}/${name}.d.ts`, format: "es" }],
     plugins: [dts()],
     external: [/\.css$/],
-  },
+  })),
 ];
 
 export default configList;
