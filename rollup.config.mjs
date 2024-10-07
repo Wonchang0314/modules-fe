@@ -8,22 +8,11 @@ import autoprefixer from "autoprefixer";
 import svgr from "@svgr/rollup";
 import { terser } from "rollup-plugin-terser";
 
-import { fileURLToPath } from "url";
-import { dirname } from "path";
 import fs from "fs";
-import path from "path";
 
-// __dirname 대체
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-// fs를 사용하여 JSON 파일을 동적으로 읽어옴
 const packageJson = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
+const isProduction = process.env.NODE_ENV === "production";
 
-// 모든 컴포넌트를 개별적으로 빌드하기 위한 입력 파일 설정
-const componentsDir = path.resolve(__dirname, "src");
-
-// 기본 설정 (src/index.ts와 같이 전체 파일을 빌드할 때 사용)
 const mainConfig = {
   input: "src/index.ts",
   output: [
@@ -49,14 +38,11 @@ const mainConfig = {
       extract: false,
     }),
     svgr(),
-    terser(),
+    isProduction && terser(), // 프로덕션 빌드에서만 terser 사용
   ],
   external: ["react", "react-dom"],
 };
 
-// 전체 설정을 mainConfig 먼저, 그 후에 components로 나눔
-const configList = [
-  mainConfig, // 메인 index.ts 번들링 설정
-];
+const configList = [mainConfig];
 
 export default configList;
