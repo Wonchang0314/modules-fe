@@ -1,6 +1,6 @@
 {
   "name": "@eolluga/eolluga-ui",
-  "version": "3.2.2",
+  "version": "3.2.3",
   "files": [
     "dist"
   ],
@@ -54,7 +54,7 @@
     }
   },
   "scripts": {
-    "build-npm": "tsc --emitDeclarationOnly && rollup -c",
+    "build-npm": "tsc tailwind.config.ts && tsc --emitDeclarationOnly && rollup -c",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
