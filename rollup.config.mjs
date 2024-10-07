@@ -86,6 +86,8 @@ const mainConfig = {
     typescript(),
     postcss({
       extensions: [".css"],
+      plugins: [tailwindcss, autoprefixer],
+      extract: false,
     }),
     svgr(),
     terser(),
