@@ -3,11 +3,13 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import postcss from "rollup-plugin-postcss";
+import tailwindcss from "tailwindcss";
+import autoprefixer from "autoprefixer";
 import svgr from "@svgr/rollup";
 import { terser } from "rollup-plugin-terser";
 
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+import { fileURLToPath } from "url";
+import { dirname } from "path";
 import fs from "fs";
 import path from "path";
 
@@ -24,7 +26,12 @@ const componentsDir = path.resolve(__dirname, "src");
 // 컴포넌트가 있는 폴더를 탐색하여 개별적인 파일을 번들링하도록 설정
 const components = fs
   .readdirSync(componentsDir)
-  .filter(file => fs.statSync(path.join(componentsDir, file)).isDirectory() && (file !== "Foundation" && file !== 'utils'))
+  .filter(
+    file =>
+      fs.statSync(path.join(componentsDir, file)).isDirectory() &&
+      file !== "Foundation" &&
+      file !== "utils",
+  )
   .map(dir => ({
     input: `src/${dir}/index.ts`,
     output: [
@@ -48,6 +55,8 @@ const components = fs
       }),
       postcss({
         extensions: [".css"],
+        plugins: [tailwindcss, autoprefixer],
+        extract: false,
       }),
       svgr(),
       terser(),
