@@ -23,45 +23,6 @@ const packageJson = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
 // 모든 컴포넌트를 개별적으로 빌드하기 위한 입력 파일 설정
 const componentsDir = path.resolve(__dirname, "src");
 
-// 컴포넌트가 있는 폴더를 탐색하여 개별적인 파일을 번들링하도록 설정
-const components = fs
-  .readdirSync(componentsDir)
-  .filter(
-    file =>
-      fs.statSync(path.join(componentsDir, file)).isDirectory() &&
-      file !== "Foundation" &&
-      file !== "utils",
-  )
-  .map(dir => ({
-    input: `src/${dir}/index.ts`,
-    output: [
-      {
-        file: `dist/${dir}/index.js`,
-        format: "esm",
-        sourcemap: true,
-      },
-      {
-        file: `dist/${dir}/index.cjs`,
-        format: "cjs",
-        sourcemap: true,
-      },
-    ],
-    plugins: [
-      peerDepsExternal(),
-      resolve(),
-      commonjs(),
-      typescript(),
-      postcss({
-        extensions: [".css"],
-        plugins: [tailwindcss("./tailwind.config.js"), autoprefixer],
-        extract: false,
-      }),
-      svgr(),
-      terser(),
-    ],
-    external: ["react", "react-dom"],
-  }));
-
 // 기본 설정 (src/index.ts와 같이 전체 파일을 빌드할 때 사용)
 const mainConfig = {
   input: "src/index.ts",
@@ -93,9 +54,8 @@ const mainConfig = {
   external: ["react", "react-dom"],
 };
 
-// 전체 설정을 components와 mainConfig로 나눔
+// 전체 설정을 mainConfig 먼저, 그 후에 components로 나눔
 const configList = [
-  ...components, // 개별 컴포넌트 번들링 설정
   mainConfig, // 메인 index.ts 번들링 설정
 ];
 
