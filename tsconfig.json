@@ -4,7 +4,7 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "outDir": "dist",
     "declaration": true,
-    "declarationDir": "dist/types",
+    "declarationDir": "dist",
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,

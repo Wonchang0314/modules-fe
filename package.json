@@ -1,60 +1,14 @@
 {
   "name": "@eolluga/eolluga-ui",
-  "version": "3.2.3",
+  "version": "3.2.4",
   "files": [
     "dist"
   ],
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/index.esm.js",
-      "require": "./dist/index.cjs.js",
-      "types": "./dist/index.d.ts"
-    },
-    "./icon": {
-      "import": "./dist/icon/index.js",
-      "require": "./dist/icon/index.cjs",
-      "types": "./dist/types/icon/index.d.ts"
-    },
-    "./Display": {
-      "import": "./dist/Display/index.js",
-      "require": "./dist/Display/index.cjs",
-      "types": "./dist/types/Display/index.d.ts"
-    },
-    "./Feedback": {
-      "import": "./dist/Feedback/index.js",
-      "require": "./dist/Feedback/index.cjs",
-      "types": "./dist/types/Feedback/index.d.ts"
-    },
-    "./Input": {
-      "import": "./dist/Input/index.js",
-      "require": "./dist/Input/index.cjs",
-      "types": "./dist/types/Input/index.d.ts"
-    },
-    "./Layout": {
-      "import": "./dist/Layout/index.js",
-      "require": "./dist/Layout/index.cjs",
-      "types": "./dist/types/Layout/index.d.ts"
-    },
-    "./Navigation": {
-      "import": "./dist/Navigation/index.js",
-      "require": "./dist/Navigation/index.cjs",
-      "types": "./dist/types/Navigation/index.d.ts"
-    },
-    "./tailwindConfig": {
-      "import": "./dist/tailwindConfig/index.js",
-      "require": "./dist/tailwindConfig/index.cjs",
-      "types": "./dist/types/tailwindConfig/index.d.ts"
-    },
-    "./styles": {
-      "import": "./dist/styles/index.css",
-      "require": "./dist/styles/index.css"
-    }
-  },
   "scripts": {
-    "build-npm": "tsc tailwind.config.ts && tsc --emitDeclarationOnly && rollup -c",
+    "build-npm": "rollup -c",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
