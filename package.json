@@ -4,11 +4,57 @@
   "files": [
     "dist"
   ],
-  "main": "dist/index.cjs.js",
+  "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./icon": {
+      "import": "./dist/icon/index.js",
+      "require": "./dist/icon/index.cjs",
+      "types": "./dist/types/icon/index.d.ts"
+    },
+    "./Display": {
+      "import": "./dist/Display/index.js",
+      "require": "./dist/Display/index.cjs",
+      "types": "./dist/types/Display/index.d.ts"
+    },
+    "./Feedback": {
+      "import": "./dist/Feedback/index.js",
+      "require": "./dist/Feedback/index.cjs",
+      "types": "./dist/types/Feedback/index.d.ts"
+    },
+    "./Input": {
+      "import": "./dist/Input/index.js",
+      "require": "./dist/Input/index.cjs",
+      "types": "./dist/types/Input/index.d.ts"
+    },
+    "./Layout": {
+      "import": "./dist/Layout/index.js",
+      "require": "./dist/Layout/index.cjs",
+      "types": "./dist/types/Layout/index.d.ts"
+    },
+    "./Navigation": {
+      "import": "./dist/Navigation/index.js",
+      "require": "./dist/Navigation/index.cjs",
+      "types": "./dist/types/Navigation/index.d.ts"
+    },
+    "./tailwindConfig": {
+      "import": "./dist/tailwindConfig/index.js",
+      "require": "./dist/tailwindConfig/index.cjs",
+      "types": "./dist/types/tailwindConfig/index.d.ts"
+    },
+    "./styles": {
+      "import": "./dist/styles/index.css",
+      "require": "./dist/styles/index.css"
+    }
+  },
   "scripts": {
-    "build-npm": "tsc --emitDeclarationOnly && NODE_OPTIONS='--max-old-space-size=16384' rollup -c",
+    "build-npm": "tsc --emitDeclarationOnly && rollup -c",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -48,6 +94,7 @@
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-terser": "^7.0.2",
     "storybook": "^8.2.8",
     "string-width": "4.2.3",
     "tailwindcss": "^3.3.0",
