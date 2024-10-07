@@ -50,12 +50,10 @@ const components = fs
       peerDepsExternal(),
       resolve(),
       commonjs(),
-      typescript({
-        tsconfig: "./tsconfig.json",
-      }),
+      typescript(),
       postcss({
         extensions: [".css"],
-        plugins: [tailwindcss, autoprefixer],
+        plugins: [tailwindcss("./tailwind.config.js"), autoprefixer],
         extract: false,
       }),
       svgr(),
