@@ -4,126 +4,90 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import postcss from "rollup-plugin-postcss";
 import svgr from "@svgr/rollup";
-import tailwindcss from "tailwindcss";
-import autoprefixer from "autoprefixer";
-import copy from "rollup-plugin-copy";
+import { terser } from "rollup-plugin-terser";
 
-import { createRequire } from "node:module";
-const requireFile = createRequire(import.meta.url);
-const packageJson = requireFile("./package.json");
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import fs from "fs";
+import path from "path";
 
-const components = [
-  { name: "Avatar", path: "Display" },
-  { name: "Badge", path: "Display" },
-  { name: "BadgeCount", path: "Display" },
-  { name: "BadgeIcon", path: "Display" },
-  { name: "BadgeStatus", path: "Display" },
-  { name: "SnackBar", path: "Feedback" },
-  { name: "Dialog", path: "Feedback" },
-  { name: "Icon", path: "icon" },
-  { name: "CheckBox", path: "Input" },
-  { name: "CheckBoxGroup", path: "Input" },
-  { name: "Chip", path: "Input" },
-  { name: "MenuItem", path: "Input" },
-  { name: "InputMenu", path: "Input" },
-  { name: "NumberStepper", path: "Input" },
-  { name: "NumberStepperSkeleton", path: "Input" },
-  { name: "ProgressBar", path: "Input" },
-  { name: "Radio", path: "Input" },
-  { name: "RadioGroup", path: "Input" },
-  { name: "Switch", path: "Input" },
-  { name: "TextArea", path: "Input" },
-  { name: "TextAreaSkeleton", path: "Input" },
-  { name: "TextField", path: "Input" },
-  { name: "TextFieldSkeleton", path: "Input" },
-  { name: "Divider", path: "Layout" },
-  { name: "Scrim", path: "Layout" },
-  { name: "Accordion", path: "Layout" },
-  { name: "ButtonMobile", path: "Navigation" },
-  { name: "ButtonPC", path: "Navigation" },
-  { name: "HorizontalNav", path: "Navigation" },
-  { name: "HorizontalNavItem", path: "Navigation" },
-  { name: "TabItem", path: "Navigation" },
-  { name: "Tabs", path: "Navigation" },
-  { name: "TopBar", path: "Navigation" },
-  { name: "VerticalNav", path: "Navigation" },
-  { name: "ColorGround.config", path: "tailwindConfig" },
-  { name: "tailwind_color.config", path: "tailwindConfig" },
-  { name: "tailwind_elevation.config", path: "tailwindConfig" },
-  { name: "tailwind_spacing.config", path: "tailwindConfig" },
-  { name: "tailwind_radius.config", path: "tailwindConfig" },
-  { name: "tailwind_motions.config", path: "tailwindConfig" },
-  { name: "tailwind_typography.config", path: "tailwindConfig" },
-];
+// __dirname 대체
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
+// fs를 사용하여 JSON 파일을 동적으로 읽어옴
+const packageJson = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
+
+// 모든 컴포넌트를 개별적으로 빌드하기 위한 입력 파일 설정
+const componentsDir = path.resolve(__dirname, "src");
+
+// 컴포넌트가 있는 폴더를 탐색하여 개별적인 파일을 번들링하도록 설정
+const components = fs
+  .readdirSync(componentsDir)
+  .filter(file => fs.statSync(path.join(componentsDir, file)).isDirectory() && (file !== "Foundation" && file !== 'utils'))
+  .map(dir => ({
+    input: `src/${dir}/index.ts`,
+    output: [
+      {
+        file: `dist/${dir}/index.js`,
+        format: "esm",
+        sourcemap: true,
+      },
+      {
+        file: `dist/${dir}/index.cjs`,
+        format: "cjs",
+        sourcemap: true,
+      },
+    ],
+    plugins: [
+      peerDepsExternal(),
+      resolve(),
+      commonjs(),
+      typescript({
+        tsconfig: "./tsconfig.json",
+      }),
+      postcss({
+        extensions: [".css"],
+      }),
+      svgr(),
+      terser(),
+    ],
+    external: ["react", "react-dom"],
+  }));
+
+// 기본 설정 (src/index.ts와 같이 전체 파일을 빌드할 때 사용)
+const mainConfig = {
+  input: "src/index.ts",
+  output: [
+    {
+      file: packageJson.main,
+      format: "cjs",
+      sourcemap: true,
+    },
+    {
+      file: packageJson.module,
+      format: "esm",
+      sourcemap: true,
+    },
+  ],
+  plugins: [
+    peerDepsExternal(),
+    resolve(),
+    commonjs(),
+    typescript(),
+    postcss({
+      extensions: [".css"],
+    }),
+    svgr(),
+    terser(),
+  ],
+  external: ["react", "react-dom"],
+};
+
+// 전체 설정을 components와 mainConfig로 나눔
 const configList = [
-  ...components.map(({ name, path }) => ({
-    input: `src/${path}/index.ts`,
-    output: [
-      {
-        file: `dist/${path}/${name}.js`,
-        format: "esm",
-        sourcemap: true,
-      },
-      {
-        file: `dist/${path}/${name}.cjs`,
-        format: "cjs",
-        sourcemap: true,
-      },
-    ],
-    plugins: [
-      peerDepsExternal(),
-      resolve(),
-      commonjs(),
-      typescript({
-        tsconfig: "./tsconfig.json",
-        declaration: true,
-        declarationDir: "dist/types",
-      }),
-      postcss({
-        extensions: [".css"],
-        plugins: [tailwindcss, autoprefixer],
-        extract: false,
-      }),
-      svgr(),
-      copy({
-        targets: [{ src: "src/styles/*.css", dest: "dist/styles" }],
-      }),
-    ],
-    external: ["react", "react-dom"],
-  })),
-  {
-    input: `src/index.ts`,
-    output: [
-      {
-        file: `dist/index.js`,
-        format: "esm",
-        sourcemap: true,
-      },
-      {
-        file: `dist/index.cjs`,
-        format: "cjs",
-        sourcemap: true,
-      },
-    ],
-    plugins: [
-      peerDepsExternal(),
-      resolve(),
-      commonjs(),
-      typescript({
-        tsconfig: "./tsconfig.json",
-        declaration: true,
-        declarationDir: "dist/types",
-      }),
-      postcss({
-        extensions: [".css"],
-        plugins: [tailwindcss, autoprefixer],
-        extract: false,
-      }),
-      svgr(),
-    ],
-    external: ["react", "react-dom"],
-  },
+  ...components, // 개별 컴포넌트 번들링 설정
+  mainConfig, // 메인 index.ts 번들링 설정
 ];
 
 export default configList;
