@@ -6,6 +6,7 @@ import postcss from "rollup-plugin-postcss";
 import tailwindcss from "tailwindcss";
 import autoprefixer from "autoprefixer";
 import svgr from "@svgr/rollup";
+import copy from "rollup-plugin-copy";
 import { terser } from "rollup-plugin-terser";
 
 import fs from "fs";
@@ -35,9 +36,16 @@ const mainConfig = {
     postcss({
       extensions: [".css"],
       plugins: [tailwindcss, autoprefixer],
-      extract: false,
+      extract: true,
     }),
     svgr(),
+    copy({
+      targets: [
+        { src: "src/styles/theme.css", dest: "dist" },
+        { src: "src/styles/ground.css", dest: "dist" },
+        { src: "src/styles/globals.css", dest: "dist" },
+      ],
+    }),
     isProduction && terser(), // 프로덕션 빌드에서만 terser 사용
   ],
   external: ["react", "react-dom"],
