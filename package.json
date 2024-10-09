@@ -1,12 +1,13 @@
 {
   "name": "@eolluga/eolluga-ui",
-  "version": "3.2.4",
+  "version": "3.2.5",
   "files": [
     "dist"
   ],
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "style": "dist/index.css",
   "scripts": {
     "build-npm": "rollup -c",
     "storybook": "storybook dev -p 6006",
