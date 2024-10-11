@@ -29,7 +29,7 @@ export default function Dialog({
   return (
     open && (
       <div
-        className="w-[272px] flex flex-col py-spacing-07 px-spacing-05 bg-white rounded-xl"
+        className="w-full flex flex-col py-spacing-07 px-spacing-05 bg-white rounded-xl"
         onClick={e => e.stopPropagation()}
       >
         <div className="flex flex-row pb-spacing-04 justify-between items-start">
@@ -55,7 +55,7 @@ export default function Dialog({
             {description}
           </div>
         )}
-        <div className="flex flex-row gap-spacing-02 w-full">
+        <div className="flex flex-row gap-spacing-02 w-[272px]">
           <ButtonMobile
             size={"M"}
             style={"secondary"}
