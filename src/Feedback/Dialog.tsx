@@ -4,8 +4,8 @@ import Icon from "src/icon/Icon";
 export interface DialogProps {
   open: boolean;
   title: string;
-  leftText: string;
-  rightText: string;
+  leftText?: string;
+  rightText?: string;
   dismissible?: boolean;
   description?: string;
   label?: string;
@@ -51,28 +51,32 @@ export default function Dialog({
           )}
         </div>
         {description && (
-          <div className="pb-spacing-06 body-02-regular text-text-primary">
-            {description}
+          <div className="body-02-regular text-text-primary">{description}</div>
+        )}
+        {(leftText || rightText) && (
+          <div className="flex flex-row gap-spacing-02 w-[272px] mt-spacing-06">
+            {leftText && (
+              <ButtonMobile
+                size={"M"}
+                style={"secondary"}
+                type={"text"}
+                state={"enabled"}
+                text1={leftText}
+                onClick={leftOnClick}
+              />
+            )}
+            {rightText && (
+              <ButtonMobile
+                size={"M"}
+                style={"primary"}
+                type={"text"}
+                state={"enabled"}
+                text1={rightText}
+                onClick={rightOnClick}
+              />
+            )}
           </div>
         )}
-        <div className="flex flex-row gap-spacing-02 w-[272px]">
-          <ButtonMobile
-            size={"M"}
-            style={"secondary"}
-            type={"text"}
-            state={"enabled"}
-            text1={leftText}
-            onClick={leftOnClick}
-          />
-          <ButtonMobile
-            size={"M"}
-            style={"primary"}
-            type={"text"}
-            state={"enabled"}
-            text1={rightText}
-            onClick={rightOnClick}
-          />
-        </div>
       </div>
     )
   );
