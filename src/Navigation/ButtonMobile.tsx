@@ -243,7 +243,7 @@ export default function ButtonMobile({
 
   return (
     // className 임시 방편 수정
-    <div className={className}>
+    <div className={`w-full ${className}`}>
       <button
         className={`flex ${labelClass} ${sizeClass} ${styleClass} ${roundClass}`}
         onMouseDown={handleMouseDown}
