@@ -20,7 +20,6 @@ export interface ButtonPropsMobile {
   text2?: string;
   iconKey?: iconKey;
   onClick?: () => void;
-  className?: string; // 임시 방편 수정
 }
 
 export const buttonSize = {
@@ -210,7 +209,6 @@ export default function ButtonMobile({
   text2 = "Text2",
   iconKey,
   onClick,
-  className, // 임시 방편 수정
 }: ButtonPropsMobile) {
   const [isPressed, setIsPressed] = useState(false);
 
@@ -242,48 +240,45 @@ export default function ButtonMobile({
   const iconColor = buttonIconColors[style][isPressed ? "active" : state];
 
   return (
-    // className 임시 방편 수정
-    <div className={`w-full ${className}`}>
-      <button
-        className={`flex ${labelClass} ${sizeClass} ${styleClass} ${roundClass}`}
-        onMouseDown={handleMouseDown}
-        onMouseUp={handleMouseUp}
-        onClick={onClick}
-        disabled={state === "disabled"}
-      >
-        {type === "icon-left" && (
-          <span className="left-icon">
-            <Icon
-              icon={iconKey as keyof typeof icons}
-              className={`${iconColor}`}
-            />
-          </span>
-        )}
-        {type === "icon-left" && <span className="shrink-0">{text1}</span>}
-        {type === "icon-right" && <span className="shrink-0">{text1}</span>}
-        {type === "icon-right" && (
-          <span className="right-icon">
-            <Icon
-              icon={iconKey as keyof typeof icons}
-              className={`${iconColor}`}
-            />
-          </span>
-        )}
-        {type === "text" && <span className="shrink-0">{text1}</span>}
-        {type === "text-text" && <span className="shrink-0">{text1}</span>}
-        {type === "text-text" && (
-          <Divider type="Vertical" size={16} className={dividerColor} />
-        )}
-        {type === "text-text" && <span className="shrink-0">{text2}</span>}
-        {type === "icon" && (
-          <span className="icon">
-            <Icon
-              icon={iconKey as keyof typeof icons}
-              className={`${iconColor}`}
-            />
-          </span>
-        )}
-      </button>
-    </div>
+    <button
+      className={`flex ${labelClass} ${sizeClass} ${styleClass} ${roundClass}`}
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
+      onClick={onClick}
+      disabled={state === "disabled"}
+    >
+      {type === "icon-left" && (
+        <span className="left-icon">
+          <Icon
+            icon={iconKey as keyof typeof icons}
+            className={`${iconColor}`}
+          />
+        </span>
+      )}
+      {type === "icon-left" && <span className="shrink-0">{text1}</span>}
+      {type === "icon-right" && <span className="shrink-0">{text1}</span>}
+      {type === "icon-right" && (
+        <span className="right-icon">
+          <Icon
+            icon={iconKey as keyof typeof icons}
+            className={`${iconColor}`}
+          />
+        </span>
+      )}
+      {type === "text" && <span className="shrink-0">{text1}</span>}
+      {type === "text-text" && <span className="shrink-0">{text1}</span>}
+      {type === "text-text" && (
+        <Divider type="Vertical" size={16} className={dividerColor} />
+      )}
+      {type === "text-text" && <span className="shrink-0">{text2}</span>}
+      {type === "icon" && (
+        <span className="icon">
+          <Icon
+            icon={iconKey as keyof typeof icons}
+            className={`${iconColor}`}
+          />
+        </span>
+      )}
+    </button>
   );
 }
