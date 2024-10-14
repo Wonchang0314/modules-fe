@@ -29,7 +29,7 @@ export default function Dialog({
   return (
     open && (
       <div
-        className="flex flex-col py-spacing-07 px-spacing-05 bg-white rounded-xl"
+        className="w-[312px] flex flex-col py-spacing-07 px-spacing-05 bg-white rounded-xl"
         onClick={e => e.stopPropagation()}
       >
         <div className="flex flex-row pb-spacing-04 justify-between items-start">
