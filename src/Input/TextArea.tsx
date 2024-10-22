@@ -113,7 +113,6 @@ export default function TextArea({
       <div className="flex flex-col gap-spacing-01 w-full">
         <div
           className={`
-            pl-spacing-04
             ${sizeStyle[size]["label"]} 
             ${stateStyle[state]["labelColor"]} 
             ${!label && "hidden"}  

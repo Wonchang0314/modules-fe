@@ -107,7 +107,7 @@ export default function TextField({
           break;
         default:
           if (isFocused)
-            setInputBorder("border border-strong-01" + radiusStyle);
+            setInputBorder("border border-border-strong-01" + radiusStyle);
           else setInputBorder("border border-border-subtle-01" + radiusStyle);
           break;
       }
@@ -154,7 +154,7 @@ export default function TextField({
       <div className="flex flex-col gap-spacing-01 w-full">
         <div
           className={`
-            ${style === "outlined" && "pl-spacing-04"}
+            ${style === "outlined"}
             ${sizeStyle[size]["label"]} 
             ${stateStyle[state]["labelColor"]} 
             ${!label && "hidden"}  
