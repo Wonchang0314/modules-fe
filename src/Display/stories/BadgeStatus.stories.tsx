@@ -20,6 +20,6 @@ const Template: StoryFn<BadgestatusProps> = args => <Badgestatus {...args} />;
 
 export const CustomBadgestatus = Template.bind({});
 CustomBadgestatus.args = {
-  style: "dot",
+  mode: "dot",
   state: "success",
 };

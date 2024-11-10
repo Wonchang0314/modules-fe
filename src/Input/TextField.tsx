@@ -7,7 +7,7 @@ type TextFieldProps = {
   value: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   size: "S" | "M" | "L";
-  style: "outlined" | "underlined";
+  mode?: "outlined" | "underlined";
   state?: InputStateType;
   label?: string;
   /**
@@ -79,7 +79,7 @@ export default function TextField({
   value,
   onChange,
   size,
-  style = "outlined",
+  mode = "outlined",
   state = "enable",
   label,
   description,
@@ -89,7 +89,7 @@ export default function TextField({
   const [inputBorder, setInputBorder] = useState<string>("");
 
   const handleBorderStyle = () => {
-    if (style === "outlined") {
+    if (mode === "outlined") {
       let radiusStyle;
       radiusStyle = size === "S" ? " rounded-radius-03" : " rounded-radius-04";
       switch (state) {
@@ -135,7 +135,7 @@ export default function TextField({
 
   useEffect(() => {
     handleBorderStyle();
-  }, [isFocused, style, state, size]);
+  }, [isFocused, mode, state, size]);
 
   const onChangeText = (e: ChangeEvent<HTMLInputElement>) => {
     onChange(e);
@@ -146,7 +146,7 @@ export default function TextField({
       fallback={
         <TextFieldSkeleton
           size={size}
-          style={style}
+          style={mode}
           label={label ? true : false}
         />
       }
@@ -154,7 +154,7 @@ export default function TextField({
       <div className="flex flex-col gap-spacing-01 w-full">
         <div
           className={`
-            ${style === "outlined"}
+            ${mode === "outlined"}
             ${sizeStyle[size]["label"]} 
             ${stateStyle[state]["labelColor"]} 
             ${!label && "hidden"}  
@@ -166,7 +166,7 @@ export default function TextField({
           className={`
             w-full flex gap-spacing-04 bg-white
             ${inputBorder}
-            ${lineStyle[style]["inputPX"]}
+            ${lineStyle[mode]["inputPX"]}
             ${sizeStyle[size]["inputPY"]} 
           `}
         >
@@ -214,7 +214,7 @@ export default function TextField({
         </div>
         <div
           className={`
-            ${style === "outlined" && "pl-spacing-04"}
+            ${mode === "outlined" && "pl-spacing-04"}
             ${!description && "invisible"} 
             ${sizeStyle[size]["description"]} 
             ${stateStyle[state]["descriptionColor"]}

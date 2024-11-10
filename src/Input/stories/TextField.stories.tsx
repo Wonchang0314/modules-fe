@@ -27,7 +27,7 @@ const Template: StoryFn<typeof TextField> = args => {
 export const CutomTextField = Template.bind({});
 CutomTextField.args = {
   size: "L",
-  style: "outlined",
+  mode: "outlined",
   state: "enable",
   label: "Label",
   description: "Helper text",
