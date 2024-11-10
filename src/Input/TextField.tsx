@@ -146,7 +146,7 @@ export default function TextField({
       fallback={
         <TextFieldSkeleton
           size={size}
-          style={mode}
+          mode={mode}
           label={label ? true : false}
         />
       }

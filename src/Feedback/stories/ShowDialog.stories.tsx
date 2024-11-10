@@ -29,7 +29,7 @@ export const ShowDialog = () => {
         <ButtonMobile
           onClick={handleOpen}
           size={"L"}
-          style={"primary"}
+          mode={"primary"}
           type={"text"}
           state={"enabled"}
           text1={"Show Dialog"}
