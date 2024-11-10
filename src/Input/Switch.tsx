@@ -5,6 +5,7 @@ export interface SwitchProps {
   state: Exclude<InputStateType, "error" | "warning">;
   title?: string;
   label?: string;
+  onClick?: () => void;
 }
 
 const stateStyles = (isOn: boolean) => ({
@@ -22,7 +23,7 @@ const stateStyles = (isOn: boolean) => ({
   },
 });
 
-export default function Switch({ state, title, label }: SwitchProps) {
+export default function Switch({ state, title, label, onClick }: SwitchProps) {
   const [isOn, setIsOn] = useState(false);
 
   const stateStyle = stateStyles(isOn)[state];
@@ -36,6 +37,9 @@ export default function Switch({ state, title, label }: SwitchProps) {
   const toggleSwitch = () => {
     if (state == "enable") {
       setIsOn(!isOn);
+      if (onClick) {
+        onClick();
+      }
     }
   };
 
