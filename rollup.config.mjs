@@ -26,12 +26,6 @@ const mainConfig = {
   output: [
     {
       dir: "dist",
-      format: "cjs",
-      entryFileNames: "[name].js",
-      sourcemap: true,
-    },
-    {
-      dir: "dist",
       format: "esm",
       entryFileNames: "[name].js",
       sourcemap: true,

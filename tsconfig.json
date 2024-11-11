@@ -11,9 +11,6 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "baseUrl": ".",
-    "paths": {
-      "@eolluga/eolluga-ui/*": ["dist/types/*"]
-    },
     "forceConsistentCasingInFileNames": true,
     "module": "esnext",
     "moduleResolution": "node",
