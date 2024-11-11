@@ -7,7 +7,7 @@ export interface Color {
   colors: { [key: string]: string };
 }
 
-export const colorItems: Color[] = [
+const colorItems: Color[] = [
   {
     title: "Neutral",
     subtitle: "Default",

@@ -2,15 +2,18 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "outDir": "dist",
+    "outDir": "dist/types",
     "declaration": true,
-    "declarationDir": "dist",
+    "declarationDir": "dist/types",
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "baseUrl": ".",
+    "paths": {
+      "@eolluga/eolluga-ui/*": ["dist/types/*"]
+    },
     "forceConsistentCasingInFileNames": true,
     "module": "esnext",
     "moduleResolution": "node",
@@ -25,5 +28,10 @@
     ]
   },
   "include": ["custom.d.ts", "src"],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    "src/**/stories/**",
+    "src/**/*.stories.tsx",
+    "src/**/*.stories.ts"
+  ]
 }

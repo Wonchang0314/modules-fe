@@ -6,25 +6,34 @@ import postcss from "rollup-plugin-postcss";
 import tailwindcss from "tailwindcss";
 import autoprefixer from "autoprefixer";
 import svgr from "@svgr/rollup";
-import copy from "rollup-plugin-copy";
 import { terser } from "rollup-plugin-terser";
+import glob from "glob";
 
-import fs from "fs";
-
-const packageJson = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
 const isProduction = process.env.NODE_ENV === "production";
 
+const componentPaths = glob.sync("src/**/*.{ts,tsx,css}", {
+  ignore: ["src/**/stories/**", "src/**/*.stories.tsx", "src/**/*.stories.ts"],
+});
+
 const mainConfig = {
-  input: "src/index.ts",
+  input: {
+    ...componentPaths.reduce((entries, filePath) => {
+      const entryName = filePath.replace("src/", "").replace(/\.(ts|tsx)$/, "");
+      entries[entryName] = filePath;
+      return entries;
+    }, {}),
+  },
   output: [
     {
-      file: packageJson.main,
+      dir: "dist",
       format: "cjs",
+      entryFileNames: "[name].js",
       sourcemap: true,
     },
     {
-      file: packageJson.module,
+      dir: "dist",
       format: "esm",
+      entryFileNames: "[name].js",
       sourcemap: true,
     },
   ],
@@ -39,16 +48,9 @@ const mainConfig = {
       extract: true,
     }),
     svgr(),
-    copy({
-      targets: [
-        { src: "src/styles/theme.css", dest: "dist" },
-        { src: "src/styles/ground.css", dest: "dist" },
-        { src: "src/styles/globals.css", dest: "dist" },
-      ],
-    }),
     isProduction && terser(), // 프로덕션 빌드에서만 terser 사용
   ],
-  external: ["react", "react-dom"],
+  external: ["telejson", "react", "react-dom", /^@storybook\//],
 };
 
 const configList = [mainConfig];
