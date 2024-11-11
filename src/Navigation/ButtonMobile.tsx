@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useState } from "react";
 import Divider from "src/Layout/Divider";
 import Icon, { iconKey, icons } from "src/icon/Icon";
@@ -19,6 +20,7 @@ export interface ButtonPropsMobile {
   text1: string;
   text2?: string;
   iconKey?: iconKey;
+  href?: string;
   onClick?: () => void;
   className?: string;
 }
@@ -206,6 +208,7 @@ export default function ButtonMobile({
   round = false,
   text1 = "Text1",
   text2 = "Text2",
+  href,
   iconKey,
   onClick,
   className,
@@ -239,7 +242,7 @@ export default function ButtonMobile({
   const dividerColor = dividerColors[mode][isPressed ? "active" : state];
   const iconColor = buttonIconColors[mode][isPressed ? "active" : state];
 
-  return (
+  const buttonContent = (
     <button
       className={`flex ${labelClass} ${sizeClass} ${styleClass} ${roundClass} shrink-0 ${className}`}
       onMouseDown={handleMouseDown}
@@ -280,5 +283,12 @@ export default function ButtonMobile({
         </span>
       )}
     </button>
+  );
+  return href ? (
+    <Link href={href} prefetch>
+      {buttonContent}
+    </Link>
+  ) : (
+    buttonContent
   );
 }
