@@ -2,6 +2,15 @@
 
 storybook을 통한 컴포넌트 개발 프로젝트
 
+# 패키지 사용 방법
+
+npm install @eolluga/eolluga-ui  </br>
+yarn add @eolluga/eolluga-ui
+
+# NPM 링크
+
+https://www.npmjs.com/package/@eolluga/eolluga-ui
+
 ## develop
 
 ```bash

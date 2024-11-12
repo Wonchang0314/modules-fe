@@ -1,7 +1,7 @@
 import { BadgeStateType } from "./Badge";
 
 export interface BadgestatusProps {
-  style: "dot" | "text";
+  mode: "dot" | "text";
   text?: string;
   state: BadgeStateType;
 }
@@ -21,14 +21,14 @@ const bgStyle = {
 };
 
 export default function BadgeStatus({
-  style,
+  mode,
   text = "",
   state,
 }: BadgestatusProps) {
   return (
     <div className="flex gap-2 items-center">
       <div className={`w-2 h-2 rounded-full ${bgStyle[state]}`} />
-      {style === "text" && text.length > 0 && (
+      {mode === "text" && text.length > 0 && (
         <div className={`label-02-regular ${textStyle[state]}`}>{text}</div>
       )}
     </div>

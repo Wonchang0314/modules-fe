@@ -24,7 +24,7 @@ const TemplatePC: StoryFn<ButtonPropsPC> = args => {
 
 export const CustomButtonPC = TemplatePC.bind({});
 CustomButtonPC.args = {
-  style: "primary",
+  mode: "primary",
   type: "text",
   state: "enabled",
   round: false,

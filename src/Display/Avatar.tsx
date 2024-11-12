@@ -2,7 +2,7 @@ import Icon, { iconKey } from "src/icon/Icon";
 
 export interface AvatarProps {
   input?: "text" | "icon" | "image";
-  size: "S" | "M" | "L" | "XL";
+  size?: "S" | "M" | "L" | "XL";
   backgroundColor?:
     | "in-gray"
     | "in-red"

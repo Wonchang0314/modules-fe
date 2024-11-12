@@ -25,7 +25,7 @@ const TemplateMobile: StoryFn<ButtonPropsMobile> = args => {
 export const CustomButtonMobile = TemplateMobile.bind({});
 CustomButtonMobile.args = {
   size: "L",
-  style: "primary",
+  mode: "primary",
   type: "text",
   state: "enabled",
   round: false,

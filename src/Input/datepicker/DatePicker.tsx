@@ -12,7 +12,7 @@ import DatePanel from "./DatePanel";
 import { InputStateType } from "src/Input/type";
 
 type CustomDatePickerProps = {
-  state: InputStateType;
+  state?: InputStateType;
   label?: string;
   description?: string;
   value: string;

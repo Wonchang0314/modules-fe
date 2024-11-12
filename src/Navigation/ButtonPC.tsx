@@ -3,10 +3,10 @@ import Divider from "src/Layout/Divider";
 import Icon, { iconKey, icons } from "src/icon/Icon";
 
 export interface ButtonPropsPC {
-  style: "primary" | "secondary" | "border" | "ghost";
-  type: "text" | "text-text" | "icon" | "icon-left" | "icon-right";
-  state: "enabled" | "disabled";
-  round: boolean;
+  mode?: "primary" | "secondary" | "border" | "ghost";
+  type?: "text" | "text-text" | "icon" | "icon-left" | "icon-right";
+  state?: "enabled" | "disabled";
+  round?: boolean;
   text1: string;
   text2?: string;
   iconKey?: iconKey;
@@ -111,8 +111,8 @@ const dividerColors = {
 };
 
 export default function ButtonPC({
-  style = "primary",
-  type = "text-text",
+  mode = "primary",
+  type = "text",
   state = "enabled",
   round = false,
   text1 = "Text1",
@@ -146,16 +146,16 @@ export default function ButtonPC({
   const handleFocus = () => setFocused(true);
   const handleBlur = () => setFocused(false);
 
-  const styleClass = buttonStylePC[style][buttonState];
+  const styleClass = buttonStylePC[mode][buttonState];
   const roundClass = round ? "rounded-radius-circle" : "rounded-radius-04";
-  const dividerColor = dividerColors[style][buttonState];
-  const hoverClass = hovered ? buttonStylePC[style]["hover"] : "";
-  const focusClass = focused ? buttonStylePC[style]["focus"] : "";
+  const dividerColor = dividerColors[mode][buttonState];
+  const hoverClass = hovered ? buttonStylePC[mode]["hover"] : "";
+  const focusClass = focused ? buttonStylePC[mode]["focus"] : "";
   const buttonType =
     type === "icon"
       ? `p-spacing-05`
       : `pt-spacing-05 pr-spacing-08 pb-spacing-05 pl-spacing-08`;
-  const iconColor = buttonIconColors[style][buttonState];
+  const iconColor = buttonIconColors[mode][buttonState];
 
   return (
     <button

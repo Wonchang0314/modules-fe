@@ -10,7 +10,7 @@ type NumberStepperProps = {
   size: "S" | "M";
   state?: InputStateType;
   description?: string;
-  descriptionAlign: "left" | "right";
+  descriptionAlign?: "left" | "right";
   onClickTrashIcon?: () => void;
   onClickMinusIcon?: () => void;
   onClickPlusIcon?: () => void;

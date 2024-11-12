@@ -28,7 +28,7 @@ export const ShowSnackbar = () => {
         <ButtonMobile
           onClick={handleOpen}
           size={"L"}
-          style={"primary"}
+          mode={"primary"}
           type={"text"}
           state={"enabled"}
           text1={"Show Snackbar"}

@@ -58,7 +58,7 @@ export default function Dialog({
             {leftText && (
               <ButtonMobile
                 size={"M"}
-                style={"secondary"}
+                mode={"secondary"}
                 type={"text"}
                 state={"enabled"}
                 text1={leftText}
@@ -68,7 +68,7 @@ export default function Dialog({
             {rightText && (
               <ButtonMobile
                 size={"M"}
-                style={"primary"}
+                mode={"primary"}
                 type={"text"}
                 state={"enabled"}
                 text1={rightText}

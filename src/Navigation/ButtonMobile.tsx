@@ -1,10 +1,11 @@
+import Link from "next/link";
 import { useState } from "react";
 import Divider from "src/Layout/Divider";
 import Icon, { iconKey, icons } from "src/icon/Icon";
 
 export interface ButtonPropsMobile {
-  size: "L" | "M";
-  style:
+  size?: "L" | "M";
+  mode?:
     | "primary"
     | "secondary"
     | "border"
@@ -13,13 +14,15 @@ export interface ButtonPropsMobile {
     | "danger_border"
     | "danger_ghost"
     | "elevated_primiary";
-  type: "text" | "text-text" | "icon" | "icon-left" | "icon-right";
-  state: "enabled" | "disabled";
+  type?: "text" | "text-text" | "icon" | "icon-left" | "icon-right";
+  state?: "enabled" | "disabled";
   round?: boolean;
   text1: string;
   text2?: string;
   iconKey?: iconKey;
+  href?: string;
   onClick?: () => void;
+  className?: string;
 }
 
 export const buttonSize = {
@@ -82,14 +85,12 @@ export const buttonStyleMobile = {
     active:
       "border border-border-strong-selected-01 bg-button-primary text-text-on-color m-[-1px]",
   },
-
   ghost: {
     enabled: "text-text-primary",
     hover: "bg-text-Gray-50",
     disabled: "text-text-disabled",
     active: "border-2 border-Gray-90 text-text-primary m-[-2px]",
   },
-
   elevated_primiary: {
     enabled: "bg-button-primary text-text-on-color shadow-elevation-light-1",
     hover:
@@ -201,14 +202,16 @@ const dividerColors = {
 
 export default function ButtonMobile({
   size = "L",
-  style = "primary",
+  mode = "primary",
   type = "text",
   state = "enabled",
   round = false,
   text1 = "Text1",
   text2 = "Text2",
+  href,
   iconKey,
   onClick,
+  className,
 }: ButtonPropsMobile) {
   const [isPressed, setIsPressed] = useState(false);
 
@@ -228,20 +231,20 @@ export default function ButtonMobile({
   const sizeClass = buttonSize[buttonType][size];
   const labelClass = buttonLabel[size];
   const styleClass = isPressed
-    ? buttonStyleMobile[style]["active"]
-    : buttonStyleMobile[style][state];
+    ? buttonStyleMobile[mode]["active"]
+    : buttonStyleMobile[mode][state];
   const roundClass =
-    style === "ghost" && isPressed
+    mode === "ghost" && isPressed
       ? ""
       : round
         ? "rounded-radius-circle"
         : "rounded-radius-04";
-  const dividerColor = dividerColors[style][isPressed ? "active" : state];
-  const iconColor = buttonIconColors[style][isPressed ? "active" : state];
+  const dividerColor = dividerColors[mode][isPressed ? "active" : state];
+  const iconColor = buttonIconColors[mode][isPressed ? "active" : state];
 
-  return (
+  const buttonContent = (
     <button
-      className={`flex ${labelClass} ${sizeClass} ${styleClass} ${roundClass}`}
+      className={`flex ${labelClass} ${sizeClass} ${styleClass} ${roundClass} shrink-0 ${className}`}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onClick={onClick}
@@ -280,5 +283,12 @@ export default function ButtonMobile({
         </span>
       )}
     </button>
+  );
+  return href ? (
+    <Link href={href} prefetch>
+      {buttonContent}
+    </Link>
+  ) : (
+    buttonContent
   );
 }
