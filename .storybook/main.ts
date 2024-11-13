@@ -1,4 +1,5 @@
 import type { StorybookConfig } from "@storybook/nextjs";
+import postcss from "tailwindcss";
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -14,7 +15,7 @@ const config: StorybookConfig = {
           importLoaders: 1,
         },
         postcssLoaderOptions: {
-          implementation: require("postcss"),
+          implementation: postcss,
         },
       },
     },
@@ -24,12 +25,12 @@ const config: StorybookConfig = {
     options: {},
   },
   staticDirs: ["./public"],
-  webpackFinal: async (config) => {
+  webpackFinal: async config => {
     if (!config.module || !config.module.rules) {
       return config;
     }
     config.module.rules = [
-      ...config.module.rules.map((rule) => {
+      ...config.module.rules.map(rule => {
         if (!rule || rule === "...") {
           return rule;
         }
