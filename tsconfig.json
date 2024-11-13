@@ -2,9 +2,9 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "outDir": "dist/types",
     "declaration": true,
     "declarationDir": "dist/types",
+    "outDir": "dist/types",
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,

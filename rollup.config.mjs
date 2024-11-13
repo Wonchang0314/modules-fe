@@ -18,12 +18,20 @@ const componentPaths = glob.sync("src/**/*.{ts,tsx,css}", {
 const mainConfig = {
   input: {
     ...componentPaths.reduce((entries, filePath) => {
-      const entryName = filePath.replace("src/", "").replace(/\.(ts|tsx)$/, "");
+      const entryName = filePath
+        .replace("src/", "")
+        .replace(/\.(ts|tsx|js)$/, "");
       entries[entryName] = filePath;
       return entries;
     }, {}),
   },
   output: [
+    {
+      dir: "dist",
+      format: "cjs",
+      entryFileNames: "[name].js",
+      sourcemap: true,
+    },
     {
       dir: "dist",
       format: "esm",
@@ -35,7 +43,12 @@ const mainConfig = {
     peerDepsExternal(),
     resolve(),
     commonjs(),
-    typescript(),
+    typescript({
+      tsconfig: "./tsconfig.json",
+      declaration: true,
+      declarationDir: "dist/types",
+      outDir: null,
+    }),
     postcss({
       extensions: [".css"],
       plugins: [tailwindcss, autoprefixer],
