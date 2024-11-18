@@ -170,7 +170,6 @@ export default function TextArea({
         </div>
         <div
           className={`
-            pl-spacing-04
             ${!description && "invisible"} 
             ${sizeStyle[size]["description"]} 
             ${stateStyle[state]["descriptionColor"]}

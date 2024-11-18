@@ -214,7 +214,7 @@ export default function TextField({
         </div>
         <div
           className={`
-            ${mode === "outlined" && "pl-spacing-04"}
+            ${mode === "outlined"}
             ${!description && "invisible"} 
             ${sizeStyle[size]["description"]} 
             ${stateStyle[state]["descriptionColor"]}
