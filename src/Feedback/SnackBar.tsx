@@ -1,14 +1,18 @@
 import { useEffect, useState } from "react";
-import Icon from "src/icon/Icon";
+import Icon, { iconKey } from "src/icon/Icon";
 
 export interface SnackBarProps {
   open: boolean;
   message: string;
   lineMessage?: string;
-  alert?: boolean;
   dismissible?: boolean;
   action?: string;
   actionOnClick?: () => void;
+  icon?: iconKey;
+  /**
+   * tailwind color token으로 작성해주세요.
+   */
+  iconColor?: string;
   onClose?: () => void;
 }
 
@@ -16,11 +20,12 @@ export default function SnackBar({
   open,
   message,
   lineMessage,
-  alert = false,
   dismissible = false,
   action,
   actionOnClick,
   onClose,
+  icon,
+  iconColor,
 }: SnackBarProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [shouldRender, setShouldRender] = useState(open);
@@ -68,10 +73,10 @@ export default function SnackBar({
           ${!alert && !action && !dismissible ? "justify-center text-center" : "justify-between"}`}
     >
       <div className="flex flex-row items-center">
-        {alert && (
+        {icon && (
           <Icon
-            icon={"warning_triangle_filled"}
-            className="fill-support-warning mr-spacing-02"
+            icon={icon}
+            className={`${iconColor} mr-spacing-02`}
             size={20}
           />
         )}
