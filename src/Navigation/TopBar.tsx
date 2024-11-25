@@ -15,6 +15,7 @@ type TopBarProps = {
    * rightText=iconKey일 때만 표시
    */
   rightTextUnread?: boolean;
+  iconSize?: number;
 };
 export default function TopBar({
   title,
@@ -28,6 +29,7 @@ export default function TopBar({
   onClickRightText,
   rightIconUnread = false,
   rightTextUnread = false,
+  iconSize = 20,
 }: TopBarProps) {
   let SVGLeftIcon: React.FC<React.SVGProps<SVGSVGElement>> | undefined;
   let SVGRightIcon: React.FC<React.SVGProps<SVGSVGElement>> | undefined;
@@ -46,7 +48,7 @@ export default function TopBar({
         icons[rightText as iconKey];
       return (
         <div onClick={onClickRightText} className="relative">
-          <SVGRightIcon2 width={20} height={20} />
+          <SVGRightIcon2 width={iconSize} height={iconSize} />
           {rightTextUnread && (
             <div className="absolute top-0 right-0 w-2 h-2 bg-support-error rounded-radius-circle" />
           )}
@@ -68,7 +70,7 @@ export default function TopBar({
       <div className="flex items-center gap-spacing-05">
         {SVGLeftIcon && (
           <div onClick={onClickLeftIcon}>
-            <SVGLeftIcon width={20} height={20} />
+            <SVGLeftIcon width={iconSize} height={iconSize} />
           </div>
         )}
         {leftText && (
@@ -87,7 +89,7 @@ export default function TopBar({
         {returnRightText()}
         {SVGRightIcon && (
           <div onClick={onClickRightIcon} className="relative">
-            <SVGRightIcon width={20} height={20} />
+            <SVGRightIcon width={iconSize} height={iconSize} />
             {rightIconUnread && (
               <div className="absolute top-0 right-0 w-2 h-2 bg-support-error rounded-full" />
             )}

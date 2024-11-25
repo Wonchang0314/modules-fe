@@ -19,6 +19,10 @@ export interface AvatarProps {
     | "out-cyan"
     | "out-purple";
   border?: boolean;
+  /**
+   * tailwind color token으로 작성해주세요.
+   */
+  borderColor?: string;
   text?: string;
   icon?: iconKey;
   image?: string;
@@ -46,10 +50,10 @@ const fontStyle = {
 };
 
 const borderStyle = {
-  S: "border border-2 border-[#262626]",
-  M: "border border-2 border-[#262626]",
-  L: "border border-4 border-[#262626]",
-  XL: "border border-4 border-[#262626]",
+  S: "border border-2",
+  M: "border border-2",
+  L: "border border-4",
+  XL: "border border-4",
 };
 
 const bgStyle = {
@@ -90,12 +94,14 @@ export default function Avatar({
   text = "",
   icon = "account",
   image = "",
+  borderColor = "[#262626]",
 }: AvatarProps) {
   return (
     <div
       className={`flex justify-center items-center rounded-full relative ${
         border ? borderStyle[size] : ""
-      } ${sizeStyle[size]} bg-gradient-to-b ${
+      } ${border ? `border-${borderColor}` : ""} 
+      ${sizeStyle[size]} bg-gradient-to-b ${
         input !== "image" ? bgStyle[backgroundColor] : ""
       }
       `}

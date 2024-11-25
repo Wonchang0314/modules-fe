@@ -57,6 +57,7 @@ export default function Dialog({
           <div className="flex flex-row gap-spacing-02 w-[272px] mt-spacing-06">
             {leftText && (
               <ButtonMobile
+                className="flex-1"
                 size={"M"}
                 mode={"secondary"}
                 type={"text"}
@@ -67,6 +68,7 @@ export default function Dialog({
             )}
             {rightText && (
               <ButtonMobile
+                className="flex-1"
                 size={"M"}
                 mode={"primary"}
                 type={"text"}
