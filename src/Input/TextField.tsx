@@ -15,6 +15,15 @@ type TextFieldProps = {
    */
   description?: string;
   placeholder?: string;
+  inputMode?:
+    | "text"
+    | "numeric"
+    | "decimal"
+    | "tel"
+    | "email"
+    | "url"
+    | "search"
+    | "none";
 };
 
 const lineStyle = {
@@ -84,6 +93,7 @@ export default function TextField({
   label,
   description,
   placeholder,
+  inputMode = "text",
 }: TextFieldProps) {
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const [inputBorder, setInputBorder] = useState<string>("");
@@ -180,6 +190,7 @@ export default function TextField({
             disabled={state === "disabled"}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
+            inputMode={inputMode}
             className={`
               w-full outline-none
               placeholder:text-text-placeholder disabled:placeholder:text-text-disabled
